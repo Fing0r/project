@@ -1,0 +1,36 @@
+.ThemeSwitcher {
+  transition: color var(--transition-delay);
+
+  color: var(--switch-theme-color);
+
+  &:hover {
+    color: var(--switch-theme-color-hover);
+  }
+
+  &:active {
+    color: var(--switch-theme-color-active);
+  }
+}
+
+//.light {
+//  color: #FFC700;
+//
+//  &:hover {
+//    color: #7c6313;
+//  }
+//  &:active {
+//    color: #FFC700;
+//  }
+//}
+//
+//.dark {
+//  color: #0115C6;
+//
+//  &:hover {
+//    color: #101b6b;
+//  }
+//
+//  &:active {
+//    color: #0115C6;
+//  }
+//}

@@ -1,0 +1,19 @@
+.Sidebar {
+  position: relative;
+  width: var(--sidebar-width);
+  background-color: var(--inverted-bg-color);
+  transition: width var(--transition-delay);
+}
+
+.collapsed {
+  width: var(--sidebar-collapsed-width);
+}
+
+.switchers {
+  position: absolute;
+  bottom: 20px;
+  display: grid;
+  justify-content: center;
+  width: 100%;
+  gap: 15px;
+}
