@@ -1,15 +1,15 @@
 import {render} from "react-dom";
 import {App} from 'app/App'
-import {BrowserRouter} from "react-router-dom";
+import {BrowserRouter, HashRouter} from "react-router-dom";
 import {ThemeProvider} from "app/provider/ThemeProvider";
 
 import 'shared/config/i18n/i18n';
 
 render(
-    <BrowserRouter>
+    <HashRouter>
         <ThemeProvider>
             <App/>
         </ThemeProvider>
-    </BrowserRouter>,
+    </HashRouter>,
     document.getElementById('root')
 )
