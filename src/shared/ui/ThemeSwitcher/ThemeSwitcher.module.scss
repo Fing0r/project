@@ -1,15 +1,14 @@
 .ThemeSwitcher {
-  transition: color var(--transition-delay);
+    transition: color var(--transition-delay);
+    color: var(--switch-theme-color);
 
-  color: var(--switch-theme-color);
+    &:hover {
+        color: var(--switch-theme-color-hover);
+    }
 
-  &:hover {
-    color: var(--switch-theme-color-hover);
-  }
-
-  &:active {
-    color: var(--switch-theme-color-active);
-  }
+    &:active {
+        color: var(--switch-theme-color-active);
+    }
 }
 
 //.light {

@@ -4,21 +4,19 @@
 @import "./theme/dark";
 
 .app {
-  font: var(--font-m);
-  background-color: var(--bg-color);
-  color: var(--primary-color);
-
-  min-height: 100vh;
-
-  transition: color var(--transition-delay), background-color var(--transition-delay);
+    font: var(--font-m);
+    background-color: var(--bg-color);
+    color: var(--primary-color);
+    min-height: 100vh;
+    transition: color var(--transition-delay), background-color var(--transition-delay);
 }
 
 .content-page {
-  display: flex;
-  height: calc(100vh - var(--navbar-height));
+    display: flex;
+    height: calc(100vh - var(--navbar-height));
 }
 
 .container {
-  padding: 1rem;
-  flex-grow: 1;
+    flex-grow: 1;
+    padding: 1rem;
 }

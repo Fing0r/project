@@ -1,15 +1,11 @@
 .app.dark {
-  --bg-color: #171773;
-  --inverted-bg-color: #a4aba4;
-
-  --primary-color: #286c0e;
-  --inverted-primary-color: #171773;
-
-  --secondary-color: #47d319;
-  --inverted-secondary-color: #1919d3;
-
-  --switch-theme-color: #0115C6;
-  --switch-theme-color-hover: #101b6b;
-  --switch-theme-color-active: var(--switch-theme-color);
+    --bg-color: #171773;
+    --inverted-bg-color: #a4aba4;
+    --primary-color: #286c0e;
+    --inverted-primary-color: #171773;
+    --secondary-color: #47d319;
+    --inverted-secondary-color: #1919d3;
+    --switch-theme-color: #0115c6;
+    --switch-theme-color-hover: #101b6b;
+    --switch-theme-color-active: var(--switch-theme-color);
 }
-
