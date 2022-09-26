@@ -1,0 +1,6 @@
+.PageLoader {
+    display: grid;
+    place-items: center;
+    width: 100%;
+    height: calc(100vh - var(--navbar-height));
+}

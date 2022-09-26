@@ -1,0 +1,6 @@
+.NotFoundPage {
+    font: var(--font-l);
+    display: grid;
+    place-items: center;
+    height: calc(100vh - var(--navbar-height));
+}
