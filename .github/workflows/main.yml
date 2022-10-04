@@ -36,6 +36,7 @@ jobs:
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v3
+      - uses: actions/setup-node@v3
       - name: typescript Linting
         run: npm run lint:ts
   style_linting:
@@ -43,6 +44,7 @@ jobs:
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v3
+      - uses: actions/setup-node@v3
       - name: style Linting
         run: npm run lint:scss
   unit_testing:
@@ -50,6 +52,7 @@ jobs:
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v3
+      - uses: actions/setup-node@v3
       - name: unit testing
         run: npm run test:unit
   screenshot_testing:
@@ -57,6 +60,7 @@ jobs:
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v3
+      - uses: actions/setup-node@v3
       - name: build storybook
         run: npm run storybook:build
       - name: screenshot testing
