@@ -1,5 +1,5 @@
-name: GitHub Actions Demo
-run-name: ${{ github.actor }} is testing out GitHub Actions 🚀
+name: Linting, testing, building
+run-name: ${{ github.actor }} Linting, testing, building project 🚀
 on:
   push:
     branches: [ master ]
@@ -19,15 +19,45 @@ jobs:
           node-version: ${{ matrix.node-version }}
       - name: install modules
         run: npm install
-      - name: build project
+      - name: building project
         run: npm run build:prod
-      - name: typescript lint
+#      - name: typescript Linting
+#        run: npm run lint:ts
+#      - name: style Linting
+#        run: npm run lint:scss
+#      - name: unit testing
+#        run: npm run test:unit
+#      - name: build storybook
+#        run: npm run storybook:build
+#      - name: screenshot testing
+#        run: npm run test:ui:ci
+  typescript_linting:
+    needs: CI_Project
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v3
+      - name: typescript Linting
         run: npm run lint:ts
-      - name: style lint
+  style_linting:
+    needs: CI_Project
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v3
+      - name: style Linting
         run: npm run lint:scss
-      - name: unit test
+  unit_testing:
+    needs: CI_Project
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v3
+      - name: unit testing
         run: npm run test:unit
+  screenshot_testing:
+    needs: CI_Project
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v3
       - name: build storybook
         run: npm run storybook:build
-      - name: screenshot test
+      - name: screenshot testing
         run: npm run test:ui:ci
