@@ -6,7 +6,7 @@ on:
   pull_request:
     branches: [ master ]
 jobs:
-  CI_Project:
+  build:
     runs-on: ubuntu-latest
     strategy:
       matrix:
@@ -18,7 +18,7 @@ jobs:
         with:
           node-version: ${{ matrix.node-version }}
       - name: install modules
-        run: npm install
+        run: npm ci
       - name: building project
         run: npm run build:prod
 #      - name: typescript Linting
@@ -32,43 +32,43 @@ jobs:
 #      - name: screenshot testing
 #        run: npm run test:ui:ci
   typescript_linting:
-    needs: CI_Project
+    needs: build
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v3
       - uses: actions/setup-node@v3
       - name: install modules
-        run: npm install
+        run: npm ci
       - name: typescript Linting
         run: npm run lint:ts
   style_linting:
-    needs: CI_Project
+    needs: build
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v3
       - uses: actions/setup-node@v3
       - name: install modules
-        run: npm install
+        run: npm ci
       - name: style Linting
         run: npm run lint:scss
   unit_testing:
-    needs: CI_Project
+    needs: build
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v3
       - uses: actions/setup-node@v3
       - name: install modules
-        run: npm install
+        run: npm ci
       - name: unit testing
         run: npm run test:unit
   screenshot_testing:
-    needs: CI_Project
+    needs: build
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v3
       - uses: actions/setup-node@v3
       - name: install modules
-        run: npm install
+        run: npm ci
       - name: build storybook
         run: npm run storybook:build
       - name: screenshot testing
