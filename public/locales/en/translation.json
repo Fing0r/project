@@ -1,5 +1,9 @@
 {
   "Переключить": "Toggle",
   "Язык": "English",
-  "Страница не найдена": "Not Found Page"
+  "Страница не найдена": "Not Found Page",
+  "Что-то не так.": "Something went wrong.",
+  "Главная": "Main",
+  "О нас": "About",
+  "Перезагрузить страницу": "Reload Page"
 }
