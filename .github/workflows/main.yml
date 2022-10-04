@@ -37,6 +37,8 @@ jobs:
     steps:
       - uses: actions/checkout@v3
       - uses: actions/setup-node@v3
+      - name: install modules
+        run: npm install
       - name: typescript Linting
         run: npm run lint:ts
   style_linting:
@@ -45,6 +47,8 @@ jobs:
     steps:
       - uses: actions/checkout@v3
       - uses: actions/setup-node@v3
+      - name: install modules
+        run: npm install
       - name: style Linting
         run: npm run lint:scss
   unit_testing:
@@ -53,6 +57,8 @@ jobs:
     steps:
       - uses: actions/checkout@v3
       - uses: actions/setup-node@v3
+      - name: install modules
+        run: npm install
       - name: unit testing
         run: npm run test:unit
   screenshot_testing:
@@ -61,6 +67,8 @@ jobs:
     steps:
       - uses: actions/checkout@v3
       - uses: actions/setup-node@v3
+      - name: install modules
+        run: npm install
       - name: build storybook
         run: npm run storybook:build
       - name: screenshot testing
