@@ -8,13 +8,14 @@ on:
 jobs:
   build:
     runs-on: ubuntu-latest
+    container: cypress/browsers:node17.8.0-chrome99-ff97-slim
     strategy:
       matrix:
         node-version: [ 17.x ]
     steps:
       - uses: actions/checkout@v3
       - name: Starting Node.js ${{ matrix.node-version }}
-        uses: actions/setup-node@v3
+#        uses: actions/setup-node@v3
         with:
           node-version: ${{ matrix.node-version }}
       - name: install modules
