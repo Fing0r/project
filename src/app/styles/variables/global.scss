@@ -9,9 +9,14 @@
     --font-line-l: 2rem;
     --font-l: var(--font-size-l) / var(--font-line-l) var(--font-family);
 
+    --font-size-xl: 2rem;
+    --font-line-xl: 2.5rem;
+    --font-xl: var(--font-size-xl) / var(--font-line-xl) var(--font-family);
+
     --navbar-height: 3.125rem;
     --sidebar-width: 18.75rem;
     --sidebar-collapsed-width: 5rem;
 
     --transition-delay: 0.3s;
+    --transition-little-delay: 0.3s;
 }

@@ -13,10 +13,7 @@ const Navbar: FC<NavbarProps> = ({ className }) => {
 
     return (
         <div className={classNames(cls.Navbar, {}, [className])}>
-            <nav role="navigation" className={classNames(cls.links, {}, [className])}>
-                <AppLink theme={AppLinkTheme.SECONDARY} to="/">{t('Главная')}</AppLink>
-                <AppLink theme={AppLinkTheme.SECONDARY} to="/about">{t('О нас')}</AppLink>
-            </nav>
+            /
         </div>
     );
 };
