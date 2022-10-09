@@ -11,6 +11,8 @@ const ThemeProvider: FC = ({ children }) => {
         setTheme,
     }), [theme]);
 
+    document.documentElement.dataset.theme = theme;
+
     return (
         <ThemeContext.Provider value={defaultProps}>
             {children}

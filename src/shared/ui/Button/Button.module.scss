@@ -3,11 +3,16 @@
     cursor: pointer;
 }
 
+.clearInverted,
 .clear {
     background-color: transparent;
     padding: 0;
     margin: 0;
     border: none;
+}
+
+.clearInverted {
+    color: var(--inverted-primary-color);
 }
 
 .outline {

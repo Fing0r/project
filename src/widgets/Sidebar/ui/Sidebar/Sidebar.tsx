@@ -27,7 +27,6 @@ const Sidebar: FC<SidebarProps> = ({ className }) => {
             data-testid="sidebar"
             className={classNames(cls.Sidebar, { [cls.collapsed]: collapsed }, [className])}
         >
-
             <Button
                 className={classNames(cls.toggle)}
                 data-testid="toggle"
