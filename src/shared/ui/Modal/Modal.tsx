@@ -62,11 +62,11 @@ const Modal: FC<ModalProps> = (props) => {
         <Portal>
             <div className={classNames(cls.Modal, mods, [className])}>
                 <div
-                    className={classNames(cls.overlay)}
+                    className={cls.overlay}
                     onClick={closeHandler}
                 >
                     <div
-                        className={classNames(cls.content)}
+                        className={cls.content}
                         onClick={onContentClick}
                     >
                         {children}

@@ -1,4 +1,4 @@
-import { FC, useState } from 'react';
+import { FC, useCallback, useState } from 'react';
 import { classNames } from 'shared/lib/classNames/classNames';
 import { useTranslation } from 'react-i18next';
 import { Button, ButtonTheme } from 'shared/ui/Button/Button';
@@ -11,18 +11,18 @@ interface NavbarProps {
 
 const Navbar: FC<NavbarProps> = ({ className }) => {
     const { t } = useTranslation();
-    const [isModalOpen, setModalOpen] = useState(false);
+    const [isAuthModalOpen, setAuthModalOpen] = useState(false);
 
-    const onModalToggle = () => {
-        setModalOpen((prev) => !prev);
-    };
+    const onToggleModal = useCallback(() => {
+        setAuthModalOpen((prev) => !prev);
+    }, []);
 
     return (
         <div className={classNames(cls.Navbar, {}, [className])}>
-            <Button theme={ButtonTheme.CLEAR_INVERTED} onClick={onModalToggle}>
+            <Button theme={ButtonTheme.CLEAR_INVERTED} onClick={onToggleModal}>
                 {t('Логин')}
             </Button>
-            <Modal isOpen={isModalOpen} onClose={onModalToggle}>
+            <Modal isOpen={isAuthModalOpen} onClose={onToggleModal}>
                 {t('Lorem')}
             </Modal>
         </div>

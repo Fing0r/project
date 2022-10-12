@@ -7,12 +7,6 @@
     transition: opacity var(--transition-delay), visibility var(--transition-delay);
 }
 
-.opened.Modal {
-    z-index: var(--z-index-modal);
-    opacity: 1;
-    visibility: visible;
-}
-
 .overlay {
     display: grid;
     place-items: center;
@@ -22,17 +16,21 @@
 }
 
 .content {
-    max-width: 60%;
+    max-width: clamp(20rem, 60vw, calc(120 * 0.6rem));
     padding: 1rem;
     background-color: var(--bg-color);
     color: var(--primary-color);
-    transform: scale(0.5);
     opacity: 0;
     border-radius: 0.5rem;
+    transform: scale(0.5);
     transition: transform var(--transition-delay), opacity var(--transition-delay);
 }
 
 .opened {
+    z-index: var(--z-index-modal);
+    opacity: 1;
+    visibility: visible;
+
     .overlay {
         background-color: var(--overlay-color);
     }

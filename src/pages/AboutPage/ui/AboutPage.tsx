@@ -1,5 +1,6 @@
 import { FC } from 'react';
 import { useTranslation } from 'react-i18next';
+import { Counter } from 'entities/Counter';
 
 interface AboutPageProps {
 
@@ -11,6 +12,7 @@ const AboutPage: FC<AboutPageProps> = () => {
     return (
         <div>
             {t('О нас')}
+            <Counter />
         </div>
     );
 };
