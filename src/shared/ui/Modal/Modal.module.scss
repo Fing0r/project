@@ -16,8 +16,8 @@
 }
 
 .content {
-    max-width: clamp(20rem, 60vw, calc(120 * 0.6rem));
     padding: 1rem;
+    max-width: min(calc(100% - 2rem), calc(100 * 0.6rem));
     background-color: var(--bg-color);
     color: var(--primary-color);
     opacity: 0;
