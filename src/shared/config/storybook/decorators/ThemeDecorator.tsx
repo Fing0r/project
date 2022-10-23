@@ -1,6 +1,6 @@
 import { Story } from '@storybook/react';
-import { ThemeEnum } from 'app/provider/ThemeProvider/lib/ThemeContext';
-import { ThemeProvider } from 'app/provider/ThemeProvider';
+import { ThemeEnum } from 'app/providers/ThemeProvider/lib/ThemeContext';
+import { ThemeProvider } from 'app/providers/ThemeProvider';
 
 const ThemeDecorator = (theme: ThemeEnum) => (StoryComponent: Story) => {
     document.documentElement.dataset.theme = theme;

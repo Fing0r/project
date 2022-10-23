@@ -11,8 +11,11 @@
   "Сокращенный язык": "En",
   "increment": "increment",
   "decrement": "decrement",
-  "Войти": "Войти",
-  "Пароль": "Пароль",
-  "Введите логин": "Введите логин",
-  "Введите пароль": "Введите пароль"
+  "Войти": "Login",
+  "Пароль": "Password",
+  "Введите логин": "Enter login",
+  "Введите пароль": "Enter password",
+  "Авторизация": "Authorization",
+  "неверный логин или пароль": "Incorrect username or passwords",
+  "Выйти": "Logout"
 }

@@ -39,7 +39,6 @@ module.exports = {
         'react/require-default-props': 'off',
         'react/jsx-props-no-spreading': 'warn',
         'no-shadow': 'off',
-        'no-unused-vars': 'warn',
         'import/no-extraneous-dependencies': 'off',
         'no-underscore-dangle': 'off',
         'i18next/no-literal-string': ['error',
@@ -47,12 +46,16 @@ module.exports = {
                 markupOnly: true,
                 ignoreAttribute: ['data-testid', 'to'],
             }],
-        'max-len': ['error', { ignoreComments: true, code: 100 }],
+        'max-len': ['error', { ignoreComments: true, code: 120 }],
         'react-hooks/rules-of-hooks': 'error', // Checks rules of Hooks
         'react-hooks/exhaustive-deps': 'error', // Checks effect dependencies
         'jsx-a11y/click-events-have-key-events': 'off',
         'jsx-a11y/no-static-element-interactions': 'off',
         'no-param-reassign': 'off',
+        'react/button-has-type': 'off',
+        // Отключаем дефолтное правило и включаем правило для ts, чтобы не ругался на enum
+        'no-unused-vars': 'off',
+        '@typescript-eslint/no-unused-vars': 'warn',
     },
     globals: {
         __IS_DEV__: true,

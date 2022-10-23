@@ -3,7 +3,7 @@ import { useTranslation } from 'react-i18next';
 import cls from './NotFoundPage.module.scss';
 
 const NotFoundPage = () => {
-    const [t] = useTranslation();
+    const { t } = useTranslation();
 
     return (
         <h1 className={classNames(cls.NotFoundPage)}>

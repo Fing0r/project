@@ -1,7 +1,7 @@
 import React, { FC } from 'react';
 import { classNames } from 'shared/lib/classNames/classNames';
 import { useTranslation } from 'react-i18next';
-import { Button } from 'shared/ui/Button/Button';
+import { Button, ButtonTheme } from 'shared/ui/Button/Button';
 import cls from './PageError.module.scss';
 
 interface PageErrorProps {
@@ -17,8 +17,12 @@ const PageError: FC<PageErrorProps> = () => {
     return (
         <div className={classNames(cls.PageError)}>
             <h1>{t('Что-то не так.')}</h1>
-            {/* eslint-disable-next-line i18next/no-literal-string */}
-            <Button onClick={handleReload}>{t('Перезагрузить страницу')}</Button>
+            <Button
+                theme={ButtonTheme.OUTLINE}
+                onClick={handleReload}
+            >
+                {t('Перезагрузить страницу')}
+            </Button>
         </div>
     );
 };

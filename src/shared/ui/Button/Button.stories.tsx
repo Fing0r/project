@@ -1,7 +1,7 @@
 import React from 'react';
 import { ComponentMeta, ComponentStory } from '@storybook/react';
 import { ThemeDecorator } from 'shared/config/storybook/decorators/ThemeDecorator';
-import { ThemeEnum } from 'app/provider/ThemeProvider/lib/ThemeContext';
+import { ThemeEnum } from 'app/providers/ThemeProvider/lib/ThemeContext';
 import { Button, ButtonSize, ButtonTheme } from './Button';
 
 export default {
@@ -83,4 +83,11 @@ SquareSizeXL.args = {
     size: ButtonSize.XL,
     square: true,
     children: '>',
+};
+
+export const Disabled = Template.bind({});
+Disabled.args = {
+    theme: ButtonTheme.OUTLINE,
+    children: 'Button',
+    disabled: true,
 };

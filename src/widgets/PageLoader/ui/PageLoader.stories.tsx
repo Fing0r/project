@@ -1,7 +1,7 @@
 import React from 'react';
 import { ComponentMeta, ComponentStory } from '@storybook/react';
 import { ThemeDecorator } from 'shared/config/storybook/decorators/ThemeDecorator';
-import { ThemeEnum } from 'app/provider/ThemeProvider/lib/ThemeContext';
+import { ThemeEnum } from 'app/providers/ThemeProvider/lib/ThemeContext';
 import { PageLoader } from './PageLoader';
 
 export default {

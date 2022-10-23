@@ -1,6 +1,7 @@
 .Button {
     padding: 0.5rem 1rem;
     cursor: pointer;
+    transition: opacity var(--transition-delay);
 }
 
 .clearInverted,
@@ -68,4 +69,9 @@
 
 .size_xl {
     font: var(--font-xl);
+}
+
+.disabled {
+    opacity: 0.5;
+    pointer-events: none;
 }

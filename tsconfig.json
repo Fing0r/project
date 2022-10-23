@@ -13,14 +13,16 @@
     "paths": {
       "*": [
         "./src/*"
+      ],
+      "entities": [
+        "./src/entities/*"
       ]
-    }
+    },
   },
   "ts-node": {
     "compilerOptions": {
       "module": "CommonJS"
-    }
-
+    },
   },
   "include": [
     "./config/jest/setupTests.ts",

@@ -1,8 +1,9 @@
 import { addDecorator } from '@storybook/react';
 import { StylesDecorator } from '../../src/shared/config/storybook/decorators/StylesDecorator';
 import { ThemeDecorator } from '../../src/shared/config/storybook/decorators/ThemeDecorator';
-import { ThemeEnum } from '../../src/app/provider/ThemeProvider/lib/ThemeContext';
+import { ThemeEnum } from '../../src/app/providers/ThemeProvider/lib/ThemeContext';
 import { RouterDecorator } from '../../src/shared/config/storybook/decorators/RouterDecorator';
+import { I18nDecorator } from '../../src/shared/config/storybook/decorators/I18nDecorator';
 
 export const parameters = {
     actions: { argTypesRegex: '^on[A-Z].*' },
@@ -14,6 +15,21 @@ export const parameters = {
     },
 };
 
+export const globalTypes = {
+    locale: {
+        description: 'Internationalization locale',
+        toolbar: {
+            icon: 'globe',
+            items: [
+                { value: 'en', title: 'English' },
+                { value: 'ru', title: 'Русский' },
+            ],
+            title: 'Locale',
+        },
+    },
+};
+
 addDecorator(StylesDecorator);
+addDecorator(I18nDecorator);
 addDecorator(ThemeDecorator(ThemeEnum.LIGHT));
 addDecorator(RouterDecorator);

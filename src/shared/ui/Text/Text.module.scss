@@ -1,0 +1,29 @@
+.Title {
+    font: var(--font-l);
+    transition: color var(--transition-delay);
+}
+
+.Text {
+    font: var(--font-m);
+    transition: color var(--transition-delay);
+}
+
+.primary {
+    .Title {
+        color: var(--primary-color);
+    }
+
+    .Text {
+        color: var(--secondary-color);
+    }
+}
+
+.error {
+    .Title {
+        color: var(--primary-red-color);
+    }
+
+    .Text {
+        color: var(--secondary-red-color);
+    }
+}

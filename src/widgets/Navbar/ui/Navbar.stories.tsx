@@ -1,7 +1,10 @@
 import React from 'react';
 import { ComponentMeta, ComponentStory } from '@storybook/react';
 import { ThemeDecorator } from 'shared/config/storybook/decorators/ThemeDecorator';
-import { ThemeEnum } from 'app/provider/ThemeProvider/lib/ThemeContext';
+import { ThemeEnum } from 'app/providers/ThemeProvider/lib/ThemeContext';
+import { StoreDecorator } from 'shared/config/storybook/decorators/StoreDecorator';
+import { StateSchema } from 'app/providers/StoreProvider';
+import { DeepPartial } from '@reduxjs/toolkit';
 import { Navbar } from './Navbar';
 
 export default {
@@ -9,11 +12,36 @@ export default {
     component: Navbar,
 } as ComponentMeta<typeof Navbar>;
 
+const initialState: DeepPartial<StateSchema> = {
+    user: {
+        authData: {
+            username: 'admin',
+            id: 1,
+        },
+    },
+};
+
 const Template: ComponentStory<typeof Navbar> = (args) => <Navbar {...args} />;
 
-export const Light = Template.bind({});
-Light.args = {};
+export const LightAuth = Template.bind({});
+LightAuth.args = {};
+LightAuth.decorators = [StoreDecorator({
+    user: {
+        authData: {
+            username: 'admin',
+            id: 1,
+        },
+    },
+})];
+
+export const LightNotAuth = Template.bind({});
+LightNotAuth.args = {};
+LightNotAuth.decorators = [StoreDecorator({
+    user: {
+        authData: undefined,
+    },
+})];
 
 export const Dark = Template.bind({});
 Dark.args = {};
-Dark.decorators = [ThemeDecorator(ThemeEnum.DARK)];
+Dark.decorators = [ThemeDecorator(ThemeEnum.DARK), StoreDecorator(initialState)];
