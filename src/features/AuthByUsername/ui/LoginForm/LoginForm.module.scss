@@ -1,6 +1,5 @@
 .LoginForm {
     display: grid;
     gap: 1rem;
-    max-width: 400px;
-    width: 100%;
+    grid-template-columns: minmax(12.5px, 23rem);
 }

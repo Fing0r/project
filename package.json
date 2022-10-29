@@ -100,7 +100,6 @@
     "react-router-dom": "^6.2.1"
   },
   "loki": {
-    "chromeSelector": "#root > *, .app > *",
     "configurations": {
       "chrome.laptop": {
         "target": "chrome.docker",
