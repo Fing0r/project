@@ -38,7 +38,8 @@ Dark.decorators = [
             isLoading: false,
             error: '',
         },
-    })];
+    }),
+];
 
 export const Loading = Template.bind({});
 Loading.args = {};
@@ -62,4 +63,5 @@ Error.decorators = [
             isLoading: false,
             error: i18n.t('неверный логин или пароль'),
         },
-    })];
+    }),
+];
