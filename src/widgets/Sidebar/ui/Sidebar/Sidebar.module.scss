@@ -30,36 +30,14 @@
     align-self: flex-start;
 }
 
-.link {
-    display: flex;
-    align-items: center;
-    gap: 10px;
-}
-
-.linkText {
-    width: fit-content;
-    opacity: 1;
-    transition: opacity var(--transition-little-delay), width var(--transition-little-delay);
-}
-
 .collapsed {
     width: var(--sidebar-collapsed-width);
-
-    .switchers {
-        grid-auto-flow: row;
-    }
 
     .links {
         align-self: unset;
     }
 
-    .link {
-        gap: 0;
-    }
-
-    .linkText {
-        opacity: 0;
-        white-space: nowrap;
-        width: 0;
+    .switchers {
+        grid-auto-flow: row;
     }
 }

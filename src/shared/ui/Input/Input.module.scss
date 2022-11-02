@@ -5,19 +5,25 @@
     font: var(--font-m);
 }
 
+.offsetTop.label {
+    margin-top: 0.4rem;
+}
+
 .labelText {
     position: absolute;
     top: 50%;
     transform: translateY(-50%);
     background-color: transparent;
     padding: 0 0.5rem;
+    line-height: 1;
     left: 0.5rem;
     pointer-events: none;
     transition:
         transform var(--transition-delay),
         font-size var(--transition-delay),
         color var(--transition-delay),
-        background-color var(--transition-delay);
+        background-color var(--transition-delay),
+        top var(--transition-delay);
 }
 
 .input {
@@ -30,9 +36,9 @@
     transition: border var(--transition-delay);
 }
 
-.input:focus ~ .labelText,
-.input:valid ~ .labelText {
-    transform: translateY(-2rem);
+.input:not([value=""]) ~ .labelText,
+.input:focus ~ .labelText {
+    top: 0;
     padding: 0 0.5rem;
     font-size: 0.75rem;
     background-color: var(--bg-color);

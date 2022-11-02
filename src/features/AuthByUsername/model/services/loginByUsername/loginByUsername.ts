@@ -1,31 +1,32 @@
 import { createAsyncThunk } from '@reduxjs/toolkit';
-import axios, { AxiosResponse } from 'axios';
+import { AxiosResponse } from 'axios';
 import { User, userActions } from 'entities/User';
-import { loginActions } from 'features/AuthByUsername/model/slice/loginSlice';
+import { ThunkConfig } from 'app/providers/StoreProvider';
+import { loginActions } from '../../slice/loginSlice';
 
-interface LoginAuthProps {
+export interface LoginAuthProps {
     username: string;
     password: string;
 }
 
-export const loginByUsername = createAsyncThunk<User, LoginAuthProps, { rejectValue: string }>(
+export const loginByUsername = createAsyncThunk<User, LoginAuthProps, ThunkConfig<string>>(
     'login/loginByUsername',
     async (authData, thunkAPI) => {
-        try {
-            const url = 'http://localhost:8000/login';
-            const response = await axios.post<User, AxiosResponse<User>, LoginAuthProps>(url, authData);
+        const { dispatch, rejectWithValue, extra } = thunkAPI;
 
-            if (!response.data) {
+        try {
+            const { data } = await extra.api.post<User, AxiosResponse<User>, LoginAuthProps>('/login', authData);
+
+            if (!data) {
                 throw new Error();
             }
+            dispatch(userActions.setAuthData(data));
+            dispatch(loginActions.resetAuthData());
+            extra.navigate?.('/profile');
 
-            const { username, id } = response.data;
-            thunkAPI.dispatch(userActions.setAuthData({ username, id }));
-            thunkAPI.dispatch(loginActions.resetAuthData());
-
-            return response.data;
+            return data;
         } catch (e) {
-            return thunkAPI.rejectWithValue('неверный логин или пароль');
+            return rejectWithValue('неверный логин или пароль');
         }
     },
 );

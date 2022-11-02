@@ -4,7 +4,6 @@ import { ThemeDecorator } from 'shared/config/storybook/decorators/ThemeDecorato
 import { ThemeEnum } from 'app/providers/ThemeProvider/lib/ThemeContext';
 import { StoreDecorator } from 'shared/config/storybook/decorators/StoreDecorator';
 import { StateSchema } from 'app/providers/StoreProvider';
-import { DeepPartial } from '@reduxjs/toolkit';
 import { Navbar } from './Navbar';
 
 export default {

@@ -11,12 +11,12 @@ const useTheme = (): UseThemeResult => {
 
     const toggleTheme = () => {
         const newTheme = theme === ThemeEnum.LIGHT ? ThemeEnum.DARK : ThemeEnum.LIGHT;
-        setTheme(newTheme);
+        setTheme?.(newTheme);
         localStorage.setItem(LOCAL_STORAGE_THEME_KEY, newTheme);
     };
 
     return {
-        theme,
+        theme: theme || ThemeEnum.LIGHT,
         toggleTheme,
     };
 };

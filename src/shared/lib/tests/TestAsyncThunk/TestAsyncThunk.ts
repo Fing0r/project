@@ -1,0 +1,39 @@
+import { AsyncThunkAction } from '@reduxjs/toolkit';
+import { StateSchema } from 'app/providers/StoreProvider';
+import axios, { AxiosStatic } from 'axios';
+import { To } from '@remix-run/router';
+import { NavigateOptions } from 'react-router/dist/lib/context';
+
+type ActionCreatorType<Returned, Arg, RejectedValue> =
+    (arg: Arg) => AsyncThunkAction<Returned, Arg, { rejectValue: RejectedValue }>
+
+jest.mock('axios');
+
+const mockedAxios = jest.mocked(axios, true);
+
+export class TestAsyncThunk<Returned, Arg, RejectedValue> {
+    dispatch: jest.MockedFn<any>;
+    getState: () => StateSchema;
+    actionCreator: ActionCreatorType<Returned, Arg, RejectedValue>;
+    api: jest.MockedFunctionDeep<AxiosStatic>;
+    navigate: (to: To, options?: NavigateOptions) => void;
+
+    constructor(actionCreator: ActionCreatorType<Returned, Arg, RejectedValue>) {
+        this.actionCreator = actionCreator;
+        this.dispatch = jest.fn();
+        this.getState = jest.fn();
+        this.api = mockedAxios;
+        this.navigate = jest.fn();
+    }
+
+    async callThunk(arg: Arg) {
+        const action = this.actionCreator(arg);
+        const response = await action(
+            this.dispatch,
+            this.getState,
+            { api: this.api, navigate: this.navigate },
+        );
+
+        return response;
+    }
+}

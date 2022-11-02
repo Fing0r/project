@@ -6,7 +6,9 @@ import { BundleAnalyzerPlugin } from 'webpack-bundle-analyzer';
 import { BuildOptions } from './types/config';
 
 export function buildPlugins(
-    { paths, isDev, isAnalize }: BuildOptions,
+    {
+        paths, isDev, isAnalize, apiUrl,
+    }: BuildOptions,
 ): webpack.WebpackPluginInstance[] {
     const isProd = !isDev;
 
@@ -17,6 +19,7 @@ export function buildPlugins(
         new webpack.ProgressPlugin(),
         new webpack.DefinePlugin({
             __IS_DEV__: JSON.stringify(isDev),
+            __API__: JSON.stringify(apiUrl),
         }),
     ];
 

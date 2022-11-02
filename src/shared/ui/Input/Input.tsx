@@ -1,11 +1,11 @@
 import React, {
     ChangeEvent,
     InputHTMLAttributes,
-    memo,
+    memo, MutableRefObject,
     useEffect,
     useRef,
 } from 'react';
-import { classNames } from 'shared/lib/classNames/classNames';
+import { classNames, Mods } from 'shared/lib/classNames/classNames';
 import cls from './Input.module.scss';
 
 export const enum InputTheme {
@@ -22,6 +22,7 @@ interface InputProps extends InputHTMLProps {
     autofocus?: boolean;
     onChange?: (val: string) => void;
     value?: string;
+    offsetTop?: boolean;
 }
 
 const Input = memo((props:InputProps) => {
@@ -30,10 +31,12 @@ const Input = memo((props:InputProps) => {
         label,
         inputName,
         type = 'text',
-        theme,
+        theme = InputTheme.OUTLINE,
         autofocus,
         value,
         onChange,
+        offsetTop,
+        // readOnly,
         ...otherProps
     } = props;
 
@@ -42,7 +45,9 @@ const Input = memo((props:InputProps) => {
     useEffect(() => {
         if (autofocus) {
             setTimeout(() => {
-                ref.current.focus();
+                if (ref.current) {
+                    ref.current.focus();
+                }
             }, 100);
         }
     }, [autofocus]);
@@ -51,17 +56,18 @@ const Input = memo((props:InputProps) => {
         onChange?.(e.target.value);
     };
 
-    const mods = {
+    const mods: Mods = {
         [cls[theme]]: theme,
     };
 
     return (
         <label
             htmlFor={inputName}
-            className={classNames(cls.label, {}, [className])}
+            className={classNames(cls.label, { [cls.offsetTop]: !!offsetTop }, [className])}
         >
             <input
                 {...otherProps}
+                // data-readonly={readOnly}
                 className={classNames(cls.input, mods, [className])}
                 type={type}
                 value={value}

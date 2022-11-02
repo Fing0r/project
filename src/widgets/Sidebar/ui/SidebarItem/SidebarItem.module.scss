@@ -1,0 +1,23 @@
+.link {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+}
+
+.linkText {
+    width: fit-content;
+    opacity: 1;
+    transition: opacity var(--transition-little-delay), width var(--transition-little-delay);
+}
+
+.collapsed {
+    .link {
+        gap: 0;
+    }
+
+    .linkText {
+        opacity: 0;
+        white-space: nowrap;
+        width: 0;
+    }
+}

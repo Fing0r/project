@@ -7,12 +7,13 @@ import {
     memo,
     useCallback,
 } from 'react';
-import { useDispatch, useSelector } from 'react-redux';
+import { useSelector } from 'react-redux';
 import { Text, TextTheme } from 'shared/ui/Text/Text';
 import { ReducersList, useDynamicModule } from 'shared/lib/hooks/useDynamicModule';
+import { useAppDispatch } from 'shared/lib/hooks/useAppDispatch';
 import { getUsername } from '../../model/selectors/getUsername/getUsername';
 import { getPassword } from '../../model/selectors/getPassword/getPassword';
-import { getLoading } from '../../model/selectors/getLoading/getLoading';
+import { getIsLoading } from '../../model/selectors/getLoading/getIsLoading';
 import { getError } from '../../model/selectors/getError/getError';
 import cls from './LoginForm.module.scss';
 import { loginByUsername } from '../../model/services/loginByUsername/loginByUsername';
@@ -21,6 +22,7 @@ import { loginActions, loginReducer } from '../../model/slice/loginSlice';
 export interface LoginFormProps {
     className?: string;
     isOpen?: boolean
+    onSuccess: () => void
 }
 
 const initialReducers: ReducersList = {
@@ -31,12 +33,13 @@ const LoginForm = memo((props: LoginFormProps) => {
     const {
         className,
         isOpen,
+        onSuccess,
     } = props;
-    const dispatch = useDispatch();
+    const dispatch = useAppDispatch();
     const { t } = useTranslation();
     const username = useSelector(getUsername);
     const password = useSelector(getPassword);
-    const isLoading = useSelector(getLoading);
+    const isLoading = useSelector(getIsLoading);
     const error = useSelector(getError);
     useDynamicModule(initialReducers, true);
 
@@ -48,10 +51,13 @@ const LoginForm = memo((props: LoginFormProps) => {
         dispatch(loginActions.setAuthPassword(value));
     }, [dispatch]);
 
-    const onLoginClick = useCallback((e: FormEvent<HTMLFormElement>) => {
+    const onLoginClick = useCallback(async (e: FormEvent<HTMLFormElement>) => {
         e.preventDefault();
-        dispatch(loginByUsername({ username, password }));
-    }, [dispatch, password, username]);
+        const result = await dispatch(loginByUsername({ username, password }));
+        if (result.meta.requestStatus === 'fulfilled') {
+            onSuccess();
+        }
+    }, [dispatch, onSuccess, password, username]);
 
     if (username === undefined) {
         return null;

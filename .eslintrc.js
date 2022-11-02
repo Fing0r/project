@@ -56,9 +56,12 @@ module.exports = {
         // Отключаем дефолтное правило и включаем правило для ts, чтобы не ругался на enum
         'no-unused-vars': 'off',
         '@typescript-eslint/no-unused-vars': 'warn',
+        'lines-between-class-members': 'off',
+        'no-undef': 'off',
     },
     globals: {
         __IS_DEV__: true,
+        __API__: true,
     },
     overrides: [
         {
