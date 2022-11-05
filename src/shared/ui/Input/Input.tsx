@@ -1,7 +1,7 @@
 import React, {
     ChangeEvent,
     InputHTMLAttributes,
-    memo, MutableRefObject,
+    memo,
     useEffect,
     useRef,
 } from 'react';
@@ -21,7 +21,7 @@ interface InputProps extends InputHTMLProps {
     theme?: InputTheme;
     autofocus?: boolean;
     onChange?: (val: string) => void;
-    value?: string;
+    value?: string | number;
     offsetTop?: boolean;
 }
 

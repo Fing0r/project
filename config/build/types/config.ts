@@ -3,7 +3,7 @@ export type BuildMode = 'development' | 'production';
 export interface BuildEnv {
     mode: BuildMode;
     port: number;
-    analize: boolean;
+    analyze: boolean;
     apiUrl: string
 }
 
@@ -19,6 +19,7 @@ export interface BuildOptions {
     paths: BuildPaths;
     isDev: boolean;
     port: number;
-    isAnalize: boolean;
+    isAnalyze: boolean;
     apiUrl: string;
+    project: 'frontend' | 'storybook' | 'jest';
 }

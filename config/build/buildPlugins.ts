@@ -7,7 +7,11 @@ import { BuildOptions } from './types/config';
 
 export function buildPlugins(
     {
-        paths, isDev, isAnalize, apiUrl,
+        paths,
+        isDev,
+        isAnalyze,
+        apiUrl,
+        project,
     }: BuildOptions,
 ): webpack.WebpackPluginInstance[] {
     const isProd = !isDev;
@@ -20,6 +24,7 @@ export function buildPlugins(
         new webpack.DefinePlugin({
             __IS_DEV__: JSON.stringify(isDev),
             __API__: JSON.stringify(apiUrl),
+            __PROJECT__: JSON.stringify(project),
         }),
     ];
 
@@ -35,7 +40,7 @@ export function buildPlugins(
         }));
     }
 
-    if (isAnalize) {
+    if (isAnalyze) {
         plugins.push(new BundleAnalyzerPlugin({ openAnalyzer: true }));
     }
 

@@ -7,7 +7,7 @@ import i18n from 'shared/config/i18n/i18nForStorybook';
 import LoginForm from './LoginForm';
 
 export default {
-    title: 'features/LoginForm',
+    title: 'Features/LoginForm',
     component: LoginForm,
     argTypes: {
         backgroundColor: { control: 'color' },

@@ -5,12 +5,11 @@
   "Что-то не так.": "Что-то пошло не так",
   "Главная": "Главная",
   "О нас": "О нас",
+  "Профиль": "Профиль",
   "Перезагрузить страницу": "Перезагрузить страницу",
   "Lorem": "Lorem ipsum dolor sit amet, consectetur adipisicing elit. Animi, aut fugiat harum id iure odio pariatur sint voluptatem. Accusamus accusantium aliquam asperiores deserunt nisi officiis omnised. Optio, quo vero.",
   "Логин": "Логин",
   "Сокращенный язык": "Ru",
-  "increment": "increment",
-  "decrement": "decrement",
   "Войти": "Войти",
   "Пароль": "Пароль",
   "Введите логин": "Введите логин",
@@ -18,5 +17,7 @@
   "Авторизация": "Авторизация",
   "неверный логин или пароль": "Неверный логин или пароль",
   "Выйти": "Выйти",
-  "Profile Page": "Profile Page"
+  "аватарка пользователя": "аватарка пользователя",
+  "Ваша валюта": "Ваша валюта",
+  "Ваша страна": "Ваша страна"
 }

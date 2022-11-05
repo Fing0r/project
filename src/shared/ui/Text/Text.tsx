@@ -12,6 +12,7 @@ interface TextProps {
     title?: string;
     text?: string;
     theme?: TextTheme
+    align?: 'center' | 'left' | 'right'
 }
 
 const Text = memo((props: TextProps) => {
@@ -20,11 +21,12 @@ const Text = memo((props: TextProps) => {
         text,
         className,
         theme = TextTheme.PRIMARY,
+        align = 'left',
     } = props;
 
     return (
         <div
-            className={classNames('', {}, [cls[theme], className])}
+            className={classNames('', {}, [cls[theme], cls[align]])}
         >
             {title && (
                 <h2

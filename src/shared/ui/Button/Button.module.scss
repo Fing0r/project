@@ -1,7 +1,7 @@
 .Button {
     padding: 0.5rem 1rem;
     cursor: pointer;
-    transition: opacity var(--transition-delay);
+    transition: opacity var(--transition-delay), color var(--transition-delay), border var(--transition-delay);
 }
 
 .clearInverted,
@@ -22,6 +22,14 @@
     border-radius: 5px;
     color: var(--primary-color);
     border: 1px solid var(--primary-color);
+}
+
+.outline_red {
+    background-color: transparent;
+    margin: 0;
+    border-radius: 5px;
+    color: var(--secondary-red-color);
+    border: 1px solid var(--secondary-red-color);
 }
 
 .background {

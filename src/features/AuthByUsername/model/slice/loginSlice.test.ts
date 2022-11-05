@@ -1,6 +1,6 @@
-import { loginActions, loginReducer } from 'features/AuthByUsername/model/slice/loginSlice';
-import { LoginSchema } from 'features/AuthByUsername';
-import { loginByUsername } from 'features/AuthByUsername/model/services/loginByUsername/loginByUsername';
+import { loginActions, loginReducer } from './loginSlice';
+import { loginByUsername } from '../services/loginByUsername/loginByUsername';
+import { LoginSchema } from '../types/loginSchema';
 
 describe('counterSlice.test', () => {
     test('test set username', () => {

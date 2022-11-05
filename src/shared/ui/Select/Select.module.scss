@@ -1,0 +1,52 @@
+.select {
+    background-color: transparent;
+    padding: 0.594rem 1rem 0.594rem  0.594rem;
+    border-radius: 5px;
+    color: var(--primary-color);
+    border: 1px solid var(--primary-color);
+    outline: transparent;
+    opacity: 1;
+    transition: color var(--transition-delay), border var(--transition-delay);
+    font: var(--font-m);
+
+    option {
+        background-color: var(--secondary-color);
+        color: var(--inverted-secondary-color);
+    }
+}
+
+.label {
+    position: relative;
+    min-width: 12.5rem;
+    display: inline-flex;
+    flex-direction: column;
+}
+
+.labelText {
+    position: absolute;
+    transform: translateY(-50%);
+    line-height: 1;
+    padding: 0 0.5rem;
+    font-size: 0.75rem;
+    background-color: var(--bg-color);
+    left: 0.5rem;
+    z-index: 1;
+    pointer-events: none;
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    max-width: calc(100% - 1.563rem);
+    transition: color var(--transition-delay), background-color var(--transition-delay);
+}
+
+.select:not([disabled]) ~ .labelText {
+    color: var(--focus-color);
+}
+
+.select:not([value=""]) ~ .labelText,
+.select:focus ~ .labelText {
+    top: 0;
+    padding: 0 0.5rem;
+    font-size: 0.75rem;
+    background-color: var(--bg-color);
+}

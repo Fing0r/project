@@ -33,7 +33,7 @@
     margin: 0;
     border: none;
     outline: none;
-    transition: border var(--transition-delay);
+    transition: color var(--transition-delay), border var(--transition-delay);
 }
 
 .input:not([value=""]) ~ .labelText,

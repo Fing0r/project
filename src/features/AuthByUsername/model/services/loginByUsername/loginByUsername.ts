@@ -20,6 +20,7 @@ export const loginByUsername = createAsyncThunk<User, LoginAuthProps, ThunkConfi
             if (!data) {
                 throw new Error();
             }
+
             dispatch(userActions.setAuthData(data));
             dispatch(loginActions.resetAuthData());
             extra.navigate?.('/profile');

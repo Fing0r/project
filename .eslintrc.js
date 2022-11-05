@@ -44,7 +44,7 @@ module.exports = {
         'i18next/no-literal-string': ['error',
             {
                 markupOnly: true,
-                ignoreAttribute: ['data-testid', 'to'],
+                ignoreAttribute: ['data-testid', 'to', 'align'],
             }],
         'max-len': ['error', { ignoreComments: true, code: 120 }],
         'react-hooks/rules-of-hooks': 'error', // Checks rules of Hooks
@@ -62,6 +62,7 @@ module.exports = {
     globals: {
         __IS_DEV__: true,
         __API__: true,
+        __PROJECT__: true,
     },
     overrides: [
         {
