@@ -100,6 +100,8 @@
     "react-router-dom": "^6.2.1"
   },
   "loki": {
+    "chromeSelector": ".wrapper > *, #root > *, .story-decorator > *",
+    "diffingEngine": "pixelmatch",
     "configurations": {
       "chrome.laptop": {
         "target": "chrome.docker",

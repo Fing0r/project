@@ -1,0 +1,12 @@
+:root[data-theme="green"] {
+    --bg-color: #0b6e4f;
+    --inverted-bg-color: #2b4162;
+    --primary-color: #fa9f42;
+    --inverted-primary-color: #e0e0e2;
+    --secondary-color: #c07320;
+    --inverted-secondary-color: #96969b;
+    --switch-theme-color: #b84fb6;
+    --switch-theme-color-hover: #773376;
+    --switch-theme-color-active: var(--switch-theme-color);
+    --focus-color: #29ff00;
+}
