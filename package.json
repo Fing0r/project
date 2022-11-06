@@ -100,7 +100,7 @@
     "react-router-dom": "^6.2.1"
   },
   "loki": {
-    "chromeSelector": ".sb-main-padded > *, #root > *, .app > *",
+    "chromeSelector": "#root > *, .app > *",
     "diffingEngine": "pixelmatch",
     "configurations": {
       "chrome.laptop": {
