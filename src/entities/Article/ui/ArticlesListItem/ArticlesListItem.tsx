@@ -32,6 +32,14 @@ const ArticlesListItem = memo((props: ArticlesListItemProps) => {
     const { t } = useTranslation();
     const navigate = useNavigate();
 
+    const views = (
+        <div className={cls.views}>
+            <Text text={String(article?.views || 0)} />
+            <Icon Svg={EyeIcon} />
+        </div>
+    );
+    const type = <Text className={cls.type} text={article?.type.join(', ')} />;
+
     const onMoveArticle = useCallback(() => {
         navigate(`${RoutePath.article_detail}${article?.id}`);
     }, [article?.id, navigate]);
@@ -56,7 +64,7 @@ const ArticlesListItem = memo((props: ArticlesListItemProps) => {
                     <Text className={cls.date} text={article?.createdAt} />
                 </div>
                 <Text className={cls.title} title={article?.title} />
-                <Text className={cls.type} text={article?.type.join(', ')} />
+                {type}
                 <div className={cls.imgWrapper}>
                     <img src={article?.img} alt={article?.title} className={cls.img} />
                 </div>
@@ -67,10 +75,7 @@ const ArticlesListItem = memo((props: ArticlesListItemProps) => {
                     >
                         {t('Читать далее...')}
                     </Button>
-                    <div className={cls.views}>
-                        <Text text={String(article?.views || 0)} />
-                        <Icon Svg={EyeIcon} />
-                    </div>
+                    {views}
                 </div>
             </Card>
         );
@@ -81,11 +86,8 @@ const ArticlesListItem = memo((props: ArticlesListItemProps) => {
             <AppLink to={`${RoutePath.article_detail}${article?.id}`} className={cls.link} />
             <img src={article?.img} alt={article?.title} className={cls.img} />
             <div className={cls.infoHeader}>
-                <Text className={cls.type} text={article?.type.join(', ')} />
-                <div className={cls.views}>
-                    <Text text={String(article?.views || 0)} />
-                    <Icon Svg={EyeIcon} />
-                </div>
+                {type}
+                {views}
             </div>
             <Text className={cls.title} title={article?.title} />
             <Text className={cls.date} text={article?.createdAt} />
