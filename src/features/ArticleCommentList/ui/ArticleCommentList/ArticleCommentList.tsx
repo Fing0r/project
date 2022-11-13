@@ -33,7 +33,7 @@ const ArticleCommentList = memo((props: ArticleCommentListProps) => {
     const { t } = useTranslation();
 
     const comments = useSelector(getArticleComments.selectAll);
-    const isLoading = useSelector(getArticleCommentsListIsLoading);
+    const isLoadingComments = useSelector(getArticleCommentsListIsLoading);
 
     useInitialEffect(() => {
         dispatch(fetchCommentsByArticleId(id));
@@ -41,7 +41,7 @@ const ArticleCommentList = memo((props: ArticleCommentListProps) => {
 
     return (
         <div className={classNames(cls.ArticleCommentList, {}, [className])}>
-            <CommentList comments={comments} isLoading={isLoading} />
+            <CommentList comments={comments} isLoading={isLoadingComments} />
         </div>
     );
 });
