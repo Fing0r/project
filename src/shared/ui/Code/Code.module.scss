@@ -1,0 +1,15 @@
+.Code {
+    position: relative;
+    padding: 1rem 3rem 1rem 1rem;
+    border: 3px solid var(--inverted-primary-color);
+    overflow-x: auto;
+    background-color: var(--code-bg);
+    color: var(--primary-color);
+}
+
+.btnCopy {
+    position: absolute;
+    right: 1.5rem;
+    top: 1.5rem;
+    color: inherit;
+}

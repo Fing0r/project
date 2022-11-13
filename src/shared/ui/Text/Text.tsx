@@ -1,4 +1,4 @@
-import { classNames } from 'shared/lib/classNames/classNames';
+import { Additional, classNames } from 'shared/lib/classNames/classNames';
 import { memo } from 'react';
 import cls from './Text.module.scss';
 
@@ -7,40 +7,66 @@ export const enum TextTheme {
     ERROR = 'error',
 }
 
+export const enum TextSize {
+    S = 'size_s',
+    M = 'size_m',
+    L = 'size_l',
+}
+
+export const enum TextAlign {
+    CENTER = 'center',
+    LEFT = 'left',
+    RIGHT = 'right',
+}
+
 interface TextProps {
     className?: string;
     title?: string;
     text?: string;
-    theme?: TextTheme
-    align?: 'center' | 'left' | 'right'
+    wrapper?: string;
+    theme?: TextTheme;
+    align?: TextAlign;
+    size?: TextSize;
 }
 
 const Text = memo((props: TextProps) => {
     const {
         title,
         text,
+        wrapper,
         className,
         theme = TextTheme.PRIMARY,
-        align = 'left',
+        align = TextAlign.LEFT,
+        size = TextSize.M,
     } = props;
+
+    const additional: Additional = [
+        cls[theme],
+        cls[align],
+        cls[size],
+        className,
+    ];
 
     return (
         <div
-            className={classNames('', {}, [cls[theme], cls[align]])}
+            className={classNames('', {}, additional)}
         >
             {title && (
                 <h2
-                    className={classNames(cls.Title, {}, [cls[theme], className])}
+                    className={classNames(cls.Title, {}, [])}
                 >
                     {title}
                 </h2>
             )}
             {text && (
-                <p
-                    className={classNames(cls.Text, {}, [className])}
-                >
+                <p className={classNames(cls.Text, {}, [])}>
                     {text}
                 </p>
+            )}
+            {wrapper && (
+                <span className={classNames(cls.Wrapper, {}, [])}>
+                    {wrapper}
+                </span>
             )}
         </div>
     );

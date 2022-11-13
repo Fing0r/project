@@ -1,8 +1,12 @@
 import { lazy } from 'react';
 
-const MainPageAsync = lazy(() => new Promise((resolve) => {
-    // @ts-ignore
-    setTimeout(() => resolve(import('./MainPage')), 1000);
-}));
+const MainPageAsync = lazy(async () => {
+    // фейковая задерка в 1 секунду
+    // eslint-disable-next-line no-promise-executor-return
+    await new Promise((resolve) => setTimeout(resolve, 1000));
+
+    return import('./MainPage')
+        .then((component) => ({ default: component.MainPage }));
+});
 
 export { MainPageAsync };

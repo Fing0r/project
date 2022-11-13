@@ -1,0 +1,14 @@
+.AddCommentForm {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    gap: 2rem;
+
+    &:not(:last-child) {
+        margin-bottom: 1.5rem;
+    }
+}
+
+.input {
+    flex: 1;
+}

@@ -3,7 +3,7 @@ import { classNames } from 'shared/lib/classNames/classNames';
 import { useTranslation } from 'react-i18next';
 import { Input, InputTheme } from 'shared/ui/Input/Input';
 import { Loader } from 'shared/ui/Loader/Loader';
-import { Text, TextTheme } from 'shared/ui/Text/Text';
+import { Text, TextAlign, TextTheme } from 'shared/ui/Text/Text';
 import { Currency, CurrencySelect } from 'entities/Currency';
 import { Country, CountrySelect } from 'entities/Country';
 import { Avatar } from 'shared/ui/Avatar/Avatar';
@@ -68,7 +68,7 @@ const ProfileCard = memo((props: ProfileCardProps) => {
         return (
             <form className={classNames(cls.ProfileCard, {}, [cls.center, cls.error])}>
                 <Text
-                    align="center"
+                    align={TextAlign.CENTER}
                     theme={TextTheme.ERROR}
                     title={t(error)}
                     text={t('Попробуйте перезагрузить страницу')}
@@ -80,13 +80,12 @@ const ProfileCard = memo((props: ProfileCardProps) => {
     return (
         <form className={classNames(cls.ProfileCard, { [cls.editable]: !readonly }, [className])}>
             {avatar && (
-                <div className={cls.avatarWrapper}>
-                    <Avatar
-                        size={150}
-                        src={avatar}
-                        alt={t('аватарка пользователя')}
-                    />
-                </div>
+                <Avatar
+                    className={cls.avatar}
+                    size={150}
+                    src={avatar}
+                    alt={t('аватарка пользователя')}
+                />
             )}
             <Input
                 theme={InputTheme.OUTLINE}

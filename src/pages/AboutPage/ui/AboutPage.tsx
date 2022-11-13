@@ -15,4 +15,4 @@ const AboutPage: FC<AboutPageProps> = () => {
     );
 };
 
-export default AboutPage;
+export { AboutPage };

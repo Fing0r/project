@@ -4,7 +4,7 @@ import { StoreDecorator } from 'shared/config/storybook/decorators/StoreDecorato
 import { ThemeDecorator } from 'shared/config/storybook/decorators/ThemeDecorator';
 import { ThemeEnum } from 'app/providers/ThemeProvider/lib/ThemeContext';
 import i18n from 'shared/config/i18n/i18nForStorybook';
-import LoginForm from './LoginForm';
+import { LoginForm } from './LoginForm';
 
 export default {
     title: 'Features/LoginForm',

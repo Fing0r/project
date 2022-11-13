@@ -1,0 +1,37 @@
+.avatar {
+    margin: 0 auto 2rem;
+}
+
+.center {
+    place-items: center;
+}
+
+.articleHeader {
+    margin-bottom: 1.5rem;
+}
+
+.skeleton {
+    &:not(:last-child) {
+        margin-bottom: 1rem;
+    }
+}
+
+.title {
+    margin-bottom: 0.6rem;
+}
+
+.block {
+    &:not(:last-child) {
+        margin-bottom: 2rem;
+    }
+}
+
+.articleInfo {
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+
+    &:not(:last-child) {
+        margin-bottom: 0.4rem;
+    }
+}

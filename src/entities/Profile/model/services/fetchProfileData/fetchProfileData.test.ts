@@ -12,6 +12,7 @@ const data = {
     username: 'admin',
     lastname: 'Пупкин',
     currency: Currency.EUR,
+    id: '1',
 };
 
 describe('fetchProfileData', () => {
@@ -20,7 +21,7 @@ describe('fetchProfileData', () => {
 
         thunk.api.get.mockReturnValue(Promise.resolve({ data }));
 
-        const response = await thunk.callThunk();
+        const response = await thunk.callThunk(data.id);
 
         expect(thunk.api.get).toHaveBeenCalled();
         expect(thunk.api.get).toBeCalledTimes(1);
@@ -36,7 +37,7 @@ describe('fetchProfileData', () => {
 
         thunk.api.get.mockReturnValue(Promise.resolve({ status: 403 }));
 
-        const response = await thunk.callThunk();
+        const response = await thunk.callThunk(data.id);
 
         expect(thunk.api.get).toHaveBeenCalled();
         expect(thunk.api.get).toBeCalledTimes(1);

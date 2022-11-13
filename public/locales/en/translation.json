@@ -6,6 +6,7 @@
   "Главная": "Main",
   "О нас": "About",
   "Профиль": "Profile",
+  "Статьи": "Articles",
   "Перезагрузить страницу": "Reload Page",
   "Lorem": "Lorem ipsum dolor sit amet, consectetur adipisicing elit. Animi, aut fugiat harum id iure odio pariatur sint voluptatem. Accusamus accusantium aliquam asperiores deserunt nisi officiis omnised. Optio, quo vero.",
   "Логин": "Login",
@@ -19,5 +20,7 @@
   "Выйти": "Logout",
   "аватарка пользователя": "user avatar",
   "Ваша валюта": "Your currency",
-  "Ваша страна": "Your country"
+  "Ваша страна": "Your country",
+  "Добавить комментрий": "Добавить комментрий",
+  "Добавить": "Добавить"
 }

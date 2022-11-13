@@ -94,4 +94,4 @@ const LoginForm = memo((props: LoginFormProps) => {
     );
 });
 
-export default LoginForm;
+export { LoginForm };

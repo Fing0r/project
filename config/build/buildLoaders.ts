@@ -2,40 +2,20 @@ import webpack from 'webpack';
 import { BuildOptions } from './types/config';
 import { buildCssLoader } from './loader/buildCssLoader';
 import { buildSvgLoader } from './loader/buildSvgLoader';
+import { buildBabelLoader } from './loader/buildBabelLoader';
+import { buildFileLoader } from './loader/buildFileLoader';
+import { buildTypescriptLoader } from './loader/buildTypescriptLoader';
 
-export function buildLoaders({ isDev }: BuildOptions): webpack.RuleSetRule[] {
-    const typescriptLoader = {
-        test: /\.tsx?$/,
-        use: 'ts-loader',
-        exclude: /node_modules/,
-    };
+export function buildLoaders(options: BuildOptions): webpack.RuleSetRule[] {
+    const typescriptLoader = buildTypescriptLoader;
 
     const svgLoader = buildSvgLoader;
 
-    const babelLoader = {
-        test: /\.(js|jsx|tsx)$/,
-        exclude: /node_modules/,
-        use: {
-            loader: 'babel-loader',
-            options: {
-                presets: ['@babel/preset-env'],
-                plugins: [
-                    ['i18next-extract', { nsSeparator: '~' }],
-                ],
-            },
-        },
-    };
+    const babelLoader = buildBabelLoader(options);
 
-    const cssLoader = buildCssLoader(isDev);
+    const cssLoader = buildCssLoader(options);
 
-    const fileLoader = {
-        test: /\.(png|jpe?g|gif)$/i,
-        use: [
-            {
-                loader: 'file-loader',
-            },
-        ],
-    };
+    const fileLoader = buildFileLoader();
 
     return [
         svgLoader,

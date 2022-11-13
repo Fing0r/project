@@ -14,6 +14,7 @@ const data = {
     username: 'admin',
     lastname: 'Пупкин',
     currency: Currency.EUR,
+    id: '1',
 };
 
 describe('profileSlice.test', () => {
@@ -95,6 +96,7 @@ describe('profileSlice.test', () => {
                 state as ProfileSchema,
                 fetchProfileData.fulfilled(
                     data,
+                    '',
                     '',
                 ),
             ),

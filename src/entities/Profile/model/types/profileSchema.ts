@@ -10,6 +10,7 @@ export interface Profile {
     city?: string;
     username?: string;
     avatar?: string;
+    id?: string;
 }
 
 export const enum ValidateProfileErrors {

@@ -8,12 +8,18 @@ import {
 import { UserSchema } from 'entities/User';
 import { ProfileSchema } from 'entities/Profile';
 import { LoginSchema } from 'features/AuthByUsername';
+import { ArticleDetailsSchema } from 'entities/Article';
+import { ArticleCommentListSchema } from 'features/ArticleCommentList';
+import { AddCommentFormSchema } from 'features/AddCommentForm/model/types/AddCommentFormSchema';
 
 export interface StateSchema {
     user: UserSchema;
     // async
     profile?: ProfileSchema;
     loginForm?: LoginSchema;
+    articleDetails?: ArticleDetailsSchema;
+    articleCommentList?: ArticleCommentListSchema;
+    addCommentForm?: AddCommentFormSchema;
 }
 
 export type StateSchemaKey = keyof StateSchema;

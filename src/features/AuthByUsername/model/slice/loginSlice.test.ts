@@ -39,7 +39,7 @@ describe('counterSlice.test', () => {
 
         expect(
             loginReducer(state as LoginSchema, loginByUsername.fulfilled(
-                { username: '', id: 1 },
+                { username: '', id: '1' },
                 '',
                 { username: '', password: '' },
             )),

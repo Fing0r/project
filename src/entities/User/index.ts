@@ -14,3 +14,7 @@ export {
 export {
     getAuthData,
 } from './model/selectors/getAuthData/getAuthData';
+
+export {
+    getUserInited,
+} from './model/selectors/getUserInited/getUserInited';

@@ -1,0 +1,11 @@
+.img {
+    margin: 0 auto;
+
+    &:not(:last-child) {
+        margin-bottom: 0.5rem;
+    }
+}
+
+.figcaption {
+    color: var(--primary-color);
+}

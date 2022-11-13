@@ -15,7 +15,7 @@ const initialState: DeepPartial<StateSchema> = {
     user: {
         authData: {
             username: 'admin',
-            id: 1,
+            id: '1',
         },
     },
 };
@@ -28,7 +28,7 @@ LightAuth.decorators = [StoreDecorator({
     user: {
         authData: {
             username: 'admin',
-            id: 1,
+            id: '1',
         },
     },
 })];

@@ -6,6 +6,7 @@
   "Главная": "Главная",
   "О нас": "О нас",
   "Профиль": "Профиль",
+  "Статьи": "Статьи",
   "Перезагрузить страницу": "Перезагрузить страницу",
   "Lorem": "Lorem ipsum dolor sit amet, consectetur adipisicing elit. Animi, aut fugiat harum id iure odio pariatur sint voluptatem. Accusamus accusantium aliquam asperiores deserunt nisi officiis omnised. Optio, quo vero.",
   "Логин": "Логин",
@@ -19,5 +20,7 @@
   "Выйти": "Выйти",
   "аватарка пользователя": "аватарка пользователя",
   "Ваша валюта": "Ваша валюта",
-  "Ваша страна": "Ваша страна"
+  "Ваша страна": "Ваша страна",
+  "Добавить комментрий": "Добавить комментрий",
+  "Добавить": "Добавить"
 }

@@ -6,7 +6,7 @@ import { StoreDecorator } from 'shared/config/storybook/decorators/StoreDecorato
 import { Currency } from 'entities/Currency';
 import { Country } from 'entities/Country';
 import AvatarImg from 'shared/assets/tests/avatarForTest.webp';
-import ProfilePage from './ProfilePage';
+import { ProfilePage } from './ProfilePage';
 
 const data = {
     age: 3,
@@ -17,7 +17,15 @@ const data = {
     username: 'admin',
     lastname: 'Пупкин',
     currency: Currency.EUR,
+    id: '1',
 };
+
+const profile = {
+    data,
+    form: data,
+};
+
+const user = { authData: { id: '1' } };
 
 export default {
     title: 'Pages/ProfilePage',
@@ -29,29 +37,32 @@ const Template: ComponentStory<typeof ProfilePage> = (args) => <ProfilePage {...
 export const Light = Template.bind({});
 Light.args = {};
 Light.decorators = [StoreDecorator({
-    profile: {
-        data,
-        form: data,
-    },
+    profile,
+    user,
+})];
+
+export const NoEdit = Template.bind({});
+NoEdit.args = {};
+NoEdit.decorators = [StoreDecorator({
+    profile,
+    user: { authData: { id: '2' } },
 })];
 
 export const Dark = Template.bind({});
 Dark.args = {};
 Dark.decorators = [ThemeDecorator(ThemeEnum.DARK), StoreDecorator({
-    profile: {
-        data,
-        form: data,
-    },
+    profile,
+    user,
 })];
 
 export const ReadOnly = Template.bind({});
 ReadOnly.args = {};
 ReadOnly.decorators = [ThemeDecorator(ThemeEnum.DARK), StoreDecorator({
     profile: {
-        data,
-        form: data,
+        ...profile,
         readonly: true,
     },
+    user,
 })];
 
 export const Error = Template.bind({});

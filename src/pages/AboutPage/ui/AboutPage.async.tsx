@@ -1,8 +1,12 @@
 import { lazy } from 'react';
 
-const AboutPageAsync = lazy(() => new Promise((resolve) => {
-    // @ts-ignore
-    setTimeout(() => resolve(import('./AboutPage')), 1000);
-}));
+const AboutPageAsync = lazy(async () => {
+    // фейковая задерка в 1 секунду
+    // eslint-disable-next-line no-promise-executor-return
+    await new Promise((resolve) => setTimeout(resolve, 1000));
+
+    return import('./AboutPage')
+        .then((component) => ({ default: component.AboutPage }));
+});
 
 export { AboutPageAsync };

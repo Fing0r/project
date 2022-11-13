@@ -27,7 +27,8 @@ export default ({ config }: {config: webpack.Configuration}) => {
     // Помогло решить проблему с ошибкой сторибука, когда он обращался внутрь node_modules
     config.resolve!.modules = [paths.src, 'node_modules'];
     config.resolve?.extensions?.push('.ts', '.tsx');
-    config.module?.rules.push(buildCssLoader(true));
+    // @ts-ignore
+    config.module?.rules.push(buildCssLoader({ isDev: true }));
     config.module?.rules.push(buildSvgLoader);
 
     config.plugins!.push(

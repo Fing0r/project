@@ -19,5 +19,7 @@
 
 .container {
     flex-grow: 1;
-    padding: 1rem;
+    padding: 1rem 3rem;
+    overflow: auto;
+    width: 100%;
 }
