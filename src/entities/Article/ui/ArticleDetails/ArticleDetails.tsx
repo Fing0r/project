@@ -60,7 +60,7 @@ const ArticleDetails = memo((props: ArticleDetailProps) => {
     const error = useSelector(getArticleDetailError);
     const isLoading = useSelector(getArticleDetailIsLoading);
 
-    const { t } = useTranslation();
+    const { t } = useTranslation('article-details');
 
     const renderArticleBlock = useCallback((block: ArticleBlock) => {
         switch (block.type) {
@@ -141,6 +141,7 @@ const ArticleDetails = memo((props: ArticleDetailProps) => {
     return (
         <div className={classNames(cls.ArticleDetail, {}, [className])}>
             <Button
+                className={cls.comeBack}
                 onClick={onBackArticles}
             >
                 {t('Вернуться назад')}

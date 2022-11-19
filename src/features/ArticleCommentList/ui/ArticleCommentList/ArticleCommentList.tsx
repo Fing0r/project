@@ -1,11 +1,11 @@
 import { memo } from 'react';
 import { classNames } from 'shared/lib/classNames/classNames';
-import { useTranslation } from 'react-i18next';
 import { CommentList } from 'entities/Comment';
 import { useAppDispatch } from 'shared/lib/hooks/useAppDispatch';
 import { ReducersList, useDynamicModule } from 'shared/lib/hooks/useDynamicModule';
 import { useSelector } from 'react-redux';
 import { useInitialEffect } from 'shared/lib/hooks/useInitialEffect';
+import { AppLink } from 'shared/ui/AppLink/AppLink';
 import cls from './ArticleCommentList.module.scss';
 import {
     fetchCommentsByArticleId,
@@ -30,8 +30,6 @@ const ArticleCommentList = memo((props: ArticleCommentListProps) => {
 
     useDynamicModule(initialReducers, true);
     const dispatch = useAppDispatch();
-    const { t } = useTranslation();
-
     const comments = useSelector(getArticleComments.selectAll);
     const isLoadingComments = useSelector(getArticleCommentsListIsLoading);
 

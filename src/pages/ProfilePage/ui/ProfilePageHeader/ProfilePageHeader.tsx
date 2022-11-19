@@ -1,4 +1,4 @@
-import { FC, useCallback } from 'react';
+import { FC, memo, useCallback } from 'react';
 import { classNames } from 'shared/lib/classNames/classNames';
 import { useTranslation } from 'react-i18next';
 import { Button, ButtonTheme } from 'shared/ui/Button/Button';
@@ -15,7 +15,7 @@ interface ProfilePageHeaderProps {
     className?: string;
 }
 
-const ProfilePageHeader: FC<ProfilePageHeaderProps> = ({ className }) => {
+const ProfilePageHeader = memo(({ className }: ProfilePageHeaderProps) => {
     const { t } = useTranslation('profile');
     const dispatch = useAppDispatch();
     const readonly = useSelector(getReadonly);
@@ -78,6 +78,6 @@ const ProfilePageHeader: FC<ProfilePageHeaderProps> = ({ className }) => {
             )}
         </div>
     );
-};
+});
 
 export { ProfilePageHeader };

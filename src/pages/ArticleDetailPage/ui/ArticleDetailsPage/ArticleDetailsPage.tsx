@@ -4,9 +4,10 @@ import { ArticleDetails } from 'entities/Article';
 import { Text } from 'shared/ui/Text/Text';
 import { useParams } from 'react-router-dom';
 import { addCommentForArticle, ArticleCommentList } from 'features/ArticleCommentList';
-import { AddCommentForm } from 'features/AddCommentForm/ui/AddCommentForm/AddCommentForm';
 import { useCallback } from 'react';
 import { useAppDispatch } from 'shared/lib/hooks/useAppDispatch';
+import { AddCommentForm } from 'features/AddCommentForm';
+import { Page } from 'widgets/Page';
 import cls from './ArticleDetailsPage.module.scss';
 
 interface ArticleDetailPageProps {
@@ -28,19 +29,21 @@ const ArticleDetailsPage = (props: ArticleDetailPageProps) => {
 
     if (!id) {
         return (
-            <div className={classNames(cls.ArticleDetailPage, {}, [className])}>
+            <Page className={classNames(cls.ArticleDetailPage, {}, [className])}>
                 <Text text={t('Статьи не найдено')} />
-            </div>
+            </Page>
         );
     }
 
     return (
-        <div className={classNames(cls.ArticleDetailPage, {}, [className])}>
-            <ArticleDetails id={id} className={cls.articleDetail} />
-            <Text title={t('Комментарии')} className={cls.titleComments} />
-            <AddCommentForm onSendComment={onSendComment} />
-            <ArticleCommentList id={id} />
-        </div>
+        <Page className={classNames(cls.ArticleDetailPage, {}, [className])}>
+            <div className={cls.articleWrapper}>
+                <ArticleDetails id={id} className={cls.articleDetail} />
+                <Text title={t('Комментарии')} className={cls.titleComments} />
+                <AddCommentForm onSendComment={onSendComment} />
+                <ArticleCommentList id={id} />
+            </div>
+        </Page>
     );
 };
 

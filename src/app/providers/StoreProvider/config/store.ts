@@ -1,8 +1,7 @@
 import { configureStore, Reducer, ReducersMapObject } from '@reduxjs/toolkit';
 import { userReducer } from 'entities/User';
+import { pageReducer } from 'widgets/Page';
 import { $api } from 'shared/api/api';
-import { To } from '@remix-run/router';
-import { NavigateOptions } from 'react-router/dist/lib/context';
 import { CombinedState } from 'redux';
 import { createReducerManager } from './reducerManager';
 import { StateSchema, StoreWithManager, ThunkExtraArg } from './StateSchema';
@@ -10,18 +9,17 @@ import { StateSchema, StoreWithManager, ThunkExtraArg } from './StateSchema';
 export const createReduxStore = (
     initialState?: StateSchema,
     asyncReducer?: ReducersMapObject<StateSchema>,
-    navigate?: (to: To, options?: NavigateOptions) => void,
 ) => {
     const rootReducers: ReducersMapObject<StateSchema> = {
         ...asyncReducer,
         user: userReducer,
+        page: pageReducer,
     };
 
     const reducerManager = createReducerManager(rootReducers);
 
     const extraArg: ThunkExtraArg = {
         api: $api,
-        navigate,
     };
 
     const store = configureStore({

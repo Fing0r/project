@@ -7,7 +7,12 @@ interface ThemeProviderProps {
     initialTheme?: ThemeEnum
 }
 
-const ThemeProvider: FC<ThemeProviderProps> = ({ children, initialTheme }) => {
+const ThemeProvider: FC<ThemeProviderProps> = (props) => {
+    const {
+        children,
+        initialTheme,
+    } = props;
+
     const [theme, setTheme] = useState<ThemeEnum>(initialTheme || defaultTheme);
 
     const defaultProps = useMemo(() => ({

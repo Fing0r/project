@@ -14,9 +14,14 @@ const useDynamicModule = (reducers: ReducersList, removeAfterUnmount: boolean = 
     const store = useStore() as StoreWithManager;
 
     useEffect(() => {
+        const mountedReducers = store.reducerManager.getReducerMap();
+
         Object.entries(reducers).forEach(([nameKey, reducer]) => {
-            store.reducerManager.add(nameKey as StateSchemaKey, reducer);
-            dispatch({ type: `@INIT ${nameKey} reducer` });
+            const mounted = mountedReducers[nameKey as StateSchemaKey];
+            if (!mounted) {
+                store.reducerManager.add(nameKey as StateSchemaKey, reducer);
+                dispatch({ type: `@INIT ${nameKey} reducer` });
+            }
         });
 
         return () => {

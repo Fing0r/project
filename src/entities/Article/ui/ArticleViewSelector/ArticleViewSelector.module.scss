@@ -1,0 +1,13 @@
+.ArticleViewSelector {
+    display: flex;
+    gap: 0.5rem;
+}
+
+.button {
+    color: var(--primary-color);
+}
+
+.selected {
+    color: var(--focus-color);
+    pointer-events: none;
+}

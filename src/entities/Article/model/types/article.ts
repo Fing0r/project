@@ -28,7 +28,14 @@ export interface ArticleImageBlock extends ArticleBaseBlock {
     title: string;
 }
 
+export enum ArticleFieldSort {
+    VIEWS = 'views',
+    CREATED = 'createdAt',
+    TITLE = 'title',
+}
+
 export enum ArticleType {
+    ALL = 'ALL',
     IT = 'IT',
     SCIENCE = 'SCIENCE',
     ECONOMICS = 'ECONOMICS',

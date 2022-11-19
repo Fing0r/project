@@ -29,7 +29,7 @@ const ArticlesListItem = memo((props: ArticlesListItemProps) => {
         view = ArticleView.GRID,
     } = props;
 
-    const { t } = useTranslation();
+    const { t } = useTranslation('articles');
     const navigate = useNavigate();
 
     const views = (

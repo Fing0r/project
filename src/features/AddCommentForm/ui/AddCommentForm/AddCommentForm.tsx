@@ -39,7 +39,7 @@ const AddCommentForm = memo((props: AddCommentFormProps) => {
         onChangeCommentText('');
     }, [onChangeCommentText, onSendComment, text]);
 
-    const { t } = useTranslation();
+    const { t } = useTranslation('comment');
 
     return (
         <div className={classNames(cls.AddCommentForm, {}, [className])}>
@@ -52,7 +52,7 @@ const AddCommentForm = memo((props: AddCommentFormProps) => {
             <Button
                 onClick={onCommentSendHandle}
             >
-                {t('Добавить')}
+                {t('Отправить')}
             </Button>
         </div>
     );

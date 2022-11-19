@@ -16,10 +16,3 @@
     display: flex;
     height: calc(100vh - var(--navbar-height));
 }
-
-.container {
-    flex-grow: 1;
-    padding: 1rem 3rem;
-    overflow: auto;
-    width: 100%;
-}

@@ -13,7 +13,7 @@ interface ArticlesListItemProps {
 const ArticlesListItemSkeleton = memo((props: ArticlesListItemProps) => {
     const {
         className,
-        view = ArticleView.GRID,
+        view,
     } = props;
 
     if (view === ArticleView.LIST) {
@@ -26,7 +26,7 @@ const ArticlesListItemSkeleton = memo((props: ArticlesListItemProps) => {
                 </div>
                 <Skeleton height={24} className={cls.title} />
                 <Skeleton width={100} height={16} className={cls.type} />
-                <div className={cls.imgWrapper}>
+                <div className={cls.imgWrapperSkeleton}>
                     <Skeleton className={cls.img} />
                 </div>
                 <Skeleton height={200} className={cls.paragraph} />

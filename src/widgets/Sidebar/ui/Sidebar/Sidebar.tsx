@@ -1,4 +1,6 @@
-import { memo, useMemo, useState } from 'react';
+import {
+    memo, useCallback, useMemo, useState,
+} from 'react';
 import { classNames } from 'shared/lib/classNames/classNames';
 import { ThemeSwitcher } from 'shared/ui/ThemeSwitcher/ThemeSwitcher';
 import { LangSwitcher } from 'shared/ui/LangSwitcher/LangSwitcher';
@@ -13,12 +15,12 @@ interface SidebarProps {
 }
 
 const Sidebar = memo(({ className }: SidebarProps) => {
-    const [collapsed, setCollapsed] = useState<boolean>(true);
+    const [collapsed, setCollapsed] = useState<boolean>(false);
     const sidebarItemsList = useSelector(getSidebarItems);
 
-    const onToggle = () => {
+    const onToggle = useCallback(() => {
         setCollapsed((prev) => !prev);
-    };
+    }, []);
 
     const itemsList = useMemo(() => (sidebarItemsList.map((item) => (
         <SidebarItem

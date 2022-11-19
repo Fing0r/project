@@ -26,11 +26,9 @@ const AppRouter = memo(() => {
     }, []);
 
     return (
-        <div className="container">
-            <Routes>
-                {Object.values(routeConfig).map(renderRouteWithWrapper)}
-            </Routes>
-        </div>
+        <Routes>
+            {Object.values(routeConfig).map(renderRouteWithWrapper)}
+        </Routes>
     );
 });
 

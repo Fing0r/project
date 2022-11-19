@@ -1,5 +1,6 @@
 .profileCard {
     display: grid;
     gap: 1rem;
-    grid-template-columns: minmax(12.5rem, 37.5rem);
+    grid-template-columns: minmax(20rem, 64rem);
+    justify-content: center;
 }

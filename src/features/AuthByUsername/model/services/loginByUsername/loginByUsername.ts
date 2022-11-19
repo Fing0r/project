@@ -23,7 +23,6 @@ export const loginByUsername = createAsyncThunk<User, LoginAuthProps, ThunkConfi
 
             dispatch(userActions.setAuthData(data));
             dispatch(loginActions.resetAuthData());
-            extra.navigate?.('/profile');
 
             return data;
         } catch (e) {

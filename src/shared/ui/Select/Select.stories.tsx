@@ -12,9 +12,9 @@ export default {
 const Template: ComponentStory<typeof Select> = (args) => <Select {...args} />;
 
 const options = [
-    { value: 1, text: '1' },
-    { value: 2, text: '2' },
-    { value: 3, text: '3' },
+    { value: '1', text: '1' },
+    { value: '2', text: '2' },
+    { value: '3', text: '3' },
 ];
 
 export const Light = Template.bind({});

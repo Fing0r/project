@@ -9,9 +9,9 @@ import { Comment } from '../../model/types/comment';
 import cls from './CommentCard.module.scss';
 
 interface CommentCardProps {
-  className?: string;
-  comment?: Comment;
-  isLoading?: boolean
+    className?: string;
+    comment?: Comment;
+    isLoading?: boolean
 }
 
 const CommentCard = memo((props: CommentCardProps) => {
@@ -43,7 +43,7 @@ const CommentCard = memo((props: CommentCardProps) => {
                 className={cls.header}
                 to={`${RoutePath.profile}${comment.user.id}`}
             >
-                {!!comment?.user.avatar && (<Avatar src={comment.user.avatar} size={30} />)}
+                {comment?.user.avatar ? (<Avatar src={comment.user.avatar} size={30} />) : null}
                 <Text title={comment?.user.username} size={TextSize.S} />
             </AppLink>
             <Text text={comment?.text} />

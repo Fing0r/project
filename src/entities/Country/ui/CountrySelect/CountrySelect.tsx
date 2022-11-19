@@ -1,4 +1,4 @@
-import { memo, useCallback } from 'react';
+import { memo } from 'react';
 import { useTranslation } from 'react-i18next';
 import { Select } from 'shared/ui/Select/Select';
 import { Country } from '../../model/types/country';
@@ -28,15 +28,11 @@ const CountrySelect = memo((props: CountrySelectProps) => {
 
     const { t } = useTranslation();
 
-    const onChangeHandler = useCallback((currency: string) => {
-        onChange?.(currency as Country);
-    }, [onChange]);
-
     return (
         <Select
             disabled={readonly}
             options={options}
-            onChange={onChangeHandler}
+            onChange={onChange}
             label={t('Ваша страна')}
             value={value}
         />

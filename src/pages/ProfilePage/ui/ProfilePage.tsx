@@ -11,7 +11,7 @@ import {
     profileReducer,
 } from 'entities/Profile';
 import { useAppDispatch } from 'shared/lib/hooks/useAppDispatch';
-import { Suspense, useCallback } from 'react';
+import { memo, Suspense, useCallback } from 'react';
 import { Loader } from 'shared/ui/Loader/Loader';
 import { Text, TextTheme } from 'shared/ui/Text/Text';
 import { useSelector } from 'react-redux';
@@ -22,6 +22,7 @@ import {
 } from 'entities/Profile/model/selectors/getProfileValidateErrors/getProfileValidateErrors';
 import { useInitialEffect } from 'shared/lib/hooks/useInitialEffect';
 import { useParams } from 'react-router-dom';
+import { Page } from 'widgets/Page';
 import { ProfilePageHeader } from './ProfilePageHeader/ProfilePageHeader';
 import cls from './ProfilePage.module.scss';
 
@@ -33,7 +34,7 @@ interface ProfilePageProps {
     className?: string
 }
 
-const ProfilePage = ({ className }: ProfilePageProps) => {
+const ProfilePage = memo(({ className }: ProfilePageProps) => {
     const { t } = useTranslation('profile');
     const dispatch = useAppDispatch();
     useDynamicModule(initialReducers, true);
@@ -43,7 +44,6 @@ const ProfilePage = ({ className }: ProfilePageProps) => {
     const error = useSelector(getProfileError);
     const readonly = useSelector(getReadonly);
     const validateErrors = useSelector(getProfileValidateErrors);
-
     const { id } = useParams();
 
     const validateErrorsTranslated = {
@@ -96,35 +96,37 @@ const ProfilePage = ({ className }: ProfilePageProps) => {
     }, [dispatch]);
 
     return (
-        <div className={cls.profileCard}>
-            <Suspense fallback={<Loader />}>
-                <ProfilePageHeader />
-                {validateErrors?.length && (
-                    validateErrors?.map((err) => (
-                        <Text
-                            text={validateErrorsTranslated[err]}
-                            theme={TextTheme.ERROR}
-                            key={err}
-                        />
-                    ))
-                )}
-                <ProfileCard
-                    data={formData}
-                    isLoading={isLoading}
-                    error={error}
-                    readonly={readonly}
-                    onChangeFirstname={onChangeFirstname}
-                    onChangeLastname={onChangeLastname}
-                    onChangeCity={onChangeCity}
-                    onChangeAge={onChangeAge}
-                    onChangeAvatar={onChangeAvatar}
-                    onChangeUsername={onChangeUsername}
-                    onChangeCurrency={onChangeCurrency}
-                    onChangeCountry={onChangeCountry}
-                />
-            </Suspense>
-        </div>
+        <Page>
+            <div className={cls.profileCard}>
+                <Suspense fallback={<Loader />}>
+                    <ProfilePageHeader />
+                    {validateErrors?.length && (
+                        validateErrors?.map((err) => (
+                            <Text
+                                text={validateErrorsTranslated[err]}
+                                theme={TextTheme.ERROR}
+                                key={err}
+                            />
+                        ))
+                    )}
+                    <ProfileCard
+                        data={formData}
+                        isLoading={isLoading}
+                        error={error}
+                        readonly={readonly}
+                        onChangeFirstname={onChangeFirstname}
+                        onChangeLastname={onChangeLastname}
+                        onChangeCity={onChangeCity}
+                        onChangeAge={onChangeAge}
+                        onChangeAvatar={onChangeAvatar}
+                        onChangeUsername={onChangeUsername}
+                        onChangeCurrency={onChangeCurrency}
+                        onChangeCountry={onChangeCountry}
+                    />
+                </Suspense>
+            </div>
+        </Page>
     );
-};
+});
 
 export { ProfilePage };

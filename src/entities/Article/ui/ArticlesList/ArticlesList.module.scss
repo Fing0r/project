@@ -8,8 +8,13 @@
 }
 
 .list {
-    display: grid;
-    grid-template-columns: minmax(100%, 64rem);
-    justify-content: center;
-    gap: 2rem;
+    //display: grid;
+    //grid-template-columns: minmax(100%, 64rem);
+    //justify-content: center;
+    //gap: 2rem;
+    //margin: 0 auto;
+
+    & > div {
+        margin-bottom: 2rem;
+    }
 }
