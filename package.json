@@ -103,7 +103,7 @@
     "react-router-dom": "^6.2.1"
   },
   "loki": {
-    "chromeSelector": "#root > *, #loki > *",
+    "chromeSelector": "#root > *, .app > *",
     "diffingEngine": "pixelmatch",
     "disableAutomaticViewportHeight": true,
     "configurations": {
