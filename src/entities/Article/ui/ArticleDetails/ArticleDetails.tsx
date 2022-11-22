@@ -13,9 +13,6 @@ import { Icon } from 'shared/ui/Icon/Icon';
 import EyeIcon from 'shared/assets/icons/eye.svg';
 import CalendarIcon from 'shared/assets/icons/calendar.svg';
 import { useInitialEffect } from 'shared/lib/hooks/useInitialEffect';
-import { useNavigate } from 'react-router-dom';
-import { Button } from 'shared/ui/Button/Button';
-import { RoutePath } from 'shared/config/routeConfig/routeConfig';
 import { ArticleCodeBlockComponent } from '../ArticleCodeBlockComponent/ArticleCodeBlockComponent';
 import { ArticleTextBlockComponent } from '../ArticleTextBlockComponent/ArticleTextBlockComponent';
 import { ArticleImageBlockComponent } from '../ArticleImageBlockComponent/ArticleImageBlockComponent';
@@ -44,13 +41,7 @@ const ArticleDetails = memo((props: ArticleDetailProps) => {
         id,
     } = props;
     const dispatch = useAppDispatch();
-    useDynamicModule(initialReducers, true);
-
-    const navigate = useNavigate();
-
-    const onBackArticles = useCallback(() => {
-        navigate(`${RoutePath.articles}`);
-    }, [navigate]);
+    useDynamicModule(initialReducers, false);
 
     useInitialEffect(() => {
         dispatch(fetchArticleById(id));
@@ -140,12 +131,6 @@ const ArticleDetails = memo((props: ArticleDetailProps) => {
 
     return (
         <div className={classNames(cls.ArticleDetail, {}, [className])}>
-            <Button
-                className={cls.comeBack}
-                onClick={onBackArticles}
-            >
-                {t('Вернуться назад')}
-            </Button>
             <div className={cls.articleHeader}>
                 <Avatar
                     className={cls.avatar}

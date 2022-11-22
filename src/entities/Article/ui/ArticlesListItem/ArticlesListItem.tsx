@@ -1,4 +1,4 @@
-import { memo, useCallback } from 'react';
+import { HTMLAttributeAnchorTarget, memo, useCallback } from 'react';
 import { classNames } from 'shared/lib/classNames/classNames';
 import { Text } from 'shared/ui/Text/Text';
 import { Icon } from 'shared/ui/Icon/Icon';
@@ -20,6 +20,7 @@ interface ArticlesListItemProps {
     className?: string;
     article?: Article;
     view: ArticleView;
+    target?: HTMLAttributeAnchorTarget;
 }
 
 const ArticlesListItem = memo((props: ArticlesListItemProps) => {
@@ -27,6 +28,7 @@ const ArticlesListItem = memo((props: ArticlesListItemProps) => {
         className,
         article,
         view = ArticleView.GRID,
+        target,
     } = props;
 
     const { t } = useTranslation('articles');
@@ -41,7 +43,7 @@ const ArticlesListItem = memo((props: ArticlesListItemProps) => {
     const type = <Text className={cls.type} text={article?.type.join(', ')} />;
 
     const onMoveArticle = useCallback(() => {
-        navigate(`${RoutePath.article_detail}${article?.id}`);
+        navigate(`${RoutePath.article_details}${article?.id}`);
     }, [article?.id, navigate]);
 
     if (view === ArticleView.LIST) {
@@ -83,7 +85,7 @@ const ArticlesListItem = memo((props: ArticlesListItemProps) => {
 
     return (
         <Card className={classNames(cls.ArticlesListItem, {}, [className, cls[view]])}>
-            <AppLink to={`${RoutePath.article_detail}${article?.id}`} className={cls.link} />
+            <AppLink target={target} to={`${RoutePath.article_details}${article?.id}`} className={cls.link} />
             <img src={article?.img} alt={article?.title} className={cls.img} />
             <div className={cls.infoHeader}>
                 {type}

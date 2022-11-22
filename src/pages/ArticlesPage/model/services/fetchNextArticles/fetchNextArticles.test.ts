@@ -3,10 +3,10 @@ import { fetchArticlesList } from '../fetchArticlesList/fetchArticlesList';
 import { articlesPageListActions } from '../../slices/articlesListSlice';
 import { fetchNextArticles } from './fetchNextArticles';
 
-jest.mock('../fetchArticlesList/fetchArticlesList');
+jest.mock('../fetchArticleRecommendations/fetchArticleRecommendations');
 
 describe('fetchNextArticles', () => {
-    test('should ended with call fetchArticlesList', async () => {
+    test('should ended with call fetchArticleRecommendations', async () => {
         const thunk = new TestAsyncThunk(fetchNextArticles, {
             articlesPageList: {
                 page: 1,
@@ -28,7 +28,7 @@ describe('fetchNextArticles', () => {
         expect(response.meta.requestStatus).toBe('fulfilled');
     });
 
-    test('should ended without call fetchArticlesList, when isLoading = true', async () => {
+    test('should ended without call fetchArticleRecommendations, when isLoading = true', async () => {
         const thunk = new TestAsyncThunk(fetchNextArticles, {
             articlesPageList: {
                 page: 1,
@@ -50,7 +50,7 @@ describe('fetchNextArticles', () => {
         expect(response.meta.requestStatus).toBe('fulfilled');
     });
 
-    test('should ended without call fetchArticlesList, when hasMore = false', async () => {
+    test('should ended without call fetchArticleRecommendations, when hasMore = false', async () => {
         const thunk = new TestAsyncThunk(fetchNextArticles, {
             articlesPageList: {
                 page: 1,

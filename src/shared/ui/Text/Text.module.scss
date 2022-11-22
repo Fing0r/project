@@ -18,6 +18,20 @@
     }
 }
 
+.inverted {
+    .Title {
+        color: var(--inverted-primary-color);
+    }
+
+    .Text {
+        color: var(--inverted-secondary-color);
+    }
+
+    .Wrapper {
+        color: currentcolor;
+    }
+}
+
 .error {
     .Title {
         color: var(--primary-red-color);

@@ -93,7 +93,7 @@
       "createdAt": "26.02.2022",
       "userId": "1",
       "type": [
-        "IT"
+        "ECONOMICS"
       ],
       "blocks": [
         {
@@ -158,14 +158,14 @@
     },
     {
       "id": "3",
-      "title": "Java news",
+      "title": "Биология",
       "subtitle": "Что нового в JS за 2022 год?",
       "img": "https://d3njjcbhbojbot.cloudfront.net/api/utilities/v1/imageproxy/https://coursera-course-photos.s3.amazonaws.com/0a/8cd7f1b14344618b75142593bc7af8/JavaCupLogo800x800.png?auto=format%2Ccompress&dpr=1",
       "views": 91022,
       "createdAt": "26.02.2022",
       "userId": "1",
       "type": [
-        "IT"
+        "SCIENCE"
       ],
       "blocks": [
         {
@@ -1609,6 +1609,18 @@
       "userId": "1",
       "text": "asda",
       "id": "F-aDkko"
+    },
+    {
+      "articleId": "3",
+      "userId": "1",
+      "text": "asd",
+      "id": "EgO_A_g"
+    },
+    {
+      "articleId": "4",
+      "userId": "1",
+      "text": "asd",
+      "id": "4kn8j4r"
     }
   ],
   "users": [

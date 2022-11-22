@@ -11,7 +11,7 @@ import {
     fetchCommentsByArticleId,
 } from '../../model/services/fetchCommentsByArticleId/fetchCommentsByArticleId';
 import { articleCommentListReducer, getArticleComments } from '../../model/slice/articleCommentListSlice';
-import { getArticleCommentsListIsLoading } from '../../model/selectors/getComments';
+import { getArticleCommentsListIsLoading } from '../../model/selectors/comments';
 
 interface ArticleCommentListProps {
     className?: string;
@@ -19,7 +19,7 @@ interface ArticleCommentListProps {
 }
 
 const initialReducers: ReducersList = {
-    articleCommentList: articleCommentListReducer,
+    articleDetailComments: articleCommentListReducer,
 };
 
 const ArticleCommentList = memo((props: ArticleCommentListProps) => {

@@ -132,7 +132,7 @@ describe('articlesListSlice', () => {
         });
     });
 
-    test('should change isLoading with "fetchArticlesList.pending" action', () => {
+    test('should change isLoading with "fetchArticleRecommendations.pending" action', () => {
         const state: DeepPartial<ArticlesPageListSchema> = {
             isLoading: false,
         };
@@ -147,7 +147,7 @@ describe('articlesListSlice', () => {
         expect(action).toEqual({ isLoading: true });
     });
 
-    test('should change state with "fetchArticlesList.fulfilled" action, if return articles', () => {
+    test('should change state with "fetchArticleRecommendations.fulfilled" action, if return articles', () => {
         const state: DeepPartial<ArticlesPageListSchema> = {
             isLoading: false,
             ids: ['1'],
@@ -173,7 +173,7 @@ describe('articlesListSlice', () => {
         });
     });
 
-    test('should change state with "fetchArticlesList.fulfilled" action, if not return articles', () => {
+    test('should change state with "fetchArticleRecommendations.fulfilled" action, if not return articles', () => {
         const state: DeepPartial<ArticlesPageListSchema> = {
             isLoading: false,
             ids: ['1'],
@@ -198,7 +198,7 @@ describe('articlesListSlice', () => {
         });
     });
 
-    test('should change state with "fetchArticlesList.rejected" action', () => {
+    test('should change state with "fetchArticleRecommendations.rejected" action', () => {
         const state: DeepPartial<ArticlesPageListSchema> = {
             isLoading: true,
         };

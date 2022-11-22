@@ -44,7 +44,7 @@ module.exports = {
         'i18next/no-literal-string': ['error',
             {
                 markupOnly: true,
-                ignoreAttribute: ['data-testid', 'to', 'align'],
+                ignoreAttribute: ['data-testid', 'to', 'align', 'target'],
             }],
         'max-len': ['error', { ignoreComments: true, code: 120 }],
         'react-hooks/rules-of-hooks': 'error', // Checks rules of Hooks
@@ -59,6 +59,7 @@ module.exports = {
         'lines-between-class-members': 'off',
         'no-undef': 'off',
         'react/no-array-index-key': 'off',
+        'arrow-body-style': 'off',
     },
     globals: {
         __IS_DEV__: true,
@@ -67,7 +68,10 @@ module.exports = {
     },
     overrides: [
         {
-            files: ['**/src/**/*.{test,stories}.{ts,tsx}'],
+            files: [
+                '**/src/**/*.{test,stories}.{ts,tsx}',
+                '**/src/**/mocks/*.{ts,tsx}',
+            ],
             rules: {
                 'i18next/no-literal-string': 'off',
                 'max-len': 'off',

@@ -10,6 +10,7 @@
     padding: 0;
     margin: 0;
     border: none;
+    border-radius: 0;
 }
 
 .clearInverted {
@@ -19,7 +20,6 @@
 .outline {
     background-color: transparent;
     margin: 0;
-    border-radius: 5px;
     color: var(--primary-color);
     border: 1px solid var(--primary-color);
 }
@@ -27,7 +27,6 @@
 .outline_red {
     background-color: transparent;
     margin: 0;
-    border-radius: 5px;
     color: var(--secondary-red-color);
     border: 1px solid var(--secondary-red-color);
 }
@@ -44,6 +43,13 @@
     margin: 0;
     border: none;
     color: var(--inverted-primary-color);
+}
+
+.backgroundCard {
+    background-color: var(--card-bg);
+    margin: 0;
+    border: none;
+    color: var(--primary-color);
 }
 
 .square {

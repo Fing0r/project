@@ -11,8 +11,13 @@ const getQueryParams = (params: OptionalRecord<string, string>) => {
     return `?${urlParams.toString()}`;
 };
 
+/**
+ * Функция добавления параментров строки запросов в URL
+ * @param params
+ */
+
 const addQueryParams = (params: OptionalRecord<string, string>) => {
     window.history.pushState('', '', getQueryParams(params));
 };
 
-export { addQueryParams };
+export { addQueryParams, getQueryParams };

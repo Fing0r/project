@@ -1,0 +1,47 @@
+import { classNames } from 'shared/lib/classNames/classNames';
+import { memo, useCallback } from 'react';
+import cls from './Tabs.module.scss';
+import { Button, ButtonTheme } from '../Button/Button';
+import { Text, TextAlign } from '../Text/Text';
+
+export interface TabItem<T extends string> {
+    text: string;
+    value: T;
+}
+
+interface TabsProps<T extends string> {
+    className?: string;
+    tabs: TabItem<T>[];
+    currentValue: T;
+    onClickTab: (value: T) => void;
+}
+
+const Tabs = <T extends string>(props: TabsProps<T>) => {
+    const {
+        className,
+        tabs,
+        currentValue,
+        onClickTab,
+    } = props;
+
+    const onClick = useCallback((val: T) => () => {
+        onClickTab(val);
+    }, [onClickTab]);
+
+    return (
+        <div className={classNames(cls.Tabs, {}, [className])}>
+            {tabs.map(({ text, value }) => (
+                <Button
+                    className={cls.tabBtn}
+                    key={value}
+                    onClick={onClick(value)}
+                    theme={value === currentValue ? ButtonTheme.OUTLINE : ButtonTheme.BACKGROUND_CARD}
+                >
+                    <Text align={TextAlign.CENTER} wrapper={text} />
+                </Button>
+            ))}
+        </div>
+    );
+};
+const MemoTabs = memo(Tabs) as typeof Tabs;
+export { MemoTabs as Tabs };

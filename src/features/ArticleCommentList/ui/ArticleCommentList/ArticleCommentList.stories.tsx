@@ -25,20 +25,30 @@ const Template: ComponentStory<typeof ArticleCommentList> = (args) => <ArticleCo
 export const Light = Template.bind({});
 Light.args = {};
 Light.decorators = [StoreDecorator({
-    articleCommentList,
+    articleDetailsPage: {
+        comments: articleCommentList,
+    },
 })];
 
 export const Dark = Template.bind({});
 Dark.args = {};
 Dark.decorators = [
-    StoreDecorator({ articleCommentList }),
+    StoreDecorator({
+        articleDetailsPage: {
+            comments: articleCommentList,
+        },
+    }),
     ThemeDecorator(ThemeEnum.DARK),
 ];
 
 export const Green = Template.bind({});
 Green.args = {};
 Green.decorators = [
-    StoreDecorator({ articleCommentList }),
+    StoreDecorator({
+        articleDetailsPage: {
+            comments: articleCommentList,
+        },
+    }),
     ThemeDecorator(ThemeEnum.GREEN),
 ];
 

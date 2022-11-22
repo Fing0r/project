@@ -1,12 +1,12 @@
 import {
-    ChangeEvent,
+    ChangeEvent, ComponentProps, ComponentType,
     memo,
     useMemo,
 } from 'react';
 import { classNames } from 'shared/lib/classNames/classNames';
 import cls from './Select.module.scss';
 
-interface SelectOption<T extends string> {
+export interface SelectOption<T extends string> {
     value: T;
     text: string;
 }
@@ -63,4 +63,6 @@ const Select = <T extends string>(props: SelectProps<T>) => {
     );
 };
 
-export { Select };
+const MemoSelect = memo(Select) as typeof Select;
+
+export { MemoSelect as Select };

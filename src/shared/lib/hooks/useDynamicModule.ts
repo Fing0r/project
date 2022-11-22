@@ -1,11 +1,11 @@
 import { useDispatch, useStore } from 'react-redux';
-import { StoreWithManager } from 'app/providers/StoreProvider';
+import { StateSchema, StoreWithManager } from 'app/providers/StoreProvider';
 import { useEffect } from 'react';
 import { StateSchemaKey } from 'app/providers/StoreProvider/config/StateSchema';
 import { Reducer } from '@reduxjs/toolkit';
 
 export type ReducersList = {
-    [nameKey in StateSchemaKey]?: Reducer
+    [nameKey in StateSchemaKey]?: Reducer<NonNullable<StateSchema[nameKey]>>
 }
 
 const useDynamicModule = (reducers: ReducersList, removeAfterUnmount: boolean = true) => {

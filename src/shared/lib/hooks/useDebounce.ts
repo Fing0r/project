@@ -1,6 +1,6 @@
 import { useCallback, useRef } from 'react';
 
-const useDebounce = (callback: (...args: any) => void, delay: number) => {
+const useDebounce = (callback: (...args: any[]) => void, delay: number) => {
     const timerRef = useRef<ReturnType<typeof setTimeout>>();
 
     return useCallback((...args) => {

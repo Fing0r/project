@@ -7,10 +7,11 @@ import { UserSchema } from 'entities/User';
 import { ProfileSchema } from 'entities/Profile';
 import { LoginSchema } from 'features/AuthByUsername';
 import { ArticleDetailsSchema } from 'entities/Article';
-import { ArticleCommentListSchema } from 'features/ArticleCommentList';
 import { AddCommentFormSchema } from 'features/AddCommentForm';
 import { ArticlesPageListSchema } from 'pages/ArticlesPage';
 import { PageSchema } from 'widgets/Page';
+import { ArticleDetailPageSchema } from 'pages/ArticleDetailPage';
+import { ArticleCommentListSchema } from 'features/ArticleCommentList';
 
 export interface StateSchema {
     user: UserSchema;
@@ -19,9 +20,10 @@ export interface StateSchema {
     profile?: ProfileSchema;
     loginForm?: LoginSchema;
     articleDetails?: ArticleDetailsSchema;
-    articleCommentList?: ArticleCommentListSchema;
     addCommentForm?: AddCommentFormSchema;
     articlesPageList?: ArticlesPageListSchema;
+    articleDetailsPage?: ArticleDetailPageSchema;
+    articleDetailComments?: ArticleCommentListSchema;
 }
 
 export type StateSchemaKey = keyof StateSchema;
