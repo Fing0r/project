@@ -5,9 +5,9 @@ export type {
     ArticleImageBlock,
     ArticleTextBlock,
     ArticleBlock,
-    ArticleFieldSort,
 } from './model/types/article';
 export {
+    ArticleFieldSort,
     ArticleBlockType,
     ArticleType,
     ArticleView,

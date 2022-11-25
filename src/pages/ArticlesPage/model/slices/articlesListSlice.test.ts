@@ -1,8 +1,8 @@
 import {
-    Article, ArticleBlockType, ArticleType, ArticleView,
+    Article, ArticleBlockType, ArticleFieldSort, ArticleType, ArticleView,
 } from 'entities/Article';
 import { ARTICLES_VIEW_LOCALSTORAGE_KEY } from 'shared/const/localstorage';
-import { fetchArticlesList } from 'pages/ArticlesPage/model/services/fetchArticlesList/fetchArticlesList';
+import { fetchArticlesList } from '../services/fetchArticlesList/fetchArticlesList';
 import { articlesPageListActions, articlesPageListReducer } from './articlesListSlice';
 import { ArticlesPageListSchema } from '../types/ArticlesPageListSchema';
 
@@ -77,7 +77,12 @@ describe('articlesListSlice', () => {
             view: ArticleView.GRID,
             page: 1,
             hasMore: false,
-            limit: 8,
+            limit: 9,
+            _inited: false,
+            order: 'asc',
+            search: '',
+            sort: ArticleFieldSort.CREATED,
+            type: ArticleType.ALL,
         });
     });
 
@@ -94,7 +99,7 @@ describe('articlesListSlice', () => {
             ),
         ).toEqual({
             view: ArticleView.GRID,
-            limit: 15,
+            limit: 6,
         });
     });
 
@@ -117,6 +122,7 @@ describe('articlesListSlice', () => {
         const state: DeepPartial<ArticlesPageListSchema> = {
             view: ArticleView.GRID,
             limit: 8,
+            _inited: true,
         };
 
         localStorage.setItem(ARTICLES_VIEW_LOCALSTORAGE_KEY, ArticleView.LIST);
@@ -129,10 +135,11 @@ describe('articlesListSlice', () => {
         ).toEqual({
             view: ArticleView.LIST,
             limit: 3,
+            _inited: true,
         });
     });
 
-    test('should change isLoading with "fetchArticleRecommendations.pending" action', () => {
+    test('should change isLoading with "fetchArticlesList.pending" action', () => {
         const state: DeepPartial<ArticlesPageListSchema> = {
             isLoading: false,
         };
@@ -147,11 +154,12 @@ describe('articlesListSlice', () => {
         expect(action).toEqual({ isLoading: true });
     });
 
-    test('should change state with "fetchArticleRecommendations.fulfilled" action, if return articles', () => {
+    test('should change state with "fetchArticlesList.fulfilled" action, if return articles', () => {
         const state: DeepPartial<ArticlesPageListSchema> = {
             isLoading: false,
             ids: ['1'],
             entities: stateEntities,
+            _inited: true,
         };
         const action = articlesPageListReducer(
             state as ArticlesPageListSchema,
@@ -164,7 +172,8 @@ describe('articlesListSlice', () => {
 
         expect(action).toEqual({
             isLoading: false,
-            hasMore: true,
+            _inited: true,
+            hasMore: false,
             ids: ['1', '2'],
             entities: {
                 ...stateEntities,
@@ -173,7 +182,7 @@ describe('articlesListSlice', () => {
         });
     });
 
-    test('should change state with "fetchArticleRecommendations.fulfilled" action, if not return articles', () => {
+    test('should change state with "fetchArticlesList.fulfilled" action, if not return articles', () => {
         const state: DeepPartial<ArticlesPageListSchema> = {
             isLoading: false,
             ids: ['1'],
@@ -198,7 +207,7 @@ describe('articlesListSlice', () => {
         });
     });
 
-    test('should change state with "fetchArticleRecommendations.rejected" action', () => {
+    test('should change state with "fetchArticlesList.rejected" action', () => {
         const state: DeepPartial<ArticlesPageListSchema> = {
             isLoading: true,
         };

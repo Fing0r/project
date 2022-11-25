@@ -5,7 +5,7 @@ import { ReducersList, useDynamicModule } from 'shared/lib/hooks/useDynamicModul
 import { useSelector } from 'react-redux';
 import { useInitialEffect } from 'shared/lib/hooks/useInitialEffect';
 import { useAppDispatch } from 'shared/lib/hooks/useAppDispatch';
-import { useCallback } from 'react';
+import { MutableRefObject, useCallback, useRef } from 'react';
 import { Page } from 'widgets/Page';
 import { useSearchParams } from 'react-router-dom';
 import { fetchNextArticles } from '../../model/services/fetchNextArticles/fetchNextArticles';
@@ -27,7 +27,7 @@ const ArticlesPage = (props: ArticlesPageProps) => {
     const {
         className,
     } = props;
-
+    const ref = useRef() as MutableRefObject<HTMLDivElement>;
     useDynamicModule(initialReducers, false);
 
     const { t } = useTranslation('articles');
@@ -46,10 +46,15 @@ const ArticlesPage = (props: ArticlesPageProps) => {
     }, [dispatch]);
 
     return (
-        <Page onScrollEnd={onLoadNextArticles} className={classNames(cls.ArticlesPage, {}, [className])}>
+        <Page
+            customWrapperRef={ref}
+            onScrollEnd={onLoadNextArticles}
+            className={classNames(cls.ArticlesPage, {}, [className])}
+        >
             <div className={cls.wrapper}>
                 <ArticlesPageFilters />
                 <ArticlesList
+                    // wrapperRef={ref}
                     articles={articles}
                     view={view}
                     isLoading={isLoading}

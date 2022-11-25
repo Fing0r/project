@@ -1,8 +1,9 @@
 import { ArticleCommentListSchema } from 'features/ArticleCommentList';
+import { ArticleDetailsCommentsSchema } from '../types/ArticleDetailsCommentsSchema';
+import { articleDetailCommentReducer } from './articleDetailsCommentSlice';
 import {
     fetchCommentsByArticleId,
-} from 'features/ArticleCommentList/model/services/fetchCommentsByArticleId/fetchCommentsByArticleId';
-import { articleCommentListReducer, articleCommentListActions } from './articleDetailsCommentSlice';
+} from '../services/fetchCommentsByArticleId/fetchCommentsByArticleId';
 
 const comments = [
     {
@@ -35,7 +36,7 @@ const comments = [
 
 describe('articleCommentListSlice', () => {
     test('should return default state when passed an empty action', () => {
-        const result = articleCommentListReducer(undefined, { type: '' });
+        const result = articleDetailCommentReducer(undefined, { type: '' });
 
         expect(result).toEqual({
             entities: {},
@@ -46,8 +47,9 @@ describe('articleCommentListSlice', () => {
     });
 
     test('should change isLoading with "fetchCommentsByArticleId.pending" action', () => {
-        const state: DeepPartial<ArticleCommentListSchema> = {};
-        const action = articleCommentListReducer(
+        const state: DeepPartial<ArticleDetailsCommentsSchema> = {
+        };
+        const action = articleDetailCommentReducer(
             state as ArticleCommentListSchema,
             fetchCommentsByArticleId.pending(
                 '',
@@ -59,9 +61,9 @@ describe('articleCommentListSlice', () => {
     });
 
     test('should change state with "fetchCommentsByArticleId.fulfilled" action', () => {
-        const state: DeepPartial<ArticleCommentListSchema> = {};
+        const state: DeepPartial<ArticleDetailsCommentsSchema> = {};
 
-        const action = articleCommentListReducer(
+        const action = articleDetailCommentReducer(
             state as ArticleCommentListSchema,
             fetchCommentsByArticleId.fulfilled(
                 comments,
@@ -80,8 +82,8 @@ describe('articleCommentListSlice', () => {
     });
 
     test('should return error with "fetchCommentsByArticleId.rejected" action', () => {
-        const state: DeepPartial<ArticleCommentListSchema> = {};
-        const action = articleCommentListReducer(
+        const state: DeepPartial<ArticleDetailsCommentsSchema> = {};
+        const action = articleDetailCommentReducer(
             state as ArticleCommentListSchema,
             fetchCommentsByArticleId.rejected(
                 new Error(),

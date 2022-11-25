@@ -3,10 +3,10 @@ import { fetchArticlesList } from '../fetchArticlesList/fetchArticlesList';
 import { articlesPageListActions } from '../../slices/articlesListSlice';
 import { fetchNextArticles } from './fetchNextArticles';
 
-jest.mock('../fetchArticleRecommendations/fetchArticleRecommendations');
+jest.mock('../fetchArticlesList/fetchArticlesList');
 
 describe('fetchNextArticles', () => {
-    test('should ended with call fetchArticleRecommendations', async () => {
+    test('should ended with call fetchArticlesList', async () => {
         const thunk = new TestAsyncThunk(fetchNextArticles, {
             articlesPageList: {
                 page: 1,
@@ -21,14 +21,14 @@ describe('fetchNextArticles', () => {
         const response = await thunk.callThunk();
 
         expect(thunk.dispatch).toHaveBeenCalledWith(articlesPageListActions.setPage(2));
-        expect(fetchArticlesList).toHaveBeenCalledWith({ page: 2 });
+        expect(fetchArticlesList).toHaveBeenCalledWith({});
 
         expect(thunk.dispatch).toBeCalledTimes(4);
 
         expect(response.meta.requestStatus).toBe('fulfilled');
     });
 
-    test('should ended without call fetchArticleRecommendations, when isLoading = true', async () => {
+    test('should ended without not call fetchArticlesList, when isLoading = true', async () => {
         const thunk = new TestAsyncThunk(fetchNextArticles, {
             articlesPageList: {
                 page: 1,
@@ -50,7 +50,7 @@ describe('fetchNextArticles', () => {
         expect(response.meta.requestStatus).toBe('fulfilled');
     });
 
-    test('should ended without call fetchArticleRecommendations, when hasMore = false', async () => {
+    test('should ended without not call fetchArticlesList, when hasMore = false', async () => {
         const thunk = new TestAsyncThunk(fetchNextArticles, {
             articlesPageList: {
                 page: 1,

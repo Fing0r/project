@@ -16,7 +16,7 @@ interface Args {
 }
 
 export const fetchArticlesList = createAsyncThunk<Article[], Args, ThunkConfig<string>>(
-    'articlesPageList/fetchArticleRecommendations',
+    'articlesPageList/fetchArticlesList',
     async (args, thunkAPI) => {
         const { rejectWithValue, extra, getState } = thunkAPI;
 

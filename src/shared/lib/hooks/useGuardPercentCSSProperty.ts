@@ -1,4 +1,4 @@
-import { usePxToRem } from 'shared/lib/hooks/usePxToRem';
+import { usePxToRem } from './usePxToRem';
 
 const useGuardPercentCSSProperty = (property?: string | number) => {
     const pxToRem = usePxToRem;

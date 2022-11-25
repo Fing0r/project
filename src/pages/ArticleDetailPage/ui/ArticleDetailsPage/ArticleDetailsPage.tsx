@@ -13,7 +13,7 @@ import { useSelector } from 'react-redux';
 import { ReducersList, useDynamicModule } from 'shared/lib/hooks/useDynamicModule';
 import { Button } from 'shared/ui/Button/Button';
 import { RoutePath } from 'shared/config/routeConfig/routeConfig';
-import { ArticleDetailPageHeader } from 'pages/ArticleDetailPage/ui/ArticleDetailPageHeader/ArticleDetailPageHeader';
+import { ArticleDetailPageHeader } from '../ArticleDetailPageHeader/ArticleDetailPageHeader';
 import { getArticleRecommendationsIsLoading } from '../../model/selectors/recommendations';
 import { articleDetailsPageReducer } from '../../model/slice';
 import { getArticleComments } from '../../model/slice/articleDetailsCommentSlice';

@@ -7,9 +7,9 @@ import { useThrottle } from 'shared/lib/hooks/useThrottle';
 import { useLocation } from 'react-router-dom';
 import { useAppDispatch } from 'shared/lib/hooks/useAppDispatch';
 import { useSelector } from 'react-redux';
-import { getPageScrollByPath } from 'widgets/Page/model/selectors/page';
 import { StateSchema } from 'app/providers/StoreProvider';
 import { useInitialEffect } from 'shared/lib/hooks/useInitialEffect';
+import { getPageScrollByPath } from '../model/selectors/page';
 import { pageActions } from '../model/slices/pageSlice';
 import cls from './Page.module.scss';
 
@@ -17,6 +17,7 @@ interface PageProps {
     className?: string;
     children: ReactNode;
     onScrollEnd?: () => void;
+    customWrapperRef?: MutableRefObject<HTMLDivElement>;
 }
 
 const Page = memo((props: PageProps) => {
@@ -24,6 +25,7 @@ const Page = memo((props: PageProps) => {
         className,
         children,
         onScrollEnd,
+        customWrapperRef,
     } = props;
     const dispatch = useAppDispatch();
     const wrapperRef = useRef() as MutableRefObject<HTMLDivElement>;
@@ -33,12 +35,16 @@ const Page = memo((props: PageProps) => {
 
     useInfiniteScroll({
         callback: onScrollEnd,
-        wrapperRef,
+        wrapperRef: customWrapperRef || wrapperRef,
         triggerRef,
     });
 
     useInitialEffect(() => {
-        wrapperRef.current.scrollTop = scrollPosition;
+        if (customWrapperRef) {
+            customWrapperRef.current.scrollTop = scrollPosition;
+        } else {
+            wrapperRef.current.scrollTop = scrollPosition;
+        }
     });
 
     const onSaveScroll = useThrottle(
@@ -56,7 +62,7 @@ const Page = memo((props: PageProps) => {
     return (
         <section
             onScroll={onSaveScroll}
-            ref={wrapperRef}
+            ref={customWrapperRef || wrapperRef}
             className={classNames(cls.Page, {}, [className])}
         >
             {children}

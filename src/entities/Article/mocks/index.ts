@@ -1,5 +1,5 @@
-import { Article, ArticleBlockType, ArticleType } from 'entities/Article';
 import AvatarImg from 'shared/assets/tests/avatarForTest.webp';
+import { Article, ArticleBlockType, ArticleType } from '../model/types/article';
 
 export const article: Article = {
     id: '1',

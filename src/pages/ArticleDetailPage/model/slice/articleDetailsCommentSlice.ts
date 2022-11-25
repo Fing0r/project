@@ -40,6 +40,6 @@ export const articleDetailsCommentSlice = createSlice({
 });
 
 export const {
-    actions: articleCommentListActions,
-    reducer: articleCommentListReducer,
+    actions: articleDetailCommentActions,
+    reducer: articleDetailCommentReducer,
 } = articleDetailsCommentSlice;
