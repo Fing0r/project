@@ -1,5 +1,6 @@
 import { classNames } from 'shared/lib/classNames/classNames';
 import { memo, useCallback } from 'react';
+import { HStack } from '../Stack';
 import cls from './Tabs.module.scss';
 import { Button, ButtonTheme } from '../Button/Button';
 import { Text, TextAlign } from '../Text/Text';
@@ -29,7 +30,11 @@ const Tabs = <T extends string>(props: TabsProps<T>) => {
     }, [onClickTab]);
 
     return (
-        <div className={classNames(cls.Tabs, {}, [className])}>
+        <HStack
+            gap="16"
+            align="start"
+            className={classNames(cls.Tabs, {}, [className])}
+        >
             {tabs.map(({ text, value }) => (
                 <Button
                     className={cls.tabBtn}
@@ -40,7 +45,7 @@ const Tabs = <T extends string>(props: TabsProps<T>) => {
                     <Text align={TextAlign.CENTER} wrapper={text} />
                 </Button>
             ))}
-        </div>
+        </HStack>
     );
 };
 const MemoTabs = memo(Tabs) as typeof Tabs;

@@ -1645,22 +1645,22 @@
       "first": "Ignat",
       "lastname": "asf",
       "age": 465,
-      "currency": "RUB",
-      "country": "Belarus",
       "city": "Moscow",
       "username": "admin213",
-      "avatar": "https://png.pngtree.com/png-vector/20190618/ourmid/pngtree-personalpersonalizationprofileuser-abstract-circle-backgro-png-image_1489146.jpg"
+      "avatar": "https://png.pngtree.com/png-vector/20190618/ourmid/pngtree-personalpersonalizationprofileuser-abstract-circle-backgro-png-image_1489146.jpg",
+      "currency": "USD",
+      "country": "Kazakhstan"
     },
     {
       "id": "2",
       "first": "Ivan",
       "lastname": "qweqwe",
       "age": 465,
-      "currency": "RUB",
-      "country": "Belarus",
       "city": "Moscow",
       "username": "admin213",
-      "avatar": "https://png.pngtree.com/png-vector/20190618/ourmid/pngtree-personalpersonalizationprofileuser-abstract-circle-backgro-png-image_1489146.jpg"
+      "avatar": "https://png.pngtree.com/png-vector/20190618/ourmid/pngtree-personalpersonalizationprofileuser-abstract-circle-backgro-png-image_1489146.jpg",
+      "currency": "USD",
+      "country": "Kazakhstan"
     }
   ]
 }

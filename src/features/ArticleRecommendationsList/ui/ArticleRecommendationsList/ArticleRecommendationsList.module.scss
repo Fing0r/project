@@ -1,0 +1,13 @@
+.titleComments {
+    margin-bottom: 1.5rem;
+}
+
+.recommendations {
+    overflow: auto;
+    margin-bottom: 1rem;
+    padding-bottom: 0.5rem;
+    display: grid;
+    grid-auto-flow: column;
+    justify-content: space-between;
+    gap: 1rem;
+}

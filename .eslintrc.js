@@ -45,7 +45,21 @@ module.exports = {
         'i18next/no-literal-string': ['error',
             {
                 markupOnly: true,
-                ignoreAttribute: ['data-testid', 'to', 'align', 'target'],
+                ignoreAttribute: [
+                    'data-testid',
+                    'to',
+                    'align',
+                    'target',
+                    'gap',
+                    'align',
+                    'justify',
+                    'direction',
+                    'wrap',
+                    'titleVariant',
+                    'tag',
+                    'as',
+                    'textAlign',
+                ],
             }],
         'max-len': ['error', { ignoreComments: true, code: 120 }],
         'react-hooks/rules-of-hooks': 'error', // Checks rules of Hooks

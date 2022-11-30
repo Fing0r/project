@@ -1,4 +1,4 @@
-import { FC, memo, useCallback } from 'react';
+import { memo, useCallback } from 'react';
 import { classNames } from 'shared/lib/classNames/classNames';
 import { useTranslation } from 'react-i18next';
 import { Button, ButtonTheme } from 'shared/ui/Button/Button';
@@ -9,7 +9,7 @@ import { useSelector } from 'react-redux';
 import { updateProfileData } from 'entities/Profile/model/services/updateProfileData/updateProfileData';
 import { getProfileData } from 'entities/Profile/model/selectors/getProfileData/getProfileData';
 import { getAuthData } from 'entities/User';
-import cls from './ProfilePageHeader.module.scss';
+import { HStack } from 'shared/ui/Stack';
 
 interface ProfilePageHeaderProps {
     className?: string;
@@ -37,29 +37,29 @@ const ProfilePageHeader = memo(({ className }: ProfilePageHeaderProps) => {
     }, [dispatch]);
 
     return (
-        <div className={classNames(cls.ProfilePageHeader, {}, [className])}>
-            <Text
-                className={cls.title}
-                title={t('Профиль')}
-            />
+        <HStack
+            justify="between"
+            align="center"
+            gap="16"
+            className={classNames('', {}, [className])}
+        >
+            <Text title={t('Профиль')} />
             {canEdit && (
-                <div className={cls.btns}>
+                <div>
                     {readonly ? (
                         <Button
                             type="button"
                             theme={ButtonTheme.OUTLINE}
                             onClick={onEdit}
-                            className={cls.btn}
                         >
                             {t('Редактировать')}
                         </Button>
                     ) : (
-                        <>
+                        <HStack gap="16" max>
                             <Button
                                 type="button"
                                 theme={ButtonTheme.OUTLINE}
                                 onClick={onSave}
-                                className={cls.btn}
                             >
                                 {t('Сохранить')}
                             </Button>
@@ -67,16 +67,15 @@ const ProfilePageHeader = memo(({ className }: ProfilePageHeaderProps) => {
                                 type="button"
                                 theme={ButtonTheme.OUTLINE_RED}
                                 onClick={onCancelEdit}
-                                className={cls.btn}
                             >
                                 {t('Отменить')}
                             </Button>
 
-                        </>
+                        </HStack>
                     )}
                 </div>
             )}
-        </div>
+        </HStack>
     );
 });
 

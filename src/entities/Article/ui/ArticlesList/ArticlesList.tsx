@@ -18,6 +18,7 @@ import { useTranslation } from 'react-i18next';
 // import { StateSchema } from 'app/providers/StoreProvider';
 // import { useInitialEffect } from 'shared/lib/hooks/useInitialEffect';
 // import { ListContainer, VirtuosoContext } from './VirtuosoContainer';
+import { classNames } from 'shared/lib/classNames/classNames';
 import cls from './ArticlesList.module.scss';
 import { Article, ArticleView } from '../../model/types/article';
 import { ArticlesListItem } from '../ArticlesListItem/ArticlesListItem';
@@ -38,7 +39,7 @@ const getSkeletons = (view: ArticleView) => new Array(view === ArticleView.GRID 
 
 interface ArticlesListProps {
     className?: string;
-    articles: Article[];
+    articles?: Article[];
     view?: ArticleView;
     isLoading?: boolean;
     target?: HTMLAttributeAnchorTarget;
@@ -87,10 +88,9 @@ const ArticlesList = memo((props: ArticlesListProps) => {
     //     isLoading: isLoading || false,
     //     view,
     // };
-
     return (
-        <div className={cls[view]}>
-            {articles.length
+        <div className={classNames(cls[view], {}, [className])}>
+            {articles?.length
                 ? articles.map(renderArticle)
                 : null}
             {isLoading && getSkeletons(view)}
@@ -105,7 +105,7 @@ const ArticlesList = memo((props: ArticlesListProps) => {
             {/*    endReached={onLoadNextArticles} */}
             {/*    itemContent={renderArticle} */}
             {/* /> */}
-            {!isLoading && !articles.length && <Text title={t('Статей нет')} />}
+            {!isLoading && !articles?.length && <Text title={t('Статей нет')} />}
         </div>
     );
 });

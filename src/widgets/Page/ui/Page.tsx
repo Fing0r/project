@@ -60,14 +60,14 @@ const Page = memo((props: PageProps) => {
     );
 
     return (
-        <section
+        <main
             onScroll={onSaveScroll}
             ref={customWrapperRef || wrapperRef}
             className={classNames(cls.Page, {}, [className])}
         >
             {children}
             {onScrollEnd && <div ref={triggerRef} className={cls.trigger} />}
-        </section>
+        </main>
     );
 });
 

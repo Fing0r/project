@@ -23,6 +23,7 @@ import {
 import { useInitialEffect } from 'shared/lib/hooks/useInitialEffect';
 import { useParams } from 'react-router-dom';
 import { Page } from 'widgets/Page';
+import { VStack } from 'shared/ui/Stack';
 import { ProfilePageHeader } from './ProfilePageHeader/ProfilePageHeader';
 import cls from './ProfilePage.module.scss';
 
@@ -97,7 +98,7 @@ const ProfilePage = memo(({ className }: ProfilePageProps) => {
 
     return (
         <Page>
-            <div className={cls.profileCard}>
+            <VStack gap="16" className={cls.ProfilePage}>
                 <Suspense fallback={<Loader />}>
                     <ProfilePageHeader />
                     {validateErrors?.length && (
@@ -124,7 +125,7 @@ const ProfilePage = memo(({ className }: ProfilePageProps) => {
                         onChangeCountry={onChangeCountry}
                     />
                 </Suspense>
-            </div>
+            </VStack>
         </Page>
     );
 });

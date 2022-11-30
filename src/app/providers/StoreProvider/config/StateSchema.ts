@@ -12,10 +12,12 @@ import { ArticlesPageListSchema } from 'pages/ArticlesPage';
 import { PageSchema } from 'widgets/Page';
 import { ArticleDetailPageSchema } from 'pages/ArticleDetailPage';
 import { ArticleCommentListSchema } from 'features/ArticleCommentList';
+import { rtkApi } from 'shared/api/rtkApi';
 
 export interface StateSchema {
     user: UserSchema;
     page: PageSchema;
+    [rtkApi.reducerPath]: ReturnType<typeof rtkApi.reducer>;
     // async
     profile?: ProfileSchema;
     loginForm?: LoginSchema;

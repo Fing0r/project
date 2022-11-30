@@ -7,6 +7,7 @@ import { Text, TextAlign, TextTheme } from 'shared/ui/Text/Text';
 import { Currency, CurrencySelect } from 'entities/Currency';
 import { Country, CountrySelect } from 'entities/Country';
 import { Avatar } from 'shared/ui/Avatar/Avatar';
+import { VStack } from 'shared/ui/Stack';
 import { Profile } from '../../model/types/profileSchema';
 import cls from './ProfileCard.module.scss';
 
@@ -79,66 +80,68 @@ const ProfileCard = memo((props: ProfileCardProps) => {
 
     return (
         <form className={classNames(cls.ProfileCard, { [cls.editable]: !readonly }, [className])}>
-            {avatar && (
-                <Avatar
-                    className={cls.avatar}
-                    size={150}
-                    src={avatar}
-                    alt={t('аватарка пользователя')}
+            <VStack gap="16">
+                {avatar && (
+                    <Avatar
+                        className={cls.avatar}
+                        size={150}
+                        src={avatar}
+                        alt={t('аватарка пользователя')}
+                    />
+                )}
+                <Input
+                    theme={InputTheme.OUTLINE}
+                    label={t('Ваше имя')}
+                    value={first}
+                    disabled={readonly}
+                    onChange={onChangeFirstname}
                 />
-            )}
-            <Input
-                theme={InputTheme.OUTLINE}
-                label={t('Ваше имя')}
-                value={first}
-                disabled={readonly}
-                onChange={onChangeFirstname}
-            />
-            <Input
-                theme={InputTheme.OUTLINE}
-                label={t('Ваша фамилия')}
-                value={lastname}
-                disabled={readonly}
-                onChange={onChangeLastname}
-            />
-            <Input
-                theme={InputTheme.OUTLINE}
-                label={t('Ваш возраст')}
-                value={age}
-                disabled={readonly}
-                onChange={onChangeAge}
-            />
-            <Input
-                theme={InputTheme.OUTLINE}
-                label={t('Ваше имя на сайте')}
-                value={username}
-                disabled={readonly}
-                onChange={onChangeUsername}
-            />
-            <Input
-                theme={InputTheme.OUTLINE}
-                label={t('Ваш аватар')}
-                value={avatar}
-                disabled={readonly}
-                onChange={onChangeAvatar}
-            />
-            <Input
-                theme={InputTheme.OUTLINE}
-                label={t('Ваш город')}
-                value={city}
-                disabled={readonly}
-                onChange={onChangeCity}
-            />
-            <CurrencySelect
-                readonly={readonly}
-                value={currency}
-                onChange={onChangeCurrency}
-            />
-            <CountrySelect
-                readonly={readonly}
-                value={country}
-                onChange={onChangeCountry}
-            />
+                <Input
+                    theme={InputTheme.OUTLINE}
+                    label={t('Ваша фамилия')}
+                    value={lastname}
+                    disabled={readonly}
+                    onChange={onChangeLastname}
+                />
+                <Input
+                    theme={InputTheme.OUTLINE}
+                    label={t('Ваш возраст')}
+                    value={age}
+                    disabled={readonly}
+                    onChange={onChangeAge}
+                />
+                <Input
+                    theme={InputTheme.OUTLINE}
+                    label={t('Ваше имя на сайте')}
+                    value={username}
+                    disabled={readonly}
+                    onChange={onChangeUsername}
+                />
+                <Input
+                    theme={InputTheme.OUTLINE}
+                    label={t('Ваш аватар')}
+                    value={avatar}
+                    disabled={readonly}
+                    onChange={onChangeAvatar}
+                />
+                <Input
+                    theme={InputTheme.OUTLINE}
+                    label={t('Ваш город')}
+                    value={city}
+                    disabled={readonly}
+                    onChange={onChangeCity}
+                />
+                <CurrencySelect
+                    readonly={readonly}
+                    value={currency}
+                    onChange={onChangeCurrency}
+                />
+                <CountrySelect
+                    readonly={readonly}
+                    value={country}
+                    onChange={onChangeCountry}
+                />
+            </VStack>
         </form>
     );
 });

@@ -1,4 +1,6 @@
-import { memo, useCallback, useState } from 'react';
+import {
+    memo, useCallback, useMemo, useState,
+} from 'react';
 import { classNames } from 'shared/lib/classNames/classNames';
 import { useTranslation } from 'react-i18next';
 import { Button, ButtonTheme } from 'shared/ui/Button/Button';
@@ -9,6 +11,10 @@ import { getAuthData, userActions } from 'entities/User';
 import { useAppDispatch } from 'shared/lib/hooks/useAppDispatch';
 import { Text, TextSize, TextTheme } from 'shared/ui/Text/Text';
 import { RoutePath } from 'shared/config/routeConfig/routeConfig';
+import { Dropdown, DropdownItem } from 'shared/ui/Dropdown/Dropdown';
+import { Avatar } from 'shared/ui/Avatar/Avatar';
+import Logout from 'shared/assets/icons/logout.svg';
+import User from 'shared/assets/icons/user.svg';
 import cls from './Navbar.module.scss';
 
 interface NavbarProps {
@@ -33,6 +39,19 @@ const Navbar = memo(({ className }: NavbarProps) => {
         dispatch(userActions.logout());
     }, [dispatch]);
 
+    const dropDownItems = useMemo<DropdownItem[]>(() => ([
+        {
+            content: t('Профиль'),
+            href: `${RoutePath.profile}${authData?.id}`,
+            Icon: User,
+        },
+        {
+            content: t('Выйти'),
+            onClick: onLogout,
+            Icon: Logout,
+        },
+    ]), [authData?.id, onLogout, t]);
+
     if (authData) {
         return (
             <header className={classNames(cls.Navbar, {}, [className])}>
@@ -49,9 +68,13 @@ const Navbar = memo(({ className }: NavbarProps) => {
                 >
                     {t('Создать статью')}
                 </AppLink>
-                <Button theme={ButtonTheme.CLEAR_INVERTED} onClick={onLogout} className={cls.logoutBtn}>
-                    {t('Выйти')}
-                </Button>
+                <Dropdown
+                    className={cls.logoutBtn}
+                    trigger={(
+                        <Avatar size={30} src={authData.avatar} />
+                    )}
+                    items={dropDownItems}
+                />
             </header>
         );
     }

@@ -1,0 +1,97 @@
+.ListBox {
+    position: relative;
+    min-width: 12.5rem;
+}
+
+.buttonWrapper {
+    text-align: left;
+}
+
+.chevron {
+    position: absolute;
+    right: 0.5rem;
+    top: 50%;
+    transform: translateY(-50%);
+    transition: opacity var(--transition-delay);
+}
+
+.button {
+    padding-right: 2rem;
+    opacity: 1;
+    min-height: 42px;
+    transition: border var(--transition-delay);
+
+    &[disabled] .chevron {
+        opacity: 0;
+    }
+
+    &.btnWhenOpen {
+        border-color: var(--focus-color);
+    }
+}
+
+.optionsWrapper {
+    z-index: 1111;
+    width: 100%;
+    overflow: hidden;
+}
+
+.options {
+    position: absolute;
+    z-index: 1111;
+    border: 1px solid var(--focus-color);
+    border-radius: 5px;
+    color: var(--list-box-color-seconadary);
+    background-color: var(--list-box-color-primary);
+    width: 100%;
+    overflow: hidden;
+}
+
+.option {
+    padding: 0.5rem;
+    cursor: pointer;
+    background-color: var(--list-box-color-primary);
+}
+
+.label {
+    position: absolute;
+    top: 50%;
+    transform: translateY(-50%);
+    background-color: transparent;
+    padding: 0 0.5rem;
+    line-height: 1;
+    left: 0.5rem;
+    pointer-events: none;
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    max-width: calc(100% - 1.563rem);
+    transition:
+        transform var(--transition-delay),
+        font-size var(--transition-delay),
+        color var(--transition-delay),
+        background-color var(--transition-delay),
+        top var(--transition-delay);
+}
+
+.label.labelWhenOpen,
+.label.labelWithValue.labelWhenNotDisabled {
+    color: var(--focus-color);
+}
+
+.label.labelWhenOpen,
+.label.labelWithValue {
+    top: 0;
+    padding: 0 0.5rem;
+    font-size: 0.75rem;
+    background-color: var(--list-box-color-primary);
+}
+
+.selected {
+    background-color: var(--list-box-color-active);
+    color: var(--list-box-color-primary);
+}
+
+.active:not([aria-selected="true"]) {
+    background-color: var(--list-box-color-selected);
+}

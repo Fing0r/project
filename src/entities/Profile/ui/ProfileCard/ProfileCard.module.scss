@@ -1,6 +1,4 @@
 .ProfileCard {
-    display: grid;
-    gap: 1rem;
     border: 2px solid var(--primary-color);
     padding: 1rem;
     transition: border var(--transition-delay);
@@ -15,6 +13,7 @@
 }
 
 .center {
+    display: flex;
     justify-content: center;
     align-items: center;
 }

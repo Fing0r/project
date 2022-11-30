@@ -1,0 +1,74 @@
+.Dropdown {
+    position: relative;
+}
+
+.trigger {
+    background-color: transparent;
+    border: none;
+    cursor: pointer;
+}
+
+.items {
+    position: absolute;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    max-width: 15rem;
+    background-color: var(--inverted-secondary-color);
+    padding: 0.25rem;
+    border-radius: 5px;
+    overflow: hidden;
+    min-width: 12.5rem;
+    z-index: 1112;
+}
+
+.item {
+    display: flex;
+    align-items: center;
+    text-align: start;
+    gap: 0.5rem;
+    padding: 0.5rem;
+    background-color: transparent;
+    border-radius: 5px;
+    border: none;
+    max-width: 15rem;
+    cursor: pointer;
+    color: var(--inverted-primary-color);
+    width: 100%;
+    transition: color var(--transition-delay), background-color var(--transition-delay);
+}
+
+.icon {
+    flex: 0 0 1.25rem;
+    width: 1.25rem;
+    height: 1.25rem;
+}
+
+.active {
+    background-color: var(--inverted-primary-color);
+    color: var(--inverted-secondary-color);
+}
+
+.wrapperItem {
+    width: 100%;
+}
+
+.directionTopLeft {
+    bottom: 100%;
+    right: 0;
+}
+
+.directionTopRight {
+    bottom: 100%;
+    left: 0;
+}
+
+.directionBottomLeft {
+    top: 100%;
+    right: 0;
+}
+
+.directionBottomRight {
+    top: 100%;
+    left: 0;
+}

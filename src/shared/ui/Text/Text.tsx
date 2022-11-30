@@ -20,6 +20,8 @@ export const enum TextAlign {
     RIGHT = 'right',
 }
 
+type TitleVariants = 'h1' | 'h2' | 'h3' | 'h4' | 'h5' | 'h6';
+
 interface TextProps {
     className?: string;
     title?: string;
@@ -28,6 +30,7 @@ interface TextProps {
     theme?: TextTheme;
     align?: TextAlign;
     size?: TextSize;
+    titleVariant?: TitleVariants
 }
 
 const Text = memo((props: TextProps) => {
@@ -39,6 +42,7 @@ const Text = memo((props: TextProps) => {
         theme = TextTheme.PRIMARY,
         align = TextAlign.LEFT,
         size = TextSize.M,
+        titleVariant,
     } = props;
 
     const additional: Additional = [
@@ -48,16 +52,16 @@ const Text = memo((props: TextProps) => {
         className,
     ];
 
+    const TitleTag = titleVariant || 'h2';
+
     return (
         <div
             className={classNames('', {}, additional)}
         >
             {title && (
-                <h2
-                    className={classNames(cls.Title, {}, [])}
-                >
+                <TitleTag className={classNames(cls.Title, {}, [])}>
                     {title}
-                </h2>
+                </TitleTag>
             )}
             {text && (
                 <p className={classNames(cls.Text, {}, [])}>

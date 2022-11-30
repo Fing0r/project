@@ -14,6 +14,7 @@ import { SortOrder } from 'shared/types';
 import { useDebounce } from 'shared/lib/hooks/useDebounce';
 import { useSelector } from 'react-redux';
 import { useAppDispatch } from 'shared/lib/hooks/useAppDispatch';
+import { HStack, VStack } from 'shared/ui/Stack';
 import {
     getArticlesPageListOrder,
     getArticlesPageListSearch,
@@ -79,8 +80,12 @@ const ArticlesPageFilters = memo((props: ArticlesPageFiltersProps) => {
     }, [dispatch]);
 
     return (
-        <div className={classNames(cls.ArticlesPageFilters, {}, [className])}>
-            <div className={cls.header}>
+        <VStack gap="16" className={classNames(cls.ArticlesPageFilters, {}, [className])}>
+            <HStack
+                gap="16"
+                justify="between"
+                className={cls.header}
+            >
                 <ArticleSortSelector
                     className={cls.sorted}
                     sort={sort}
@@ -92,7 +97,7 @@ const ArticlesPageFilters = memo((props: ArticlesPageFiltersProps) => {
                     onViewClick={onChangeView}
                     currentView={view}
                 />
-            </div>
+            </HStack>
             <Input
                 theme={InputTheme.OUTLINE}
                 value={search}
@@ -104,7 +109,7 @@ const ArticlesPageFilters = memo((props: ArticlesPageFiltersProps) => {
                 value={type}
                 onChange={onChangeType}
             />
-        </div>
+        </VStack>
     );
 });
 
