@@ -1,9 +1,10 @@
 import { createSlice, PayloadAction } from '@reduxjs/toolkit';
-import { ProfileSchema, Profile } from '../types/profileSchema';
+import { Profile } from 'entities/Profile';
 import { updateProfileData } from '../services/updateProfileData/updateProfileData';
 import { fetchProfileData } from '../services/fetchProfileData/fetchProfileData';
+import { EditableProfileCardSchema } from '../types/EditableProfileCardSchema';
 
-const initialState: ProfileSchema = {
+const initialState: EditableProfileCardSchema = {
     data: undefined,
     form: undefined,
     readonly: true,
@@ -34,6 +35,7 @@ export const profileSlice = createSlice({
     extraReducers: (builder) => {
         builder
             .addCase(fetchProfileData.pending, (state) => {
+                console.log(123);
                 state.isLoading = true;
                 state.error = undefined;
             })

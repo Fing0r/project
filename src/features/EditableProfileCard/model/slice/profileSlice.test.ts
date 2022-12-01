@@ -1,9 +1,12 @@
 import { Country } from 'entities/Country';
 import { Currency } from 'entities/Currency';
+import {
+    EditableProfileCardSchema,
+    ValidateProfileErrors,
+} from '../types/EditableProfileCardSchema';
 import { fetchProfileData } from '../services/fetchProfileData/fetchProfileData';
 import { updateProfileData } from '../services/updateProfileData/updateProfileData';
 import { profileActions, profileReducer } from './profileSlice';
-import { ProfileSchema, ValidateProfileErrors } from '../types/profileSchema';
 
 const data = {
     age: 3,
@@ -19,13 +22,13 @@ const data = {
 
 describe('profileSlice.test', () => {
     test('set readonly', () => {
-        const state: DeepPartial<ProfileSchema> = {
+        const state: DeepPartial<EditableProfileCardSchema> = {
             readonly: false,
         };
 
         expect(
             profileReducer(
-                state as ProfileSchema,
+                state as EditableProfileCardSchema,
                 profileActions.setReadonlyProfile(true),
             ),
         ).toEqual({
@@ -34,12 +37,12 @@ describe('profileSlice.test', () => {
     });
 
     test('update form data profile', () => {
-        const state: DeepPartial<ProfileSchema> = {
+        const state: DeepPartial<EditableProfileCardSchema> = {
             form: data,
         };
 
         expect(
-            profileReducer(state as ProfileSchema, profileActions.updateFormData({
+            profileReducer(state as EditableProfileCardSchema, profileActions.updateFormData({
                 ...data, age: 5,
             })),
         ).toEqual({
@@ -51,7 +54,7 @@ describe('profileSlice.test', () => {
     });
 
     test('cancel update form data profile', () => {
-        const state: DeepPartial<ProfileSchema> = {
+        const state: DeepPartial<EditableProfileCardSchema> = {
             data,
             form: { ...data, age: 5 },
             readonly: false,
@@ -59,7 +62,7 @@ describe('profileSlice.test', () => {
         };
 
         expect(
-            profileReducer(state as ProfileSchema, profileActions.cancelEditingFormData()),
+            profileReducer(state as EditableProfileCardSchema, profileActions.cancelEditingFormData()),
         ).toEqual({
             data,
             form: data,
@@ -68,14 +71,14 @@ describe('profileSlice.test', () => {
     });
 
     test('fetchProfileData pending', () => {
-        const state: DeepPartial<ProfileSchema> = {
+        const state: DeepPartial<EditableProfileCardSchema> = {
             isLoading: false,
             error: '123',
         };
 
         expect(
             profileReducer(
-                state as ProfileSchema,
+                state as EditableProfileCardSchema,
                 fetchProfileData.pending(
                     '',
                     undefined,
@@ -87,13 +90,13 @@ describe('profileSlice.test', () => {
     });
 
     test('fetchProfileData fulfilled', () => {
-        const state: DeepPartial<ProfileSchema> = {
+        const state: DeepPartial<EditableProfileCardSchema> = {
             isLoading: true,
         };
 
         expect(
             profileReducer(
-                state as ProfileSchema,
+                state as EditableProfileCardSchema,
                 fetchProfileData.fulfilled(
                     data,
                     '',
@@ -108,13 +111,13 @@ describe('profileSlice.test', () => {
     });
 
     test('fetchProfileData rejected', () => {
-        const state: DeepPartial<ProfileSchema> = {
+        const state: DeepPartial<EditableProfileCardSchema> = {
             isLoading: true,
         };
 
         expect(
             profileReducer(
-                state as ProfileSchema,
+                state as EditableProfileCardSchema,
                 fetchProfileData.rejected(
                     new Error(),
                     '',
@@ -129,14 +132,14 @@ describe('profileSlice.test', () => {
     });
 
     test('updateProfileData pending', () => {
-        const state: DeepPartial<ProfileSchema> = {
+        const state: DeepPartial<EditableProfileCardSchema> = {
             isLoading: false,
             validateErrors: [ValidateProfileErrors.NO_DATA],
         };
 
         expect(
             profileReducer(
-                state as ProfileSchema,
+                state as EditableProfileCardSchema,
                 updateProfileData.pending(
                     '',
                     undefined,
@@ -148,14 +151,14 @@ describe('profileSlice.test', () => {
     });
 
     test('updateProfileData fulfilled', () => {
-        const state: DeepPartial<ProfileSchema> = {
+        const state: DeepPartial<EditableProfileCardSchema> = {
             isLoading: true,
             readonly: false,
         };
 
         expect(
             profileReducer(
-                state as ProfileSchema,
+                state as EditableProfileCardSchema,
                 updateProfileData.fulfilled(
                     data,
                     '',
@@ -170,13 +173,13 @@ describe('profileSlice.test', () => {
     });
 
     test('updateProfileData rejected', () => {
-        const state: DeepPartial<ProfileSchema> = {
+        const state: DeepPartial<EditableProfileCardSchema> = {
             isLoading: true,
         };
 
         expect(
             profileReducer(
-                state as ProfileSchema,
+                state as EditableProfileCardSchema,
                 updateProfileData.rejected(
                     new Error(),
                     '',

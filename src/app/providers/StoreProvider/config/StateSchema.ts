@@ -4,7 +4,6 @@ import {
     AnyAction, EnhancedStore, Reducer, ReducersMapObject,
 } from '@reduxjs/toolkit';
 import { UserSchema } from 'entities/User';
-import { ProfileSchema } from 'entities/Profile';
 import { LoginSchema } from 'features/AuthByUsername';
 import { ArticleDetailsSchema } from 'entities/Article';
 import { AddCommentFormSchema } from 'features/AddCommentForm';
@@ -13,13 +12,14 @@ import { PageSchema } from 'widgets/Page';
 import { ArticleDetailPageSchema } from 'pages/ArticleDetailPage';
 import { ArticleCommentListSchema } from 'features/ArticleCommentList';
 import { rtkApi } from 'shared/api/rtkApi';
+import { EditableProfileCardSchema } from 'features/EditableProfileCard';
 
 export interface StateSchema {
     user: UserSchema;
     page: PageSchema;
     [rtkApi.reducerPath]: ReturnType<typeof rtkApi.reducer>;
     // async
-    profile?: ProfileSchema;
+    profile?: EditableProfileCardSchema;
     loginForm?: LoginSchema;
     articleDetails?: ArticleDetailsSchema;
     addCommentForm?: AddCommentFormSchema;

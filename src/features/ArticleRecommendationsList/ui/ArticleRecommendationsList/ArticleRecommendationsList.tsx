@@ -2,30 +2,15 @@ import { classNames } from 'shared/lib/classNames/classNames';
 import { useTranslation } from 'react-i18next';
 import { memo } from 'react';
 import { Text } from 'shared/ui/Text/Text';
-import { Article, ArticlesList } from 'entities/Article';
-import { rtkApi } from 'shared/api/rtkApi';
+import { ArticlesList } from 'entities/Article';
+import {
+    useGetArticleRecommendationsListQuery,
+} from '../../model/api/recommendationsApi';
 import cls from './ArticleRecommendationsList.module.scss';
 
 interface ArticleRecommendationsListProps {
     className?: string;
 }
-
-const recommendationsApi = rtkApi.injectEndpoints({
-    endpoints: (build) => ({
-        getArticleRecommendationsList: build.query<Article[], number>({
-            query: (limit) => ({
-                url: '/articles',
-                params: {
-                    _limit: limit,
-                    _expand: 'user',
-                },
-            }),
-        }),
-    }),
-    overrideExisting: false,
-});
-
-export const { useGetArticleRecommendationsListQuery } = recommendationsApi;
 
 export const ArticleRecommendationsList = memo((props: ArticleRecommendationsListProps) => {
     const { className } = props;

@@ -13,7 +13,7 @@ interface ArticleDetailPageHeaderProps {
     className?: string;
 }
 
-const ArticleDetailPageHeader = memo((props: ArticleDetailPageHeaderProps) => {
+const ArticleDetailsPageHeader = memo((props: ArticleDetailPageHeaderProps) => {
     const {
         className,
     } = props;
@@ -50,4 +50,4 @@ const ArticleDetailPageHeader = memo((props: ArticleDetailPageHeaderProps) => {
     );
 });
 
-export { ArticleDetailPageHeader };
+export { ArticleDetailsPageHeader };

@@ -2,6 +2,8 @@ import React from 'react';
 import { ComponentMeta, ComponentStory } from '@storybook/react';
 import { ThemeDecorator } from 'shared/config/storybook/decorators/ThemeDecorator';
 import { ThemeEnum } from 'app/providers/ThemeProvider/lib/ThemeContext';
+import { useArgs } from '@storybook/client-api';
+import { Country } from '../../model/types/country';
 import { CountrySelect } from './CountrySelect';
 
 export default {
@@ -9,7 +11,15 @@ export default {
     component: CountrySelect,
 } as ComponentMeta<typeof CountrySelect>;
 
-const Template: ComponentStory<typeof CountrySelect> = (args) => <CountrySelect {...args} />;
+const Template: ComponentStory<typeof CountrySelect> = (args) => {
+    const [_, updateArgs] = useArgs();
+
+    const onChange = (county: Country) => {
+        updateArgs({ ...args, value: county });
+    };
+
+    return <CountrySelect {...args} onChange={onChange} />;
+};
 
 export const Light = Template.bind({});
 Light.args = {

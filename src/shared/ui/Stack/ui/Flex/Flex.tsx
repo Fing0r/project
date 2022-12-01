@@ -73,6 +73,7 @@ const Flex = <E extends ElementType = keyof HTMLElementTagNameMap>(props: FlexPr
         children,
         className,
         tag,
+        ...otherProps
     } = props;
 
     const flexProperty = [
@@ -87,7 +88,7 @@ const Flex = <E extends ElementType = keyof HTMLElementTagNameMap>(props: FlexPr
     const Tag = tag || 'div';
 
     return (
-        <Tag className={classNames(cls.Flex, { [cls.max]: max }, flexProperty)}>
+        <Tag {...otherProps} className={classNames(cls.Flex, { [cls.max]: max }, flexProperty)}>
             {children}
         </Tag>
     );

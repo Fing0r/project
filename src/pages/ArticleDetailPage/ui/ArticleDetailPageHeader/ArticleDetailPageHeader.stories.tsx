@@ -1,13 +1,13 @@
 import React from 'react';
 import { ComponentMeta, ComponentStory } from '@storybook/react';
-import { ArticleDetailPageHeader } from './ArticleDetailPageHeader';
+import { ArticleDetailsPageHeader } from './ArticleDetailsPageHeader';
 
 export default {
     title: 'Shared/ArticleDetailPageHeader',
-    component: ArticleDetailPageHeader,
-} as ComponentMeta<typeof ArticleDetailPageHeader>;
+    component: ArticleDetailsPageHeader,
+} as ComponentMeta<typeof ArticleDetailsPageHeader>;
 
-const Template: ComponentStory<typeof ArticleDetailPageHeader> = (args) => <ArticleDetailPageHeader {...args} />;
+const Template: ComponentStory<typeof ArticleDetailsPageHeader> = (args) => <ArticleDetailsPageHeader {...args} />;
 
 export const Normal = Template.bind({});
 Normal.args = {};
