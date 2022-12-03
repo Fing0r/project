@@ -20,6 +20,8 @@ interface PageProps {
     customWrapperRef?: MutableRefObject<HTMLDivElement>;
 }
 
+export const PAGE_ID = 'page';
+
 const Page = memo((props: PageProps) => {
     const {
         className,
@@ -62,6 +64,7 @@ const Page = memo((props: PageProps) => {
     return (
         <main
             onScroll={onSaveScroll}
+            id={PAGE_ID}
             ref={customWrapperRef || wrapperRef}
             className={classNames(cls.Page, {}, [className])}
         >

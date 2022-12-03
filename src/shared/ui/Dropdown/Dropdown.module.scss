@@ -19,7 +19,7 @@
     border-radius: 5px;
     overflow: hidden;
     min-width: 12.5rem;
-    z-index: 1112;
+    z-index: var(--z-index-dropdown);
 }
 
 .item {

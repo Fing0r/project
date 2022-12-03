@@ -1,0 +1,37 @@
+import { Navigate, useLocation } from 'react-router-dom';
+import { useSelector } from 'react-redux';
+import { getUserRoles, UserRoles } from 'entities/User';
+import { RoutePath } from 'shared/config/routeConfig/routeConfig';
+import { useMemo } from 'react';
+
+interface RequireRoleProps {
+    children: JSX.Element;
+    roles?: UserRoles[];
+}
+
+const RequireRoles = ({ roles, children }: RequireRoleProps) => {
+    const userRoles = useSelector(getUserRoles);
+    const location = useLocation();
+
+    const hasRequireRoles = useMemo(() => {
+        if (!roles) {
+            return true;
+        }
+
+        return roles?.some((requireRole) => userRoles?.includes(requireRole));
+    }, [roles, userRoles]);
+
+    if (!hasRequireRoles) {
+        return (
+            <Navigate
+                to={RoutePath.forbidden}
+                state={{ from: location }}
+                replace
+            />
+        );
+    }
+
+    return children;
+};
+
+export { RequireRoles };

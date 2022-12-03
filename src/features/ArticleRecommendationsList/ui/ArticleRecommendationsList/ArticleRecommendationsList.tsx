@@ -21,7 +21,7 @@ export const ArticleRecommendationsList = memo((props: ArticleRecommendationsLis
         error,
     } = useGetArticleRecommendationsListQuery(4);
 
-    if (error) {
+    if (error || !articles) {
         return (
             <Text
                 titleVariant="h3"

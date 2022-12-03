@@ -53,6 +53,7 @@ const EditableProfileCardHeader = memo(({ className }: ProfilePageHeaderProps) =
                             type="button"
                             theme={ButtonTheme.OUTLINE}
                             onClick={onEdit}
+                            data-testid="EditableProfileCard.edit"
                         >
                             {t('Редактировать')}
                         </Button>
@@ -62,6 +63,7 @@ const EditableProfileCardHeader = memo(({ className }: ProfilePageHeaderProps) =
                                 type="button"
                                 theme={ButtonTheme.OUTLINE}
                                 onClick={onSave}
+                                data-testid="EditableProfileCard.save"
                             >
                                 {t('Сохранить')}
                             </Button>
@@ -69,6 +71,7 @@ const EditableProfileCardHeader = memo(({ className }: ProfilePageHeaderProps) =
                                 type="button"
                                 theme={ButtonTheme.OUTLINE_RED}
                                 onClick={onCancelEdit}
+                                data-testid="EditableProfileCard.cancel"
                             >
                                 {t('Отменить')}
                             </Button>

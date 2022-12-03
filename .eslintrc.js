@@ -76,6 +76,7 @@ module.exports = {
         'react/no-array-index-key': 'off',
         'arrow-body-style': 'off',
         'check-paths-for-fsd-methodology/absolute-and-relative-path-checker': 'error',
+        'no-redeclare': 'warn',
     },
     globals: {
         __IS_DEV__: true,

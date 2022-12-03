@@ -17,15 +17,15 @@ export interface VirtuosoContext {
     view: ArticleView;
 }
 
-type DivProps = HTMLProps<HTMLDivElement> & { context?: VirtuosoContext }
+type ListProps = HTMLProps<HTMLDivElement> & { context?: VirtuosoContext }
 
-const ListContainer = forwardRef<HTMLDivElement, DivProps>(({ children, style, ...otherProps }, ref) => {
+const ListContainer = forwardRef<HTMLDivElement, ListProps>(({ children, style, ...otherProps }, ref) => {
     const {
         className = '',
         view = ArticleView.GRID,
         isLoading = false,
     } = otherProps.context ?? {};
-    console.log(children);
+
     return (
         <div
             {...otherProps}

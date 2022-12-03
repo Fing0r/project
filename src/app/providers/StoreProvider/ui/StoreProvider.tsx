@@ -6,20 +6,20 @@ import { StateSchema } from 'app/providers/StoreProvider/config/StateSchema';
 
 interface StoreProviderProps {
     initialState?: DeepPartial<StateSchema>
-    asyncReducer?: DeepPartial<ReducersMapObject<StateSchema>>
+    asyncReducers?: DeepPartial<ReducersMapObject<StateSchema>>
 }
 
 const StoreProvider: FC<StoreProviderProps> = (props) => {
     const {
         children,
         initialState,
-        asyncReducer,
+        asyncReducers,
     } = props;
 
     const store = useMemo(() => createReduxStore(
         initialState as StateSchema,
-        asyncReducer as ReducersMapObject<StateSchema>,
-    ), [asyncReducer, initialState]);
+        asyncReducers as ReducersMapObject<StateSchema>,
+    ), [asyncReducers, initialState]);
 
     return (
         <Provider store={store}>

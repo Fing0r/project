@@ -30,7 +30,8 @@ interface TextProps {
     theme?: TextTheme;
     align?: TextAlign;
     size?: TextSize;
-    titleVariant?: TitleVariants
+    titleVariant?: TitleVariants;
+    'data-testid'?: string;
 }
 
 const Text = memo((props: TextProps) => {
@@ -43,6 +44,7 @@ const Text = memo((props: TextProps) => {
         align = TextAlign.LEFT,
         size = TextSize.M,
         titleVariant,
+        'data-testid': dataTestId = '',
     } = props;
 
     const additional: Additional = [
@@ -56,20 +58,30 @@ const Text = memo((props: TextProps) => {
 
     return (
         <div
+            data-testid={dataTestId}
             className={classNames('', {}, additional)}
         >
             {title && (
-                <TitleTag className={classNames(cls.Title, {}, [])}>
+                <TitleTag
+                    className={classNames(cls.Title, {}, [])}
+                    data-testid={`${dataTestId}.header`}
+                >
                     {title}
                 </TitleTag>
             )}
             {text && (
-                <p className={classNames(cls.Text, {}, [])}>
+                <p
+                    className={classNames(cls.Text, {}, [])}
+                    data-testid={`${dataTestId}.paragraph`}
+                >
                     {text}
                 </p>
             )}
             {wrapper && (
-                <span className={classNames(cls.Wrapper, {}, [])}>
+                <span
+                    className={classNames(cls.Wrapper, {}, [])}
+                    data-testid={`${dataTestId}.wrapper`}
+                >
                     {wrapper}
                 </span>
             )}

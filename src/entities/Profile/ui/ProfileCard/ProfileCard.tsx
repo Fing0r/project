@@ -95,6 +95,7 @@ const ProfileCard = memo((props: ProfileCardProps) => {
                     value={first}
                     disabled={readonly}
                     onChange={onChangeFirstname}
+                    data-testid="EditableProfileCard.firstName"
                 />
                 <Input
                     theme={InputTheme.OUTLINE}
@@ -102,6 +103,7 @@ const ProfileCard = memo((props: ProfileCardProps) => {
                     value={lastname}
                     disabled={readonly}
                     onChange={onChangeLastname}
+                    data-testid="EditableProfileCard.secondName"
                 />
                 <Input
                     theme={InputTheme.OUTLINE}

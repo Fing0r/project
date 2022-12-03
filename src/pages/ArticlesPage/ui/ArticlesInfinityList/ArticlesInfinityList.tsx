@@ -31,11 +31,11 @@ const ArticlesInfinityList = memo((props: ArticlesInfinityListProps) => {
 
     return (
         <ArticlesList
-            // wrapperRef={ref}
             articles={articles}
             className={className}
             view={view}
             isLoading={isLoading}
+            isVirtualize
         />
     );
 });

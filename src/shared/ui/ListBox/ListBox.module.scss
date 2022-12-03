@@ -31,14 +31,14 @@
 }
 
 .optionsWrapper {
-    z-index: 1111;
+    z-index: var(--z-index-listbox);
     width: 100%;
     overflow: hidden;
 }
 
 .options {
     position: absolute;
-    z-index: 1111;
+    z-index: var(--z-index-listbox-options);
     border: 1px solid var(--focus-color);
     border-radius: 5px;
     color: var(--list-box-color-seconadary);

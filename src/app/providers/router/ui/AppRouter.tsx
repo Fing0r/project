@@ -7,12 +7,15 @@ import { Route, Routes } from 'react-router-dom';
 import { routeConfig, RoutePropsWithAuth } from 'shared/config/routeConfig/routeConfig';
 import { PageLoader } from 'widgets/PageLoader';
 import { RequireAuth } from 'app/providers/router/ui/RequireAuth';
+import { RequireRoles } from 'app/providers/router/ui/RequireRoles';
 
 const AppRouter = memo(() => {
-    const renderRouteWithWrapper = useCallback(({ path, element, authOnly }: RoutePropsWithAuth) => {
+    const renderRouteWithWrapper = useCallback(({
+        path, element, authOnly, roles,
+    }: RoutePropsWithAuth) => {
         const elementItem = (
             <Suspense fallback={<PageLoader />}>
-                { element }
+                {element}
             </Suspense>
         );
 
@@ -20,7 +23,13 @@ const AppRouter = memo(() => {
             <Route
                 key={path}
                 path={path}
-                element={authOnly ? <RequireAuth>{elementItem}</RequireAuth> : elementItem}
+                element={authOnly ? (
+                    <RequireAuth>
+                        <RequireRoles roles={roles}>
+                            {elementItem}
+                        </RequireRoles>
+                    </RequireAuth>
+                ) : elementItem}
             />
         );
     }, []);
