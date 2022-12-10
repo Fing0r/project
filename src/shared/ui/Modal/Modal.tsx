@@ -1,7 +1,7 @@
-import React, {
-    FC, useCallback, useEffect, useRef, useState,
-} from 'react';
+import React, { ReactNode } from 'react';
 import { classNames, Mods } from 'shared/lib/classNames/classNames';
+import { Overlay } from '../Overlay/Overlay';
+import { useModal } from '../../lib/hooks/useModal';
 import { Portal } from '../Portal/Portal';
 import cls from './Modal.module.scss';
 
@@ -11,11 +11,12 @@ interface ModalProps {
     isOpen: boolean;
     onClose: () => void;
     lazy?: boolean;
+    children: ReactNode;
 }
 
 const ANIMATION_DELAY = 300;
 
-const Modal: FC<ModalProps> = (props) => {
+const Modal = (props: ModalProps) => {
     const {
         className,
         contentClassName,
@@ -25,46 +26,16 @@ const Modal: FC<ModalProps> = (props) => {
         lazy,
     } = props;
 
-    const [isClosing, setIsClosing] = useState(false);
-    const [isOpening, setIsOpening] = useState(false);
-    const [isMounted, setMounted] = useState(false);
-    const timerRef = useRef<ReturnType<typeof setTimeout>>();
-
-    const closeHandler = useCallback(() => {
-        if (onClose) {
-            setIsClosing(true);
-            timerRef.current = setTimeout(() => {
-                setIsClosing(false);
-                onClose();
-            }, ANIMATION_DELAY);
-        }
-    }, [onClose]);
-
-    const onContentClick = useCallback((e: React.MouseEvent) => {
-        e.stopPropagation();
-    }, []);
-
-    const onPressEscape = useCallback((e: KeyboardEvent) => {
-        if (e.key === 'Escape') {
-            closeHandler();
-        }
-    }, [closeHandler]);
-
-    useEffect(() => {
-        if (isOpen) {
-            setMounted(true);
-            window.addEventListener('keydown', onPressEscape);
-            timerRef.current = setTimeout(() => {
-                setIsOpening(true);
-            }, 100);
-        }
-
-        return () => {
-            setIsOpening(false);
-            clearTimeout(timerRef.current);
-            window.removeEventListener('keydown', onPressEscape);
-        };
-    }, [isOpen, onPressEscape]);
+    const {
+        isMounted,
+        isOpening,
+        isClosing,
+        close,
+    } = useModal({
+        animationDelay: ANIMATION_DELAY,
+        isOpen,
+        onClose,
+    });
 
     const mods: Mods = {
         [cls.opened]: isOpening,
@@ -78,16 +49,9 @@ const Modal: FC<ModalProps> = (props) => {
     return (
         <Portal>
             <div className={classNames(cls.Modal, mods, [className])}>
-                <div
-                    className={cls.overlay}
-                    onClick={closeHandler}
-                >
-                    <div
-                        className={classNames(cls.content, {}, [contentClassName])}
-                        onClick={onContentClick}
-                    >
-                        {children}
-                    </div>
+                <Overlay onClose={close} />
+                <div className={classNames(cls.content, {}, [contentClassName])}>
+                    {children}
                 </div>
             </div>
         </Portal>

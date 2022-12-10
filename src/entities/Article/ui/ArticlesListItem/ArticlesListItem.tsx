@@ -11,11 +11,11 @@ import { Avatar } from 'shared/ui/Avatar/Avatar';
 import { useTranslation } from 'react-i18next';
 import { useNavigate } from 'react-router-dom';
 import { HStack, VStack } from 'shared/ui/Stack';
-import { Flex } from 'shared/ui/Stack/ui/Flex/Flex';
+import { ArticleBlockType, ArticleView } from '../../model/consts/articleConsts';
 import { ArticleTextBlockComponent } from '../ArticleTextBlockComponent/ArticleTextBlockComponent';
 import cls from './ArticlesListItem.module.scss';
 import {
-    Article, ArticleBlockType, ArticleTextBlock, ArticleView,
+    Article, ArticleTextBlock,
 } from '../../model/types/article';
 
 interface ArticlesListItemProps {

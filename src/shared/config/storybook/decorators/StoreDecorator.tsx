@@ -6,12 +6,14 @@ import { articleDetailsReducer } from 'entities/Article/model/slice/articleDetai
 import { addCommentFormReducer } from 'features/AddCommentForm/model/slice/addCommentFormSlice';
 import { articleDetailsPageReducer } from 'pages/ArticleDetailPage/model/slice';
 import { profileReducer } from 'features/EditableProfileCard/model/slice/profileSlice';
+import { articlesPageListReducer } from 'pages/ArticlesPage/model/slices/articlesListSlice';
 
 const defaultAsyncReducers: ReducersList = {
     loginForm: loginReducer,
     profile: profileReducer,
     articleDetails: articleDetailsReducer,
     addCommentForm: addCommentFormReducer,
+    articlesPageList: articlesPageListReducer,
     articleDetailsPage: articleDetailsPageReducer,
 };
 

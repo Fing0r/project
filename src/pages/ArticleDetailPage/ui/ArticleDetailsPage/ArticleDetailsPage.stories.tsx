@@ -8,7 +8,7 @@ import { ThemeEnum } from 'app/providers/ThemeProvider/lib/ThemeContext';
 import { ArticleDetailsPage } from './ArticleDetailsPage';
 
 export default {
-    title: 'Pages/ArticleDetails/ArticleDetailsPage',
+    title: 'Pages/ArticleDetailsPage/ArticleDetailsPage',
     component: ArticleDetailsPage,
 } as ComponentMeta<typeof ArticleDetailsPage>;
 

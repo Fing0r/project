@@ -13,7 +13,7 @@ interface ProfilePageProps {
 const ProfilePage = memo(({ className }: ProfilePageProps) => {
     const { t } = useTranslation('profile');
 
-    const { id } = useParams();
+    const { id = __PROJECT__ === 'storybook' ? '1' : '' } = useParams<{id: string}>();
 
     if (!id) {
         return <Text titleVariant="h3" title={t('Не удалось загрузить профиль')} />;

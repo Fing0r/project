@@ -59,6 +59,7 @@ module.exports = {
                     'tag',
                     'as',
                     'textAlign',
+                    'aria-label',
                 ],
             }],
         'max-len': ['error', { ignoreComments: true, code: 120 }],

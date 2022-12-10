@@ -1,8 +1,8 @@
 import React from 'react';
 import { ComponentMeta, ComponentStory } from '@storybook/react';
 import { useArgs } from '@storybook/client-api';
+import { ArticleType } from '../../model/consts/articleConsts';
 import { ArticleTypeTabs } from './ArticleTypeTabs';
-import { ArticleType } from '../../model/types/article';
 
 export default {
     title: 'Entities/Article/ArticleTypeTabs',

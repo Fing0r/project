@@ -3,8 +3,9 @@ import { Listbox as HListBox } from '@headlessui/react';
 import { classNames } from 'shared/lib/classNames/classNames';
 import Chevron from 'shared/assets/icons/chevron-up-down.svg';
 import { useFloating, flip } from '@floating-ui/react-dom';
-import { Button, ButtonTheme } from '../Button/Button';
-import { Icon } from '../Icon/Icon';
+import { Button, ButtonTheme } from '../../../Button/Button';
+import { Icon } from '../../../Icon/Icon';
+import popups from '../../styles/Popups.module.scss';
 import cls from './ListBox.module.scss';
 
 export interface ListBoxOption<T extends string> {
@@ -48,7 +49,7 @@ const ListBox = <T extends string>(props: ListBoxProps<T>) => {
             name={name}
         >
             {({ open }) => (
-                <div className={classNames(cls.ListBox, {}, [className])}>
+                <div className={classNames(cls.ListBox, {}, [className, popups.popup])}>
                     {label && (
                         <HListBox.Label
                             className={classNames(cls.label, {
@@ -94,8 +95,8 @@ const ListBox = <T extends string>(props: ListBoxProps<T>) => {
                                 {({ active, selected, disabled }) => (
                                     <li
                                         className={classNames(cls.option, {
-                                            [cls.active]: active,
-                                            [cls.selected]: selected,
+                                            [popups.selected]: selected,
+                                            [popups.active]: active,
                                             [cls.disabled]: disabled,
                                         }, [])}
                                     >

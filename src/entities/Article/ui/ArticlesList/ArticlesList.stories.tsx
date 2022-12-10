@@ -1,6 +1,7 @@
 import React from 'react';
 import { ComponentMeta, ComponentStory } from '@storybook/react';
-import { ArticleView } from '../../model/types/article';
+import { StoreDecorator } from 'shared/config/storybook/decorators/StoreDecorator';
+import { ArticleView } from '../../model/consts/articleConsts';
 import { article } from '../../mocks';
 import { ArticlesList } from './ArticlesList';
 
@@ -18,12 +19,14 @@ Grid.args = {
     view: ArticleView.GRID,
     articles,
 };
+Grid.decorators = [StoreDecorator({})];
 
 export const List = Template.bind({});
 List.args = {
     view: ArticleView.LIST,
     articles,
 };
+List.decorators = [StoreDecorator({})];
 
 export const Loading = Template.bind({});
 Loading.args = {
@@ -31,3 +34,4 @@ Loading.args = {
     articles: [],
     isLoading: true,
 };
+Loading.decorators = [StoreDecorator({})];

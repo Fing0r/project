@@ -1,0 +1,9 @@
+.panel {
+    position: absolute;
+    z-index: var(--z-index-dropdown);
+    background-color: var(--list-box-color-primary);
+    color: var(--list-box-color-seconadary);
+    border-radius: 5px;
+    overflow: hidden;
+    box-shadow: var(--list-box-box-shadow);
+}

@@ -1,0 +1,19 @@
+.popoverTrigger {
+    color: var(--inverted-primary-color);
+}
+
+.list {
+    width: 31.25rem;
+    min-height: 10rem;
+    max-height: 20rem;
+    overflow-y: auto;
+}
+
+.listDrawer {
+    height: calc(100% - 12.5rem);
+    overflow-y: auto;
+}
+
+.btn {
+    height: 1.25rem;
+}

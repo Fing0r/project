@@ -2,7 +2,6 @@ import { createAsyncThunk } from '@reduxjs/toolkit';
 import { AxiosResponse } from 'axios';
 import { User, userActions } from 'entities/User';
 import { ThunkConfig } from 'app/providers/StoreProvider';
-import { loginActions } from '../../slice/loginSlice';
 
 export interface LoginAuthProps {
     username: string;
@@ -22,7 +21,6 @@ export const loginByUsername = createAsyncThunk<User, LoginAuthProps, ThunkConfi
             }
 
             dispatch(userActions.setAuthData(data));
-            dispatch(loginActions.resetAuthData());
 
             return data;
         } catch (e) {

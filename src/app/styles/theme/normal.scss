@@ -17,8 +17,14 @@
 
     --card-bg: #b7beb7;
 
+    --list-box-box-shadow:
+        0 3px 10px 2px rgb(126 134 126 / 15%),
+        0 3px 10px 2px rgb(126 134 126 / 30%),
+        0 3px 10px 2px rgb(126 134 126 / 45%);
+
     --list-box-color-primary: #a4aba4;
     --list-box-color-seconadary: #1919d3;
+    --list-box-color-seconadary1: #1919d3;
     --list-box-color-active: #1919d3;
     --list-box-color-selected: #e2eae2;
 }

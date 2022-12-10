@@ -1,5 +1,5 @@
 import { forwardRef, HTMLProps } from 'react';
-import { ArticleView } from '../../model/types/article';
+import { ArticleView } from '../../model/consts/articleConsts';
 import { ArticlesListItemSkeleton } from '../ArticlesListItem/ArticlesListItemSkeleton';
 
 const getSkeletons = (view: ArticleView) => new Array(view === ArticleView.GRID ? 9 : 3)

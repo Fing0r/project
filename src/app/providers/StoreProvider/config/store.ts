@@ -5,7 +5,7 @@ import { $api } from 'shared/api/api';
 import { CombinedState } from 'redux';
 import { rtkApi } from 'shared/api/rtkApi';
 import { createReducerManager } from './reducerManager';
-import { StateSchema, StoreWithManager, ThunkExtraArg } from './StateSchema';
+import { StateSchema, ThunkExtraArg } from './StateSchema';
 
 export const createReduxStore = (
     initialState?: StateSchema,

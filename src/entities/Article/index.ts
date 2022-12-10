@@ -6,12 +6,14 @@ export type {
     ArticleTextBlock,
     ArticleBlock,
 } from './model/types/article';
+
 export {
+    ArticleView,
+    ArticleType,
     ArticleFieldSort,
     ArticleBlockType,
-    ArticleType,
-    ArticleView,
-} from './model/types/article';
+} from 'entities/Article/model/consts/articleConsts';
+
 export { ArticleDetails } from './ui/ArticleDetails/ArticleDetails';
 export { ArticleTypeTabs } from './ui/ArticleTypeTabs/ArticleTypeTabs';
 export { ArticleViewSelector } from './ui/ArticleViewSelector/ArticleViewSelector';

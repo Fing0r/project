@@ -5,7 +5,7 @@ import AvatarImg from 'shared/assets/tests/avatarForTest.webp';
 import { ArticleDetailsComments } from './ArticleDetailsComments';
 
 export default {
-    title: 'Pages/ArticleDetails/ArticleDetailComments',
+    title: 'Pages/ArticleDetailsPage/ArticleDetailComments',
     component: ArticleDetailsComments,
 } as ComponentMeta<typeof ArticleDetailsComments>;
 

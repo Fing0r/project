@@ -3,4 +3,4 @@ export {
 } from './ui/ArticleDetailsPage/ArticleDetailsPage.async';
 
 export { articleDetailsPageReducer } from './model/slice';
-export { ArticleDetailPageSchema } from './model/types';
+export type { ArticleDetailPageSchema } from './model/types';

@@ -1,5 +1,5 @@
 import { Profile } from 'entities/Profile';
-import { ValidateProfileErrors } from '../../types/EditableProfileCardSchema';
+import { ValidateProfileErrors } from '../../consts/consts';
 
 const validateProfileData = (profile?: Profile) => {
     if (!profile) {

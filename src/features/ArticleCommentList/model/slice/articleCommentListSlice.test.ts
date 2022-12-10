@@ -2,7 +2,7 @@ import { ArticleCommentListSchema } from '../types/ArticleCommentListSchema';
 import {
     fetchCommentsByArticleId,
 } from '../services/fetchCommentsByArticleId/fetchCommentsByArticleId';
-import { articleCommentListReducer, articleCommentListActions } from './articleCommentListSlice';
+import { articleCommentListReducer } from './articleCommentListSlice';
 
 const comments = [
     {

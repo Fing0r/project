@@ -78,6 +78,10 @@ const ProfileCard = memo((props: ProfileCardProps) => {
         );
     }
 
+    if (!data) {
+        return null;
+    }
+
     return (
         <form className={classNames(cls.ProfileCard, { [cls.editable]: !readonly }, [className])}>
             <VStack gap="16">

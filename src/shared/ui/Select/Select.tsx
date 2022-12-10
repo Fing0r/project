@@ -1,5 +1,5 @@
 import {
-    ChangeEvent, ComponentProps, ComponentType,
+    ChangeEvent,
     memo,
     useMemo,
 } from 'react';

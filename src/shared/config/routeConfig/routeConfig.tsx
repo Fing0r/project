@@ -8,11 +8,12 @@ import { ArticleDetailPage } from 'pages/ArticleDetailPage';
 import { ArticleEditPage } from 'pages/ArticleEditPage';
 import { AdminPanelPage } from 'pages/AdminPanelPage';
 import { UserRoles } from 'entities/User';
+import type { UserRolesType } from 'entities/User';
 import { ForbiddenPage } from 'pages/ForbidenPage';
 
 export type RoutePropsWithAuth = RouteProps & {
     authOnly?: boolean;
-    roles?: UserRoles[];
+    roles?: UserRolesType[];
 }
 
 export const enum AppRoutes {

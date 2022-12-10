@@ -5,7 +5,7 @@ import { Text } from 'shared/ui/Text/Text';
 import { ArticlesList } from 'entities/Article';
 import {
     useGetArticleRecommendationsListQuery,
-} from '../../model/api/recommendationsApi';
+} from '../../api/recommendationsApi';
 import cls from './ArticleRecommendationsList.module.scss';
 
 interface ArticleRecommendationsListProps {
@@ -29,7 +29,6 @@ export const ArticleRecommendationsList = memo((props: ArticleRecommendationsLis
             />
         );
     }
-
     return (
         <div className={classNames('', {}, [className])}>
             {!isLoading && (

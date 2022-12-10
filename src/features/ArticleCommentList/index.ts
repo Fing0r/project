@@ -2,7 +2,7 @@ export {
     ArticleCommentListAsync as ArticleCommentList,
 } from './ui/ArticleCommentList/ArticleCommentList.async';
 
-export {
+export type {
     ArticleCommentListSchema,
 } from './model/types/ArticleCommentListSchema';
 

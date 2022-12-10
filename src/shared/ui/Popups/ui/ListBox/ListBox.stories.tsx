@@ -1,9 +1,9 @@
-import React, { useState } from 'react';
+import React from 'react';
 import { ComponentMeta, ComponentStory } from '@storybook/react';
 import { ThemeDecorator } from 'shared/config/storybook/decorators/ThemeDecorator';
 import { ThemeEnum } from 'app/providers/ThemeProvider/lib/ThemeContext';
 import { useArgs } from '@storybook/client-api';
-import { ListBox, ListBoxProps } from './ListBox';
+import { ListBox } from './ListBox';
 
 export default {
     title: 'Shared/ListBox',

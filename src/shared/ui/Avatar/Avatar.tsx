@@ -1,7 +1,6 @@
 import {
     CSSProperties,
     memo,
-    useMemo,
 } from 'react';
 import { classNames } from 'shared/lib/classNames/classNames';
 import { usePxToRem } from 'shared/lib/hooks/usePxToRem';

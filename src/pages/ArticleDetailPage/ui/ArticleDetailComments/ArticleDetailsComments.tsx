@@ -1,4 +1,4 @@
-import { memo, useCallback } from 'react';
+import { memo, Suspense, useCallback } from 'react';
 import { classNames } from 'shared/lib/classNames/classNames';
 import { useTranslation } from 'react-i18next';
 import { Text } from 'shared/ui/Text/Text';
@@ -8,6 +8,7 @@ import { useInitialEffect } from 'shared/lib/hooks/useInitialEffect';
 import { useAppDispatch } from 'shared/lib/hooks/useAppDispatch';
 import { useSelector } from 'react-redux';
 import { VStack } from 'shared/ui/Stack';
+import { Loader } from 'shared/ui/Loader/Loader';
 import { getArticleCommentsError, getArticleCommentsIsLoading } from '../../model/selectors/comments';
 import {
     fetchCommentsByArticleId,
@@ -51,7 +52,10 @@ const ArticleDetailsComments = memo((props: ArticleDetailCommentsProps) => {
     return (
         <VStack gap="16" className={classNames('', {}, [className])}>
             <Text title={t('Комментарии')} />
-            <AddCommentForm onSendComment={onSendComment} />
+            {/* TODO: Добавить скелетон */}
+            <Suspense fallback={<Loader />}>
+                <AddCommentForm onSendComment={onSendComment} />
+            </Suspense>
             <CommentList
                 comments={comments}
                 isLoading={isLoadingComments}

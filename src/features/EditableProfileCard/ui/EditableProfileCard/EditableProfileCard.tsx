@@ -91,6 +91,7 @@ export const EditableProfileCard = memo((props: EditableProfileCardProps) => {
 
     const onChangeAge = useCallback((value?: string) => {
         const number = Number(value);
+
         if (Number.isNaN(number)) {
             return;
         }

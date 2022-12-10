@@ -11,9 +11,10 @@ import { StateSchema } from 'app/providers/StoreProvider';
 import { useInitialEffect } from 'shared/lib/hooks/useInitialEffect';
 import { classNames } from 'shared/lib/classNames/classNames';
 import { PAGE_ID } from 'widgets/Page/ui/Page';
+import { ArticleView } from '../../model/consts/articleConsts';
 import { ListContainer, VirtuosoContext } from './VirtuosoContainer';
 import cls from './ArticlesList.module.scss';
-import { Article, ArticleView } from '../../model/types/article';
+import { Article } from '../../model/types/article';
 import { ArticlesListItem } from '../ArticlesListItem/ArticlesListItem';
 import { ArticlesListItemSkeleton } from '../ArticlesListItem/ArticlesListItemSkeleton';
 

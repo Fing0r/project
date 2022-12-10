@@ -1,7 +1,7 @@
-export {
+export type {
     User,
     UserSchema,
-    UserRoles,
+    UserRolesType,
 } from './model/types/userShema';
 
 export {
@@ -23,3 +23,5 @@ export {
 export {
     getUserRoles, isUserAdmin, isUserManager,
 } from './model/selectors/getUserRoles/getUserRoles';
+
+export { UserRoles } from 'entities/User/model/consts/userConsts';

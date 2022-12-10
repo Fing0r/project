@@ -1,0 +1,39 @@
+.popup {
+    position: relative;
+}
+
+.trigger {
+    background-color: transparent;
+    border: none;
+    cursor: pointer;
+    display: flex;
+}
+
+.selected {
+    background-color: var(--list-box-color-active);
+    color: var(--list-box-color-primary);
+}
+
+.active:not([aria-selected="true"]) {
+    background-color: var(--list-box-color-selected);
+}
+
+.directionTopLeft {
+    bottom: calc(100% + 0.5rem);
+    right: 0;
+}
+
+.directionTopRight {
+    bottom: calc(100% + 0.5rem);
+    left: 0;
+}
+
+.directionBottomLeft {
+    top: calc(100% + 0.5rem);
+    right: 0;
+}
+
+.directionBottomRight {
+    top: calc(100% + 0.5rem);
+    left: 0;
+}
