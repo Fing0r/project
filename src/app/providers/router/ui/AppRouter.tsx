@@ -4,10 +4,10 @@ import {
     useCallback,
 } from 'react';
 import { Route, Routes } from 'react-router-dom';
-import { routeConfig, RoutePropsWithAuth } from 'shared/config/routeConfig/routeConfig';
-import { PageLoader } from 'widgets/PageLoader';
-import { RequireAuth } from 'app/providers/router/ui/RequireAuth';
-import { RequireRoles } from 'app/providers/router/ui/RequireRoles';
+import { routeConfig, RoutePropsWithAuth } from '@/shared/config/routeConfig/routeConfig';
+import { PageLoader } from '@/widgets/PageLoader';
+import { RequireAuth } from '@/app/providers/router/ui/RequireAuth';
+import { RequireRoles } from '@/app/providers/router/ui/RequireRoles';
 
 const AppRouter = memo(() => {
     const renderRouteWithWrapper = useCallback(({

@@ -2,8 +2,8 @@ import {
     CSSProperties,
     memo,
 } from 'react';
-import { classNames } from 'shared/lib/classNames/classNames';
-import { usePxToRem } from 'shared/lib/hooks/usePxToRem';
+import { classNames } from '@/shared/lib/classNames/classNames';
+import { usePxToRem } from '@/shared/lib/hooks/usePxToRem';
 import cls from './Avatar.module.scss';
 
 interface AvatarProps {

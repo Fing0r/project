@@ -1,11 +1,11 @@
 import React from 'react';
 import { ComponentMeta, ComponentStory } from '@storybook/react';
-import { StoreDecorator } from 'shared/config/storybook/decorators/StoreDecorator';
-import { ThemeDecorator } from 'shared/config/storybook/decorators/ThemeDecorator';
-import { ThemeEnum } from 'app/providers/ThemeProvider/lib/ThemeContext';
-import { Currency } from 'entities/Currency';
-import { Country } from 'entities/Country';
-import AvatarImg from 'shared/assets/tests/avatarForTest.webp';
+import { StoreDecorator } from '@/shared/config/storybook/decorators/StoreDecorator';
+import { ThemeDecorator } from '@/shared/config/storybook/decorators/ThemeDecorator';
+import { ThemeEnum } from '@/app/providers/ThemeProvider/lib/ThemeContext';
+import { Currency } from '@/entities/Currency';
+import { Country } from '@/entities/Country';
+import AvatarImg from '@/shared/assets/tests/avatarForTest.webp';
 import { ProfileCard } from './ProfileCard';
 
 export default {

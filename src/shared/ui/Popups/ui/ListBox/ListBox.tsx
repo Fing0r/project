@@ -1,8 +1,8 @@
 import { Fragment, memo } from 'react';
 import { Listbox as HListBox } from '@headlessui/react';
-import { classNames } from 'shared/lib/classNames/classNames';
-import Chevron from 'shared/assets/icons/chevron-up-down.svg';
 import { useFloating, flip } from '@floating-ui/react-dom';
+import { classNames } from '@/shared/lib/classNames/classNames';
+import Chevron from '@/shared/assets/icons/chevron-up-down.svg';
 import { Button, ButtonTheme } from '../../../Button/Button';
 import { Icon } from '../../../Icon/Icon';
 import popups from '../../styles/Popups.module.scss';

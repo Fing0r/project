@@ -12,7 +12,7 @@ export {
     ArticleType,
     ArticleFieldSort,
     ArticleBlockType,
-} from 'entities/Article/model/consts/articleConsts';
+} from './model/consts/articleConsts';
 
 export { ArticleDetails } from './ui/ArticleDetails/ArticleDetails';
 export { ArticleTypeTabs } from './ui/ArticleTypeTabs/ArticleTypeTabs';

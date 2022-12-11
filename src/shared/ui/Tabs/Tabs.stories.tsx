@@ -1,8 +1,8 @@
 import React from 'react';
 import { ComponentMeta, ComponentStory } from '@storybook/react';
 import { action } from '@storybook/addon-actions';
-import { ThemeDecorator } from 'shared/config/storybook/decorators/ThemeDecorator';
-import { ThemeEnum } from 'app/providers/ThemeProvider/lib/ThemeContext';
+import { ThemeDecorator } from '@/shared/config/storybook/decorators/ThemeDecorator';
+import { ThemeEnum } from '@/app/providers/ThemeProvider/lib/ThemeContext';
 import { Tabs } from './Tabs';
 
 const tabs = [

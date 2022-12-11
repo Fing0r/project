@@ -1,7 +1,7 @@
 import React from 'react';
 import { ComponentMeta, ComponentStory } from '@storybook/react';
-import { StoreDecorator } from 'shared/config/storybook/decorators/StoreDecorator';
-import AvatarImg from 'shared/assets/tests/avatarForTest.webp';
+import { StoreDecorator } from '@/shared/config/storybook/decorators/StoreDecorator';
+import AvatarImg from '@/shared/assets/tests/avatarForTest.webp';
 import { ArticleDetailsComments } from './ArticleDetailsComments';
 
 export default {

@@ -1,10 +1,10 @@
-import { classNames } from 'shared/lib/classNames/classNames';
-import { ReducersList, useDynamicModule } from 'shared/lib/hooks/useDynamicModule';
-import { useInitialEffect } from 'shared/lib/hooks/useInitialEffect';
-import { useAppDispatch } from 'shared/lib/hooks/useAppDispatch';
 import { MutableRefObject, useCallback, useRef } from 'react';
-import { Page } from 'widgets/Page';
 import { useSearchParams } from 'react-router-dom';
+import { classNames } from '@/shared/lib/classNames/classNames';
+import { ReducersList, useDynamicModule } from '@/shared/lib/hooks/useDynamicModule';
+import { useInitialEffect } from '@/shared/lib/hooks/useInitialEffect';
+import { useAppDispatch } from '@/shared/lib/hooks/useAppDispatch';
+import { Page } from '@/widgets/Page';
 import { fetchNextArticles } from '../../model/services/fetchNextArticles/fetchNextArticles';
 import { initArticlesPageList } from '../../model/services/initFetchArticlesList/initArticlesPageList';
 import { articlesPageListReducer } from '../../model/slices/articlesListSlice';

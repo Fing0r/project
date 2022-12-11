@@ -1,8 +1,8 @@
 import { Menu } from '@headlessui/react';
 import React, { Fragment, ReactNode } from 'react';
-import { classNames } from 'shared/lib/classNames/classNames';
-import { DirectionOptions } from 'shared/types/ui';
 import { Link } from 'react-router-dom';
+import { classNames } from '@/shared/lib/classNames/classNames';
+import { DirectionOptions } from '@/shared/types/ui';
 import { directionClasses } from '../../styles/consts';
 import { AppLink } from '../../../AppLink/AppLink';
 import popups from '../../styles/Popups.module.scss';

@@ -1,4 +1,4 @@
-import { ArticleCommentListSchema } from 'features/ArticleCommentList';
+import { ArticleCommentListSchema } from '@/features/ArticleCommentList';
 import { ArticleDetailsCommentsSchema } from '../types/ArticleDetailsCommentsSchema';
 import { articleDetailCommentReducer } from './articleDetailsCommentSlice';
 import {

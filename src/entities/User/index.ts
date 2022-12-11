@@ -24,4 +24,4 @@ export {
     getUserRoles, isUserAdmin, isUserManager,
 } from './model/selectors/getUserRoles/getUserRoles';
 
-export { UserRoles } from 'entities/User/model/consts/userConsts';
+export { UserRoles } from './model/consts/userConsts';

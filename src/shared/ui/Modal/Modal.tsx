@@ -1,5 +1,5 @@
 import React, { ReactNode } from 'react';
-import { classNames, Mods } from 'shared/lib/classNames/classNames';
+import { classNames, Mods } from '@/shared/lib/classNames/classNames';
 import { Overlay } from '../Overlay/Overlay';
 import { useModal } from '../../lib/hooks/useModal';
 import { Portal } from '../Portal/Portal';

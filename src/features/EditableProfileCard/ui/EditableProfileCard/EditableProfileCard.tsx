@@ -1,15 +1,15 @@
 import { useTranslation } from 'react-i18next';
 import { memo, Suspense, useCallback } from 'react';
-import { VStack } from 'shared/ui/Stack';
-import { Loader } from 'shared/ui/Loader/Loader';
-import { Text, TextTheme } from 'shared/ui/Text/Text';
 import { useSelector } from 'react-redux';
-import { Currency } from 'entities/Currency';
-import { Country } from 'entities/Country';
-import { useAppDispatch } from 'shared/lib/hooks/useAppDispatch';
-import { useInitialEffect } from 'shared/lib/hooks/useInitialEffect';
-import { ProfileCard } from 'entities/Profile';
-import { ReducersList, useDynamicModule } from 'shared/lib/hooks/useDynamicModule';
+import { VStack } from '@/shared/ui/Stack';
+import { Loader } from '@/shared/ui/Loader/Loader';
+import { Text, TextTheme } from '@/shared/ui/Text/Text';
+import { Currency } from '@/entities/Currency';
+import { Country } from '@/entities/Country';
+import { useAppDispatch } from '@/shared/lib/hooks/useAppDispatch';
+import { useInitialEffect } from '@/shared/lib/hooks/useInitialEffect';
+import { ProfileCard } from '@/entities/Profile';
+import { ReducersList, useDynamicModule } from '@/shared/lib/hooks/useDynamicModule';
 import { EditableProfileCardHeader } from '../EditableProfileCardHeader/EditableProfileCardHeader';
 import {
     getProfileValidateErrors,

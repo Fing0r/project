@@ -1,12 +1,12 @@
 import { memo, useCallback } from 'react';
-import { classNames } from 'shared/lib/classNames/classNames';
 import { useTranslation } from 'react-i18next';
-import { Button, ButtonTheme } from 'shared/ui/Button/Button';
-import { useAppDispatch } from 'shared/lib/hooks/useAppDispatch';
-import { Text } from 'shared/ui/Text/Text';
 import { useSelector } from 'react-redux';
-import { getAuthData } from 'entities/User';
-import { HStack } from 'shared/ui/Stack';
+import { classNames } from '@/shared/lib/classNames/classNames';
+import { Button, ButtonTheme } from '@/shared/ui/Button/Button';
+import { useAppDispatch } from '@/shared/lib/hooks/useAppDispatch';
+import { Text } from '@/shared/ui/Text/Text';
+import { getAuthData } from '@/entities/User';
+import { HStack } from '@/shared/ui/Stack';
 import { updateProfileData } from '../../model/services/updateProfileData/updateProfileData';
 import { getProfileData } from '../../model/selectors/getProfileData/getProfileData';
 import { getReadonly } from '../../model/selectors/getReadonly/getReadonly';

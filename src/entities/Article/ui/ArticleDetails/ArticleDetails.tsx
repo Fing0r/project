@@ -1,18 +1,18 @@
 import { useTranslation } from 'react-i18next';
 import { useSelector } from 'react-redux';
 import { memo, useCallback } from 'react';
-import { useAppDispatch } from 'shared/lib/hooks/useAppDispatch';
-import { classNames } from 'shared/lib/classNames/classNames';
+import { useAppDispatch } from '@/shared/lib/hooks/useAppDispatch';
+import { classNames } from '@/shared/lib/classNames/classNames';
 import {
     Text, TextAlign, TextSize, TextTheme,
-} from 'shared/ui/Text/Text';
-import { ReducersList, useDynamicModule } from 'shared/lib/hooks/useDynamicModule';
-import { Skeleton } from 'shared/ui/Skeleton/Skeleton';
-import { Avatar } from 'shared/ui/Avatar/Avatar';
-import { Icon } from 'shared/ui/Icon/Icon';
-import EyeIcon from 'shared/assets/icons/eye.svg';
-import CalendarIcon from 'shared/assets/icons/calendar.svg';
-import { useInitialEffect } from 'shared/lib/hooks/useInitialEffect';
+} from '@/shared/ui/Text/Text';
+import { ReducersList, useDynamicModule } from '@/shared/lib/hooks/useDynamicModule';
+import { Skeleton } from '@/shared/ui/Skeleton/Skeleton';
+import { Avatar } from '@/shared/ui/Avatar/Avatar';
+import { Icon } from '@/shared/ui/Icon/Icon';
+import EyeIcon from '@/shared/assets/icons/eye.svg';
+import CalendarIcon from '@/shared/assets/icons/calendar.svg';
+import { useInitialEffect } from '@/shared/lib/hooks/useInitialEffect';
 import { articleDetailsReducer } from '../../model/slice/articleDetailsSlice';
 import { ArticleBlockType } from '../../model/consts/articleConsts';
 import { ArticleCodeBlockComponent } from '../ArticleCodeBlockComponent/ArticleCodeBlockComponent';

@@ -1,11 +1,11 @@
-import { classNames } from 'shared/lib/classNames/classNames';
 import { useTranslation } from 'react-i18next';
-import { ArticleDetails } from 'entities/Article';
-import { Text } from 'shared/ui/Text/Text';
 import { useParams } from 'react-router-dom';
-import { Page } from 'widgets/Page';
-import { ReducersList, useDynamicModule } from 'shared/lib/hooks/useDynamicModule';
-import { ArticleRecommendationsList } from 'features/ArticleRecommendationsList';
+import { classNames } from '@/shared/lib/classNames/classNames';
+import { ArticleDetails } from '@/entities/Article';
+import { Text } from '@/shared/ui/Text/Text';
+import { Page } from '@/widgets/Page';
+import { ReducersList, useDynamicModule } from '@/shared/lib/hooks/useDynamicModule';
+import { ArticleRecommendationsList } from '@/features/ArticleRecommendationsList';
 import { ArticleDetailsComments } from '../ArticleDetailComments/ArticleDetailsComments';
 import { ArticleDetailsPageHeader } from '../ArticleDetailPageHeader/ArticleDetailsPageHeader';
 import { articleDetailsPageReducer } from '../../model/slice';

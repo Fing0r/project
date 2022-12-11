@@ -1,9 +1,9 @@
 import { useTranslation } from 'react-i18next';
 import { memo } from 'react';
-import { Text } from 'shared/ui/Text/Text';
 import { useParams } from 'react-router-dom';
-import { Page } from 'widgets/Page';
-import { EditableProfileCard } from 'features/EditableProfileCard';
+import { Text } from '@/shared/ui/Text/Text';
+import { Page } from '@/widgets/Page';
+import { EditableProfileCard } from '@/features/EditableProfileCard';
 import cls from './ProfilePage.module.scss';
 
 interface ProfilePageProps {

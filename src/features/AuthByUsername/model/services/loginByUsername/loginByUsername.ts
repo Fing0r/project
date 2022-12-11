@@ -1,7 +1,7 @@
 import { createAsyncThunk } from '@reduxjs/toolkit';
 import { AxiosResponse } from 'axios';
-import { User, userActions } from 'entities/User';
-import { ThunkConfig } from 'app/providers/StoreProvider';
+import { User, userActions } from '@/entities/User';
+import { ThunkConfig } from '@/app/providers/StoreProvider';
 
 export interface LoginAuthProps {
     username: string;

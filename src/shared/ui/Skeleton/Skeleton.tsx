@@ -1,6 +1,6 @@
-import { classNames } from 'shared/lib/classNames/classNames';
 import { CSSProperties } from 'react';
-import { useGuardPercentCSSProperty } from 'shared/lib/hooks/useGuardPercentCSSProperty';
+import { classNames } from '@/shared/lib/classNames/classNames';
+import { useGuardPercentCSSProperty } from '@/shared/lib/hooks/useGuardPercentCSSProperty';
 import cls from './Skeleton.module.scss';
 
 interface SkeletonProps {

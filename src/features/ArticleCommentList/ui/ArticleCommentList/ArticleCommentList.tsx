@@ -1,10 +1,10 @@
 import { memo } from 'react';
-import { classNames } from 'shared/lib/classNames/classNames';
-import { CommentList } from 'entities/Comment';
-import { useAppDispatch } from 'shared/lib/hooks/useAppDispatch';
-import { ReducersList, useDynamicModule } from 'shared/lib/hooks/useDynamicModule';
 import { useSelector } from 'react-redux';
-import { useInitialEffect } from 'shared/lib/hooks/useInitialEffect';
+import { classNames } from '@/shared/lib/classNames/classNames';
+import { CommentList } from '@/entities/Comment';
+import { useAppDispatch } from '@/shared/lib/hooks/useAppDispatch';
+import { ReducersList, useDynamicModule } from '@/shared/lib/hooks/useDynamicModule';
+import { useInitialEffect } from '@/shared/lib/hooks/useInitialEffect';
 import cls from './ArticleCommentList.module.scss';
 import {
     fetchCommentsByArticleId,

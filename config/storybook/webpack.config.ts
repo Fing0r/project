@@ -26,6 +26,10 @@ export default ({ config }: {config: webpack.Configuration}) => {
         return rule;
     });
 
+    config.resolve!.alias = {
+        '@': path.resolve(__dirname, '..', '..', 'src'),
+    };
+
     // Помогло решить проблему с ошибкой сторибука, когда он обращался внутрь node_modules
     config.resolve!.modules = [paths.src, 'node_modules'];
     config.resolve?.extensions?.push('.ts', '.tsx');

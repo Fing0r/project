@@ -1,8 +1,8 @@
 import React from 'react';
 import { ComponentMeta, ComponentStory } from '@storybook/react';
-import { StoreDecorator } from 'shared/config/storybook/decorators/StoreDecorator';
-import { ThemeDecorator } from 'shared/config/storybook/decorators/ThemeDecorator';
-import { ThemeEnum } from 'app/providers/ThemeProvider/lib/ThemeContext';
+import { StoreDecorator } from '@/shared/config/storybook/decorators/StoreDecorator';
+import { ThemeDecorator } from '@/shared/config/storybook/decorators/ThemeDecorator';
+import { ThemeEnum } from '@/app/providers/ThemeProvider/lib/ThemeContext';
 import { Page } from './Page';
 
 export default {

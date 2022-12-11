@@ -1,16 +1,16 @@
 import {
     HTMLAttributeAnchorTarget, memo, useRef, useState,
 } from 'react';
-import { Text } from 'shared/ui/Text/Text';
 import { useTranslation } from 'react-i18next';
 import { VirtuosoGrid, VirtuosoGridHandle } from 'react-virtuoso';
 import { useSelector } from 'react-redux';
-import { getPageScrollByPath } from 'widgets/Page/model/selectors/page';
 import { useLocation } from 'react-router-dom';
-import { StateSchema } from 'app/providers/StoreProvider';
-import { useInitialEffect } from 'shared/lib/hooks/useInitialEffect';
-import { classNames } from 'shared/lib/classNames/classNames';
-import { PAGE_ID } from 'widgets/Page/ui/Page';
+import { getPageScrollByPath } from '@/widgets/Page/model/selectors/page';
+import { Text } from '@/shared/ui/Text/Text';
+import { StateSchema } from '@/app/providers/StoreProvider';
+import { useInitialEffect } from '@/shared/lib/hooks/useInitialEffect';
+import { classNames } from '@/shared/lib/classNames/classNames';
+import { PAGE_ID } from '@/widgets/Page/ui/Page';
 import { ArticleView } from '../../model/consts/articleConsts';
 import { ListContainer, VirtuosoContext } from './VirtuosoContainer';
 import cls from './ArticlesList.module.scss';

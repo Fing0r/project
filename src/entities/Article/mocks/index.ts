@@ -1,4 +1,4 @@
-import AvatarImg from 'shared/assets/tests/avatarForTest.webp';
+import AvatarImg from '@/shared/assets/tests/avatarForTest.webp';
 import { ArticleBlockType, ArticleType } from '../model/consts/articleConsts';
 import { Article } from '../model/types/article';
 

@@ -1,17 +1,17 @@
-import { classNames } from 'shared/lib/classNames/classNames';
 import { useTranslation } from 'react-i18next';
 import { memo, useCallback, useMemo } from 'react';
-import { Dropdown, DropdownItemProps } from 'shared/ui/Popups/ui';
-import { Avatar } from 'shared/ui/Avatar/Avatar';
-import { RoutePath } from 'shared/config/routeConfig/routeConfig';
-import User from 'shared/assets/icons/user.svg';
-import AdminPanelIcon from 'shared/assets/icons/admin-panel.svg';
-import Logout from 'shared/assets/icons/logout.svg';
 import { useSelector } from 'react-redux';
+import { classNames } from '@/shared/lib/classNames/classNames';
+import { Dropdown, DropdownItemProps } from '@/shared/ui/Popups/ui';
+import { Avatar } from '@/shared/ui/Avatar/Avatar';
+import { RoutePath } from '@/shared/config/routeConfig/routeConfig';
+import User from '@/shared/assets/icons/user.svg';
+import AdminPanelIcon from '@/shared/assets/icons/admin-panel.svg';
+import Logout from '@/shared/assets/icons/logout.svg';
 import {
     getAuthData, isUserAdmin, isUserManager, userActions,
-} from 'entities/User';
-import { useAppDispatch } from 'shared/lib/hooks/useAppDispatch';
+} from '@/entities/User';
+import { useAppDispatch } from '@/shared/lib/hooks/useAppDispatch';
 import cls from './DropdownAvatar.module.scss';
 
 interface DropdownAvatarProps {
