@@ -10,14 +10,19 @@
 }
 
 .content {
-    padding-top: 3rem;
-    background-color: var(--card-bg);
+    padding: 3rem 1rem 1rem;
+    background-color: var(--bg-color);
     z-index: 100;
     position: fixed;
     height: calc(100vh + 6.25rem);
     width: 100%;
     touch-action: none;
     border-radius: 1rem 1rem 0 0;
+    color: var(--primary-color);
+}
+
+.content.fullWidth {
+    padding: 3rem 0 0;
 }
 
 .closeBtn {
@@ -57,3 +62,7 @@
 //        transform: translateY(100%);
 //    }
 //}
+
+.storybook .content {
+    top: 15rem;
+}

@@ -1733,5 +1733,57 @@
       "currency": "USD",
       "country": "Kazakhstan"
     }
+  ],
+  "article-ratings": [
+    {
+      "id": 1,
+      "articleId": "1",
+      "userId": "1",
+      "rating": 3,
+      "feedback": "qweqweqwe"
+    },
+    {
+      "articleId": "4",
+      "userId": "1",
+      "rating": 3,
+      "feedback": "sadasd",
+      "id": 2
+    },
+    {
+      "articleId": "3",
+      "userId": "1",
+      "rating": 5,
+      "feedback": "dfgsdfg",
+      "id": 3
+    },
+    {
+      "articleId": "7",
+      "userId": "1",
+      "rating": 4,
+      "id": 4
+    }
+  ],
+  "profile-ratings": [
+    {
+      "id": 1,
+      "profileId": "1",
+      "userId": "1",
+      "rating": 3,
+      "feedback": "qweqweqwe"
+    },
+    {
+      "profileId": "2",
+      "userId": "1",
+      "rating": 4,
+      "feedback": "",
+      "id": 2
+    },
+    {
+      "profileId": "1",
+      "userId": "2",
+      "rating": 4,
+      "feedback": "",
+      "id": 3
+    }
   ]
 }

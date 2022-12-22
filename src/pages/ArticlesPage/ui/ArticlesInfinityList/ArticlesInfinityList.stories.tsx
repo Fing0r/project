@@ -1,11 +1,12 @@
 import React from 'react';
 import { ComponentMeta, ComponentStory } from '@storybook/react';
 import { StoreDecorator } from '@/shared/config/storybook/decorators/StoreDecorator';
+// eslint-disable-next-line check-paths-for-fsd-methodology/public-api-imports
 import { article } from '@/entities/Article/mocks';
 import { ArticlesInfinityList } from './ArticlesInfinityList';
 
 export default {
-    title: 'Shared/ArticlesInfinityList',
+    title: 'Pages/ArticlesPage/ArticlesInfinityList',
     component: ArticlesInfinityList,
 } as ComponentMeta<typeof ArticlesInfinityList>;
 

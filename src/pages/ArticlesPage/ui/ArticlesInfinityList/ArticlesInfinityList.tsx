@@ -35,7 +35,7 @@ const ArticlesInfinityList = memo((props: ArticlesInfinityListProps) => {
             className={className}
             view={view}
             isLoading={isLoading}
-            isVirtualize
+            isVirtualize={false}
         />
     );
 });

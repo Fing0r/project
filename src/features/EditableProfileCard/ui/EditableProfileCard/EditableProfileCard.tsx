@@ -103,6 +103,7 @@ export const EditableProfileCard = memo((props: EditableProfileCardProps) => {
         <VStack
             gap="16"
             data-testid="EditableProfileCard"
+            className={className}
         >
             <Suspense fallback={<Loader />}>
                 <EditableProfileCardHeader />

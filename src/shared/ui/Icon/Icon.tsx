@@ -1,12 +1,12 @@
-import React, { memo } from 'react';
+import React, { memo, SVGProps } from 'react';
 
-interface IconProps {
+interface IconProps extends SVGProps<SVGSVGElement>{
     className?: string;
     Svg: React.VFC<React.SVGProps<SVGSVGElement>>;
 }
 
-const Icon = memo(({ className, Svg }: IconProps) => (
-    <Svg className={className} />
+const Icon = memo(({ className, Svg, ...otherProps }: IconProps) => (
+    <Svg {...otherProps} className={className} />
 ));
 
 export { Icon };

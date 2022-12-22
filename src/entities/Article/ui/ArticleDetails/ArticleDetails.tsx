@@ -1,4 +1,3 @@
-import { useTranslation } from 'react-i18next';
 import { useSelector } from 'react-redux';
 import { memo, useCallback } from 'react';
 import { useAppDispatch } from '@/shared/lib/hooks/useAppDispatch';
@@ -51,8 +50,6 @@ const ArticleDetails = memo((props: ArticleDetailProps) => {
     const article = useSelector(getArticleDetailData);
     const error = useSelector(getArticleDetailError);
     const isLoading = useSelector(getArticleDetailIsLoading);
-
-    const { t } = useTranslation('article-details');
 
     const renderArticleBlock = useCallback((block: ArticleBlock) => {
         switch (block.type) {

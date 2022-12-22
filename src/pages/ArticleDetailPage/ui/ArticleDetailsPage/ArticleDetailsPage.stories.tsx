@@ -1,11 +1,12 @@
 import React from 'react';
 import { ComponentMeta, ComponentStory } from '@storybook/react';
 import { StoreDecorator } from '@/shared/config/storybook/decorators/StoreDecorator';
+// eslint-disable-next-line check-paths-for-fsd-methodology/public-api-imports
 import { article } from '@/entities/Article/mocks';
 import AvatarImg from '@/shared/assets/tests/avatarForTest.webp';
 import { ThemeDecorator } from '@/shared/config/storybook/decorators/ThemeDecorator';
-import { ThemeEnum } from '@/app/providers/ThemeProvider/lib/ThemeContext';
 import { ArticleDetailsPage } from './ArticleDetailsPage';
+import { ThemeEnum } from '@/shared/const/theme';
 
 export default {
     title: 'Pages/ArticleDetailsPage/ArticleDetailsPage',

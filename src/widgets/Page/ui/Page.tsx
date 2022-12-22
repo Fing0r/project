@@ -1,5 +1,5 @@
 import {
-    memo, MutableRefObject, ReactNode, useRef, UIEvent,
+    memo, MutableRefObject, ReactNode, UIEvent, useRef,
 } from 'react';
 import { useLocation } from 'react-router-dom';
 import { useSelector } from 'react-redux';
@@ -12,6 +12,7 @@ import { useInitialEffect } from '@/shared/lib/hooks/useInitialEffect';
 import { getPageScrollByPath } from '../model/selectors/page';
 import { pageActions } from '../model/slices/pageSlice';
 import cls from './Page.module.scss';
+import { PAGE_ID } from '@/shared/const';
 
 interface PageProps {
     className?: string;
@@ -19,8 +20,6 @@ interface PageProps {
     onScrollEnd?: () => void;
     customWrapperRef?: MutableRefObject<HTMLDivElement>;
 }
-
-export const PAGE_ID = 'page';
 
 const Page = memo((props: PageProps) => {
     const {

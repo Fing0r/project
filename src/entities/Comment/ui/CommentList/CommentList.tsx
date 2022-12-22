@@ -22,13 +22,14 @@ const CommentList = memo((props: CommentListProps) => {
     const { t } = useTranslation('comment');
 
     if (isLoading) {
-        return (
-            <>
-                <CommentCard isLoading={isLoading} />
-                <CommentCard isLoading={isLoading} />
-                <CommentCard isLoading={isLoading} />
-            </>
-        );
+        return null;
+        // return (
+        //     <>
+        //         <CommentCard isLoading={isLoading} />
+        //         <CommentCard isLoading={isLoading} />
+        //         <CommentCard isLoading={isLoading} />
+        //     </>
+        // );
     }
 
     return (

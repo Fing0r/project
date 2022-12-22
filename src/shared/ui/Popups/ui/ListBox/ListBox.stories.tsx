@@ -2,8 +2,8 @@ import React from 'react';
 import { ComponentMeta, ComponentStory } from '@storybook/react';
 import { useArgs } from '@storybook/client-api';
 import { ThemeDecorator } from '@/shared/config/storybook/decorators/ThemeDecorator';
-import { ThemeEnum } from '@/app/providers/ThemeProvider/lib/ThemeContext';
 import { ListBox } from './ListBox';
+import { ThemeEnum } from '@/shared/const/theme';
 
 export default {
     title: 'Shared/ListBox',

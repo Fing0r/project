@@ -24,6 +24,8 @@ const AddCommentForm = memo((props: AddCommentFormProps) => {
         className,
         onSendComment,
     } = props;
+    const { t } = useTranslation('comment');
+
     useDynamicModule(initialReducers);
 
     const dispatch = useAppDispatch();
@@ -38,8 +40,6 @@ const AddCommentForm = memo((props: AddCommentFormProps) => {
         onSendComment(text);
         onChangeCommentText('');
     }, [onChangeCommentText, onSendComment, text]);
-
-    const { t } = useTranslation('comment');
 
     return (
         <div className={classNames(cls.AddCommentForm, {}, [className])}>

@@ -4,7 +4,6 @@ import { useSelector } from 'react-redux';
 import { classNames } from '@/shared/lib/classNames/classNames';
 import { Dropdown, DropdownItemProps } from '@/shared/ui/Popups/ui';
 import { Avatar } from '@/shared/ui/Avatar/Avatar';
-import { RoutePath } from '@/shared/config/routeConfig/routeConfig';
 import User from '@/shared/assets/icons/user.svg';
 import AdminPanelIcon from '@/shared/assets/icons/admin-panel.svg';
 import Logout from '@/shared/assets/icons/logout.svg';
@@ -13,6 +12,7 @@ import {
 } from '@/entities/User';
 import { useAppDispatch } from '@/shared/lib/hooks/useAppDispatch';
 import cls from './DropdownAvatar.module.scss';
+import { RoutePath } from '@/shared/const/router';
 
 interface DropdownAvatarProps {
     className?: string;

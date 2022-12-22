@@ -4,7 +4,6 @@ import { Link } from 'react-router-dom';
 import { classNames } from '@/shared/lib/classNames/classNames';
 import { DirectionOptions } from '@/shared/types/ui';
 import { directionClasses } from '../../styles/consts';
-import { AppLink } from '../../../AppLink/AppLink';
 import popups from '../../styles/Popups.module.scss';
 import cls from './Dropdown.module.scss';
 import { Icon as IconWrapper } from '../../../Icon/Icon';

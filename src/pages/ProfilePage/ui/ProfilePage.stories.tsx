@@ -1,12 +1,12 @@
 import React from 'react';
 import { ComponentMeta, ComponentStory } from '@storybook/react';
 import { ThemeDecorator } from '@/shared/config/storybook/decorators/ThemeDecorator';
-import { ThemeEnum } from '@/app/providers/ThemeProvider/lib/ThemeContext';
 import { StoreDecorator } from '@/shared/config/storybook/decorators/StoreDecorator';
 import { Currency } from '@/entities/Currency';
 import { Country } from '@/entities/Country';
 import AvatarImg from '@/shared/assets/tests/avatarForTest.webp';
 import { ProfilePage } from './ProfilePage';
+import { ThemeEnum } from '@/shared/const/theme';
 
 const data = {
     age: 3,

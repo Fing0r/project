@@ -2,9 +2,9 @@ import React from 'react';
 import { ComponentMeta, ComponentStory } from '@storybook/react';
 import { useArgs } from '@storybook/client-api';
 import { ThemeDecorator } from '@/shared/config/storybook/decorators/ThemeDecorator';
-import { ThemeEnum } from '@/app/providers/ThemeProvider/lib/ThemeContext';
 import { Country } from '../../model/consts/constsCountry';
 import { CountrySelect } from './CountrySelect';
+import { ThemeEnum } from '@/shared/const/theme';
 
 export default {
     title: 'Entities/CountrySelect',

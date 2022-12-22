@@ -4,10 +4,10 @@ import { buildCssLoader } from './loader/buildCssLoader';
 import { buildSvgLoader } from './loader/buildSvgLoader';
 import { buildBabelLoader } from './loader/buildBabelLoader';
 import { buildFileLoader } from './loader/buildFileLoader';
-import { buildTypescriptLoader } from './loader/buildTypescriptLoader';
+// import { buildTypescriptLoader } from './loader/buildTypescriptLoader';
 
 export function buildLoaders(options: BuildOptions): webpack.RuleSetRule[] {
-    const typescriptLoader = buildTypescriptLoader;
+    // const typescriptLoader = buildTypescriptLoader;
 
     const svgLoader = buildSvgLoader;
 

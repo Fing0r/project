@@ -1,22 +1,25 @@
 import {
-    HTMLAttributeAnchorTarget, memo, useRef, useState,
+    HTMLAttributeAnchorTarget,
+    memo,
+    useRef,
+    // useState,
 } from 'react';
 import { useTranslation } from 'react-i18next';
 import { VirtuosoGrid, VirtuosoGridHandle } from 'react-virtuoso';
-import { useSelector } from 'react-redux';
 import { useLocation } from 'react-router-dom';
-import { getPageScrollByPath } from '@/widgets/Page/model/selectors/page';
 import { Text } from '@/shared/ui/Text/Text';
-import { StateSchema } from '@/app/providers/StoreProvider';
-import { useInitialEffect } from '@/shared/lib/hooks/useInitialEffect';
+// import { getPageScrollByPath } from '@/widgets/Page/model/selectors/page';
+// import { useSelector } from 'react-redux';
+// import { StateSchema } from '@/app/providers/StoreProvider';
+// import { useInitialEffect } from '@/shared/lib/hooks/useInitialEffect';
 import { classNames } from '@/shared/lib/classNames/classNames';
-import { PAGE_ID } from '@/widgets/Page/ui/Page';
 import { ArticleView } from '../../model/consts/articleConsts';
 import { ListContainer, VirtuosoContext } from './VirtuosoContainer';
 import cls from './ArticlesList.module.scss';
 import { Article } from '../../model/types/article';
 import { ArticlesListItem } from '../ArticlesListItem/ArticlesListItem';
 import { ArticlesListItemSkeleton } from '../ArticlesListItem/ArticlesListItemSkeleton';
+import { PAGE_ID } from '@/shared/const';
 
 const getSkeletons = (view: ArticleView) => new Array(view === ArticleView.GRID ? 9 : 3)
     .fill(0)
@@ -51,9 +54,9 @@ const ArticlesList = memo((props: ArticlesListProps) => {
     } = props;
     const { t } = useTranslation('articles');
     const { pathname } = useLocation();
-    const scrollPosition = useSelector((state: StateSchema) => getPageScrollByPath(state, pathname));
+    // const scrollPosition = useSelector((state: StateSchema) => getPageScrollByPath(state, pathname));
     const ref = useRef<VirtuosoGridHandle>(null);
-    const [mounted, setMounted] = useState(false);
+    // const [mounted, setMounted] = useState(false);
 
     const renderVirtualizeArticle = (index: number, article: Article) => (
         <ArticlesListItem
@@ -72,15 +75,15 @@ const ArticlesList = memo((props: ArticlesListProps) => {
             view={view}
         />
     );
-
-    useInitialEffect(() => {
-        if (mounted && ref?.current) {
-            ref.current.scrollTo({ top: scrollPosition - 198 });
-            return;
-        }
-
-        setMounted(true);
-    }, [mounted]);
+    // TODO убрать, вызывает ререндеры
+    // useInitialEffect(() => {
+    //     if (mounted && ref?.current) {
+    //         ref.current.scrollTo({ top: scrollPosition - 198 });
+    //         return;
+    //     }
+    //
+    //     setMounted(true);
+    // }, [mounted]);
 
     const context = {
         className: cls[view],

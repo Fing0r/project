@@ -1,7 +1,24 @@
 const buildSvgLoader = {
     test: /\.svg$/i,
     issuer: /\.[jt]sx?$/,
-    use: ['@svgr/webpack'],
+    use: [{
+        loader: '@svgr/webpack',
+        options: {
+            svgoConfig: {
+                plugins: [
+                    {
+                        name: 'preset-default',
+                        params: {
+                            overrides: {
+                                // отключаем удаление viewBox
+                                removeViewBox: false,
+                            },
+                        },
+                    },
+                ],
+            },
+        },
+    }],
 };
 
 export { buildSvgLoader };

@@ -76,7 +76,15 @@ module.exports = {
         'no-undef': 'off',
         'react/no-array-index-key': 'off',
         'arrow-body-style': 'off',
-        'check-paths-for-fsd-methodology/absolute-and-relative-path-checker': 'error',
+        'check-paths-for-fsd-methodology/absolute-and-relative-path-checker': ['error', { alias: '@' }],
+        'check-paths-for-fsd-methodology/public-api-imports': ['error', {
+            alias: '@',
+            testFilesPatterns: ['**/*.test.*', '**/*.stories.*', '**/StoreDecorator.tsx'],
+        }],
+        'check-paths-for-fsd-methodology/layer-imports': ['error', {
+            alias: '@',
+            testFilesPatterns: ['**/StoreProvider', '**/testing'],
+        }],
         'no-redeclare': 'warn',
     },
     globals: {

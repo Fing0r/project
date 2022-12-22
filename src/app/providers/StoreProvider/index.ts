@@ -7,5 +7,6 @@ export type { AppDispatch } from './config/store';
 export type {
     StateSchema,
     StoreWithManager,
+    StateSchemaKey,
     ThunkConfig,
 } from './config/StateSchema';

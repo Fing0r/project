@@ -2,7 +2,7 @@ import {
     memo, ReactNode, useCallback, useEffect, useRef,
 } from 'react';
 import { classNames } from '@/shared/lib/classNames/classNames';
-import { useAnimation } from '@/shared/lib/AnimationProvider';
+import { AnimationProvider, useAnimation } from '@/shared/lib/AnimationProvider';
 import { Overlay } from '../Overlay/Overlay';
 import cls from './Drawer.module.scss';
 import { Portal } from '../Portal/Portal';
@@ -13,6 +13,7 @@ interface DrawerProps {
     isOpen: boolean;
     onClose: () => void;
     lazy?: boolean;
+    fullWidth?: boolean;
 }
 
 const height = window.innerHeight - 100;
@@ -25,7 +26,7 @@ const DrawerContent = memo((props: DrawerProps) => {
         className,
         isOpen,
         onClose,
-        lazy,
+        fullWidth,
     } = props;
 
     const open = useCallback(() => {
@@ -95,7 +96,7 @@ const DrawerContent = memo((props: DrawerProps) => {
                 <Overlay onClose={handleClose()} />
                 <Spring.a.div
                     style={{ display, bottom: `calc(-100vh + ${height}px - 6.25rem)`, y }}
-                    className={cls.content}
+                    className={classNames(cls.content, { [cls.fullWidth]: fullWidth }, [])}
                     {...bind()}
                 >
                     <button
@@ -112,7 +113,7 @@ const DrawerContent = memo((props: DrawerProps) => {
     );
 });
 
-const Drawer = memo((props: DrawerProps) => {
+const DrawerAsync = (props: DrawerProps) => {
     const { isLoading } = useAnimation();
 
     if (!isLoading) {
@@ -120,6 +121,14 @@ const Drawer = memo((props: DrawerProps) => {
     }
 
     return <DrawerContent {...props} />;
-});
+};
+
+const Drawer = (props: DrawerProps) => {
+    return (
+        <AnimationProvider>
+            <DrawerAsync {...props} />
+        </AnimationProvider>
+    );
+};
 
 export { Drawer };
