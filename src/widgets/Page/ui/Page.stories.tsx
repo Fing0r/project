@@ -1,8 +1,10 @@
-import React from 'react';
 import { ComponentMeta, ComponentStory } from '@storybook/react';
+import React from 'react';
+
+import { Page } from './Page';
+
 import { StoreDecorator } from '@/shared/config/storybook/decorators/StoreDecorator';
 import { ThemeDecorator } from '@/shared/config/storybook/decorators/ThemeDecorator';
-import { Page } from './Page';
 import { ThemeEnum } from '@/shared/const/theme';
 
 export default {

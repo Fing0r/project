@@ -1,8 +1,10 @@
-import React from 'react';
 import { ComponentMeta, ComponentStory } from '@storybook/react';
+import React from 'react';
+
+import { CommentList } from './CommentList';
+
 import AvatarImg from '@/shared/assets/tests/avatarForTest.webp';
 import { ThemeDecorator } from '@/shared/config/storybook/decorators/ThemeDecorator';
-import { CommentList } from './CommentList';
 import { ThemeEnum } from '@/shared/const/theme';
 
 const comments = [

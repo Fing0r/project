@@ -1,7 +1,10 @@
-import React from 'react';
 import { ComponentMeta, ComponentStory } from '@storybook/react';
-import { Code } from './Code';
+import React from 'react';
+
 import { ThemeDecorator } from '../../config/storybook/decorators/ThemeDecorator';
+
+import { Code } from './Code';
+
 import { ThemeEnum } from '@/shared/const/theme';
 
 export default {

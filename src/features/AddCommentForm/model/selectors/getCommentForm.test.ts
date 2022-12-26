@@ -1,5 +1,6 @@
-import { StateSchema } from '@/app/providers/StoreProvider';
 import { getCommentFormError, getCommentFormText } from './getCommentForm';
+
+import { StateSchema } from '@/app/providers/StoreProvider';
 
 describe('getCommentForm', () => {
     test('should return text from state', () => {

@@ -1,9 +1,12 @@
-import React from 'react';
-import { ComponentMeta, ComponentStory } from '@storybook/react';
 import { useArgs } from '@storybook/client-api';
-import { ThemeDecorator } from '@/shared/config/storybook/decorators/ThemeDecorator';
+import { ComponentMeta, ComponentStory } from '@storybook/react';
+import React from 'react';
+
 import { Country } from '../../model/consts/constsCountry';
+
 import { CountrySelect } from './CountrySelect';
+
+import { ThemeDecorator } from '@/shared/config/storybook/decorators/ThemeDecorator';
 import { ThemeEnum } from '@/shared/const/theme';
 
 export default {

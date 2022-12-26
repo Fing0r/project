@@ -1,9 +1,10 @@
 import webpack from 'webpack';
-import { BuildOptions } from './types/config';
-import { buildCssLoader } from './loader/buildCssLoader';
-import { buildSvgLoader } from './loader/buildSvgLoader';
+
 import { buildBabelLoader } from './loader/buildBabelLoader';
+import { buildCssLoader } from './loader/buildCssLoader';
 import { buildFileLoader } from './loader/buildFileLoader';
+import { buildSvgLoader } from './loader/buildSvgLoader';
+import { BuildOptions } from './types/config';
 // import { buildTypescriptLoader } from './loader/buildTypescriptLoader';
 
 export function buildLoaders(options: BuildOptions): webpack.RuleSetRule[] {

@@ -1,9 +1,11 @@
-import React from 'react';
 import { ComponentStory, ComponentMeta } from '@storybook/react';
-import { StoreDecorator } from '@/shared/config/storybook/decorators/StoreDecorator';
+import React from 'react';
+
+import { ArticleRecommendationsList } from './ArticleRecommendationsList';
+
 // eslint-disable-next-line check-paths-for-fsd-methodology/public-api-imports
 import { article } from '@/entities/Article/mocks';
-import { ArticleRecommendationsList } from './ArticleRecommendationsList';
+import { StoreDecorator } from '@/shared/config/storybook/decorators/StoreDecorator';
 
 export default {
     title: 'features/ArticleRecommendationsList',

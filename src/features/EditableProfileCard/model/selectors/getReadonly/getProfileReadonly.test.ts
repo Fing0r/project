@@ -1,5 +1,6 @@
-import { StateSchema } from '@/app/providers/StoreProvider';
 import { getReadonly } from './getReadonly';
+
+import { StateSchema } from '@/app/providers/StoreProvider';
 
 describe('getReadonly', () => {
     test('works with the correct state', () => {

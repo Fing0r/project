@@ -1,5 +1,5 @@
-import { ArticleDetailsSchema } from '../types/articleDetailsSchema';
 import { fetchArticleById } from '../services/fetchArticleById/fetchArticleById';
+import { ArticleDetailsSchema } from '../types/articleDetailsSchema';
 
 import { articleDetailsReducer } from './articleDetailsSlice';
 

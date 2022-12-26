@@ -1,9 +1,11 @@
-import React from 'react';
 import { ComponentMeta, ComponentStory } from '@storybook/react';
-import { StoreDecorator } from '@/shared/config/storybook/decorators/StoreDecorator';
-import AvatarImg from '@/shared/assets/tests/avatarForTest.webp';
-import { ThemeDecorator } from '@/shared/config/storybook/decorators/ThemeDecorator';
+import React from 'react';
+
 import { ArticleCommentList } from './ArticleCommentList';
+
+import AvatarImg from '@/shared/assets/tests/avatarForTest.webp';
+import { StoreDecorator } from '@/shared/config/storybook/decorators/StoreDecorator';
+import { ThemeDecorator } from '@/shared/config/storybook/decorators/ThemeDecorator';
 import { ThemeEnum } from '@/shared/const/theme';
 
 const articleCommentList = {

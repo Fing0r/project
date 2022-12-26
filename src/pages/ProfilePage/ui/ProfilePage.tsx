@@ -1,14 +1,16 @@
-import { useTranslation } from 'react-i18next';
 import { memo } from 'react';
-import { useParams } from 'react-router-dom';
+import { useTranslation } from 'react-i18next';
 import { useSelector } from 'react-redux';
-import { Text } from '@/shared/ui/Text/Text';
-import { Page } from '@/widgets/Page';
-import { EditableProfileCard } from '@/features/EditableProfileCard';
+import { useParams } from 'react-router-dom';
+
 import cls from './ProfilePage.module.scss';
+
+import { getAuthData } from '@/entities/User';
+import { EditableProfileCard } from '@/features/EditableProfileCard';
 import { ProfileRating } from '@/features/ProfileRating';
 import { VStack } from '@/shared/ui/Stack';
-import { getAuthData } from '@/entities/User';
+import { Text } from '@/shared/ui/Text';
+import { Page } from '@/widgets/Page';
 
 interface ProfilePageProps {
     className?: string

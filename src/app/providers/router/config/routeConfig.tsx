@@ -1,15 +1,15 @@
-import { MainPage } from '@/pages/MainPage';
+import { UserRoles } from '@/entities/User';
 import { AboutPage } from '@/pages/AboutPage';
-import { ProfilePage } from '@/pages/ProfilePage';
-import { ArticlesPage } from '@/pages/ArticlesPage';
+import { AdminPanelPage } from '@/pages/AdminPanelPage';
 import { ArticleDetailPage } from '@/pages/ArticleDetailPage';
 import { ArticleEditPage } from '@/pages/ArticleEditPage';
-import { AdminPanelPage } from '@/pages/AdminPanelPage';
-import { UserRoles } from '@/entities/User';
+import { ArticlesPage } from '@/pages/ArticlesPage';
 import { ForbiddenPage } from '@/pages/ForbidenPage';
+import { MainPage } from '@/pages/MainPage';
 import { NotFoundPage } from '@/pages/NotFoundPage';
-import { RoutePropsWithAuth } from '@/shared/types/router';
+import { ProfilePage } from '@/pages/ProfilePage';
 import { AppRoutes, RoutePath } from '@/shared/const/router';
+import { RoutePropsWithAuth } from '@/shared/types/router';
 
 export const routeConfig: Record<AppRoutes, RoutePropsWithAuth> = {
     [AppRoutes.MAIN]: {

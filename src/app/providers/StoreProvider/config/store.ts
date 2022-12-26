@@ -1,11 +1,13 @@
 import { configureStore, Reducer, ReducersMapObject } from '@reduxjs/toolkit';
 import { CombinedState } from 'redux';
-import { userReducer } from '@/entities/User';
-import { pageReducer } from '@/widgets/Page';
-import { $api } from '@/shared/api/api';
-import { rtkApi } from '@/shared/api/rtkApi';
+
 import { createReducerManager } from './reducerManager';
 import { StateSchema, ThunkExtraArg } from './StateSchema';
+
+import { userReducer } from '@/entities/User';
+import { $api } from '@/shared/api/api';
+import { rtkApi } from '@/shared/api/rtkApi';
+import { pageReducer } from '@/widgets/Page';
 
 export const createReduxStore = (
     initialState?: StateSchema,

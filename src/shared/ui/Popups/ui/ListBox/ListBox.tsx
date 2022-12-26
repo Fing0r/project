@@ -1,12 +1,15 @@
-import { Fragment, memo } from 'react';
-import { Listbox as HListBox } from '@headlessui/react';
 import { useFloating, flip } from '@floating-ui/react-dom';
-import { classNames } from '@/shared/lib/classNames/classNames';
-import Chevron from '@/shared/assets/icons/chevron-up-down.svg';
+import { Listbox as HListBox } from '@headlessui/react';
+import { Fragment, memo } from 'react';
+
 import { Button, ButtonTheme } from '../../../Button/Button';
 import { Icon } from '../../../Icon/Icon';
 import popups from '../../styles/Popups.module.scss';
+
 import cls from './ListBox.module.scss';
+
+import Chevron from '@/shared/assets/icons/chevron-up-down.svg';
+import { classNames } from '@/shared/lib/classNames/classNames';
 
 export interface ListBoxOption<T extends string> {
     value: T;

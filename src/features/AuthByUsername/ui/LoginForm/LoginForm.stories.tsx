@@ -1,9 +1,11 @@
-import React from 'react';
 import { ComponentMeta, ComponentStory } from '@storybook/react';
+import React from 'react';
+
+import { LoginForm } from './LoginForm';
+
+import i18n from '@/shared/config/i18n/i18nForStorybook';
 import { StoreDecorator } from '@/shared/config/storybook/decorators/StoreDecorator';
 import { ThemeDecorator } from '@/shared/config/storybook/decorators/ThemeDecorator';
-import i18n from '@/shared/config/i18n/i18nForStorybook';
-import { LoginForm } from './LoginForm';
 import { ThemeEnum } from '@/shared/const/theme';
 
 export default {

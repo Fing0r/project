@@ -1,9 +1,11 @@
-import React from 'react';
 import { ComponentMeta, ComponentStory } from '@storybook/react';
-import { ThemeDecorator } from '@/shared/config/storybook/decorators/ThemeDecorator';
-import { StoreDecorator } from '@/shared/config/storybook/decorators/StoreDecorator';
-import { StateSchema } from '@/app/providers/StoreProvider';
+import React from 'react';
+
 import { Navbar } from './Navbar';
+
+import { StateSchema } from '@/app/providers/StoreProvider';
+import { StoreDecorator } from '@/shared/config/storybook/decorators/StoreDecorator';
+import { ThemeDecorator } from '@/shared/config/storybook/decorators/ThemeDecorator';
 import { ThemeEnum } from '@/shared/const/theme';
 
 export default {

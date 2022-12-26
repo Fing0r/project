@@ -1,7 +1,9 @@
-import { Currency } from '@/entities/Currency';
-import { Country } from '@/entities/Country';
-import { validateProfileData } from './validateProfileData';
 import { ValidateProfileErrors } from '../../consts/consts';
+
+import { validateProfileData } from './validateProfileData';
+
+import { Country } from '@/entities/Country';
+import { Currency } from '@/entities/Currency';
 
 const data = {
     age: 3,

@@ -1,4 +1,5 @@
 import { Story } from '@storybook/react';
+
 // eslint-disable-next-line check-paths-for-fsd-methodology/layer-imports
 import { ThemeProvider } from '@/app/providers/ThemeProvider';
 import { ThemeEnum } from '@/shared/const/theme';

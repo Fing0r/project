@@ -1,11 +1,13 @@
-import React from 'react';
 import { ComponentMeta, ComponentStory } from '@storybook/react';
-import { ThemeDecorator } from '@/shared/config/storybook/decorators/ThemeDecorator';
-import { StoreDecorator } from '@/shared/config/storybook/decorators/StoreDecorator';
-import { Currency } from '@/entities/Currency';
-import { Country } from '@/entities/Country';
-import AvatarImg from '@/shared/assets/tests/avatarForTest.webp';
+import React from 'react';
+
 import { ProfilePage } from './ProfilePage';
+
+import { Country } from '@/entities/Country';
+import { Currency } from '@/entities/Currency';
+import AvatarImg from '@/shared/assets/tests/avatarForTest.webp';
+import { StoreDecorator } from '@/shared/config/storybook/decorators/StoreDecorator';
+import { ThemeDecorator } from '@/shared/config/storybook/decorators/ThemeDecorator';
 import { ThemeEnum } from '@/shared/const/theme';
 
 const data = {

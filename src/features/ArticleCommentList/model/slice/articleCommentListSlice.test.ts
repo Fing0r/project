@@ -1,7 +1,8 @@
-import { ArticleCommentListSchema } from '../types/ArticleCommentListSchema';
 import {
     fetchCommentsByArticleId,
 } from '../services/fetchCommentsByArticleId/fetchCommentsByArticleId';
+import { ArticleCommentListSchema } from '../types/ArticleCommentListSchema';
+
 import { articleCommentListReducer } from './articleCommentListSlice';
 
 const comments = [

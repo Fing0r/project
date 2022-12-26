@@ -1,30 +1,33 @@
-import { useSelector } from 'react-redux';
 import { memo, useCallback } from 'react';
-import { useAppDispatch } from '@/shared/lib/hooks/useAppDispatch';
-import { classNames } from '@/shared/lib/classNames/classNames';
-import {
-    Text, TextAlign, TextSize, TextTheme,
-} from '@/shared/ui/Text/Text';
-import { ReducersList, useDynamicModule } from '@/shared/lib/hooks/useDynamicModule';
-import { Skeleton } from '@/shared/ui/Skeleton/Skeleton';
-import { Avatar } from '@/shared/ui/Avatar/Avatar';
-import { Icon } from '@/shared/ui/Icon/Icon';
-import EyeIcon from '@/shared/assets/icons/eye.svg';
-import CalendarIcon from '@/shared/assets/icons/calendar.svg';
-import { useInitialEffect } from '@/shared/lib/hooks/useInitialEffect';
-import { articleDetailsReducer } from '../../model/slice/articleDetailsSlice';
+import { useSelector } from 'react-redux';
+
 import { ArticleBlockType } from '../../model/consts/articleConsts';
-import { ArticleCodeBlockComponent } from '../ArticleCodeBlockComponent/ArticleCodeBlockComponent';
-import { ArticleTextBlockComponent } from '../ArticleTextBlockComponent/ArticleTextBlockComponent';
-import { ArticleImageBlockComponent } from '../ArticleImageBlockComponent/ArticleImageBlockComponent';
-import { fetchArticleById } from '../../model/services/fetchArticleById/fetchArticleById';
-import cls from './ArticleDetails.module.scss';
 import {
     getArticleDetailData,
     getArticleDetailError,
     getArticleDetailIsLoading,
 } from '../../model/selectors/articleDetails';
+import { fetchArticleById } from '../../model/services/fetchArticleById/fetchArticleById';
+import { articleDetailsReducer } from '../../model/slice/articleDetailsSlice';
 import { ArticleBlock } from '../../model/types/article';
+import { ArticleCodeBlockComponent } from '../ArticleCodeBlockComponent/ArticleCodeBlockComponent';
+import { ArticleImageBlockComponent } from '../ArticleImageBlockComponent/ArticleImageBlockComponent';
+import { ArticleTextBlockComponent } from '../ArticleTextBlockComponent/ArticleTextBlockComponent';
+
+import cls from './ArticleDetails.module.scss';
+
+import CalendarIcon from '@/shared/assets/icons/calendar.svg';
+import EyeIcon from '@/shared/assets/icons/eye.svg';
+import { classNames } from '@/shared/lib/classNames/classNames';
+import { useAppDispatch } from '@/shared/lib/hooks/useAppDispatch';
+import { ReducersList, useDynamicModule } from '@/shared/lib/hooks/useDynamicModule';
+import { useInitialEffect } from '@/shared/lib/hooks/useInitialEffect';
+import { Avatar } from '@/shared/ui/Avatar';
+import { Icon } from '@/shared/ui/Icon';
+import { Skeleton } from '@/shared/ui/Skeleton';
+import {
+    Text, TextAlign, TextSize, TextTheme,
+} from '@/shared/ui/Text';
 
 const initialReducers: ReducersList = {
     articleDetails: articleDetailsReducer,

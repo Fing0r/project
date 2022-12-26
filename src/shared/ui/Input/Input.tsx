@@ -5,8 +5,10 @@ import React, {
     useEffect,
     useRef,
 } from 'react';
-import { classNames, Mods } from '@/shared/lib/classNames/classNames';
+
 import cls from './Input.module.scss';
+
+import { classNames, Mods } from '@/shared/lib/classNames/classNames';
 
 export const enum InputTheme {
     OUTLINE = 'outline',

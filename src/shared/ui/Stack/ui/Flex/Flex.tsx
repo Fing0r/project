@@ -1,6 +1,8 @@
 import { ComponentProps, ElementType, ReactNode } from 'react';
-import { classNames } from '@/shared/lib/classNames/classNames';
+
 import cls from './Flex.module.scss';
+
+import { classNames } from '@/shared/lib/classNames/classNames';
 
 type JustifyFlex = 'between' | 'center' | 'start' | 'end' | 'around' | 'evenly';
 type AlignFlex = 'start' | 'center' | 'end';

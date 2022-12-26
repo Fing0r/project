@@ -1,7 +1,9 @@
 import { CSSProperties } from 'react';
+
+import cls from './Skeleton.module.scss';
+
 import { classNames } from '@/shared/lib/classNames/classNames';
 import { useGuardPercentCSSProperty } from '@/shared/lib/hooks/useGuardPercentCSSProperty';
-import cls from './Skeleton.module.scss';
 
 interface SkeletonProps {
     className?: string;

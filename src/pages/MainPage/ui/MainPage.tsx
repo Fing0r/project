@@ -1,5 +1,6 @@
 import { FC } from 'react';
 import { useTranslation } from 'react-i18next';
+
 import { ButtonError } from '@/shared/ui/ButtonError';
 import { Page } from '@/widgets/Page';
 

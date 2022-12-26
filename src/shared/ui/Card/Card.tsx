@@ -1,6 +1,8 @@
 import { HTMLAttributes, memo, ReactNode } from 'react';
-import { classNames, Mods } from '@/shared/lib/classNames/classNames';
+
 import cls from './Card.module.scss';
+
+import { classNames, Mods } from '@/shared/lib/classNames/classNames';
 
 export const enum CardTheme {
     OUTLINE = 'outline',

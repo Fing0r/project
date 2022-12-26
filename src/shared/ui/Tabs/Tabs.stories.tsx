@@ -1,8 +1,10 @@
-import React from 'react';
-import { ComponentMeta, ComponentStory } from '@storybook/react';
 import { action } from '@storybook/addon-actions';
-import { ThemeDecorator } from '@/shared/config/storybook/decorators/ThemeDecorator';
+import { ComponentMeta, ComponentStory } from '@storybook/react';
+import React from 'react';
+
 import { Tabs } from './Tabs';
+
+import { ThemeDecorator } from '@/shared/config/storybook/decorators/ThemeDecorator';
 import { ThemeEnum } from '@/shared/const/theme';
 
 const tabs = [

@@ -1,9 +1,11 @@
-import { ArticleCommentListSchema } from '@/features/ArticleCommentList';
-import { ArticleDetailsCommentsSchema } from '../types/ArticleDetailsCommentsSchema';
-import { articleDetailCommentReducer } from './articleDetailsCommentSlice';
 import {
     fetchCommentsByArticleId,
 } from '../services/fetchCommentsByArticleId/fetchCommentsByArticleId';
+import { ArticleDetailsCommentsSchema } from '../types/ArticleDetailsCommentsSchema';
+
+import { articleDetailCommentReducer } from './articleDetailsCommentSlice';
+
+import { ArticleCommentListSchema } from '@/features/ArticleCommentList';
 
 const comments = [
     {

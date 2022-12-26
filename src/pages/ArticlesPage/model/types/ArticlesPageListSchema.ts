@@ -1,4 +1,5 @@
 import { EntityState } from '@reduxjs/toolkit';
+
 import {
     Article, ArticleFieldSort, ArticleType, ArticleView,
 } from '@/entities/Article';

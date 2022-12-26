@@ -1,7 +1,5 @@
 import { createAsyncThunk } from '@reduxjs/toolkit';
-import { ThunkConfig } from '@/app/providers/StoreProvider';
-import { Article, ArticleType } from '@/entities/Article';
-import { addQueryParams } from '@/shared/lib/url/addQueryParams/addQueryParams';
+
 import {
     getArticlesPageListLimit,
     getArticlesPageListNumPage,
@@ -10,6 +8,10 @@ import {
     getArticlesPageListSort,
     getArticlesPageListType,
 } from '../../selectors/getArticlesPageList';
+
+import { ThunkConfig } from '@/app/providers/StoreProvider';
+import { Article, ArticleType } from '@/entities/Article';
+import { addQueryParams } from '@/shared/lib/url/addQueryParams/addQueryParams';
 
 interface Args {
     replace?: boolean;

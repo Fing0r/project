@@ -1,5 +1,6 @@
-import { StateSchema } from '@/app/providers/StoreProvider';
 import { getError } from './getError';
+
+import { StateSchema } from '@/app/providers/StoreProvider';
 
 describe('getError', () => {
     test('return error', () => {

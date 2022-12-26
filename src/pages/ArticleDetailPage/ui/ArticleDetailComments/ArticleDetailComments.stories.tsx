@@ -1,8 +1,10 @@
-import React from 'react';
 import { ComponentMeta, ComponentStory } from '@storybook/react';
-import { StoreDecorator } from '@/shared/config/storybook/decorators/StoreDecorator';
-import AvatarImg from '@/shared/assets/tests/avatarForTest.webp';
+import React from 'react';
+
 import { ArticleDetailsComments } from './ArticleDetailsComments';
+
+import AvatarImg from '@/shared/assets/tests/avatarForTest.webp';
+import { StoreDecorator } from '@/shared/config/storybook/decorators/StoreDecorator';
 
 export default {
     title: 'Pages/ArticleDetailsPage/ArticleDetailComments',

@@ -1,9 +1,12 @@
 import { memo, useCallback } from 'react';
-import { classNames } from '@/shared/lib/classNames/classNames';
-import { HStack } from '../Stack';
-import cls from './Tabs.module.scss';
+
 import { Button, ButtonTheme } from '../Button/Button';
+import { HStack } from '../Stack';
 import { Text, TextAlign } from '../Text/Text';
+
+import cls from './Tabs.module.scss';
+
+import { classNames } from '@/shared/lib/classNames/classNames';
 
 export interface TabItem<T extends string> {
     text: string;

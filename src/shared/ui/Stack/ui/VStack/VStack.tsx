@@ -1,4 +1,5 @@
 import { ComponentProps, ElementType } from 'react';
+
 import { Flex, FlexOwnProps } from '../Flex/Flex';
 
 type VStackProps<E extends ElementType> = Omit<FlexOwnProps<E>, 'direction'> &

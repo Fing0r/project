@@ -1,7 +1,9 @@
-import React from 'react';
 import { ComponentMeta, ComponentStory } from '@storybook/react';
-import { ArticleView } from '../../model/consts/articleConsts';
+import React from 'react';
+
 import { article } from '../../mocks';
+import { ArticleView } from '../../model/consts/articleConsts';
+
 import { ArticlesListItem } from './ArticlesListItem';
 
 export default {

@@ -1,8 +1,10 @@
-import React from 'react';
-import { ComponentMeta, ComponentStory } from '@storybook/react';
 import { useArgs } from '@storybook/client-api';
-import { ThemeDecorator } from '@/shared/config/storybook/decorators/ThemeDecorator';
+import { ComponentMeta, ComponentStory } from '@storybook/react';
+import React from 'react';
+
 import { ListBox } from './ListBox';
+
+import { ThemeDecorator } from '@/shared/config/storybook/decorators/ThemeDecorator';
 import { ThemeEnum } from '@/shared/const/theme';
 
 export default {

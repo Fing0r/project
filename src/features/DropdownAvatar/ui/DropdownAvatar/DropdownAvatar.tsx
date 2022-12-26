@@ -1,18 +1,20 @@
-import { useTranslation } from 'react-i18next';
 import { memo, useCallback, useMemo } from 'react';
+import { useTranslation } from 'react-i18next';
 import { useSelector } from 'react-redux';
-import { classNames } from '@/shared/lib/classNames/classNames';
-import { Dropdown, DropdownItemProps } from '@/shared/ui/Popups/ui';
-import { Avatar } from '@/shared/ui/Avatar/Avatar';
-import User from '@/shared/assets/icons/user.svg';
-import AdminPanelIcon from '@/shared/assets/icons/admin-panel.svg';
-import Logout from '@/shared/assets/icons/logout.svg';
+
+import cls from './DropdownAvatar.module.scss';
+
 import {
     getAuthData, isUserAdmin, isUserManager, userActions,
 } from '@/entities/User';
-import { useAppDispatch } from '@/shared/lib/hooks/useAppDispatch';
-import cls from './DropdownAvatar.module.scss';
+import AdminPanelIcon from '@/shared/assets/icons/admin-panel.svg';
+import Logout from '@/shared/assets/icons/logout.svg';
+import User from '@/shared/assets/icons/user.svg';
 import { RoutePath } from '@/shared/const/router';
+import { classNames } from '@/shared/lib/classNames/classNames';
+import { useAppDispatch } from '@/shared/lib/hooks/useAppDispatch';
+import { Avatar } from '@/shared/ui/Avatar';
+import { Dropdown, DropdownItemProps } from '@/shared/ui/Popups';
 
 interface DropdownAvatarProps {
     className?: string;

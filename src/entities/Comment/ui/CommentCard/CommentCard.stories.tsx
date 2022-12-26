@@ -1,8 +1,10 @@
-import React from 'react';
 import { ComponentMeta, ComponentStory } from '@storybook/react';
+import React from 'react';
+
+import { CommentCard } from './CommentCard';
+
 import AvatarImg from '@/shared/assets/tests/avatarForTest.webp';
 import { ThemeDecorator } from '@/shared/config/storybook/decorators/ThemeDecorator';
-import { CommentCard } from './CommentCard';
 import { ThemeEnum } from '@/shared/const/theme';
 
 export default {

@@ -1,4 +1,5 @@
 import { forwardRef, HTMLProps } from 'react';
+
 import { ArticleView } from '../../model/consts/articleConsts';
 import { ArticlesListItemSkeleton } from '../ArticlesListItem/ArticlesListItemSkeleton';
 

@@ -1,12 +1,14 @@
-import { Country } from '@/entities/Country';
-import { Currency } from '@/entities/Currency';
 import { ValidateProfileErrors } from '../consts/consts';
+import { fetchProfileData } from '../services/fetchProfileData/fetchProfileData';
+import { updateProfileData } from '../services/updateProfileData/updateProfileData';
 import {
     EditableProfileCardSchema,
 } from '../types/EditableProfileCardSchema';
-import { fetchProfileData } from '../services/fetchProfileData/fetchProfileData';
-import { updateProfileData } from '../services/updateProfileData/updateProfileData';
+
 import { profileActions, profileReducer } from './profileSlice';
+
+import { Country } from '@/entities/Country';
+import { Currency } from '@/entities/Currency';
 
 const data = {
     age: 3,

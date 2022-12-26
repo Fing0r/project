@@ -1,9 +1,12 @@
-import React from 'react';
 import { ComponentMeta, ComponentStory } from '@storybook/react';
-import { StoreDecorator } from '@/shared/config/storybook/decorators/StoreDecorator';
-import { ArticleView } from '../../model/consts/articleConsts';
+import React from 'react';
+
 import { article } from '../../mocks';
+import { ArticleView } from '../../model/consts/articleConsts';
+
 import { ArticlesList } from './ArticlesList';
+
+import { StoreDecorator } from '@/shared/config/storybook/decorators/StoreDecorator';
 
 const articles = new Array(9).fill(0).map((item, index) => ({ ...article, id: String(index) }));
 

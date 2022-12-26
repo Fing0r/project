@@ -23,8 +23,24 @@ module.exports = {
         'i18next',
         'react-hooks',
         'check-paths-for-fsd-methodology',
+        'unused-imports',
+        'import',
     ],
     rules: {
+        'import/order': [
+            'error',
+            {
+                'newlines-between': 'always',
+                alphabetize: { order: 'asc', caseInsensitive: true },
+                pathGroups: [
+                    {
+                        pattern: '@/**',
+                        group: 'internal',
+                        position: 'after',
+                    },
+                ],
+            },
+        ],
         'react/jsx-indent': [2, 4],
         'react/jsx-indent-props': [2, 4],
         indent: [2, 4],
@@ -71,7 +87,6 @@ module.exports = {
         'react/button-has-type': 'off',
         // Отключаем дефолтное правило и включаем правило для ts, чтобы не ругался на enum
         'no-unused-vars': 'off',
-        '@typescript-eslint/no-unused-vars': 'warn',
         'lines-between-class-members': 'off',
         'no-undef': 'off',
         'react/no-array-index-key': 'off',
@@ -86,6 +101,7 @@ module.exports = {
             testFilesPatterns: ['**/StoreProvider', '**/testing'],
         }],
         'no-redeclare': 'warn',
+        'unused-imports/no-unused-imports': 'error',
     },
     globals: {
         __IS_DEV__: true,

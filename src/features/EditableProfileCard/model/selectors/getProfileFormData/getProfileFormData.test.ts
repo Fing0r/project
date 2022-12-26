@@ -1,7 +1,8 @@
+import { getProfileFormData } from './getProfileFormData';
+
 import { StateSchema } from '@/app/providers/StoreProvider';
 import { Country } from '@/entities/Country';
 import { Currency } from '@/entities/Currency';
-import { getProfileFormData } from './getProfileFormData';
 
 const data = {
     age: 3,

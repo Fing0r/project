@@ -1,5 +1,6 @@
-import { StateSchema } from '@/app/providers/StoreProvider';
 import { getPassword } from './getPassword';
+
+import { StateSchema } from '@/app/providers/StoreProvider';
 
 describe('getPassword', () => {
     test('return password', () => {

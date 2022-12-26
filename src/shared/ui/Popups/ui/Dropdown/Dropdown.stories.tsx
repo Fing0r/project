@@ -1,7 +1,9 @@
-import React from 'react';
 import { ComponentMeta, ComponentStory } from '@storybook/react';
-import Logout from '@/shared/assets/icons/logout.svg';
+import React from 'react';
+
 import { Dropdown } from './Dropdown';
+
+import Logout from '@/shared/assets/icons/logout.svg';
 
 export default {
     title: 'Shared/Dropdown',

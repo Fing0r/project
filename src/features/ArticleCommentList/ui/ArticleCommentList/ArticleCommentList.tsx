@@ -1,16 +1,19 @@
 import { memo } from 'react';
 import { useSelector } from 'react-redux';
-import { classNames } from '@/shared/lib/classNames/classNames';
-import { CommentList } from '@/entities/Comment';
-import { useAppDispatch } from '@/shared/lib/hooks/useAppDispatch';
-import { ReducersList, useDynamicModule } from '@/shared/lib/hooks/useDynamicModule';
-import { useInitialEffect } from '@/shared/lib/hooks/useInitialEffect';
-import cls from './ArticleCommentList.module.scss';
+
+import { getArticleCommentsListIsLoading } from '../../model/selectors/comments';
 import {
     fetchCommentsByArticleId,
 } from '../../model/services/fetchCommentsByArticleId/fetchCommentsByArticleId';
 import { articleCommentListReducer, getArticleComments } from '../../model/slice/articleCommentListSlice';
-import { getArticleCommentsListIsLoading } from '../../model/selectors/comments';
+
+import cls from './ArticleCommentList.module.scss';
+
+import { CommentList } from '@/entities/Comment';
+import { classNames } from '@/shared/lib/classNames/classNames';
+import { useAppDispatch } from '@/shared/lib/hooks/useAppDispatch';
+import { ReducersList, useDynamicModule } from '@/shared/lib/hooks/useDynamicModule';
+import { useInitialEffect } from '@/shared/lib/hooks/useInitialEffect';
 
 interface ArticleCommentListProps {
     className?: string;

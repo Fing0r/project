@@ -1,11 +1,13 @@
+import { fetchArticlesList } from '../services/fetchArticlesList/fetchArticlesList';
+import { ArticlesPageListSchema } from '../types/ArticlesPageListSchema';
+
+import { articlesPageListActions, articlesPageListReducer } from './articlesListSlice';
+
 import {
     ArticleBlockType, ArticleFieldSort, ArticleType, ArticleView,
 } from '@/entities/Article';
 import type { Article } from '@/entities/Article';
 import { ARTICLES_VIEW_LOCALSTORAGE_KEY } from '@/shared/const/localstorage';
-import { fetchArticlesList } from '../services/fetchArticlesList/fetchArticlesList';
-import { articlesPageListActions, articlesPageListReducer } from './articlesListSlice';
-import { ArticlesPageListSchema } from '../types/ArticlesPageListSchema';
 
 const stateEntities = {
     1: {

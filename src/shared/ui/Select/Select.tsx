@@ -3,8 +3,10 @@ import {
     memo,
     useMemo,
 } from 'react';
-import { classNames } from '@/shared/lib/classNames/classNames';
+
 import cls from './Select.module.scss';
+
+import { classNames } from '@/shared/lib/classNames/classNames';
 
 export interface SelectOption<T extends string> {
     value: T;

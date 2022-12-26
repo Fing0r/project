@@ -1,12 +1,15 @@
 import { Menu } from '@headlessui/react';
 import React, { Fragment, ReactNode } from 'react';
 import { Link } from 'react-router-dom';
-import { classNames } from '@/shared/lib/classNames/classNames';
-import { DirectionOptions } from '@/shared/types/ui';
+
+import { Icon as IconWrapper } from '../../../Icon/Icon';
 import { directionClasses } from '../../styles/consts';
 import popups from '../../styles/Popups.module.scss';
+
 import cls from './Dropdown.module.scss';
-import { Icon as IconWrapper } from '../../../Icon/Icon';
+
+import { classNames } from '@/shared/lib/classNames/classNames';
+import { DirectionOptions } from '@/shared/types/ui';
 
 export interface DropdownItemProps {
     content?: ReactNode;

@@ -1,9 +1,11 @@
-import React from 'react';
-import { ComponentMeta, ComponentStory } from '@storybook/react';
 import { useArgs } from '@storybook/client-api';
+import { ComponentMeta, ComponentStory } from '@storybook/react';
+import React from 'react';
+
+import { Button } from '../Button/Button';
+
 import { Drawer } from './Drawer';
 import cls from './Drawer.module.scss';
-import { Button } from '../Button/Button';
 
 export default {
     title: 'Shared/Drawer',

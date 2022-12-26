@@ -1,17 +1,19 @@
 import { memo, useCallback } from 'react';
 import { useTranslation } from 'react-i18next';
 import { useSelector } from 'react-redux';
-import { classNames } from '@/shared/lib/classNames/classNames';
-import { Button, ButtonTheme } from '@/shared/ui/Button/Button';
-import { useAppDispatch } from '@/shared/lib/hooks/useAppDispatch';
-import { Text } from '@/shared/ui/Text/Text';
-import { getAuthData } from '@/entities/User';
-import { HStack } from '@/shared/ui/Stack';
-import { updateProfileData } from '../../model/services/updateProfileData/updateProfileData';
+
 import { getProfileData } from '../../model/selectors/getProfileData/getProfileData';
-import { getReadonly } from '../../model/selectors/getReadonly/getReadonly';
 import { getProfileError } from '../../model/selectors/getProfileError/getProfileError';
+import { getReadonly } from '../../model/selectors/getReadonly/getReadonly';
+import { updateProfileData } from '../../model/services/updateProfileData/updateProfileData';
 import { profileActions } from '../../model/slice/profileSlice';
+
+import { getAuthData } from '@/entities/User';
+import { classNames } from '@/shared/lib/classNames/classNames';
+import { useAppDispatch } from '@/shared/lib/hooks/useAppDispatch';
+import { Button, ButtonTheme } from '@/shared/ui/Button';
+import { HStack } from '@/shared/ui/Stack';
+import { Text } from '@/shared/ui/Text';
 
 interface ProfilePageHeaderProps {
     className?: string;

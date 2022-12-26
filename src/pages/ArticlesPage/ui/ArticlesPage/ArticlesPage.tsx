@@ -1,16 +1,19 @@
 import { MutableRefObject, useCallback, useRef } from 'react';
 import { useSearchParams } from 'react-router-dom';
-import { classNames } from '@/shared/lib/classNames/classNames';
-import { ReducersList, useDynamicModule } from '@/shared/lib/hooks/useDynamicModule';
-import { useInitialEffect } from '@/shared/lib/hooks/useInitialEffect';
-import { useAppDispatch } from '@/shared/lib/hooks/useAppDispatch';
-import { Page } from '@/widgets/Page';
+
 import { fetchNextArticles } from '../../model/services/fetchNextArticles/fetchNextArticles';
 import { initArticlesPageList } from '../../model/services/initFetchArticlesList/initArticlesPageList';
 import { articlesPageListReducer } from '../../model/slices/articlesListSlice';
-import cls from './ArticlesPage.module.scss';
-import { ArticlesPageFilters } from '../ArticlesPageFilters/ArticlesPageFilters';
 import { ArticlesInfinityList } from '../ArticlesInfinityList/ArticlesInfinityList';
+import { ArticlesPageFilters } from '../ArticlesPageFilters/ArticlesPageFilters';
+
+import cls from './ArticlesPage.module.scss';
+
+import { classNames } from '@/shared/lib/classNames/classNames';
+import { useAppDispatch } from '@/shared/lib/hooks/useAppDispatch';
+import { ReducersList, useDynamicModule } from '@/shared/lib/hooks/useDynamicModule';
+import { useInitialEffect } from '@/shared/lib/hooks/useInitialEffect';
+import { Page } from '@/widgets/Page';
 
 interface ArticlesPageProps {
     className?: string;

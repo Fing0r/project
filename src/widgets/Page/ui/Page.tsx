@@ -1,18 +1,21 @@
 import {
     memo, MutableRefObject, ReactNode, UIEvent, useRef,
 } from 'react';
-import { useLocation } from 'react-router-dom';
 import { useSelector } from 'react-redux';
-import { classNames } from '@/shared/lib/classNames/classNames';
-import { useInfiniteScroll } from '@/shared/lib/hooks/useInfiniteScroll';
-import { useThrottle } from '@/shared/lib/hooks/useThrottle';
-import { useAppDispatch } from '@/shared/lib/hooks/useAppDispatch';
-import { StateSchema } from '@/app/providers/StoreProvider';
-import { useInitialEffect } from '@/shared/lib/hooks/useInitialEffect';
+import { useLocation } from 'react-router-dom';
+
 import { getPageScrollByPath } from '../model/selectors/page';
 import { pageActions } from '../model/slices/pageSlice';
+
 import cls from './Page.module.scss';
+
+import { StateSchema } from '@/app/providers/StoreProvider';
 import { PAGE_ID } from '@/shared/const';
+import { classNames } from '@/shared/lib/classNames/classNames';
+import { useAppDispatch } from '@/shared/lib/hooks/useAppDispatch';
+import { useInfiniteScroll } from '@/shared/lib/hooks/useInfiniteScroll';
+import { useInitialEffect } from '@/shared/lib/hooks/useInitialEffect';
+import { useThrottle } from '@/shared/lib/hooks/useThrottle';
 
 interface PageProps {
     className?: string;
