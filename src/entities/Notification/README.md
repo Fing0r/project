@@ -1,0 +1,6 @@
+## Сущность Notification
+
+NotificationsList - ...
+
+NotificationsItem - ...
+

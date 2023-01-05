@@ -1679,6 +1679,54 @@
       "userId": "1",
       "text": "ыыыыы",
       "id": "w0suFIP"
+    },
+    {
+      "articleId": "4",
+      "userId": "1",
+      "text": "sadf",
+      "id": "v5BJFMq"
+    },
+    {
+      "articleId": "4",
+      "userId": "1",
+      "text": "sdf",
+      "id": "0JnAYF2"
+    },
+    {
+      "articleId": "4",
+      "userId": "1",
+      "text": "asd",
+      "id": "bghE1Qa"
+    },
+    {
+      "articleId": "4",
+      "userId": "1",
+      "text": "dsadasdsd",
+      "id": "ZELYlub"
+    },
+    {
+      "articleId": "4",
+      "userId": "1",
+      "text": "dasda",
+      "id": "_fDCK-g"
+    },
+    {
+      "articleId": "4",
+      "userId": "1",
+      "text": "asd",
+      "id": "20-GIBI"
+    },
+    {
+      "articleId": "4",
+      "userId": "1",
+      "text": "sad",
+      "id": "eskSTwj"
+    },
+    {
+      "articleId": "4",
+      "userId": "1",
+      "text": "asdasd",
+      "id": "2PQmvyD"
     }
   ],
   "users": [
@@ -1761,29 +1809,20 @@
       "userId": "1",
       "rating": 4,
       "id": 4
-    }
-  ],
-  "profile-ratings": [
+    },
     {
-      "id": 1,
-      "profileId": "1",
-      "userId": "1",
+      "articleId": "4",
+      "userId": "2",
       "rating": 3,
-      "feedback": "qweqweqwe"
+      "id": 5
     },
     {
-      "profileId": "2",
-      "userId": "1",
-      "rating": 4,
-      "feedback": "",
-      "id": 2
-    },
-    {
-      "profileId": "1",
+      "articleId": "1",
       "userId": "2",
       "rating": 4,
       "feedback": "",
-      "id": 3
+      "id": 6
     }
-  ]
+  ],
+  "profile-ratings": []
 }

@@ -39,7 +39,7 @@ const virtuosoComponents = {
 
 interface ArticlesListProps {
     className?: string;
-    articles: Article[];
+    articles?: Article[];
     view?: ArticleView;
     isLoading?: boolean;
     target?: HTMLAttributeAnchorTarget;
@@ -112,7 +112,7 @@ const ArticlesList = memo((props: ArticlesListProps) => {
             />
         ) : (
             <div className={classNames(cls[view], {}, [className])}>
-                {articles.map(renderArticle)}
+                {articles?.map(renderArticle)}
                 {isLoading && getSkeletons(view)}
             </div>
         )

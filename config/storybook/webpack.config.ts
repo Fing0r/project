@@ -44,7 +44,7 @@ export default ({ config }: {config: webpack.Configuration}) => {
         // Помогло рещить ошибку с глобальными переменными
         new webpack.DefinePlugin({
             __IS_DEV__: JSON.stringify(true),
-            __API__: JSON.stringify('https://test-api.ru'),
+            __API__: JSON.stringify('https://testapi.ru'),
             __PROJECT__: JSON.stringify('storybook'),
         }),
     );

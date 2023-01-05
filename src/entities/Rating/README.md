@@ -1,0 +1,4 @@
+## Сущность Rating
+
+RatingCard - ...
+

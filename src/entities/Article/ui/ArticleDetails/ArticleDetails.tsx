@@ -22,7 +22,7 @@ import { classNames } from '@/shared/lib/classNames/classNames';
 import { useAppDispatch } from '@/shared/lib/hooks/useAppDispatch';
 import { ReducersList, useDynamicModule } from '@/shared/lib/hooks/useDynamicModule';
 import { useInitialEffect } from '@/shared/lib/hooks/useInitialEffect';
-import { Avatar } from '@/shared/ui/Avatar';
+import { AppImage } from '@/shared/ui/AppImage';
 import { Icon } from '@/shared/ui/Icon';
 import { Skeleton } from '@/shared/ui/Skeleton';
 import {
@@ -89,7 +89,7 @@ const ArticleDetails = memo((props: ArticleDetailProps) => {
         return (
             <div className={classNames(cls.ArticleDetail, {}, [cls.skeletonWrapper])}>
                 <Skeleton
-                    className={cls.avatar}
+                    className={cls.img}
                     width={200}
                     height={200}
                     borderRadius="50%"
@@ -130,12 +130,16 @@ const ArticleDetails = memo((props: ArticleDetailProps) => {
         );
     }
 
+    const fallback = <Skeleton className={cls.img} />;
+    const errorFallback = <div />;
+
     return (
         <div className={classNames(cls.ArticleDetail, {}, [className])}>
             <div className={cls.articleHeader}>
-                <Avatar
-                    className={cls.avatar}
-                    size={200}
+                <AppImage
+                    fallback={fallback}
+                    errorFallback={errorFallback}
+                    className={cls.img}
                     src={article?.img}
                     alt={article?.title}
                 />

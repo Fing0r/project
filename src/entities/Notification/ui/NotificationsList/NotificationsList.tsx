@@ -38,10 +38,7 @@ const NotificationsList = memo((props: NotificationsListProps) => {
     }
 
     return (
-        <VStack
-            max
-            className={classNames('', {}, [className])}
-        >
+        <VStack className={classNames('', {}, [className])}>
             {notifications?.map((notification) => (
                 <NotificationsItem
                     notification={notification}

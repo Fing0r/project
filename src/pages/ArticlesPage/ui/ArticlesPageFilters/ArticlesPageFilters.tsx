@@ -1,31 +1,30 @@
 import { memo, useCallback } from 'react';
 import { useTranslation } from 'react-i18next';
-import { useSelector } from 'react-redux';
 
 import {
-    getArticlesPageListOrder,
-    getArticlesPageListSearch,
-    getArticlesPageListSort,
-    getArticlesPageListType,
-    getArticlesPageListView,
+    useArticlesPageListOrder,
+    useArticlesPageListType,
+    useArticlesPageListView,
+    useArticlesPageListSort,
+    useArticlesPageListSearch,
 } from '../../model/selectors/getArticlesPageList';
 import { fetchArticlesList } from '../../model/services/fetchArticlesList/fetchArticlesList';
-import { articlesPageListActions } from '../../model/slices/articlesListSlice';
+import { useArticlesPageListActions } from '../../model/slices/articlesListSlice';
 
 import cls from './ArticlesPageFilters.module.scss';
 
 import {
     ArticleFieldSort,
-    ArticleSortSelector,
     ArticleType,
     ArticleView,
-    ArticleViewSelector,
-    ArticleTypeTabs,
 } from '@/entities/Article';
+import { ArticleSortSelector } from '@/features/ArticleSortSelector';
+import { ArticleTypeTabs } from '@/features/ArticleTypeTabs';
+import { ArticleViewSelector } from '@/features/ArticleViewSelector';
 import { classNames } from '@/shared/lib/classNames/classNames';
 import { useAppDispatch } from '@/shared/lib/hooks/useAppDispatch';
 import { useDebounce } from '@/shared/lib/hooks/useDebounce';
-import { SortOrder } from '@/shared/types';
+import { SortOrder } from '@/shared/types/sort';
 import { Input, InputTheme } from '@/shared/ui/Input';
 import { HStack, VStack } from '@/shared/ui/Stack';
 
@@ -40,11 +39,19 @@ const ArticlesPageFilters = memo((props: ArticlesPageFiltersProps) => {
 
     const dispatch = useAppDispatch();
 
-    const view = useSelector(getArticlesPageListView);
-    const order = useSelector(getArticlesPageListOrder);
-    const sort = useSelector(getArticlesPageListSort);
-    const search = useSelector(getArticlesPageListSearch);
-    const type = useSelector(getArticlesPageListType);
+    const view = useArticlesPageListView();
+    const order = useArticlesPageListOrder();
+    const sort = useArticlesPageListSort();
+    const search = useArticlesPageListSearch();
+    const type = useArticlesPageListType();
+    const {
+        setPage,
+        setSort,
+        setOrder,
+        setType,
+        setSearch,
+        setView,
+    } = useArticlesPageListActions();
 
     const { t } = useTranslation();
 
@@ -53,34 +60,34 @@ const ArticlesPageFilters = memo((props: ArticlesPageFiltersProps) => {
     }, [dispatch]);
 
     const onChangeSort = useCallback((sort: ArticleFieldSort) => {
-        dispatch(articlesPageListActions.setPage(1));
-        dispatch(articlesPageListActions.setSort(sort));
+        setPage(1);
+        setSort(sort);
         fetchData();
-    }, [dispatch, fetchData]);
+    }, [fetchData, setPage, setSort]);
 
     const onChangeOrder = useCallback((order: SortOrder) => {
-        dispatch(articlesPageListActions.setPage(1));
-        dispatch(articlesPageListActions.setOrder(order));
+        setPage(1);
+        setOrder(order);
         fetchData();
-    }, [dispatch, fetchData]);
+    }, [fetchData, setOrder, setPage]);
 
     const onChangeType = useCallback((tab: ArticleType) => {
-        dispatch(articlesPageListActions.setPage(1));
-        dispatch(articlesPageListActions.setType(tab));
+        setPage(1);
+        setType(tab);
         fetchData();
-    }, [dispatch, fetchData]);
+    }, [fetchData, setPage, setType]);
 
     const debounceFetchData = useDebounce(fetchData, 300);
 
     const onChangeSearch = useCallback((value: string) => {
-        dispatch(articlesPageListActions.setPage(1));
-        dispatch(articlesPageListActions.setSearch(value));
+        setPage(1);
+        setSearch(value);
         debounceFetchData();
-    }, [debounceFetchData, dispatch]);
+    }, [debounceFetchData, setPage, setSearch]);
 
     const onChangeView = useCallback((view: ArticleView) => {
-        dispatch(articlesPageListActions.setView(view));
-    }, [dispatch]);
+        setView(view);
+    }, [setView]);
 
     return (
         <VStack gap="16" className={classNames(cls.ArticlesPageFilters, {}, [className])}>

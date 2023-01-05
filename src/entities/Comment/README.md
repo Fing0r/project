@@ -1,0 +1,6 @@
+## Сущность Comment
+
+CommentList - ...
+
+CommentCard - ...
+

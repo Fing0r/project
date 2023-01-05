@@ -1,0 +1,4 @@
+## Фича DropdownAvatar
+
+DropdownAvatar - ...
+

@@ -1,4 +1,4 @@
-import { useArgs } from '@storybook/client-api';
+import { useArgs } from '@storybook/addons';
 import { ComponentMeta, ComponentStory } from '@storybook/react';
 import React from 'react';
 
@@ -38,7 +38,7 @@ const Template: ComponentStory<typeof Drawer> = (args) => {
 
 export const Normal = Template.bind({});
 Normal.args = {
-    isOpen: true,
+    // isOpen: true,
     children: [
         <div key="1">111</div>,
         <div key="2">222</div>,
@@ -49,7 +49,7 @@ Normal.args = {
 };
 export const Full = Template.bind({});
 Full.args = {
-    isOpen: true,
+    // isOpen: true,
     children: [
         <div key="1">111</div>,
         <div key="2">222</div>,

@@ -1,0 +1,4 @@
+## Сущность Currency
+
+CurrencySelect - ...
+

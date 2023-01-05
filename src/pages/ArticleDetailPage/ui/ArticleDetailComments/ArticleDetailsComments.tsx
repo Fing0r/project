@@ -50,7 +50,7 @@ const ArticleDetailsComments = memo((props: ArticleDetailCommentsProps) => {
             />
         );
     }
-
+    console.log(isLoadingComments);
     return (
         <VStack gap="16" className={classNames('', {}, [className])}>
             <Text title={t('Комментарии')} />

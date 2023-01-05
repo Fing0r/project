@@ -1,14 +1,15 @@
 import { memo, useCallback } from 'react';
 import { useTranslation } from 'react-i18next';
-import { useSelector } from 'react-redux';
 
-import { getCommentFormError, getCommentFormText } from '../../model/selectors/getCommentForm';
-import { addCommentFormActions, addCommentFormReducer } from '../../model/slice/addCommentFormSlice';
+import { useCommentFormError, useCommentFormText } from '../../model/selectors/getCommentForm';
+import {
+    addCommentFormReducer,
+    useAddCommentFormActions,
+} from '../../model/slice/addCommentFormSlice';
 
 import cls from './AddCommentForm.module.scss';
 
 import { classNames } from '@/shared/lib/classNames/classNames';
-import { useAppDispatch } from '@/shared/lib/hooks/useAppDispatch';
 import { ReducersList, useDynamicModule } from '@/shared/lib/hooks/useDynamicModule';
 import { Button } from '@/shared/ui/Button';
 import { Input } from '@/shared/ui/Input';
@@ -31,13 +32,13 @@ const AddCommentForm = memo((props: AddCommentFormProps) => {
 
     useDynamicModule(initialReducers);
 
-    const dispatch = useAppDispatch();
-    const text = useSelector(getCommentFormText);
-    const error = useSelector(getCommentFormError);
+    const { setText } = useAddCommentFormActions();
+    const text = useCommentFormText();
+    const error = useCommentFormError();
 
     const onChangeCommentText = useCallback((value: string) => {
-        dispatch(addCommentFormActions.setText(value));
-    }, [dispatch]);
+        setText(value);
+    }, [setText]);
 
     const onCommentSendHandle = useCallback(() => {
         onSendComment(text);
@@ -54,6 +55,7 @@ const AddCommentForm = memo((props: AddCommentFormProps) => {
             />
             <Button
                 onClick={onCommentSendHandle}
+                className={cls.sendBtn}
             >
                 {t('Отправить')}
             </Button>

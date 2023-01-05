@@ -3,8 +3,13 @@ import {
     memo,
 } from 'react';
 
+import { AppImage } from '../AppImage';
+import { Icon } from '../Icon';
+import { Skeleton } from '../Skeleton';
+
 import cls from './Avatar.module.scss';
 
+import UserIcon from '@/shared/assets/icons/user-filled.svg';
 import { classNames } from '@/shared/lib/classNames/classNames';
 import { usePxToRem } from '@/shared/lib/hooks/usePxToRem';
 
@@ -32,8 +37,13 @@ const Avatar = memo((props: AvatarProps) => {
         height: sizeInRem,
     };
 
+    const fallback = <Skeleton width={size} height={size} borderRadius={50} />;
+    const errorFallback = <Icon Svg={UserIcon} />;
+
     return (
-        <img
+        <AppImage
+            fallback={fallback}
+            errorFallback={errorFallback}
             className={classNames(cls.avatar, {}, [className])}
             style={styles}
             src={src}

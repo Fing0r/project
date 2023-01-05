@@ -10,7 +10,7 @@ import {
 import AdminPanelIcon from '@/shared/assets/icons/admin-panel.svg';
 import Logout from '@/shared/assets/icons/logout.svg';
 import User from '@/shared/assets/icons/user.svg';
-import { RoutePath } from '@/shared/const/router';
+import { getRouteAdmitPanel, getRouteProfile } from '@/shared/const/router';
 import { classNames } from '@/shared/lib/classNames/classNames';
 import { useAppDispatch } from '@/shared/lib/hooks/useAppDispatch';
 import { Avatar } from '@/shared/ui/Avatar';
@@ -38,12 +38,12 @@ export const DropdownAvatar = memo((props: DropdownAvatarProps) => {
     const dropDownItems = useMemo<DropdownItemProps[]>(() => ([
         {
             content: t('Профиль'),
-            href: `${RoutePath.profile}${authData?.id}`,
+            href: authData?.id ? getRouteProfile(authData.id) : '',
             Icon: User,
         },
         ...(isAdminPanelAvailable ? [{
             content: t('Админка'),
-            href: RoutePath.admin_panel,
+            href: getRouteAdmitPanel(),
             Icon: AdminPanelIcon,
         }] : []),
         {
@@ -59,11 +59,9 @@ export const DropdownAvatar = memo((props: DropdownAvatarProps) => {
 
     return (
         <Dropdown
-            className={classNames('', {}, [className])}
+            className={classNames(cls.avatar, {}, [className])}
             optionsClass={cls.options}
-            trigger={(
-                <Avatar size={30} src={authData.avatar} />
-            )}
+            trigger={<Avatar size={30} src={authData.avatar} />}
             items={dropDownItems}
         />
     );

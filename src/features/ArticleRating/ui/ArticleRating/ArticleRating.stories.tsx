@@ -3,6 +3,8 @@ import React from 'react';
 
 import { ArticleRating } from './ArticleRating';
 
+import { StoreDecorator } from '@/shared/config/storybook/decorators/StoreDecorator';
+
 export default {
     title: 'features/ArticleRating',
     component: ArticleRating,
@@ -14,4 +16,28 @@ export default {
 const Template: ComponentStory<typeof ArticleRating> = (args) => <ArticleRating {...args} />;
 
 export const Normal = Template.bind({});
-Normal.args = {};
+Normal.args = {
+    articleId: '1',
+};
+Normal.decorators = [StoreDecorator({
+    user: {
+        authData: { id: '1' },
+    },
+})];
+Normal.parameters = {
+    mockData: [
+        {
+            url: `${__API__}/article-ratings?articleId=1&userId=1`,
+            method: 'GET',
+            status: 200,
+            response: [
+                {
+                    articleId: '1',
+                    id: 5,
+                    rating: 3,
+                    userId: '1',
+                },
+            ],
+        },
+    ],
+};

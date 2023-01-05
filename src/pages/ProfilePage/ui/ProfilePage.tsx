@@ -29,7 +29,7 @@ const ProfilePage = memo(({ className }: ProfilePageProps) => {
     const showRating = userId !== id;
 
     return (
-        <Page>
+        <Page data-testid="ProfilePage">
             <VStack gap="24" className={cls.ProfilePage}>
                 <EditableProfileCard id={id} />
                 {showRating ? <ProfileRating profileId={id} /> : null}

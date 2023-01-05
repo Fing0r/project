@@ -24,16 +24,16 @@ const articleComment = {
     ids: ['a', 'b', 'c'],
 };
 
-const articleRecommendations = {
-    entities: {
-        a: { ...article, id: 'a' },
-        b: { ...article, id: 'b' },
-        c: { ...article, id: 'c' },
-        d: { ...article, id: 'd' },
-        f: { ...article, id: 'f' },
-    },
-    ids: ['a', 'b', 'c', 'd', 'f'],
-};
+// const articleRecommendations = {
+//     entities: {
+//         a: { ...article, id: 'a' },
+//         b: { ...article, id: 'b' },
+//         c: { ...article, id: 'c' },
+//         d: { ...article, id: 'd' },
+//         f: { ...article, id: 'f' },
+//     },
+//     ids: ['a', 'b', 'c', 'd', 'f'],
+// };
 
 const Template: ComponentStory<typeof ArticleDetailsPage> = (args) => <ArticleDetailsPage {...args} />;
 
@@ -45,39 +45,37 @@ Light.decorators = [StoreDecorator({
     },
     articleDetailsPage: {
         comments: articleComment,
-        recommendations: articleRecommendations,
+        // recommendations: articleRecommendations,
     },
 })];
-
-export const Dark = Template.bind({});
-Dark.args = {};
-Dark.decorators = [
-    ThemeDecorator(ThemeEnum.DARK),
-    StoreDecorator({
-        articleDetails: {
-            data: article,
+Light.parameters = {
+    mockData: [
+        {
+            url: `${__API__}/article-ratings?articleId=1&userId=1`,
+            method: 'GET',
+            status: 200,
+            response: [
+                {
+                    articleId: '1',
+                    id: 5,
+                    rating: 3,
+                    userId: '1',
+                },
+            ],
         },
-        articleDetailsPage: {
-            comments: articleComment,
-            recommendations: articleRecommendations,
+        {
+            url: `${__API__}/articles?_limit=4&_expand=user`,
+            method: 'GET',
+            status: 200,
+            response: [
+                { ...article, id: 1 },
+                { ...article, id: 2 },
+                { ...article, id: 3 },
+                { ...article, id: 4 },
+            ],
         },
-    }),
-];
-
-export const Green = Template.bind({});
-Green.args = {};
-Green.decorators = [
-    ThemeDecorator(ThemeEnum.GREEN),
-    StoreDecorator({
-        articleDetails: {
-            data: article,
-        },
-        articleDetailsPage: {
-            comments: articleComment,
-            recommendations: articleRecommendations,
-        },
-    }),
-];
+    ],
+};
 
 export const Loading = Template.bind({});
 Loading.args = {};
@@ -92,5 +90,24 @@ Loading.decorators = [
             comments: { ...articleComment, isLoading: true },
             recommendations: { ids: [], entities: {}, isLoading: true },
         },
+        addCommentForm: {},
     }),
 ];
+Loading.parameters = {
+    mockData: [
+        {
+            url: `${__API__}/article-ratings?articleId=1&userId=1`,
+            method: 'GET',
+            delay: 999999,
+            status: 200,
+            response: [],
+        },
+        {
+            url: `${__API__}/articles?_limit=4&_expand=user`,
+            method: 'GET',
+            delay: 999999,
+            status: 200,
+            response: [],
+        },
+    ],
+};

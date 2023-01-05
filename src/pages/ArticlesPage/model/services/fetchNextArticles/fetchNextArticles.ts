@@ -17,7 +17,6 @@ export const fetchNextArticles = createAsyncThunk<void, void, ThunkConfig<string
             getState,
             dispatch,
         } = thunkAPI;
-
         const isLoading = getArticlesPageListIsLoading(getState());
         const hasMore = getArticlesPageListHasMore(getState());
         const page = getArticlesPageListNumPage(getState());

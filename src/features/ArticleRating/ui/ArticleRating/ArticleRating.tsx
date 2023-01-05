@@ -18,12 +18,12 @@ export const ArticleRating = memo((props: ArticleRatingProps) => {
     const { t } = useTranslation();
     const { id: userId } = useSelector(getAuthData) ?? {};
 
-    const [rateArticle] = useSetArticleRating();
-
     const { data, isLoading } = useGetArticleRating({
         articleId,
         userId: userId ?? '',
     });
+
+    const [rateArticle] = useSetArticleRating();
 
     const handleRateArticle = useCallback((selectedRating: number, feedback?: string) => {
         try {

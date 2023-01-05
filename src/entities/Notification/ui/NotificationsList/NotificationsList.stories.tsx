@@ -64,6 +64,10 @@ Loading.parameters = {
     mockData: [
         {
             url: `${__API__}/notifications`,
+            method: 'GET',
+            delay: 999999,
+            response: [],
+            status: 200,
         },
     ],
 };

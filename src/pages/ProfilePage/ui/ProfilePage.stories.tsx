@@ -32,10 +32,26 @@ const user = { authData: { id: '1' } };
 export default {
     title: 'Pages/ProfilePage',
     component: ProfilePage,
+    parameters: {
+        mockData: [
+            {
+                url: `${__API__}/profile-ratings?profileId=1&userId=1`,
+                method: 'GET',
+                status: 200,
+                response: [
+                    {
+                        profileId: '1',
+                        id: 5,
+                        rating: 3,
+                        userId: '1',
+                    },
+                ],
+            },
+        ],
+    },
 } as ComponentMeta<typeof ProfilePage>;
 
 const Template: ComponentStory<typeof ProfilePage> = (args) => <ProfilePage {...args} />;
-
 export const Light = Template.bind({});
 Light.args = {};
 Light.decorators = [StoreDecorator({

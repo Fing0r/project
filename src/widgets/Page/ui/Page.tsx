@@ -16,8 +16,9 @@ import { useAppDispatch } from '@/shared/lib/hooks/useAppDispatch';
 import { useInfiniteScroll } from '@/shared/lib/hooks/useInfiniteScroll';
 import { useInitialEffect } from '@/shared/lib/hooks/useInitialEffect';
 import { useThrottle } from '@/shared/lib/hooks/useThrottle';
+import { TestsProps } from '@/shared/types/tests';
 
-interface PageProps {
+interface PageProps extends TestsProps {
     className?: string;
     children: ReactNode;
     onScrollEnd?: () => void;
@@ -30,6 +31,7 @@ const Page = memo((props: PageProps) => {
         children,
         onScrollEnd,
         customWrapperRef,
+        'data-testid': dataTestId = 'Page',
     } = props;
     const dispatch = useAppDispatch();
     const wrapperRef = useRef() as MutableRefObject<HTMLDivElement>;
@@ -69,6 +71,7 @@ const Page = memo((props: PageProps) => {
             id={PAGE_ID}
             ref={customWrapperRef || wrapperRef}
             className={classNames(cls.Page, {}, [className])}
+            data-testid={dataTestId}
         >
             {children}
             {onScrollEnd && <div ref={triggerRef} className={cls.trigger} />}

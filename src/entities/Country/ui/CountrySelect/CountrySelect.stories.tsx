@@ -1,8 +1,5 @@
-import { useArgs } from '@storybook/client-api';
 import { ComponentMeta, ComponentStory } from '@storybook/react';
 import React from 'react';
-
-import { Country } from '../../model/consts/constsCountry';
 
 import { CountrySelect } from './CountrySelect';
 
@@ -14,15 +11,17 @@ export default {
     component: CountrySelect,
 } as ComponentMeta<typeof CountrySelect>;
 
-const Template: ComponentStory<typeof CountrySelect> = (args) => {
-    const [_, updateArgs] = useArgs();
+// const Template: ComponentStory<typeof CountrySelect> = (args) => {
+//     const [_, updateArgs] = useArgs();
+//
+//     const onChange = (county: Country) => {
+//         updateArgs({ ...args, value: county });
+//     };
+//
+//     return <CountrySelect {...args} onChange={onChange} />;
+// };
 
-    const onChange = (county: Country) => {
-        updateArgs({ ...args, value: county });
-    };
-
-    return <CountrySelect {...args} onChange={onChange} />;
-};
+const Template: ComponentStory<typeof CountrySelect> = (args) => <CountrySelect {...args} />;
 
 export const Light = Template.bind({});
 Light.args = {

@@ -11,19 +11,21 @@ import { ArticleTextBlockComponent } from '../ArticleTextBlockComponent/ArticleT
 import cls from './ArticlesListItem.module.scss';
 
 import EyeIcon from '@/shared/assets/icons/eye.svg';
-import { RoutePath } from '@/shared/const/router';
+import { getRouteArticleDetail } from '@/shared/const/router';
 import { classNames } from '@/shared/lib/classNames/classNames';
+import { AppImage } from '@/shared/ui/AppImage';
 import { AppLink } from '@/shared/ui/AppLink';
 import { Avatar } from '@/shared/ui/Avatar';
 import { Button } from '@/shared/ui/Button';
 import { Card } from '@/shared/ui/Card';
 import { Icon } from '@/shared/ui/Icon';
+import { Skeleton } from '@/shared/ui/Skeleton';
 import { HStack, VStack } from '@/shared/ui/Stack';
 import { Text } from '@/shared/ui/Text';
 
 interface ArticlesListItemProps {
     className?: string;
-    article?: Article;
+    article: Article;
     view: ArticleView;
     target?: HTMLAttributeAnchorTarget;
 }
@@ -49,8 +51,8 @@ const ArticlesListItem = memo((props: ArticlesListItemProps) => {
     const type = <Text className={cls.type} text={article?.type.join(', ')} />;
 
     const onMoveArticle = useCallback(() => {
-        navigate(`${RoutePath.article_details}${article?.id}`);
-    }, [article?.id, navigate]);
+        navigate(getRouteArticleDetail(article.id));
+    }, [article, navigate]);
 
     if (view === ArticleView.LIST) {
         const textBlock = article?.blocks.find((block) => (
@@ -65,18 +67,24 @@ const ArticlesListItem = memo((props: ArticlesListItemProps) => {
                             {!!article?.user.avatar && (
                                 <Avatar
                                     size={30}
-                                    src={article?.user.avatar}
-                                    alt={article?.user.username}
+                                    src={article.user.avatar}
+                                    alt={article.user.username}
                                 />
                             )}
-                            <Text text={article?.user.username} />
-                            <Text className={cls.date} text={article?.createdAt} />
+                            <Text text={article.user.username} />
+                            <Text className={cls.date} text={article.createdAt} />
                         </HStack>
-                        <Text title={article?.title} />
+                        <Text title={article.title} />
                         {type}
                     </VStack>
                     <div className={cls.imgWrapper}>
-                        <img src={article?.img} alt={article?.title} className={cls.img} />
+                        <AppImage
+                            src={article.img}
+                            alt={article.title}
+                            className={cls.img}
+                            fallback={<Skeleton className={cls.img} />}
+                            errorFallback={<div />}
+                        />
                     </div>
                     <ArticleTextBlockComponent block={textBlock} className={cls.paragraph} />
                     <HStack align="center" justify="between" gap="16">
@@ -95,15 +103,21 @@ const ArticlesListItem = memo((props: ArticlesListItemProps) => {
     return (
         <Card className={classNames(cls.ArticlesListItem, {}, [className, cls[view]])}>
             <VStack gap="16">
-                <AppLink target={target} to={`${RoutePath.article_details}${article?.id}`} className={cls.link} />
-                <img src={article?.img} alt={article?.title} className={cls.img} />
+                <AppLink target={target} to={getRouteArticleDetail(article.id)} className={cls.link} />
+                <AppImage
+                    src={article.img}
+                    alt={article.title}
+                    className={cls.img}
+                    fallback={<Skeleton className={cls.img} />}
+                    errorFallback={<div />}
+                />
                 <VStack gap="8">
                     <HStack gap="8" justify="between">
                         {type}
                         {views}
                     </HStack>
-                    <Text titleVariant="h3" title={article?.title} />
-                    <Text className={cls.date} text={article?.createdAt} />
+                    <Text titleVariant="h3" title={article.title} />
+                    <Text className={cls.date} text={article.createdAt} />
                 </VStack>
             </VStack>
         </Card>

@@ -8,7 +8,7 @@ import { getArticleCanEdit } from '../../model/selectors/articles';
 import cls from './ArticleDetailPageHeader.module.scss';
 
 import { getArticleDetailData } from '@/entities/Article';
-import { RoutePath } from '@/shared/const/router';
+import { getRouteArticleEdit, getRouteArticles } from '@/shared/const/router';
 import { classNames } from '@/shared/lib/classNames/classNames';
 import { Button } from '@/shared/ui/Button';
 
@@ -27,12 +27,14 @@ const ArticleDetailsPageHeader = memo((props: ArticleDetailPageHeaderProps) => {
 
     const canEdit = useSelector(getArticleCanEdit);
     const onBackArticles = useCallback(() => {
-        navigate(`${RoutePath.articles}`);
+        navigate(getRouteArticles());
     }, [navigate]);
 
     const onEditArticle = useCallback(() => {
-        navigate(`${RoutePath.article_details}${article?.id}/edit`);
-    }, [article?.id, navigate]);
+        if (article) {
+            navigate(getRouteArticleEdit(article.id));
+        }
+    }, [article, navigate]);
 
     return (
         <div className={classNames(cls.ArticleDetailPageHeader, {}, [className])}>

@@ -4,8 +4,7 @@ import { useSelector } from 'react-redux';
 
 import {
     getArticlesPageListError,
-    getArticlesPageListIsLoading,
-    getArticlesPageListView,
+    useArticlesPageListIsLoading, useArticlesPageListView,
 } from '../../model/selectors/getArticlesPageList';
 import { getArticlesPageList } from '../../model/slices/articlesListSlice';
 
@@ -23,9 +22,9 @@ const ArticlesInfinityList = memo((props: ArticlesInfinityListProps) => {
     const { t } = useTranslation('articles');
 
     const articles = useSelector(getArticlesPageList.selectAll);
-    const isLoading = useSelector(getArticlesPageListIsLoading);
+    const isLoading = useArticlesPageListIsLoading();
     const error = useSelector(getArticlesPageListError);
-    const view = useSelector(getArticlesPageListView);
+    const view = useArticlesPageListView();
 
     if (error) {
         return <Text titleVariant="h3" title={t(error)} />;

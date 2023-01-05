@@ -3,7 +3,9 @@ import { useParams } from 'react-router-dom';
 
 import { articleDetailsPageReducer } from '../../model/slice';
 import { ArticleDetailsComments } from '../ArticleDetailComments/ArticleDetailsComments';
-import { ArticleDetailsPageHeader } from '../ArticleDetailPageHeader/ArticleDetailsPageHeader';
+import {
+    ArticleDetailsPageHeader,
+} from '../ArticleDetailPageHeader/ArticleDetailsPageHeader';
 
 import cls from './ArticleDetailsPage.module.scss';
 

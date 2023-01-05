@@ -7,8 +7,18 @@
     &:not(:last-child) {
         margin-bottom: 1.5rem;
     }
+
+    @media (max-width: 560px) {
+        flex-wrap: wrap;
+    }
 }
 
 .input {
     flex: 1;
+}
+
+.sendBtn {
+    @media (max-width: 560px) {
+        width: 100%;
+    }
 }

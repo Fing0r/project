@@ -16,6 +16,7 @@ const articleRatingApi = rtkApi.injectEndpoints({
         getArticleRating: build.query<Rating[], ArticleRatingArgs>({
             query: ({ articleId, userId }) => ({
                 url: '/article-ratings',
+                method: 'GET',
                 params: {
                     articleId,
                     userId,
