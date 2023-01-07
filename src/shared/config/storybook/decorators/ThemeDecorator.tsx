@@ -9,7 +9,7 @@ const ThemeDecorator = (theme: ThemeEnum) => (StoryComponent: Story) => {
 
     return (
         <ThemeProvider initialTheme={theme}>
-            <div className={`app ${theme}`}>
+            <div className="app">
                 <StoryComponent />
             </div>
         </ThemeProvider>

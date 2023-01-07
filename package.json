@@ -137,6 +137,7 @@
     "whatwg-fetch": "^3.6.2"
   },
   "loki": {
+    "chromeSelector": "body > #root > *",
     "configurations": {
       "chrome.laptop": {
         "target": "chrome.docker",

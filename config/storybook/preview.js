@@ -46,8 +46,8 @@ export const globalTypes = {
     },
 };
 
+addDecorator(SuspenseDecorator);
 addDecorator(StylesDecorator);
 addDecorator(I18nDecorator);
 addDecorator(ThemeDecorator(ThemeEnum.LIGHT));
 addDecorator(RouterDecorator);
-addDecorator(SuspenseDecorator);
