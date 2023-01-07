@@ -35,11 +35,14 @@ export const parameters = {
 export const globalTypes = {
     locale: {
         description: 'Internationalization locale',
+        defaultValue: 'ru',
         toolbar: {
             icon: 'globe',
+            showName: true,
+            dynamicTitle: true,
             items: [
-                { value: 'en', title: 'English' },
-                { value: 'ru', title: 'Русский' },
+                { value: 'en', title: 'English', right: '🇺🇸' },
+                { value: 'ru', title: 'Русский', right: '🇷🇺' },
             ],
             title: 'Locale',
         },
