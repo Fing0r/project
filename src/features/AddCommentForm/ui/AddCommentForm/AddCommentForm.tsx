@@ -33,8 +33,8 @@ const AddCommentForm = memo((props: AddCommentFormProps) => {
     useDynamicModule(initialReducers);
 
     const { setText } = useAddCommentFormActions();
-    const error = useCommentFormError();
     const text = useCommentFormText();
+    const error = useCommentFormError();
 
     const onChangeCommentText = useCallback((value: string) => {
         setText(value);
