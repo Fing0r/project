@@ -3,6 +3,7 @@ import path from 'path';
 import webpack, { RuleSetRule } from 'webpack';
 
 import { buildCssLoader } from '../build/loader/buildCssLoader';
+import { buildFileLoader } from '../build/loader/buildFileLoader';
 import { buildSvgLoader } from '../build/loader/buildSvgLoader';
 import { BuildPaths } from '../build/types/config';
 
@@ -36,6 +37,8 @@ export default ({ config }: {config: webpack.Configuration}) => {
     // Помогло решить проблему с ошибкой сторибука, когда он обращался внутрь node_modules
     config.resolve!.modules = [paths.src, 'node_modules'];
     config.resolve?.extensions?.push('.ts', '.tsx');
+
+    config.module?.rules.push(buildFileLoader);
     // @ts-ignore
     config.module?.rules.push(buildCssLoader({ isDev: true }));
     config.module?.rules.push(buildSvgLoader);

@@ -8,25 +8,14 @@ i18n
     .use(Backend)
     .use(LanguageDetector)
     .use(initReactI18next)
-    .use(resourcesToBackend((language: string, namespace: string) => {
-        return import(`./locales/${language}/${namespace}.json`);
-    }))
+    .use(resourcesToBackend((lng: string, ns: string) => import(`./locales/${lng}/${ns}.json`)))
     .init({
-        // resources,
         fallbackLng: 'ru',
         lng: 'ru',
         debug: true,
         interpolation: {
             escapeValue: false, // not needed for react!!
         },
-        defaultNS: 'translation',
-        lowerCaseLng: true,
-        // backend: {
-        //     loadPath: '/locales/{{lng}}/{{ns}}.json',
-        //     addPath: '/public/locales/{{lng}}/{{ns}}.json',
-        // },
-        preload: ['ru', 'en'],
-        load: 'currentOnly',
     });
 
 export default i18n;
