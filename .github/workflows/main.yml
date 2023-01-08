@@ -156,7 +156,7 @@ jobs:
         uses: actions/upload-pages-artifact@v1
         if: always()
         with:
-          path: 'storybook-static'
+          path: '.loki'
       - name: Deploy to GitHub Pages
         id: deployment
         if: always()
