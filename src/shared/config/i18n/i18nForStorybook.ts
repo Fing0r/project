@@ -19,12 +19,13 @@ i18n
         backend: {
             // loadPath: '/locales/{{lng}}/{{ns}}.json',
             addPath: '/public/locales/{{lng}}/{{ns}}.json',
-            loadPath: () => {
+            loadPath: (asd) => {
                 const { host } = window.location;
+                console.log(asd);
                 console.log('----------');
                 console.log({ host });
                 console.log('----------');
-                return `http://${host}/locales/{{lng}}/{{ns}}.json`;
+                return '/locales/{{lng}}/{{ns}}.json';
             },
         },
         preload: ['ru', 'en'],
