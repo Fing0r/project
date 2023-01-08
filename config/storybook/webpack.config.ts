@@ -22,7 +22,7 @@ export default ({ config }: {config: webpack.Configuration}) => {
         if (/svg/.test(rule.test as string)) {
             return {
                 ...rule,
-                exclude: /\.svg$/i,
+                exclude: /\.(png|svg|jpe?g|gif)$/i,
             };
         }
         return rule;

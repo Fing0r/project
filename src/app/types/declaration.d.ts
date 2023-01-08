@@ -30,3 +30,8 @@ type OptionalRecord<K extends keyof any, T> = {
 };
 
 type ValueOf<T> = T[keyof T];
+
+declare module '*.json' {
+    const value: any;
+    export default value;
+}

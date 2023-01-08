@@ -17,7 +17,7 @@ export function buildLoaders(options: BuildOptions): webpack.RuleSetRule[] {
 
     const cssLoader = buildCssLoader(options);
 
-    const fileLoader = buildFileLoader();
+    const fileLoader = buildFileLoader;
 
     return [
         svgLoader,
