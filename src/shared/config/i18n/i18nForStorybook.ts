@@ -17,9 +17,11 @@ i18n
         defaultNS: 'translation',
         lowerCaseLng: true,
         backend: {
-            loadPath: './locales/{{lng}}/{{ns}}.json',
-            addPath: './public/locales/{{lng}}/{{ns}}.json',
+            loadPath: '/locales/{{lng}}/{{ns}}.json',
+            addPath: '/public/locales/{{lng}}/{{ns}}.json',
         },
+        preload: ['ru', 'en'],
+        load: 'currentOnly',
     });
 
 export default i18n;
