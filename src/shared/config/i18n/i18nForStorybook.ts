@@ -25,7 +25,7 @@ i18n
                 console.log('----------');
                 console.log({ host });
                 console.log('----------');
-                return '/locales/{{lng}}/{{ns}}.json';
+                return '/project/locales/{{lng}}/{{ns}}.json';
             },
         },
         preload: ['ru', 'en'],
