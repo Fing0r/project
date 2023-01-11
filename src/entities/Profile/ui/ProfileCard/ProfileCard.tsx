@@ -11,7 +11,7 @@ import { classNames } from '@/shared/lib/classNames/classNames';
 import { Avatar } from '@/shared/ui/Avatar';
 import { Input, InputTheme } from '@/shared/ui/Input';
 import { Loader } from '@/shared/ui/Loader';
-import { VStack } from '@/shared/ui/Stack';
+import { HStack, VStack } from '@/shared/ui/Stack';
 import { Text, TextAlign, TextTheme } from '@/shared/ui/Text';
 
 interface ProfileCardProps {
@@ -88,14 +88,13 @@ const ProfileCard = memo((props: ProfileCardProps) => {
     return (
         <form className={classNames(cls.ProfileCard, { [cls.editable]: !readonly }, [className])}>
             <VStack gap="16">
-                {avatar && (
+                <HStack justify="center">
                     <Avatar
-                        className={cls.avatar}
                         size={150}
                         src={avatar}
                         alt={t('аватарка пользователя')}
                     />
-                )}
+                </HStack>
                 <Input
                     theme={InputTheme.OUTLINE}
                     label={t('Ваше имя')}

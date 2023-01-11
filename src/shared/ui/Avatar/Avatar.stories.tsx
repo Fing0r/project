@@ -3,7 +3,7 @@ import React from 'react';
 
 import { Avatar } from './Avatar';
 
-import AvatarImg from '@/shared/assets/tests/avatarForTest.webp';
+import AvatarImg from '@/shared/assets/tests/avatarForTest.jpeg';
 
 export default {
     title: 'Shared/Avatar',

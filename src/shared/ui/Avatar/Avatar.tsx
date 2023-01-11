@@ -37,8 +37,8 @@ const Avatar = memo((props: AvatarProps) => {
         height: sizeInRem,
     };
 
-    const fallback = <Skeleton width={size} height={size} borderRadius={50} />;
-    const errorFallback = <Icon Svg={UserIcon} />;
+    const fallback = <Skeleton width={size} height={size} borderRadius="50%" />;
+    const errorFallback = <Icon Svg={UserIcon} width={size} height={size} />;
 
     return (
         <AppImage

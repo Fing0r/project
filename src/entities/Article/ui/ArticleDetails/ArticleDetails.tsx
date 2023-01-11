@@ -130,7 +130,15 @@ const ArticleDetails = memo((props: ArticleDetailProps) => {
         );
     }
 
-    const fallback = <Skeleton className={cls.img} />;
+    const fallback = (
+        <Skeleton
+            width={200}
+            height={200}
+            borderRadius="50%"
+            className={cls.skeletonImg}
+        />
+    );
+
     const errorFallback = <div />;
 
     return (

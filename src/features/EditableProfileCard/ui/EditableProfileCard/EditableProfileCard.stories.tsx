@@ -5,7 +5,7 @@ import { EditableProfileCard } from './EditableProfileCard';
 
 import { Country } from '@/entities/Country';
 import { Currency } from '@/entities/Currency';
-import AvatarImg from '@/shared/assets/tests/avatarForTest.webp';
+import AvatarImg from '@/shared/assets/tests/avatarForTest.jpeg';
 import { StoreDecorator } from '@/shared/config/storybook/decorators/StoreDecorator';
 
 const data = {

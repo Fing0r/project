@@ -1,7 +1,7 @@
 import { ArticleBlockType, ArticleType } from '../model/consts/articleConsts';
 import { Article } from '../model/types/article';
 
-import AvatarImg from '@/shared/assets/tests/avatarForTest.webp';
+import AvatarImg from '@/shared/assets/tests/avatarForTest.jpeg';
 
 export const article: Article = {
     id: '1',

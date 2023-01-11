@@ -3,7 +3,7 @@ import React from 'react';
 
 import { CommentList } from './CommentList';
 
-import AvatarImg from '@/shared/assets/tests/avatarForTest.webp';
+import AvatarImg from '@/shared/assets/tests/avatarForTest.jpeg';
 import { ThemeDecorator } from '@/shared/config/storybook/decorators/ThemeDecorator';
 import { ThemeEnum } from '@/shared/const/theme';
 
