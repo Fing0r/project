@@ -15,23 +15,38 @@ interface ArticlesListItemProps {
 }
 
 const ArticlesListItemSkeleton = memo((props: ArticlesListItemProps) => {
-    const {
-        className,
-        view,
-    } = props;
+    const { className, view } = props;
 
     if (view === ArticleView.LIST) {
         return (
-            <Card className={classNames(cls.ArticlesListItem, {}, [className, cls[view]])}>
+            <Card
+                className={classNames(cls.ArticlesListItem, {}, [
+                    className,
+                    cls[view],
+                ])}
+            >
                 <VStack gap="16">
                     <VStack gap="8">
                         <HStack gap="8" align="center">
-                            <Skeleton width={30} height={30} className={cls.avatar} borderRadius="50%" />
+                            <Skeleton
+                                width={30}
+                                height={30}
+                                className={cls.avatar}
+                                borderRadius="50%"
+                            />
                             <Skeleton width={40} height={16} />
-                            <Skeleton width={65} height={16} className={cls.date} />
+                            <Skeleton
+                                width={65}
+                                height={16}
+                                className={cls.date}
+                            />
                         </HStack>
                         <Skeleton height={24} className={cls.title} />
-                        <Skeleton width={100} height={16} className={cls.type} />
+                        <Skeleton
+                            width={100}
+                            height={16}
+                            className={cls.type}
+                        />
                     </VStack>
                     <div className={cls.imgWrapperSkeleton}>
                         <Skeleton className={cls.img} />
@@ -47,7 +62,12 @@ const ArticlesListItemSkeleton = memo((props: ArticlesListItemProps) => {
     }
 
     return (
-        <Card className={classNames(cls.ArticlesListItem, {}, [className, cls[view]])}>
+        <Card
+            className={classNames(cls.ArticlesListItem, {}, [
+                className,
+                cls[view],
+            ])}
+        >
             <VStack gap="16">
                 <Skeleton width={200} height={200} className={cls.img} />
                 <HStack justify="between" align="center" gap="8">

@@ -9,23 +9,28 @@ export interface LoginAuthProps {
     password: string;
 }
 
-export const loginByUsername = createAsyncThunk<User, LoginAuthProps, ThunkConfig<string>>(
-    'login/loginByUsername',
-    async (authData, thunkAPI) => {
-        const { dispatch, rejectWithValue, extra } = thunkAPI;
+export const loginByUsername = createAsyncThunk<
+    User,
+    LoginAuthProps,
+    ThunkConfig<string>
+>('common/loginByUsername', async (authData, thunkAPI) => {
+    const { dispatch, rejectWithValue, extra } = thunkAPI;
 
-        try {
-            const { data } = await extra.api.post<User, AxiosResponse<User>, LoginAuthProps>('/login', authData);
+    try {
+        const { data } = await extra.api.post<
+            User,
+            AxiosResponse<User>,
+            LoginAuthProps
+        >('/login', authData);
 
-            if (!data) {
-                throw new Error();
-            }
-
-            dispatch(userActions.setAuthData(data));
-
-            return data;
-        } catch (e) {
-            return rejectWithValue('неверный логин или пароль');
+        if (!data) {
+            throw new Error();
         }
-    },
-);
+
+        dispatch(userActions.setAuthData(data));
+
+        return data;
+    } catch (e) {
+        return rejectWithValue('неверный логин или пароль');
+    }
+});

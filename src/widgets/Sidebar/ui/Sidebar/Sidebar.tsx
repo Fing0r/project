@@ -1,6 +1,4 @@
-import {
-    memo, useCallback, useMemo, useState,
-} from 'react';
+import { memo, useCallback, useMemo, useState } from 'react';
 import { useSelector } from 'react-redux';
 
 import { getSidebarItems } from '../../model/selectors/getSidebarItems';
@@ -26,20 +24,26 @@ const Sidebar = memo(({ className }: SidebarProps) => {
         setCollapsed((prev) => !prev);
     }, []);
 
-    const itemsList = useMemo(() => (sidebarItemsList.map((item) => (
-        <SidebarItem
-            item={item}
-            collapsed={collapsed}
-            key={item.path}
-        />
-    ))), [collapsed, sidebarItemsList]);
+    const itemsList = useMemo(
+        () =>
+            sidebarItemsList.map((item) => (
+                <SidebarItem
+                    item={item}
+                    collapsed={collapsed}
+                    key={item.path}
+                />
+            )),
+        [collapsed, sidebarItemsList],
+    );
 
     return (
         <VStack
             gap="16"
             align="center"
             data-testid="sidebar"
-            className={classNames(cls.Sidebar, { [cls.collapsed]: collapsed }, [className])}
+            className={classNames(cls.Sidebar, { [cls.collapsed]: collapsed }, [
+                className,
+            ])}
         >
             <Button
                 className={classNames(cls.toggle)}
@@ -53,11 +57,13 @@ const Sidebar = memo(({ className }: SidebarProps) => {
                 {collapsed ? '>' : '<'}
             </Button>
             <nav role="navigation" className={classNames('', {}, [className])}>
-                <VStack gap="16">
-                    {itemsList}
-                </VStack>
+                <VStack gap="16">{itemsList}</VStack>
             </nav>
-            <HStack gap="16" justify="center" className={classNames(cls.switchers, {}, [className])}>
+            <HStack
+                gap="16"
+                justify="center"
+                className={classNames(cls.switchers, {}, [className])}
+            >
                 <ThemeSwitcher />
                 <LangSwitcher short={collapsed} />
             </HStack>

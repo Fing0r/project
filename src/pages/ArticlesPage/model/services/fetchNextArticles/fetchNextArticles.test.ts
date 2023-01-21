@@ -22,7 +22,9 @@ describe('fetchNextArticles', () => {
 
         const response = await thunk.callThunk();
 
-        expect(thunk.dispatch).toHaveBeenCalledWith(articlesPageListActions.setPage(2));
+        expect(thunk.dispatch).toHaveBeenCalledWith(
+            articlesPageListActions.setPage(2),
+        );
         expect(fetchArticlesList).toHaveBeenCalledWith({});
 
         expect(thunk.dispatch).toBeCalledTimes(4);
@@ -44,7 +46,9 @@ describe('fetchNextArticles', () => {
 
         const response = await thunk.callThunk();
 
-        expect(thunk.dispatch).not.toHaveBeenCalledWith(articlesPageListActions.setPage(2));
+        expect(thunk.dispatch).not.toHaveBeenCalledWith(
+            articlesPageListActions.setPage(2),
+        );
         expect(fetchArticlesList).not.toHaveBeenCalled();
 
         expect(thunk.dispatch).toBeCalledTimes(2);
@@ -66,7 +70,9 @@ describe('fetchNextArticles', () => {
 
         const response = await thunk.callThunk();
 
-        expect(thunk.dispatch).not.toHaveBeenCalledWith(articlesPageListActions.setPage(2));
+        expect(thunk.dispatch).not.toHaveBeenCalledWith(
+            articlesPageListActions.setPage(2),
+        );
         expect(fetchArticlesList).not.toHaveBeenCalled();
 
         expect(thunk.dispatch).toBeCalledTimes(2);

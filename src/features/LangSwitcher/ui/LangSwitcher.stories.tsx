@@ -11,13 +11,13 @@ export default {
     component: LangSwitcher,
 } as ComponentMeta<typeof LangSwitcher>;
 
-const Template: ComponentStory<typeof LangSwitcher> = (args) => <LangSwitcher {...args} />;
+const Template: ComponentStory<typeof LangSwitcher> = (args) => (
+    <LangSwitcher {...args} />
+);
 
 export const Light = Template.bind({});
-Light.args = {
-};
+Light.args = {};
 
 export const Dark = Template.bind({});
-Dark.args = {
-};
+Dark.args = {};
 Dark.decorators = [ThemeDecorator(ThemeEnum.DARK)];

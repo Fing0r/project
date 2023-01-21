@@ -32,9 +32,7 @@ const SidebarItem = memo((props: SidebarItemProps) => {
             to={item.path}
         >
             <item.Icon />
-            <span className={classNames(cls.linkText)}>
-                {t(item.text)}
-            </span>
+            <span className={classNames(cls.linkText)}>{t(item.text)}</span>
         </AppLink>
     );
 });

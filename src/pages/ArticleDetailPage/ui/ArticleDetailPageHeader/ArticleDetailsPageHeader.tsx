@@ -17,9 +17,7 @@ interface ArticleDetailPageHeaderProps {
 }
 
 const ArticleDetailsPageHeader = memo((props: ArticleDetailPageHeaderProps) => {
-    const {
-        className,
-    } = props;
+    const { className } = props;
 
     const navigate = useNavigate();
     const { t } = useTranslation();
@@ -37,19 +35,14 @@ const ArticleDetailsPageHeader = memo((props: ArticleDetailPageHeaderProps) => {
     }, [article, navigate]);
 
     return (
-        <div className={classNames(cls.ArticleDetailPageHeader, {}, [className])}>
-            <Button
-                className={cls.comeBack}
-                onClick={onBackArticles}
-            >
+        <div
+            className={classNames(cls.ArticleDetailPageHeader, {}, [className])}
+        >
+            <Button className={cls.comeBack} onClick={onBackArticles}>
                 {t('Вернуться назад')}
             </Button>
             {canEdit && (
-                <Button
-                    onClick={onEditArticle}
-                >
-                    {t('Редактировать')}
-                </Button>
+                <Button onClick={onEditArticle}>{t('Редактировать')}</Button>
             )}
         </div>
     );

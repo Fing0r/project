@@ -76,7 +76,9 @@ describe('updateProfileData', () => {
 
         expect(thunk.dispatch).toBeCalledTimes(2);
 
-        expect(response.payload).toEqual([ValidateProfileErrors.INCORRECT_USER_DATA]);
+        expect(response.payload).toEqual([
+            ValidateProfileErrors.INCORRECT_USER_DATA,
+        ]);
         expect(response.meta.requestStatus).toBe('rejected');
     });
 });

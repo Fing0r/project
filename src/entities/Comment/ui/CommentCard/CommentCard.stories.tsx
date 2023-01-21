@@ -12,19 +12,25 @@ export default {
     component: CommentCard,
 } as ComponentMeta<typeof CommentCard>;
 
-const Template: ComponentStory<typeof CommentCard> = (args) => <CommentCard {...args} />;
+const Template: ComponentStory<typeof CommentCard> = (args) => (
+    <CommentCard {...args} />
+);
 
 export const Light = Template.bind({});
 Light.args = {
     comment: {
-        id: '1', text: '123', user: { id: '1', avatar: AvatarImg, username: 'user' },
+        id: '1',
+        text: '123',
+        user: { id: '1', avatar: AvatarImg, username: 'user' },
     },
 };
 
 export const Dark = Template.bind({});
 Dark.args = {
     comment: {
-        id: '1', text: '123', user: { id: '1', avatar: AvatarImg, username: 'user' },
+        id: '1',
+        text: '123',
+        user: { id: '1', avatar: AvatarImg, username: 'user' },
     },
 };
 Dark.decorators = [ThemeDecorator(ThemeEnum.DARK)];

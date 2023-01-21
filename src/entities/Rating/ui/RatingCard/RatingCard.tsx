@@ -20,7 +20,7 @@ interface RatingCardProps {
     feedbackTitle?: string;
     feedbackPlaceholder?: string;
     onAccept?: (rating: number, feedback?: string) => void;
-    onCancel?: (rating: number) => void
+    onCancel?: (rating: number) => void;
     rating?: number;
     hasFeedback?: boolean;
 }
@@ -42,14 +42,17 @@ const RatingCard = memo((props: RatingCardProps) => {
     const [feedback, setFeedback] = useState('');
     const { t } = useTranslation();
 
-    const onSelectRating = useCallback((selectRating: number) => {
-        setStarCount(selectRating);
-        if (hasFeedback) {
-            setIsOpenModal(true);
-            return;
-        }
-        onAccept?.(selectRating);
-    }, [hasFeedback, onAccept]);
+    const onSelectRating = useCallback(
+        (selectRating: number) => {
+            setStarCount(selectRating);
+            if (hasFeedback) {
+                setIsOpenModal(true);
+                return;
+            }
+            onAccept?.(selectRating);
+        },
+        [hasFeedback, onAccept],
+    );
 
     const cancelHandle = useCallback(() => {
         setIsOpenModal(false);
@@ -63,11 +66,9 @@ const RatingCard = memo((props: RatingCardProps) => {
 
     const content = (
         <>
-            <Text
-                titleVariant="h3"
-                title={feedbackTitle}
-            />
+            <Text titleVariant="h3" title={feedbackTitle} />
             <Input
+                data-testid="Rating.Input"
                 placeholder={feedbackPlaceholder}
                 value={feedback}
                 onChange={setFeedback}
@@ -76,7 +77,7 @@ const RatingCard = memo((props: RatingCardProps) => {
     );
 
     return (
-        <Card>
+        <Card data-testid="Rating.Card">
             <VStack
                 gap="12"
                 align="center"
@@ -97,13 +98,18 @@ const RatingCard = memo((props: RatingCardProps) => {
                     <VStack gap="16" className={cls.modal}>
                         {content}
                         <HStack gap="16">
-                            <Button max onClick={acceptHandle}>
+                            <Button
+                                data-testid="Rating.ConfirmFeedback"
+                                max
+                                onClick={acceptHandle}
+                            >
                                 {t('Отправить')}
                             </Button>
                             <Button
                                 theme={ButtonTheme.OUTLINE_RED}
                                 max
                                 onClick={cancelHandle}
+                                data-testid="Rating.CancelButton"
                             >
                                 {t('Закрыть')}
                             </Button>

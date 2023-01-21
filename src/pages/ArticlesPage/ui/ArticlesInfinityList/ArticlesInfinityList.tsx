@@ -4,7 +4,8 @@ import { useSelector } from 'react-redux';
 
 import {
     getArticlesPageListError,
-    useArticlesPageListIsLoading, useArticlesPageListView,
+    useArticlesPageListIsLoading,
+    useArticlesPageListView,
 } from '../../model/selectors/getArticlesPageList';
 import { getArticlesPageList } from '../../model/slices/articlesListSlice';
 
@@ -16,9 +17,7 @@ interface ArticlesInfinityListProps {
 }
 
 const ArticlesInfinityList = memo((props: ArticlesInfinityListProps) => {
-    const {
-        className,
-    } = props;
+    const { className } = props;
     const { t } = useTranslation('articles');
 
     const articles = useSelector(getArticlesPageList.selectAll);

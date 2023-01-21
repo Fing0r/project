@@ -14,10 +14,8 @@ export default {
 const Template: ComponentStory<typeof Loader> = () => <Loader />;
 
 export const Light = Template.bind({});
-Light.args = {
-};
+Light.args = {};
 
 export const Dark = Template.bind({});
-Dark.args = {
-};
+Dark.args = {};
 Dark.decorators = [ThemeDecorator(ThemeEnum.DARK)];

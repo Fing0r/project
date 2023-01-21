@@ -7,7 +7,7 @@ import { buildFileLoader } from '../build/loader/buildFileLoader';
 import { buildSvgLoader } from '../build/loader/buildSvgLoader';
 import { BuildPaths } from '../build/types/config';
 
-export default ({ config }: {config: webpack.Configuration}) => {
+export default ({ config }: { config: webpack.Configuration }) => {
     const paths: BuildPaths = {
         entry: '',
         build: '',

@@ -29,7 +29,9 @@ const data = {
     currency: Currency.EUR,
 };
 
-const Template: ComponentStory<typeof ProfileCard> = (args) => <ProfileCard {...args} />;
+const Template: ComponentStory<typeof ProfileCard> = (args) => (
+    <ProfileCard {...args} />
+);
 
 export const Light = Template.bind({});
 Light.args = {
@@ -40,9 +42,7 @@ export const Dark = Template.bind({});
 Dark.args = {
     data,
 };
-Dark.decorators = [
-    ThemeDecorator(ThemeEnum.DARK),
-];
+Dark.decorators = [ThemeDecorator(ThemeEnum.DARK)];
 
 export const ReadOnly = Template.bind({});
 ReadOnly.args = {
@@ -60,6 +60,4 @@ export const Error = Template.bind({});
 Error.args = {
     error: 'Ошибка',
 };
-Error.decorators = [
-    ThemeDecorator(ThemeEnum.DARK),
-];
+Error.decorators = [ThemeDecorator(ThemeEnum.DARK)];

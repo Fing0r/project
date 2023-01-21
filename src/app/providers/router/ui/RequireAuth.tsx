@@ -10,11 +10,7 @@ const RequireAuth = ({ children }: { children: JSX.Element }) => {
 
     if (!isAuth) {
         return (
-            <Navigate
-                to={getRouteMain()}
-                state={{ from: location }}
-                replace
-            />
+            <Navigate to={getRouteMain()} state={{ from: location }} replace />
         );
     }
 

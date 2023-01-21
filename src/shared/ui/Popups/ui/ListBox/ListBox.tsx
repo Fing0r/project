@@ -14,7 +14,7 @@ import { classNames } from '@/shared/lib/classNames/classNames';
 export interface ListBoxOption<T extends string> {
     value: T;
     text: string;
-    unavailable?: boolean
+    unavailable?: boolean;
 }
 
 export interface ListBoxProps<T extends string> {
@@ -23,26 +23,19 @@ export interface ListBoxProps<T extends string> {
     options: ListBoxOption<T>[];
     onChange: (value: T) => void;
     value?: T;
-    disabled?: boolean
+    disabled?: boolean;
     name?: string;
 }
 
 const ListBox = <T extends string>(props: ListBoxProps<T>) => {
-    const {
-        label,
-        className,
-        options,
-        onChange,
-        value,
-        disabled,
-        name,
-    } = props;
+    const { label, className, options, onChange, value, disabled, name } =
+        props;
 
     const { y, reference, floating } = useFloating({
         middleware: [flip()],
     });
 
-    const positionVertical = (y && (y + (y > 0 ? 10 : -10))) ?? 0;
+    const positionVertical = (y && y + (y > 0 ? 10 : -10)) ?? 0;
 
     return (
         <HListBox
@@ -52,7 +45,12 @@ const ListBox = <T extends string>(props: ListBoxProps<T>) => {
             name={name}
         >
             {({ open }) => (
-                <div className={classNames(cls.ListBox, {}, [className, popups.popup])}>
+                <div
+                    className={classNames(cls.ListBox, {}, [
+                        className,
+                        popups.popup,
+                    ])}
+                >
                     {label && (
                         <HListBox.Label
                             className={classNames(cls.label, {
@@ -65,7 +63,11 @@ const ListBox = <T extends string>(props: ListBoxProps<T>) => {
                             {label}
                         </HListBox.Label>
                     )}
-                    <HListBox.Button as="div" ref={reference} className={cls.buttonWrapper}>
+                    <HListBox.Button
+                        as="div"
+                        ref={reference}
+                        className={cls.buttonWrapper}
+                    >
                         <Button
                             type="button"
                             max
@@ -97,11 +99,15 @@ const ListBox = <T extends string>(props: ListBoxProps<T>) => {
                             >
                                 {({ active, selected, disabled }) => (
                                     <li
-                                        className={classNames(cls.option, {
-                                            [popups.selected]: selected,
-                                            [popups.active]: active,
-                                            [cls.disabled]: disabled,
-                                        }, [])}
+                                        className={classNames(
+                                            cls.option,
+                                            {
+                                                [popups.selected]: selected,
+                                                [popups.active]: active,
+                                                [cls.disabled]: disabled,
+                                            },
+                                            [],
+                                        )}
                                     >
                                         {option.text}
                                     </li>

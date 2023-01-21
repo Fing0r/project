@@ -56,7 +56,8 @@ export interface FlexOwnProps<E extends ElementType = ElementType> {
     tag?: E;
 }
 
-export type FlexProps<E extends ElementType> = FlexOwnProps<E> & Omit<ComponentProps<E>, keyof FlexOwnProps<E>>;
+export type FlexProps<E extends ElementType> = FlexOwnProps<E> &
+    Omit<ComponentProps<E>, keyof FlexOwnProps<E>>;
 
 // type TagsVariants = 'div' | 'section'
 // const Flex = <
@@ -64,7 +65,9 @@ export type FlexProps<E extends ElementType> = FlexOwnProps<E> & Omit<ComponentP
 //     T extends TagsVariants = E extends TagsVariants ? E : never>(props: FlexProps<T>,
 //     ) => {
 
-const Flex = <E extends ElementType = keyof HTMLElementTagNameMap>(props: FlexProps<E>) => {
+const Flex = <E extends ElementType = keyof HTMLElementTagNameMap>(
+    props: FlexProps<E>,
+) => {
     const {
         justify = 'start',
         align,
@@ -90,7 +93,10 @@ const Flex = <E extends ElementType = keyof HTMLElementTagNameMap>(props: FlexPr
     const Tag = tag || 'div';
 
     return (
-        <Tag {...otherProps} className={classNames(cls.Flex, { [cls.max]: max }, flexProperty)}>
+        <Tag
+            {...otherProps}
+            className={classNames(cls.Flex, { [cls.max]: max }, flexProperty)}
+        >
             {children}
         </Tag>
     );

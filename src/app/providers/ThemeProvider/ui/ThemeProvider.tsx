@@ -4,7 +4,9 @@ import { LOCAL_STORAGE_THEME_KEY } from '@/shared/const/localstorage';
 import { ThemeEnum } from '@/shared/const/theme';
 import { ThemeContext } from '@/shared/lib/context/ThemeContext';
 
-const defaultTheme = localStorage.getItem(LOCAL_STORAGE_THEME_KEY) as ThemeEnum || ThemeEnum.LIGHT;
+const defaultTheme =
+    (localStorage.getItem(LOCAL_STORAGE_THEME_KEY) as ThemeEnum) ||
+    ThemeEnum.LIGHT;
 
 interface ThemeProviderProps {
     children: ReactNode;
@@ -12,17 +14,17 @@ interface ThemeProviderProps {
 }
 
 const ThemeProvider = (props: ThemeProviderProps) => {
-    const {
-        children,
-        initialTheme,
-    } = props;
+    const { children, initialTheme } = props;
 
     const [theme, setTheme] = useState<ThemeEnum>(initialTheme || defaultTheme);
 
-    const defaultProps = useMemo(() => ({
-        theme,
-        setTheme,
-    }), [theme]);
+    const defaultProps = useMemo(
+        () => ({
+            theme,
+            setTheme,
+        }),
+        [theme],
+    );
 
     document.documentElement.dataset.theme = theme;
 

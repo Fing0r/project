@@ -21,18 +21,16 @@ const options: ListBoxOption<Country>[] = [
 ];
 
 const CountrySelect = memo((props: CountrySelectProps) => {
-    const {
-        className,
-        onChange,
-        value,
-        readonly,
-    } = props;
+    const { className, onChange, value, readonly } = props;
 
     const { t } = useTranslation();
 
-    const onChangeHandle = useCallback((country: Country) => {
-        onChange?.(country);
-    }, [onChange]);
+    const onChangeHandle = useCallback(
+        (country: Country) => {
+            onChange?.(country);
+        },
+        [onChange],
+    );
 
     return (
         <ListBox

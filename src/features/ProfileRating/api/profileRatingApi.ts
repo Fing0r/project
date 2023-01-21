@@ -6,7 +6,7 @@ interface ProfileRatingArgs {
     profileId: string;
 }
 
-interface SetProfileRatingArgs extends Rating{
+interface SetProfileRatingArgs extends Rating {
     userId: string;
     profileId: string;
 }
@@ -23,12 +23,7 @@ const profileRatingApi = rtkApi.injectEndpoints({
             }),
         }),
         setProfileRating: build.mutation<void, SetProfileRatingArgs>({
-            query: ({
-                profileId,
-                userId,
-                rating,
-                feedback,
-            }) => ({
+            query: ({ profileId, userId, rating, feedback }) => ({
                 url: '/profile-ratings',
                 method: 'POST',
                 body: {

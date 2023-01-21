@@ -2,7 +2,7 @@ import path from 'path';
 
 import { Project } from 'ts-morph';
 
-type Layers = 'entities' | 'features' | 'widgets' | 'pages'
+type Layers = 'entities' | 'features' | 'widgets' | 'pages';
 
 const layers: Layers[] = ['entities', 'features', 'widgets', 'pages'];
 
@@ -26,7 +26,9 @@ componentsDirs?.forEach((dir) => {
     if (layers.includes(layer)) {
         const layerDirs = dir.getDirectories();
         layerDirs.forEach((layerDir) => {
-            const uiCompDirs = layerDir.getDirectory(`${layerDir.getPath()}/ui`);
+            const uiCompDirs = layerDir.getDirectory(
+                `${layerDir.getPath()}/ui`,
+            );
             const readmeFilePath = `${layerDir.getPath()}/README.md`;
             const hasReadmeFile = project.getSourceFile(readmeFilePath);
 
@@ -39,17 +41,15 @@ componentsDirs?.forEach((dir) => {
             uiCompDirs?.getDirectories().forEach((uiCompDir) => {
                 const uiComponentName = uiCompDir.getBaseName();
                 const uiComponentText = `${uiComponentName} - ...`;
-                readmeFile.insertText(
-                    0,
-                    (writer) => writer.writeLine(uiComponentText).writeLine(''),
+                readmeFile.insertText(0, (writer) =>
+                    writer.writeLine(uiComponentText).writeLine(''),
                 );
             });
 
             const sliceName = layerDir.getBaseName();
             const sliceText = `${sliceMap[layer]} ${sliceName}`;
-            readmeFile.insertText(
-                0,
-                (writer) => writer.writeLine(sliceText).writeLine(''),
+            readmeFile.insertText(0, (writer) =>
+                writer.writeLine(sliceText).writeLine(''),
             );
         });
     }

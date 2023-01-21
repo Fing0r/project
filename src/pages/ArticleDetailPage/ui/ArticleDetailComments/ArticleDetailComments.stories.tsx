@@ -13,43 +13,63 @@ export default {
 
 const articleComment = {
     entities: {
-        a: { id: 'a', text: '123', user: { id: '1', avatar: AvatarImg, username: 'user' } },
-        b: { id: 'b', text: '123123', user: { id: '1', avatar: AvatarImg, username: 'user' } },
-        c: { id: 'c', text: '234324', user: { id: '1', avatar: AvatarImg, username: 'user' } },
+        a: {
+            id: 'a',
+            text: '123',
+            user: { id: '1', avatar: AvatarImg, username: 'user' },
+        },
+        b: {
+            id: 'b',
+            text: '123123',
+            user: { id: '1', avatar: AvatarImg, username: 'user' },
+        },
+        c: {
+            id: 'c',
+            text: '234324',
+            user: { id: '1', avatar: AvatarImg, username: 'user' },
+        },
     },
     ids: ['a', 'b', 'c'],
 };
 
-const Template: ComponentStory<typeof ArticleDetailsComments> = (args) => <ArticleDetailsComments {...args} />;
+const Template: ComponentStory<typeof ArticleDetailsComments> = (args) => (
+    <ArticleDetailsComments {...args} />
+);
 
 export const Normal = Template.bind({});
 Normal.args = {};
-Normal.decorators = [StoreDecorator({
-    articleDetailsPage: {
-        comments: articleComment,
-    },
-})];
+Normal.decorators = [
+    StoreDecorator({
+        articleDetailsPage: {
+            comments: articleComment,
+        },
+    }),
+];
 
 export const Loading = Template.bind({});
 Loading.args = {};
-Loading.decorators = [StoreDecorator({
-    articleDetailsPage: {
-        comments: {
-            ids: [],
-            entities: {},
-            isLoading: true,
+Loading.decorators = [
+    StoreDecorator({
+        articleDetailsPage: {
+            comments: {
+                ids: [],
+                entities: {},
+                isLoading: true,
+            },
         },
-    },
-})];
+    }),
+];
 
 export const Error = Template.bind({});
 Error.args = {};
-Error.decorators = [StoreDecorator({
-    articleDetailsPage: {
-        comments: {
-            ids: [],
-            entities: {},
-            error: 'ошибка',
+Error.decorators = [
+    StoreDecorator({
+        articleDetailsPage: {
+            comments: {
+                ids: [],
+                entities: {},
+                error: 'ошибка',
+            },
         },
-    },
-})];
+    }),
+];

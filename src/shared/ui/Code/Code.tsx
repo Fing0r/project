@@ -14,10 +14,7 @@ interface CopyProps {
 }
 
 const Code = memo((props: CopyProps) => {
-    const {
-        className,
-        code,
-    } = props;
+    const { className, code } = props;
 
     const handleCopy = useCallback(() => {
         navigator.clipboard.writeText(code);

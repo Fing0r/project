@@ -6,7 +6,7 @@ import { ThemeContext } from '../context/ThemeContext';
 
 interface UseThemeResult {
     theme: ThemeEnum;
-    toggleTheme: () => void
+    toggleTheme: () => void;
 }
 
 const useTheme = (): UseThemeResult => {
@@ -15,17 +15,17 @@ const useTheme = (): UseThemeResult => {
     const toggleTheme = () => {
         let newTheme: ThemeEnum;
         switch (theme) {
-        case ThemeEnum.LIGHT:
-            newTheme = ThemeEnum.DARK;
-            break;
-        case ThemeEnum.DARK:
-            newTheme = ThemeEnum.GREEN;
-            break;
-        case ThemeEnum.GREEN:
-            newTheme = ThemeEnum.LIGHT;
-            break;
-        default:
-            newTheme = ThemeEnum.LIGHT;
+            case ThemeEnum.LIGHT:
+                newTheme = ThemeEnum.DARK;
+                break;
+            case ThemeEnum.DARK:
+                newTheme = ThemeEnum.GREEN;
+                break;
+            case ThemeEnum.GREEN:
+                newTheme = ThemeEnum.LIGHT;
+                break;
+            default:
+                newTheme = ThemeEnum.LIGHT;
         }
 
         setTheme?.(newTheme);

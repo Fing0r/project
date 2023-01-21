@@ -1,8 +1,9 @@
 import { lazy } from 'react';
 
 const LoginFormAsync = lazy(async () => {
-    return import('./LoginForm')
-        .then((component) => ({ default: component.LoginForm }));
+    return import('./LoginForm').then((component) => ({
+        default: component.LoginForm,
+    }));
 });
 
 export { LoginFormAsync };

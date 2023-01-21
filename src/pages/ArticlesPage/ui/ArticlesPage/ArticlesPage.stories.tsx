@@ -12,17 +12,21 @@ export default {
     component: ArticlesPage,
 } as ComponentMeta<typeof ArticlesPage>;
 
-const Template: ComponentStory<typeof ArticlesPage> = (args) => <ArticlesPage {...args} />;
+const Template: ComponentStory<typeof ArticlesPage> = (args) => (
+    <ArticlesPage {...args} />
+);
 
 export const Normal = Template.bind({});
 Normal.args = {};
-Normal.decorators = [StoreDecorator({
-    articlesPageList: {
-        entities: {
-            a: { ...article, id: 'a' },
-            b: { ...article, id: 'b' },
-            c: { ...article, id: 'c' },
+Normal.decorators = [
+    StoreDecorator({
+        articlesPageList: {
+            entities: {
+                a: { ...article, id: 'a' },
+                b: { ...article, id: 'b' },
+                c: { ...article, id: 'c' },
+            },
+            ids: ['a', 'b', 'c'],
         },
-        ids: ['a', 'b', 'c'],
-    },
-})];
+    }),
+];

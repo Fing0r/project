@@ -4,11 +4,14 @@ import Backend from 'i18next-http-backend';
 import resourcesToBackend from 'i18next-resources-to-backend';
 import { initReactI18next } from 'react-i18next';
 
-i18n
-    .use(Backend)
+i18n.use(Backend)
     .use(LanguageDetector)
     .use(initReactI18next)
-    .use(resourcesToBackend((lng: string, ns: string) => import(`./locales/${lng}/${ns}.json`)))
+    .use(
+        resourcesToBackend(
+            (lng: string, ns: string) => import(`./locales/${lng}/${ns}.json`),
+        ),
+    )
     .init({
         fallbackLng: 'ru',
         lng: 'ru',

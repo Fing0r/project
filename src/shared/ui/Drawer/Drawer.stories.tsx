@@ -10,7 +10,6 @@ import cls from './Drawer.module.scss';
 export default {
     title: 'Shared/Drawer',
     component: Drawer,
-
 } as ComponentMeta<typeof Drawer>;
 
 const Template: ComponentStory<typeof Drawer> = (args) => {

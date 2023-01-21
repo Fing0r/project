@@ -5,8 +5,9 @@ import { ProfileRatingProps } from './ProfileRating';
 import { Skeleton } from '@/shared/ui/Skeleton';
 
 const ProfileRatingLazy = lazy(async () => {
-    return import('./ProfileRating')
-        .then((component) => ({ default: component.ProfileRating }));
+    return import('./ProfileRating').then((component) => ({
+        default: component.ProfileRating,
+    }));
 });
 
 const ProfileRatingAsync = memo<ProfileRatingProps>((props) => (

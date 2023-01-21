@@ -17,12 +17,12 @@ export const enum ButtonTheme {
 export const enum ButtonSize {
     M = 'size_m',
     L = 'size_l',
-    XL = 'size_xl'
+    XL = 'size_xl',
 }
 
 type Align = 'left' | 'center' | 'right';
 
-interface ButtonProps extends ButtonHTMLAttributes<HTMLButtonElement>{
+interface ButtonProps extends ButtonHTMLAttributes<HTMLButtonElement> {
     className?: string;
     theme?: ButtonTheme;
     square?: boolean;
@@ -61,7 +61,10 @@ const Button = memo((props: ButtonProps) => {
         <button
             {...otherProps}
             disabled={disabled}
-            className={classNames(cls.Button, mods, [className, cls[textAlign]])}
+            className={classNames(cls.Button, mods, [
+                className,
+                cls[textAlign],
+            ])}
         >
             {children}
         </button>

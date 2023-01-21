@@ -10,9 +10,7 @@ interface AdminPanelPageProps {
 }
 
 const AdminPanelPage = memo((props: AdminPanelPageProps) => {
-    const {
-        className,
-    } = props;
+    const { className } = props;
 
     const { t } = useTranslation();
 

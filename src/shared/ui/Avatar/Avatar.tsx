@@ -1,7 +1,4 @@
-import {
-    CSSProperties,
-    memo,
-} from 'react';
+import { CSSProperties, memo } from 'react';
 
 import { AppImage } from '../AppImage';
 import { Icon } from '../Icon';
@@ -21,16 +18,9 @@ interface AvatarProps {
 }
 
 const Avatar = memo((props: AvatarProps) => {
-    const {
-        className,
-        src,
-        size = 100,
-        alt,
-    } = props;
+    const { className, src, size = 100, alt } = props;
 
-    const pxToRem = usePxToRem;
-
-    const sizeInRem = `${pxToRem(size)}rem`;
+    const sizeInRem = `${usePxToRem(size)}rem`;
 
     const styles: CSSProperties = {
         width: sizeInRem,

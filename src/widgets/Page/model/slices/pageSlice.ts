@@ -10,13 +10,13 @@ export const pageSlice = createSlice({
     name: 'page',
     initialState,
     reducers: {
-        setScrollPosition: (state, { payload }: PayloadAction<ScrollPayload>) => {
+        setScrollPosition: (
+            state,
+            { payload }: PayloadAction<ScrollPayload>,
+        ) => {
             state.scroll[payload.path] = payload.position;
         },
     },
 });
 
-export const {
-    actions: pageActions,
-    reducer: pageReducer,
-} = pageSlice;
+export const { actions: pageActions, reducer: pageReducer } = pageSlice;

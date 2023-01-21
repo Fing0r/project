@@ -10,10 +10,10 @@ export const enum CardTheme {
     BACKGROUND_INVERTED = 'backgroundInverted',
 }
 
-interface CardProps extends HTMLAttributes<HTMLDivElement>{
+interface CardProps extends HTMLAttributes<HTMLDivElement> {
     className?: string;
     children: ReactNode;
-    theme?:CardTheme;
+    theme?: CardTheme;
     isBorder?: boolean;
 }
 

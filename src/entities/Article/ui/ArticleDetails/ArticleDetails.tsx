@@ -20,14 +20,15 @@ import CalendarIcon from '@/shared/assets/icons/calendar.svg';
 import EyeIcon from '@/shared/assets/icons/eye.svg';
 import { classNames } from '@/shared/lib/classNames/classNames';
 import { useAppDispatch } from '@/shared/lib/hooks/useAppDispatch';
-import { ReducersList, useDynamicModule } from '@/shared/lib/hooks/useDynamicModule';
+import {
+    ReducersList,
+    useDynamicModule,
+} from '@/shared/lib/hooks/useDynamicModule';
 import { useInitialEffect } from '@/shared/lib/hooks/useInitialEffect';
 import { AppImage } from '@/shared/ui/AppImage';
 import { Icon } from '@/shared/ui/Icon';
 import { Skeleton } from '@/shared/ui/Skeleton';
-import {
-    Text, TextAlign, TextSize, TextTheme,
-} from '@/shared/ui/Text';
+import { Text, TextAlign, TextSize, TextTheme } from '@/shared/ui/Text';
 
 const initialReducers: ReducersList = {
     articleDetails: articleDetailsReducer,
@@ -39,10 +40,7 @@ interface ArticleDetailProps {
 }
 
 const ArticleDetails = memo((props: ArticleDetailProps) => {
-    const {
-        className,
-        id,
-    } = props;
+    const { className, id } = props;
     const dispatch = useAppDispatch();
     useDynamicModule(initialReducers, false);
 
@@ -56,71 +54,55 @@ const ArticleDetails = memo((props: ArticleDetailProps) => {
 
     const renderArticleBlock = useCallback((block: ArticleBlock) => {
         switch (block.type) {
-        case ArticleBlockType.CODE:
-            return (
-                <ArticleCodeBlockComponent
-                    key={block.id}
-                    className={cls.block}
-                    block={block}
-                />
-            );
-        case ArticleBlockType.TEXT:
-            return (
-                <ArticleTextBlockComponent
-                    key={block.id}
-                    block={block}
-                    className={cls.block}
-                />
-            );
-        case ArticleBlockType.IMAGE:
-            return (
-                <ArticleImageBlockComponent
-                    key={block.id}
-                    block={block}
-                    className={cls.block}
-                />
-            );
-        default:
-            return null;
+            case ArticleBlockType.CODE:
+                return (
+                    <ArticleCodeBlockComponent
+                        key={block.id}
+                        className={cls.block}
+                        block={block}
+                    />
+                );
+            case ArticleBlockType.TEXT:
+                return (
+                    <ArticleTextBlockComponent
+                        key={block.id}
+                        block={block}
+                        className={cls.block}
+                    />
+                );
+            case ArticleBlockType.IMAGE:
+                return (
+                    <ArticleImageBlockComponent
+                        key={block.id}
+                        block={block}
+                        className={cls.block}
+                    />
+                );
+            default:
+                return null;
         }
     }, []);
 
     if (isLoading) {
         return (
-            <div className={classNames(cls.ArticleDetail, {}, [cls.skeletonWrapper])}>
+            <div>
                 <Skeleton
                     className={cls.img}
                     width={200}
                     height={200}
                     borderRadius="50%"
                 />
-                <Skeleton
-                    className={cls.skeleton}
-                    width={300}
-                    height={32}
-                />
-                <Skeleton
-                    className={cls.skeleton}
-                    width={600}
-                    height={32}
-                />
-                <Skeleton
-                    className={cls.skeleton}
-                    width="100%"
-                    height={232}
-                />
-                <Skeleton
-                    className={cls.skeleton}
-                    width="100%"
-                    height={232}
-                />
+                <Skeleton className={cls.skeleton} width={300} height={32} />
+                <Skeleton className={cls.skeleton} width={600} height={32} />
+                <Skeleton className={cls.skeleton} width="100%" height={232} />
+                <Skeleton className={cls.skeleton} width="100%" height={232} />
             </div>
         );
     }
 
     if (error) {
         return (
-            <div className={classNames(cls.ArticleDetail, {}, [cls.center])}>
+            <div className={classNames('', {}, [cls.center])}>
                 <Text
                     align={TextAlign.CENTER}
                     title={error}
@@ -142,7 +124,10 @@ const ArticleDetails = memo((props: ArticleDetailProps) => {
     const errorFallback = <div />;
 
     return (
-        <div className={classNames(cls.ArticleDetail, {}, [className])}>
+        <div
+            data-testid="ArticleDetails.Info"
+            className={classNames('', {}, [className])}
+        >
             <div className={cls.articleHeader}>
                 <AppImage
                     fallback={fallback}

@@ -9,7 +9,7 @@ import { classNames } from '@/shared/lib/classNames/classNames';
 
 interface LangSwitcherProps {
     className?: string;
-    short: boolean
+    short: boolean;
 }
 
 const LangSwitcher = memo(({ className, short }: LangSwitcherProps) => {

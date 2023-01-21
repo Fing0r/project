@@ -10,12 +10,13 @@ export default {
     component: Dropdown,
     decorators: [
         (Story) => (
-            <div style={{
-                height: '400px',
-                width: '100%',
-                display: 'grid',
-                placeItems: 'center',
-            }}
+            <div
+                style={{
+                    height: '400px',
+                    width: '100%',
+                    display: 'grid',
+                    placeItems: 'center',
+                }}
             >
                 <Story />
             </div>
@@ -23,7 +24,9 @@ export default {
     ],
 } as ComponentMeta<typeof Dropdown>;
 
-const Template: ComponentStory<typeof Dropdown> = (args) => <Dropdown {...args} />;
+const Template: ComponentStory<typeof Dropdown> = (args) => (
+    <Dropdown {...args} />
+);
 
 export const BottomLeft = Template.bind({});
 BottomLeft.args = {

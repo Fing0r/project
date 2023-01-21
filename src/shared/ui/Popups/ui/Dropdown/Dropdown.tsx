@@ -19,9 +19,10 @@ export interface DropdownItemProps {
     Icon?: React.VFC<React.SVGProps<SVGSVGElement>>;
 }
 
-const renderItem = ({
-    href, disabled, content, onClick, Icon,
-}: DropdownItemProps, index: number) => {
+const renderItem = (
+    { href, disabled, content, onClick, Icon }: DropdownItemProps,
+    index: number,
+) => {
     const itemContent = (
         <>
             <span className={cls.icon}>
@@ -33,11 +34,13 @@ const renderItem = ({
 
     return (
         <Menu.Item as={Fragment} key={index}>
-            {({ active }) => (
+            {({ active }) =>
                 href ? (
                     <Link
                         to={href}
-                        className={classNames(cls.item, { [popups.active]: active })}
+                        className={classNames(cls.item, {
+                            [popups.active]: active,
+                        })}
                     >
                         {itemContent}
                     </Link>
@@ -46,12 +49,14 @@ const renderItem = ({
                         type="button"
                         onClick={onClick}
                         disabled={disabled}
-                        className={classNames(cls.item, { [popups.active]: active })}
+                        className={classNames(cls.item, {
+                            [popups.active]: active,
+                        })}
                     >
                         {itemContent}
                     </button>
                 )
-            )}
+            }
         </Menu.Item>
     );
 };
@@ -80,11 +85,12 @@ const Dropdown = (props: DropdownProps) => {
             as="div"
             className={classNames('', {}, [className, popups.popup])}
         >
-            <Menu.Button className={popups.trigger}>
-                {trigger}
-            </Menu.Button>
+            <Menu.Button className={popups.trigger}>{trigger}</Menu.Button>
             <Menu.Items
-                className={classNames(cls.items, {}, [...directionClass, optionsClass])}
+                className={classNames(cls.items, {}, [
+                    ...directionClass,
+                    optionsClass,
+                ])}
             >
                 {items.map(renderItem)}
             </Menu.Items>

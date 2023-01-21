@@ -8,5 +8,5 @@ export interface EditableProfileCardSchema {
     isLoading?: boolean;
     error?: string;
     readonly?: boolean;
-    validateErrors?: ValidateProfileErrors[]
+    validateErrors?: ValidateProfileErrors[];
 }

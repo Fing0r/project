@@ -10,9 +10,21 @@ import { ThemeEnum } from '@/shared/const/theme';
 
 const articleCommentList = {
     entities: {
-        a: { id: 'a', text: '123', user: { id: '1', avatar: AvatarImg, username: 'user' } },
-        b: { id: 'b', text: '123123', user: { id: '1', avatar: AvatarImg, username: 'user' } },
-        c: { id: 'c', text: '234324', user: { id: '1', avatar: AvatarImg, username: 'user' } },
+        a: {
+            id: 'a',
+            text: '123',
+            user: { id: '1', avatar: AvatarImg, username: 'user' },
+        },
+        b: {
+            id: 'b',
+            text: '123123',
+            user: { id: '1', avatar: AvatarImg, username: 'user' },
+        },
+        c: {
+            id: 'c',
+            text: '234324',
+            user: { id: '1', avatar: AvatarImg, username: 'user' },
+        },
     },
     ids: ['a', 'b', 'c'],
 };
@@ -22,15 +34,19 @@ export default {
     component: ArticleCommentList,
 } as ComponentMeta<typeof ArticleCommentList>;
 
-const Template: ComponentStory<typeof ArticleCommentList> = (args) => <ArticleCommentList {...args} />;
+const Template: ComponentStory<typeof ArticleCommentList> = (args) => (
+    <ArticleCommentList {...args} />
+);
 
 export const Light = Template.bind({});
 Light.args = {};
-Light.decorators = [StoreDecorator({
-    articleDetailsPage: {
-        comments: articleCommentList,
-    },
-})];
+Light.decorators = [
+    StoreDecorator({
+        articleDetailsPage: {
+            comments: articleCommentList,
+        },
+    }),
+];
 
 export const Dark = Template.bind({});
 Dark.args = {};

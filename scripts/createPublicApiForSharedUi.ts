@@ -3,7 +3,14 @@ import path from 'path';
 import { Project } from 'ts-morph';
 
 function isAbsolute(value: string) {
-    const layers = ['app', 'shared', 'entities', 'features', 'widgets', 'pages'];
+    const layers = [
+        'app',
+        'shared',
+        'entities',
+        'features',
+        'widgets',
+        'pages',
+    ];
     return layers.some((layer) => value.startsWith(layer));
 }
 
@@ -50,7 +57,9 @@ componentsDirs?.forEach((directory) => {
 files.forEach((file) => {
     const importDeclarations = file.getImportDeclarations();
     importDeclarations.forEach((importDeclaration) => {
-        const value = importDeclaration.getModuleSpecifierValue().replace('@/', '');
+        const value = importDeclaration
+            .getModuleSpecifierValue()
+            .replace('@/', '');
         const segments = value.split('/');
         const isShared = segments?.[0] === 'shared';
         const isUi = segments?.[1] === 'ui';

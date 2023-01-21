@@ -20,21 +20,10 @@ interface ModalProps {
 const ANIMATION_DELAY = 300;
 
 const Modal = (props: ModalProps) => {
-    const {
-        className,
-        contentClassName,
-        isOpen,
-        onClose,
-        children,
-        lazy,
-    } = props;
+    const { className, contentClassName, isOpen, onClose, children, lazy } =
+        props;
 
-    const {
-        isMounted,
-        isOpening,
-        isClosing,
-        close,
-    } = useModal({
+    const { isMounted, isOpening, isClosing, close } = useModal({
         animationDelay: ANIMATION_DELAY,
         isOpen,
         onClose,
@@ -53,7 +42,9 @@ const Modal = (props: ModalProps) => {
         <Portal>
             <div className={classNames(cls.Modal, mods, [className])}>
                 <Overlay onClose={close} />
-                <div className={classNames(cls.content, {}, [contentClassName])}>
+                <div
+                    className={classNames(cls.content, {}, [contentClassName])}
+                >
                     {children}
                 </div>
             </div>

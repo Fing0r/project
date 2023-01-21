@@ -1,13 +1,14 @@
-import {
-    memo, ReactNode, useCallback, useEffect, useRef,
-} from 'react';
+import { memo, ReactNode, useCallback, useEffect, useRef } from 'react';
 
 import { Overlay } from '../Overlay/Overlay';
 import { Portal } from '../Portal/Portal';
 
 import cls from './Drawer.module.scss';
 
-import { AnimationProvider, useAnimation } from '@/shared/lib/AnimationProvider';
+import {
+    AnimationProvider,
+    useAnimation,
+} from '@/shared/lib/AnimationProvider';
 import { classNames } from '@/shared/lib/classNames/classNames';
 
 interface DrawerProps {
@@ -24,13 +25,7 @@ const height = window.innerHeight - 100;
 const DrawerContent = memo((props: DrawerProps) => {
     const { Spring, Gesture } = useAnimation();
     const [{ y }, api] = Spring.useSpring(() => ({ y: height }));
-    const {
-        children,
-        className,
-        isOpen,
-        onClose,
-        fullWidth,
-    } = props;
+    const { children, className, isOpen, onClose, fullWidth } = props;
 
     const open = useCallback(() => {
         api.start({ y: 0, immediate: false, config: Spring.config.stiff });
@@ -42,14 +37,17 @@ const DrawerContent = memo((props: DrawerProps) => {
         }
     }, [isOpen, open]);
 
-    const close = useCallback((velocity: number = 0) => {
-        api.start({
-            y: height,
-            immediate: false,
-            config: { ...Spring.config.stiff, velocity },
-            onResolve: onClose,
-        });
-    }, [Spring.config.stiff, api, onClose]);
+    const close = useCallback(
+        (velocity: number = 0) => {
+            api.start({
+                y: height,
+                immediate: false,
+                config: { ...Spring.config.stiff, velocity },
+                onResolve: onClose,
+            });
+        },
+        [Spring.config.stiff, api, onClose],
+    );
 
     const ref = useRef<HTMLButtonElement | null>(null);
 
@@ -65,7 +63,8 @@ const DrawerContent = memo((props: DrawerProps) => {
             currentTarget,
             target,
         }) => {
-            const isTargetChildren = target !== currentTarget && target !== ref.current;
+            const isTargetChildren =
+                target !== currentTarget && target !== ref.current;
             if (my < -70 || isTargetChildren) {
                 cancel();
             }
@@ -80,12 +79,17 @@ const DrawerContent = memo((props: DrawerProps) => {
             }
         },
         {
-            from: () => [0, y.get()], filterTaps: true, bounds: { top: 0 }, rubberband: true,
+            from: () => [0, y.get()],
+            filterTaps: true,
+            bounds: { top: 0 },
+            rubberband: true,
         },
     );
 
     const handleClose = useCallback(
-        (velocity: number = 0) => () => close(velocity),
+        (velocity: number = 0) =>
+            () =>
+                close(velocity),
         [close],
     );
 
@@ -98,8 +102,16 @@ const DrawerContent = memo((props: DrawerProps) => {
             <div className={classNames(cls.Drawer, {}, [className])}>
                 <Overlay onClose={handleClose()} />
                 <Spring.a.div
-                    style={{ display, bottom: `calc(-100vh + ${height}px - 6.25rem)`, y }}
-                    className={classNames(cls.content, { [cls.fullWidth]: fullWidth }, [])}
+                    style={{
+                        display,
+                        bottom: `calc(-100vh + ${height}px - 6.25rem)`,
+                        y,
+                    }}
+                    className={classNames(
+                        cls.content,
+                        { [cls.fullWidth]: fullWidth },
+                        [],
+                    )}
                     {...bind()}
                 >
                     <button

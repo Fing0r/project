@@ -22,13 +22,10 @@ const ThemeSwitcher = memo(({ className }: ThemeSwitcherProps) => {
             className={classNames('', {}, [className])}
         >
             <ThemeIcon
-                className={
-                    classNames(
-                        cls.ThemeSwitcher,
-                        {},
-                        [cls[theme], className],
-                    )
-                }
+                className={classNames(cls.ThemeSwitcher, {}, [
+                    cls[theme],
+                    className,
+                ])}
             />
         </Button>
     );

@@ -51,52 +51,70 @@ export default {
     },
 } as ComponentMeta<typeof ProfilePage>;
 
-const Template: ComponentStory<typeof ProfilePage> = (args) => <ProfilePage {...args} />;
+const Template: ComponentStory<typeof ProfilePage> = (args) => (
+    <ProfilePage {...args} />
+);
 export const Light = Template.bind({});
 Light.args = {};
-Light.decorators = [StoreDecorator({
-    profile,
-    user,
-})];
+Light.decorators = [
+    StoreDecorator({
+        profile,
+        user,
+    }),
+];
 
 export const NoEdit = Template.bind({});
 NoEdit.args = {};
-NoEdit.decorators = [StoreDecorator({
-    profile,
-    user: { authData: { id: '2' } },
-})];
+NoEdit.decorators = [
+    StoreDecorator({
+        profile,
+        user: { authData: { id: '2' } },
+    }),
+];
 
 export const Dark = Template.bind({});
 Dark.args = {};
-Dark.decorators = [ThemeDecorator(ThemeEnum.DARK), StoreDecorator({
-    profile,
-    user,
-})];
+Dark.decorators = [
+    ThemeDecorator(ThemeEnum.DARK),
+    StoreDecorator({
+        profile,
+        user,
+    }),
+];
 
 export const ReadOnly = Template.bind({});
 ReadOnly.args = {};
-ReadOnly.decorators = [ThemeDecorator(ThemeEnum.DARK), StoreDecorator({
-    profile: {
-        ...profile,
-        readonly: true,
-    },
-    user,
-})];
+ReadOnly.decorators = [
+    ThemeDecorator(ThemeEnum.DARK),
+    StoreDecorator({
+        profile: {
+            ...profile,
+            readonly: true,
+        },
+        user,
+    }),
+];
 
 export const Error = Template.bind({});
 Error.args = {};
-Error.decorators = [ThemeDecorator(ThemeEnum.DARK), StoreDecorator({
-    profile: {
-        readonly: true,
-        error: 'error',
-    },
-})];
+Error.decorators = [
+    ThemeDecorator(ThemeEnum.DARK),
+    StoreDecorator({
+        profile: {
+            readonly: true,
+            error: 'error',
+        },
+    }),
+];
 
 export const Loading = Template.bind({});
 Loading.args = {};
-Loading.decorators = [ThemeDecorator(ThemeEnum.DARK), StoreDecorator({
-    profile: {
-        readonly: true,
-        isLoading: true,
-    },
-})];
+Loading.decorators = [
+    ThemeDecorator(ThemeEnum.DARK),
+    StoreDecorator({
+        profile: {
+            readonly: true,
+            isLoading: true,
+        },
+    }),
+];

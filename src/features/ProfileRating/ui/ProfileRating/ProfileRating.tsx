@@ -2,7 +2,10 @@ import { memo, useCallback } from 'react';
 import { useTranslation } from 'react-i18next';
 import { useSelector } from 'react-redux';
 
-import { useGetProfileRating, useSetProfileRating } from '../../api/profileRatingApi';
+import {
+    useGetProfileRating,
+    useSetProfileRating,
+} from '../../api/profileRatingApi';
 
 import { RatingCard } from '@/entities/Rating';
 import { getAuthData } from '@/entities/User';
@@ -25,26 +28,35 @@ export const ProfileRating = memo((props: ProfileRatingProps) => {
         userId: userId ?? '',
     });
 
-    const handleRateArticle = useCallback((selectedRating: number, feedback?: string) => {
-        try {
-            rateArticle({
-                rating: selectedRating,
-                feedback,
-                userId: userId ?? '',
-                profileId,
-            });
-        } catch (e) {
-            console.log(e);
-        }
-    }, [profileId, rateArticle, userId]);
+    const handleRateArticle = useCallback(
+        (selectedRating: number, feedback?: string) => {
+            try {
+                rateArticle({
+                    rating: selectedRating,
+                    feedback,
+                    userId: userId ?? '',
+                    profileId,
+                });
+            } catch (e) {
+                console.log(e);
+            }
+        },
+        [profileId, rateArticle, userId],
+    );
 
-    const onAccept = useCallback((selectedRating: number, feedback?: string) => {
-        handleRateArticle(selectedRating, feedback);
-    }, [handleRateArticle]);
+    const onAccept = useCallback(
+        (selectedRating: number, feedback?: string) => {
+            handleRateArticle(selectedRating, feedback);
+        },
+        [handleRateArticle],
+    );
 
-    const onCancel = useCallback((selectedRating: number) => {
-        handleRateArticle(selectedRating);
-    }, [handleRateArticle]);
+    const onCancel = useCallback(
+        (selectedRating: number) => {
+            handleRateArticle(selectedRating);
+        },
+        [handleRateArticle],
+    );
 
     if (isLoading) {
         return <Skeleton width="100%" height={114} borderRadius={16} />;

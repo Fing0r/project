@@ -1,8 +1,4 @@
-import {
-    ChangeEvent,
-    memo,
-    useMemo,
-} from 'react';
+import { ChangeEvent, memo, useMemo } from 'react';
 
 import cls from './Select.module.scss';
 
@@ -19,24 +15,23 @@ interface SelectProps<T extends string> {
     options: SelectOption<T>[];
     onChange?: (value: T) => void;
     value?: T;
-    disabled?: boolean
+    disabled?: boolean;
     selectName?: string;
 }
 
 const Select = <T extends string>(props: SelectProps<T>) => {
-    const {
-        className,
-        label,
-        options,
-        onChange,
-        value,
-        disabled,
-        selectName,
-    } = props;
+    const { className, label, options, onChange, value, disabled, selectName } =
+        props;
 
-    const optionsItems = useMemo(() => options.map(({ value, text }) => (
-        <option value={value} key={value}>{text}</option>
-    )), [options]);
+    const optionsItems = useMemo(
+        () =>
+            options.map(({ value, text }) => (
+                <option value={value} key={value}>
+                    {text}
+                </option>
+            )),
+        [options],
+    );
 
     const onChangeHandler = (e: ChangeEvent<HTMLSelectElement>) => {
         onChange?.(e.target.value as T);
@@ -56,11 +51,7 @@ const Select = <T extends string>(props: SelectProps<T>) => {
             >
                 {optionsItems}
             </select>
-            {label && (
-                <span className={cls.labelText}>
-                    {label}
-                </span>
-            )}
+            {label && <span className={cls.labelText}>{label}</span>}
         </label>
     );
 };

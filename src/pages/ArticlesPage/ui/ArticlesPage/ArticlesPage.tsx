@@ -11,7 +11,10 @@ import cls from './ArticlesPage.module.scss';
 
 import { classNames } from '@/shared/lib/classNames/classNames';
 import { useAppDispatch } from '@/shared/lib/hooks/useAppDispatch';
-import { ReducersList, useDynamicModule } from '@/shared/lib/hooks/useDynamicModule';
+import {
+    ReducersList,
+    useDynamicModule,
+} from '@/shared/lib/hooks/useDynamicModule';
 import { useInitialEffect } from '@/shared/lib/hooks/useInitialEffect';
 import { Page } from '@/widgets/Page';
 
@@ -24,9 +27,7 @@ const initialReducers: ReducersList = {
 };
 
 const ArticlesPage = (props: ArticlesPageProps) => {
-    const {
-        className,
-    } = props;
+    const { className } = props;
     const ref = useRef() as MutableRefObject<HTMLDivElement>;
     const dispatch = useAppDispatch();
     const [searchParams] = useSearchParams();
@@ -43,6 +44,7 @@ const ArticlesPage = (props: ArticlesPageProps) => {
 
     return (
         <Page
+            data-testid="ArticlesPage"
             customWrapperRef={ref}
             onScrollEnd={onLoadNextArticles}
             className={classNames(cls.ArticlesPage, {}, [className])}

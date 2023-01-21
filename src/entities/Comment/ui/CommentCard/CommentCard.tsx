@@ -14,19 +14,20 @@ import { Text, TextSize } from '@/shared/ui/Text';
 interface CommentCardProps {
     className?: string;
     comment?: Comment;
-    isLoading?: boolean
+    isLoading?: boolean;
 }
 
 const CommentCard = memo((props: CommentCardProps) => {
-    const {
-        className,
-        comment,
-        isLoading,
-    } = props;
+    const { className, comment, isLoading } = props;
 
     if (isLoading) {
         return (
-            <div className={classNames(cls.CommentCard, {}, [className, cls.loading])}>
+            <div
+                className={classNames(cls.CommentCard, {}, [
+                    className,
+                    cls.loading,
+                ])}
+            >
                 <div className={cls.header}>
                     <Skeleton width={30} height={30} borderRadius="50%" />
                     <Skeleton height={20} width={100} />
@@ -41,12 +42,17 @@ const CommentCard = memo((props: CommentCardProps) => {
     }
 
     return (
-        <div className={classNames(cls.CommentCard, {}, [className])}>
+        <div
+            className={classNames(cls.CommentCard, {}, [className])}
+            data-testid="Comment.Item"
+        >
             <AppLink
                 className={cls.header}
                 to={getRouteProfile(comment.user.id)}
             >
-                {comment?.user.avatar ? (<Avatar src={comment.user.avatar} size={30} />) : null}
+                {comment?.user.avatar ? (
+                    <Avatar src={comment.user.avatar} size={30} />
+                ) : null}
                 <Text title={comment?.user.username} size={TextSize.S} />
             </AppLink>
             <Text text={comment?.text} />

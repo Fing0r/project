@@ -26,23 +26,30 @@ const Template: ComponentStory<typeof Navbar> = (args) => <Navbar {...args} />;
 
 export const LightAuth = Template.bind({});
 LightAuth.args = {};
-LightAuth.decorators = [StoreDecorator({
-    user: {
-        authData: {
-            username: 'admin',
-            id: '1',
+LightAuth.decorators = [
+    StoreDecorator({
+        user: {
+            authData: {
+                username: 'admin',
+                id: '1',
+            },
         },
-    },
-})];
+    }),
+];
 
 export const LightNotAuth = Template.bind({});
 LightNotAuth.args = {};
-LightNotAuth.decorators = [StoreDecorator({
-    user: {
-        authData: undefined,
-    },
-})];
+LightNotAuth.decorators = [
+    StoreDecorator({
+        user: {
+            authData: undefined,
+        },
+    }),
+];
 
 export const Dark = Template.bind({});
 Dark.args = {};
-Dark.decorators = [ThemeDecorator(ThemeEnum.DARK), StoreDecorator(initialState)];
+Dark.decorators = [
+    ThemeDecorator(ThemeEnum.DARK),
+    StoreDecorator(initialState),
+];

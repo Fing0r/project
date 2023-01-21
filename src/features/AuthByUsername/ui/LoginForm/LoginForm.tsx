@@ -1,8 +1,4 @@
-import {
-    FormEvent,
-    memo,
-    useCallback,
-} from 'react';
+import { FormEvent, memo, useCallback } from 'react';
 import { useTranslation } from 'react-i18next';
 import { useSelector } from 'react-redux';
 
@@ -17,15 +13,18 @@ import cls from './LoginForm.module.scss';
 
 import { classNames } from '@/shared/lib/classNames/classNames';
 import { useAppDispatch } from '@/shared/lib/hooks/useAppDispatch';
-import { ReducersList, useDynamicModule } from '@/shared/lib/hooks/useDynamicModule';
+import {
+    ReducersList,
+    useDynamicModule,
+} from '@/shared/lib/hooks/useDynamicModule';
 import { Button, ButtonTheme } from '@/shared/ui/Button';
 import { Input, InputTheme } from '@/shared/ui/Input';
 import { Text, TextTheme } from '@/shared/ui/Text';
 
 export interface LoginFormProps {
     className?: string;
-    isOpen?: boolean
-    onSuccess: () => void
+    isOpen?: boolean;
+    onSuccess: () => void;
 }
 
 const initialReducers: ReducersList = {
@@ -33,11 +32,7 @@ const initialReducers: ReducersList = {
 };
 
 const LoginForm = memo((props: LoginFormProps) => {
-    const {
-        className,
-        isOpen,
-        onSuccess,
-    } = props;
+    const { className, isOpen, onSuccess } = props;
     const dispatch = useAppDispatch();
     const { t } = useTranslation();
     const username = useSelector(getUsername);
@@ -46,21 +41,32 @@ const LoginForm = memo((props: LoginFormProps) => {
     const error = useSelector(getError);
     useDynamicModule(initialReducers, true);
 
-    const onChangeUsername = useCallback((value: string) => {
-        dispatch(loginActions.setAuthUsername(value));
-    }, [dispatch]);
+    const onChangeUsername = useCallback(
+        (value: string) => {
+            dispatch(loginActions.setAuthUsername(value));
+        },
+        [dispatch],
+    );
 
-    const onChangePassword = useCallback((value: string) => {
-        dispatch(loginActions.setAuthPassword(value));
-    }, [dispatch]);
+    const onChangePassword = useCallback(
+        (value: string) => {
+            dispatch(loginActions.setAuthPassword(value));
+        },
+        [dispatch],
+    );
 
-    const onLoginClick = useCallback(async (e: FormEvent<HTMLFormElement>) => {
-        e.preventDefault();
-        const result = await dispatch(loginByUsername({ username, password }));
-        if (result.meta.requestStatus === 'fulfilled') {
-            onSuccess();
-        }
-    }, [dispatch, onSuccess, password, username]);
+    const onLoginClick = useCallback(
+        async (e: FormEvent<HTMLFormElement>) => {
+            e.preventDefault();
+            const result = await dispatch(
+                loginByUsername({ username, password }),
+            );
+            if (result.meta.requestStatus === 'fulfilled') {
+                onSuccess();
+            }
+        },
+        [dispatch, onSuccess, password, username],
+    );
 
     if (username === undefined) {
         return null;

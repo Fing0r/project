@@ -8,7 +8,10 @@ describe('counterSlice.test', () => {
         const state: DeepPartial<LoginSchema> = {};
 
         expect(
-            loginReducer(state as LoginSchema, loginActions.setAuthUsername('123123')),
+            loginReducer(
+                state as LoginSchema,
+                loginActions.setAuthUsername('123123'),
+            ),
         ).toEqual({
             username: '123123',
         });
@@ -18,7 +21,10 @@ describe('counterSlice.test', () => {
         const state: DeepPartial<LoginSchema> = {};
 
         expect(
-            loginReducer(state as LoginSchema, loginActions.setAuthPassword('123123')),
+            loginReducer(
+                state as LoginSchema,
+                loginActions.setAuthPassword('123123'),
+            ),
         ).toEqual({
             password: '123123',
         });
@@ -39,11 +45,13 @@ describe('counterSlice.test', () => {
         const state: DeepPartial<LoginSchema> = {};
 
         expect(
-            loginReducer(state as LoginSchema, loginByUsername.fulfilled(
-                { username: '', id: '1' },
-                '',
-                { username: '', password: '' },
-            )),
+            loginReducer(
+                state as LoginSchema,
+                loginByUsername.fulfilled({ username: '', id: '1' }, '', {
+                    username: '',
+                    password: '',
+                }),
+            ),
         ).toEqual({
             isLoading: false,
         });
@@ -53,11 +61,14 @@ describe('counterSlice.test', () => {
         const state: DeepPartial<LoginSchema> = {};
 
         expect(
-            loginReducer(state as LoginSchema, loginByUsername.pending(
-                '',
-                { username: '', password: '' },
-                undefined,
-            )),
+            loginReducer(
+                state as LoginSchema,
+                loginByUsername.pending(
+                    '',
+                    { username: '', password: '' },
+                    undefined,
+                ),
+            ),
         ).toEqual({
             isLoading: true,
             error: undefined,
@@ -68,12 +79,15 @@ describe('counterSlice.test', () => {
         const state: DeepPartial<LoginSchema> = {};
 
         expect(
-            loginReducer(state as LoginSchema, loginByUsername.rejected(
-                new Error(),
-                '',
-                { username: '123', password: '123' },
-                'неверный логин или пароль',
-            )),
+            loginReducer(
+                state as LoginSchema,
+                loginByUsername.rejected(
+                    new Error(),
+                    '',
+                    { username: '123', password: '123' },
+                    'неверный логин или пароль',
+                ),
+            ),
         ).toEqual({
             error: 'неверный логин или пароль',
             isLoading: false,

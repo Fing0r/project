@@ -21,16 +21,14 @@ interface TabsProps<T extends string> {
 }
 
 const Tabs = <T extends string>(props: TabsProps<T>) => {
-    const {
-        className,
-        tabs,
-        currentValue,
-        onClickTab,
-    } = props;
+    const { className, tabs, currentValue, onClickTab } = props;
 
-    const onClick = useCallback((val: T) => () => {
-        onClickTab(val);
-    }, [onClickTab]);
+    const onClick = useCallback(
+        (val: T) => () => {
+            onClickTab(val);
+        },
+        [onClickTab],
+    );
 
     return (
         <HStack
@@ -43,7 +41,11 @@ const Tabs = <T extends string>(props: TabsProps<T>) => {
                     className={cls.tabBtn}
                     key={value}
                     onClick={onClick(value)}
-                    theme={value === currentValue ? ButtonTheme.OUTLINE : ButtonTheme.BACKGROUND_CARD}
+                    theme={
+                        value === currentValue
+                            ? ButtonTheme.OUTLINE
+                            : ButtonTheme.BACKGROUND_CARD
+                    }
                 >
                     <Text align={TextAlign.CENTER} wrapper={text} />
                 </Button>

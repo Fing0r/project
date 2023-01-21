@@ -6,7 +6,7 @@ interface ArticleRatingArgs {
     articleId: string;
 }
 
-interface SetArticleRatingArgs extends Rating{
+interface SetArticleRatingArgs extends Rating {
     userId: string;
     articleId: string;
 }
@@ -24,12 +24,7 @@ const articleRatingApi = rtkApi.injectEndpoints({
             }),
         }),
         setArticleRating: build.mutation<void, SetArticleRatingArgs>({
-            query: ({
-                articleId,
-                userId,
-                rating,
-                feedback,
-            }) => ({
+            query: ({ articleId, userId, rating, feedback }) => ({
                 url: '/article-ratings',
                 method: 'POST',
                 body: {

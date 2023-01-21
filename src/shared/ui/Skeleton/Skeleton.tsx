@@ -13,12 +13,7 @@ interface SkeletonProps {
 }
 
 const Skeleton = (props: SkeletonProps) => {
-    const {
-        className,
-        width,
-        height,
-        borderRadius,
-    } = props;
+    const { className, width, height, borderRadius } = props;
 
     const convertProperty = useGuardPercentCSSProperty;
 

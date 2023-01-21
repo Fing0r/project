@@ -21,13 +21,13 @@ export default {
 //     return <CountrySelect {...args} onChange={onChange} />;
 // };
 
-const Template: ComponentStory<typeof CountrySelect> = (args) => <CountrySelect {...args} />;
+const Template: ComponentStory<typeof CountrySelect> = (args) => (
+    <CountrySelect {...args} />
+);
 
 export const Light = Template.bind({});
-Light.args = {
-};
+Light.args = {};
 
 export const Dark = Template.bind({});
-Dark.args = {
-};
+Dark.args = {};
 Dark.decorators = [ThemeDecorator(ThemeEnum.DARK)];

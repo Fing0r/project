@@ -2,10 +2,11 @@ import { HTMLAttributeAnchorTarget, memo, useCallback } from 'react';
 import { useTranslation } from 'react-i18next';
 import { useNavigate } from 'react-router-dom';
 
-import { ArticleBlockType, ArticleView } from '../../model/consts/articleConsts';
 import {
-    Article, ArticleTextBlock,
-} from '../../model/types/article';
+    ArticleBlockType,
+    ArticleView,
+} from '../../model/consts/articleConsts';
+import { Article, ArticleTextBlock } from '../../model/types/article';
 import { ArticleTextBlockComponent } from '../ArticleTextBlockComponent/ArticleTextBlockComponent';
 
 import cls from './ArticlesListItem.module.scss';
@@ -31,12 +32,7 @@ interface ArticlesListItemProps {
 }
 
 const ArticlesListItem = memo((props: ArticlesListItemProps) => {
-    const {
-        className,
-        article,
-        view = ArticleView.GRID,
-        target,
-    } = props;
+    const { className, article, view = ArticleView.GRID, target } = props;
 
     const { t } = useTranslation('articles');
     const navigate = useNavigate();
@@ -55,12 +51,18 @@ const ArticlesListItem = memo((props: ArticlesListItemProps) => {
     }, [article, navigate]);
 
     if (view === ArticleView.LIST) {
-        const textBlock = article?.blocks.find((block) => (
-            block.type === ArticleBlockType.TEXT
-        )) as ArticleTextBlock;
+        const textBlock = article?.blocks.find(
+            (block) => block.type === ArticleBlockType.TEXT,
+        ) as ArticleTextBlock;
 
         return (
-            <Card className={classNames(cls.ArticlesListItem, {}, [className, cls[view]])}>
+            <Card
+                data-testid="ArticlesListItem"
+                className={classNames(cls.ArticlesListItem, {}, [
+                    className,
+                    cls[view],
+                ])}
+            >
                 <VStack gap="16">
                     <VStack gap="8">
                         <HStack align="center" gap="8">
@@ -72,9 +74,15 @@ const ArticlesListItem = memo((props: ArticlesListItemProps) => {
                                 />
                             )}
                             <Text text={article.user.username} />
-                            <Text className={cls.date} text={article.createdAt} />
+                            <Text
+                                className={cls.date}
+                                text={article.createdAt}
+                            />
                         </HStack>
-                        <Text title={article.title} />
+                        <Text
+                            data-testid="ArticlesListItem.Title"
+                            title={article.title}
+                        />
                         {type}
                     </VStack>
                     <div className={cls.imgWrapper}>
@@ -86,11 +94,12 @@ const ArticlesListItem = memo((props: ArticlesListItemProps) => {
                             errorFallback={<div />}
                         />
                     </div>
-                    <ArticleTextBlockComponent block={textBlock} className={cls.paragraph} />
+                    <ArticleTextBlockComponent
+                        block={textBlock}
+                        className={cls.paragraph}
+                    />
                     <HStack align="center" justify="between" gap="16">
-                        <Button
-                            onClick={onMoveArticle}
-                        >
+                        <Button onClick={onMoveArticle}>
                             {t('Читать далее...')}
                         </Button>
                         {views}
@@ -101,9 +110,18 @@ const ArticlesListItem = memo((props: ArticlesListItemProps) => {
     }
 
     return (
-        <Card className={classNames(cls.ArticlesListItem, {}, [className, cls[view]])}>
+        <Card
+            className={classNames(cls.ArticlesListItem, {}, [
+                className,
+                cls[view],
+            ])}
+        >
             <VStack gap="16">
-                <AppLink target={target} to={getRouteArticleDetail(article.id)} className={cls.link} />
+                <AppLink
+                    target={target}
+                    to={getRouteArticleDetail(article.id)}
+                    className={cls.link}
+                />
                 <AppImage
                     src={article.img}
                     alt={article.title}

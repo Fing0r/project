@@ -1,10 +1,16 @@
 import { fetchArticlesList } from '../services/fetchArticlesList/fetchArticlesList';
 import { ArticlesPageListSchema } from '../types/ArticlesPageListSchema';
 
-import { articlesPageListActions, articlesPageListReducer } from './articlesListSlice';
+import {
+    articlesPageListActions,
+    articlesPageListReducer,
+} from './articlesListSlice';
 
 import {
-    ArticleBlockType, ArticleFieldSort, ArticleType, ArticleView,
+    ArticleBlockType,
+    ArticleFieldSort,
+    ArticleType,
+    ArticleView,
 } from '@/entities/Article';
 import type { Article } from '@/entities/Article';
 import { ARTICLES_VIEW_LOCALSTORAGE_KEY } from '@/shared/const/localstorage';
@@ -23,17 +29,13 @@ const stateEntities = {
             avatar: '',
             username: '',
         },
-        type: [
-            ArticleType.IT,
-        ],
+        type: [ArticleType.IT],
         blocks: [
             {
                 id: '1',
                 type: ArticleBlockType.TEXT,
                 title: 'Заголовок этого блока',
-                paragraphs: [
-                    'a',
-                ],
+                paragraphs: ['a'],
             },
         ],
     },
@@ -47,9 +49,7 @@ const data: Article[] = [
         views: 1022,
         createdAt: '26.02.2022',
         userId: '1',
-        type: [
-            ArticleType.IT,
-        ],
+        type: [ArticleType.IT],
         user: {
             id: '1',
             avatar: '',
@@ -60,9 +60,7 @@ const data: Article[] = [
                 id: '1',
                 type: ArticleBlockType.TEXT,
                 title: 'Заголовок этого блока',
-                paragraphs: [
-                    'a',
-                ],
+                paragraphs: ['a'],
             },
         ],
     },
@@ -148,10 +146,7 @@ describe('articlesListSlice', () => {
         };
         const action = articlesPageListReducer(
             state as ArticlesPageListSchema,
-            fetchArticlesList.pending(
-                '',
-                {},
-            ),
+            fetchArticlesList.pending('', {}),
         );
 
         expect(action).toEqual({ isLoading: true });
@@ -166,11 +161,7 @@ describe('articlesListSlice', () => {
         };
         const action = articlesPageListReducer(
             state as ArticlesPageListSchema,
-            fetchArticlesList.fulfilled(
-                data,
-                '',
-                {},
-            ),
+            fetchArticlesList.fulfilled(data, '', {}),
         );
 
         expect(action).toEqual({
@@ -193,11 +184,7 @@ describe('articlesListSlice', () => {
         };
         const action = articlesPageListReducer(
             state as ArticlesPageListSchema,
-            fetchArticlesList.fulfilled(
-                [],
-                '',
-                {},
-            ),
+            fetchArticlesList.fulfilled([], '', {}),
         );
 
         expect(action).toEqual({

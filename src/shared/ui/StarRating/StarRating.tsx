@@ -11,19 +11,14 @@ import { classNames } from '@/shared/lib/classNames/classNames';
 interface StarRatingProps {
     className?: string;
     size?: number;
-    onSelect?: (rating: number) => void
-    ratingValue?: number
+    onSelect?: (rating: number) => void;
+    ratingValue?: number;
 }
 
 const starsValues = [1, 2, 3, 4, 5];
 
 const StarRating = memo((props: StarRatingProps) => {
-    const {
-        className,
-        size = 30,
-        ratingValue = 0,
-        onSelect,
-    } = props;
+    const { className, size = 30, ratingValue = 0, onSelect } = props;
     const [isSelected, setIsSelected] = useState<boolean>(Boolean(ratingValue));
     const [currentRating, setCurrentRating] = useState<number>(ratingValue);
     const onHover = (selectRating: number) => () => {
@@ -47,7 +42,7 @@ const StarRating = memo((props: StarRatingProps) => {
     };
 
     return (
-        <HStack className={className}>
+        <HStack data-testid="Rating.Stars" className={className}>
             {starsValues.map((starValue) => (
                 <Icon
                     width={size}
@@ -57,13 +52,12 @@ const StarRating = memo((props: StarRatingProps) => {
                     onClick={onClick(starValue)}
                     Svg={StarIcon}
                     key={starValue}
-                    className={classNames(
-                        '',
-                        {
-                            [cls.isHovered]: currentRating >= starValue,
-                            [cls.isNotSelected]: !isSelected,
-                        },
-                    )}
+                    data-testid={`Rating.Star${starValue}`}
+                    data-selected={currentRating >= starValue}
+                    className={classNames('', {
+                        [cls.isHovered]: currentRating >= starValue,
+                        [cls.isNotSelected]: !isSelected,
+                    })}
                 />
             ))}
         </HStack>

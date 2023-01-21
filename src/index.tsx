@@ -10,7 +10,9 @@ import '@/shared/config/i18n/i18n';
 const container = document.getElementById('root');
 
 if (!container) {
-    throw new Error('Элемент root не найден, не удалось вмонтировать реакт приложение');
+    throw new Error(
+        'Элемент root не найден, не удалось вмонтировать реакт приложение',
+    );
 }
 
 const root = createRoot(container);

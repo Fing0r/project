@@ -24,14 +24,12 @@ import { PAGE_ID } from '@/shared/const';
 import { classNames } from '@/shared/lib/classNames/classNames';
 import { Text } from '@/shared/ui/Text';
 
-const getSkeletons = (view: ArticleView) => new Array(view === ArticleView.GRID ? 9 : 3)
-    .fill(0)
-    .map((_, index) => (
-        <ArticlesListItemSkeleton
-            key={index}
-            view={view}
-        />
-    ));
+const getSkeletons = (view: ArticleView) =>
+    new Array(view === ArticleView.GRID ? 9 : 3)
+        .fill(0)
+        .map((_, index) => (
+            <ArticlesListItemSkeleton key={index} view={view} />
+        ));
 
 const virtuosoComponents = {
     List: ListContainer,
@@ -98,24 +96,25 @@ const ArticlesList = memo((props: ArticlesListProps) => {
         return <Text title={t('Статей нет')} />;
     }
 
-    return (
-        isVirtualize ? (
-            <VirtuosoGrid<Article, VirtuosoContext>
-                ref={ref}
-                customScrollParent={document.getElementById(PAGE_ID) as HTMLElement}
-                components={virtuosoComponents}
-                data={articles}
-                context={context}
-                computeItemKey={(key) => `item-${key}`}
-                overscan={200}
-                itemContent={renderVirtualizeArticle}
-            />
-        ) : (
-            <div className={classNames(cls[view], {}, [className])}>
-                {articles?.map(renderArticle)}
-                {isLoading && getSkeletons(view)}
-            </div>
-        )
+    return isVirtualize ? (
+        <VirtuosoGrid<Article, VirtuosoContext>
+            ref={ref}
+            customScrollParent={document.getElementById(PAGE_ID) as HTMLElement}
+            components={virtuosoComponents}
+            data={articles}
+            context={context}
+            computeItemKey={(key) => `item-${key}`}
+            overscan={200}
+            itemContent={renderVirtualizeArticle}
+        />
+    ) : (
+        <div
+            data-testid="ArticlesList"
+            className={classNames(cls[view], {}, [className])}
+        >
+            {articles?.map(renderArticle)}
+            {isLoading && getSkeletons(view)}
+        </div>
     );
 });
 

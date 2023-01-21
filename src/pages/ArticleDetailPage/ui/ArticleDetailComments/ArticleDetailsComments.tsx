@@ -2,11 +2,12 @@ import { memo, Suspense, useCallback } from 'react';
 import { useTranslation } from 'react-i18next';
 import { useSelector } from 'react-redux';
 
-import { getArticleCommentsError, getArticleCommentsIsLoading } from '../../model/selectors/comments';
-import { addCommentForArticle } from '../../model/services/addCommentForArticle/addCommentForArticle';
 import {
-    fetchCommentsByArticleId,
-} from '../../model/services/fetchCommentsByArticleId/fetchCommentsByArticleId';
+    getArticleCommentsError,
+    getArticleCommentsIsLoading,
+} from '../../model/selectors/comments';
+import { addCommentForArticle } from '../../model/services/addCommentForArticle/addCommentForArticle';
+import { fetchCommentsByArticleId } from '../../model/services/fetchCommentsByArticleId/fetchCommentsByArticleId';
 import { getArticleComments } from '../../model/slice/articleDetailsCommentSlice';
 
 import { CommentList } from '@/entities/Comment';
@@ -24,10 +25,7 @@ interface ArticleDetailCommentsProps {
 }
 
 const ArticleDetailsComments = memo((props: ArticleDetailCommentsProps) => {
-    const {
-        className,
-        id,
-    } = props;
+    const { className, id } = props;
     const { t } = useTranslation();
     const dispatch = useAppDispatch();
     const comments = useSelector(getArticleComments.selectAll);
@@ -38,19 +36,17 @@ const ArticleDetailsComments = memo((props: ArticleDetailCommentsProps) => {
         dispatch(fetchCommentsByArticleId(id));
     });
 
-    const onSendComment = useCallback((text: string) => {
-        dispatch(addCommentForArticle(text));
-    }, [dispatch]);
+    const onSendComment = useCallback(
+        (text: string) => {
+            dispatch(addCommentForArticle(text));
+        },
+        [dispatch],
+    );
 
     if (error) {
-        return (
-            <Text
-                titleVariant="h3"
-                title={t(error)}
-            />
-        );
+        return <Text titleVariant="h3" title={t(error)} />;
     }
-    console.log(isLoadingComments);
+
     return (
         <VStack gap="16" className={classNames('', {}, [className])}>
             <Text title={t('Комментарии')} />
@@ -58,10 +54,7 @@ const ArticleDetailsComments = memo((props: ArticleDetailCommentsProps) => {
             <Suspense fallback={<Loader />}>
                 <AddCommentForm onSendComment={onSendComment} />
             </Suspense>
-            <CommentList
-                comments={comments}
-                isLoading={isLoadingComments}
-            />
+            <CommentList comments={comments} isLoading={isLoadingComments} />
         </VStack>
     );
 });

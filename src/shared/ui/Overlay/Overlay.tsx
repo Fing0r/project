@@ -6,14 +6,11 @@ import { classNames } from '@/shared/lib/classNames/classNames';
 
 interface OverlayProps {
     className?: string;
-    onClose:() => void;
+    onClose: () => void;
 }
 
 const Overlay = memo((props: OverlayProps) => {
-    const {
-        className,
-        onClose,
-    } = props;
+    const { className, onClose } = props;
 
     return (
         <div

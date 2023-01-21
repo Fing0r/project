@@ -5,7 +5,10 @@ import { ArticlesPageListSchema } from '../types/ArticlesPageListSchema';
 
 import { StateSchema } from '@/app/providers/StoreProvider';
 import {
-    Article, ArticleFieldSort, ArticleType, ArticleView,
+    Article,
+    ArticleFieldSort,
+    ArticleType,
+    ArticleView,
 } from '@/entities/Article';
 import { ARTICLES_VIEW_LOCALSTORAGE_KEY } from '@/shared/const/localstorage';
 import { buildSlice } from '@/shared/lib/store';
@@ -15,32 +18,38 @@ const articlesPageListAdapter = createEntityAdapter<Article>({
     selectId: (article) => article.id,
 });
 
-export const getArticlesPageList = articlesPageListAdapter.getSelectors<StateSchema>(
-    (state) => state.articlesPageList || articlesPageListAdapter.getInitialState(),
-);
+export const getArticlesPageList =
+    articlesPageListAdapter.getSelectors<StateSchema>(
+        (state) =>
+            state.articlesPageList || articlesPageListAdapter.getInitialState(),
+    );
 
 export const articlesPageListSlice = buildSlice({
     name: 'articlesPageList',
-    initialState: articlesPageListAdapter.getInitialState<ArticlesPageListSchema>({
-        entities: {},
-        ids: [],
-        isLoading: false,
-        error: undefined,
-        view: ArticleView.GRID,
-        page: 1,
-        hasMore: false,
-        limit: 9,
-        _inited: false,
-        order: 'asc',
-        sort: ArticleFieldSort.CREATED,
-        search: '',
-        type: ArticleType.ALL,
-    }),
+    initialState:
+        articlesPageListAdapter.getInitialState<ArticlesPageListSchema>({
+            entities: {},
+            ids: [],
+            isLoading: false,
+            error: undefined,
+            view: ArticleView.GRID,
+            page: 1,
+            hasMore: false,
+            limit: 9,
+            _inited: false,
+            order: 'asc',
+            sort: ArticleFieldSort.CREATED,
+            search: '',
+            type: ArticleType.ALL,
+        }),
     reducers: {
         setView: (state, action: PayloadAction<ArticleView>) => {
             state.view = action.payload;
             state.limit = action.payload === ArticleView.LIST ? 3 : 6;
-            localStorage.setItem(ARTICLES_VIEW_LOCALSTORAGE_KEY, action.payload);
+            localStorage.setItem(
+                ARTICLES_VIEW_LOCALSTORAGE_KEY,
+                action.payload,
+            );
         },
         setPage: (state, action: PayloadAction<number>) => {
             state.page = action.payload;
@@ -58,7 +67,9 @@ export const articlesPageListSlice = buildSlice({
             state.type = action.payload;
         },
         initState: (state) => {
-            const view = localStorage.getItem(ARTICLES_VIEW_LOCALSTORAGE_KEY) as ArticleView;
+            const view = localStorage.getItem(
+                ARTICLES_VIEW_LOCALSTORAGE_KEY,
+            ) as ArticleView;
             state.view = view ?? ArticleView.LIST;
             state.limit = view === ArticleView.LIST ? 3 : 6;
             state._inited = true;

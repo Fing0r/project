@@ -2,7 +2,10 @@ import { memo, useCallback } from 'react';
 import { useTranslation } from 'react-i18next';
 import { useSelector } from 'react-redux';
 
-import { useGetArticleRating, useSetArticleRating } from '../../api/articleRatingApi';
+import {
+    useGetArticleRating,
+    useSetArticleRating,
+} from '../../api/articleRatingApi';
 
 import { RatingCard } from '@/entities/Rating';
 import { getAuthData } from '@/entities/User';
@@ -10,7 +13,7 @@ import { Skeleton } from '@/shared/ui/Skeleton';
 
 export interface ArticleRatingProps {
     className?: string;
-    articleId: string
+    articleId: string;
 }
 
 export const ArticleRating = memo((props: ArticleRatingProps) => {
@@ -25,26 +28,35 @@ export const ArticleRating = memo((props: ArticleRatingProps) => {
 
     const [rateArticle] = useSetArticleRating();
 
-    const handleRateArticle = useCallback((selectedRating: number, feedback?: string) => {
-        try {
-            rateArticle({
-                rating: selectedRating,
-                feedback,
-                userId: userId ?? '',
-                articleId,
-            });
-        } catch (e) {
-            console.log(e);
-        }
-    }, [articleId, rateArticle, userId]);
+    const handleRateArticle = useCallback(
+        (selectedRating: number, feedback?: string) => {
+            try {
+                rateArticle({
+                    rating: selectedRating,
+                    feedback,
+                    userId: userId ?? '',
+                    articleId,
+                });
+            } catch (e) {
+                console.log(e);
+            }
+        },
+        [articleId, rateArticle, userId],
+    );
 
-    const onAccept = useCallback((selectedRating: number, feedback?: string) => {
-        handleRateArticle(selectedRating, feedback);
-    }, [handleRateArticle]);
+    const onAccept = useCallback(
+        (selectedRating: number, feedback?: string) => {
+            handleRateArticle(selectedRating, feedback);
+        },
+        [handleRateArticle],
+    );
 
-    const onCancel = useCallback((selectedRating: number) => {
-        handleRateArticle(selectedRating);
-    }, [handleRateArticle]);
+    const onCancel = useCallback(
+        (selectedRating: number) => {
+            handleRateArticle(selectedRating);
+        },
+        [handleRateArticle],
+    );
 
     if (isLoading) {
         return <Skeleton width="100%" height={114} borderRadius={16} />;

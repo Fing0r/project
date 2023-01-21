@@ -2,13 +2,20 @@ import { Reducer } from '@reduxjs/toolkit';
 import { useEffect } from 'react';
 import { useDispatch, useStore } from 'react-redux';
 
-import type { StateSchema, StoreWithManager, StateSchemaKey } from '@/app/providers/StoreProvider';
+import type {
+    StateSchema,
+    StoreWithManager,
+    StateSchemaKey,
+} from '@/app/providers/StoreProvider';
 
 export type ReducersList = {
-    [nameKey in StateSchemaKey]?: Reducer<NonNullable<StateSchema[nameKey]>>
-}
+    [nameKey in StateSchemaKey]?: Reducer<NonNullable<StateSchema[nameKey]>>;
+};
 
-const useDynamicModule = (reducers: ReducersList, removeAfterUnmount: boolean = true) => {
+const useDynamicModule = (
+    reducers: ReducersList,
+    removeAfterUnmount: boolean = true,
+) => {
     const dispatch = useDispatch();
 
     const store = useStore() as StoreWithManager;

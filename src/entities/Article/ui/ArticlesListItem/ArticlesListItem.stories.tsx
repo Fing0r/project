@@ -11,7 +11,9 @@ export default {
     component: ArticlesListItem,
 } as ComponentMeta<typeof ArticlesListItem>;
 
-const Template: ComponentStory<typeof ArticlesListItem> = (args) => <ArticlesListItem {...args} />;
+const Template: ComponentStory<typeof ArticlesListItem> = (args) => (
+    <ArticlesListItem {...args} />
+);
 
 export const Grid = Template.bind({});
 Grid.args = {

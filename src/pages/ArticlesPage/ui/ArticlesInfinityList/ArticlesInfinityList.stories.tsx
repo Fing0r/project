@@ -12,17 +12,21 @@ export default {
     component: ArticlesInfinityList,
 } as ComponentMeta<typeof ArticlesInfinityList>;
 
-const Template: ComponentStory<typeof ArticlesInfinityList> = (args) => <ArticlesInfinityList {...args} />;
+const Template: ComponentStory<typeof ArticlesInfinityList> = (args) => (
+    <ArticlesInfinityList {...args} />
+);
 
 export const Normal = Template.bind({});
 Normal.args = {};
-Normal.decorators = [StoreDecorator({
-    articlesPageList: {
-        entities: {
-            a: { ...article, id: 'a' },
-            b: { ...article, id: 'b' },
-            c: { ...article, id: 'c' },
+Normal.decorators = [
+    StoreDecorator({
+        articlesPageList: {
+            entities: {
+                a: { ...article, id: 'a' },
+                b: { ...article, id: 'b' },
+                c: { ...article, id: 'c' },
+            },
+            ids: ['a', 'b', 'c'],
         },
-        ids: ['a', 'b', 'c'],
-    },
-})];
+    }),
+];

@@ -4,7 +4,7 @@ import { userActions } from '@/entities/User';
 import { TestAsyncThunk } from '@/shared/lib/tests/TestAsyncThunk/TestAsyncThunk';
 
 describe('loginByUsername', () => {
-    test('success login', async () => {
+    test('success common', async () => {
         const userData = { id: '1', username: 'admin' };
         const authData = { username: '123', password: '123' };
 
@@ -17,14 +17,16 @@ describe('loginByUsername', () => {
         expect(thunk.api.post).toHaveBeenCalled();
         expect(thunk.api.post).toBeCalledTimes(1);
 
-        expect(thunk.dispatch).toHaveBeenCalledWith(userActions.setAuthData(userData));
+        expect(thunk.dispatch).toHaveBeenCalledWith(
+            userActions.setAuthData(userData),
+        );
         expect(thunk.dispatch).toBeCalledTimes(3);
 
         expect(response.payload).toEqual(userData);
         expect(response.meta.requestStatus).toBe('fulfilled');
     });
 
-    test('failed login', async () => {
+    test('failed common', async () => {
         const authData = { username: '123', password: '123' };
 
         const thunk = new TestAsyncThunk(loginByUsername);

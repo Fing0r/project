@@ -6,9 +6,9 @@ interface HoverBind {
 }
 
 type UseHoverType = {
-    isHover: boolean,
-    hoverBind: HoverBind
-}
+    isHover: boolean;
+    hoverBind: HoverBind;
+};
 
 const useHover = () => {
     const [isHover, setIsHover] = useState(false);
@@ -21,10 +21,10 @@ const useHover = () => {
         setIsHover(false);
     }, []);
 
-    return useMemo(() => [
-        isHover,
-        { onMouseEnter, onMouseLeave },
-    ], [isHover, onMouseEnter, onMouseLeave]);
+    return useMemo(
+        () => [isHover, { onMouseEnter, onMouseLeave }],
+        [isHover, onMouseEnter, onMouseLeave],
+    );
 };
 
 export { useHover };

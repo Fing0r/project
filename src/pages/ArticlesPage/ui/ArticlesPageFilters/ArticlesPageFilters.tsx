@@ -13,11 +13,7 @@ import { useArticlesPageListActions } from '../../model/slices/articlesListSlice
 
 import cls from './ArticlesPageFilters.module.scss';
 
-import {
-    ArticleFieldSort,
-    ArticleType,
-    ArticleView,
-} from '@/entities/Article';
+import { ArticleFieldSort, ArticleType, ArticleView } from '@/entities/Article';
 import { ArticleSortSelector } from '@/features/ArticleSortSelector';
 import { ArticleTypeTabs } from '@/features/ArticleTypeTabs';
 import { ArticleViewSelector } from '@/features/ArticleViewSelector';
@@ -33,9 +29,7 @@ interface ArticlesPageFiltersProps {
 }
 
 const ArticlesPageFilters = memo((props: ArticlesPageFiltersProps) => {
-    const {
-        className,
-    } = props;
+    const { className } = props;
 
     const dispatch = useAppDispatch();
 
@@ -44,14 +38,8 @@ const ArticlesPageFilters = memo((props: ArticlesPageFiltersProps) => {
     const sort = useArticlesPageListSort();
     const search = useArticlesPageListSearch();
     const type = useArticlesPageListType();
-    const {
-        setPage,
-        setSort,
-        setOrder,
-        setType,
-        setSearch,
-        setView,
-    } = useArticlesPageListActions();
+    const { setPage, setSort, setOrder, setType, setSearch, setView } =
+        useArticlesPageListActions();
 
     const { t } = useTranslation();
 
@@ -59,43 +47,57 @@ const ArticlesPageFilters = memo((props: ArticlesPageFiltersProps) => {
         dispatch(fetchArticlesList({ replace: true }));
     }, [dispatch]);
 
-    const onChangeSort = useCallback((sort: ArticleFieldSort) => {
-        setPage(1);
-        setSort(sort);
-        fetchData();
-    }, [fetchData, setPage, setSort]);
+    const onChangeSort = useCallback(
+        (sort: ArticleFieldSort) => {
+            setPage(1);
+            setSort(sort);
+            fetchData();
+        },
+        [fetchData, setPage, setSort],
+    );
 
-    const onChangeOrder = useCallback((order: SortOrder) => {
-        setPage(1);
-        setOrder(order);
-        fetchData();
-    }, [fetchData, setOrder, setPage]);
+    const onChangeOrder = useCallback(
+        (order: SortOrder) => {
+            setPage(1);
+            setOrder(order);
+            fetchData();
+        },
+        [fetchData, setOrder, setPage],
+    );
 
-    const onChangeType = useCallback((tab: ArticleType) => {
-        setPage(1);
-        setType(tab);
-        fetchData();
-    }, [fetchData, setPage, setType]);
+    const onChangeType = useCallback(
+        (tab: ArticleType) => {
+            setPage(1);
+            setType(tab);
+            fetchData();
+        },
+        [fetchData, setPage, setType],
+    );
 
     const debounceFetchData = useDebounce(fetchData, 300);
 
-    const onChangeSearch = useCallback((value: string) => {
-        setPage(1);
-        setSearch(value);
-        debounceFetchData();
-    }, [debounceFetchData, setPage, setSearch]);
+    const onChangeSearch = useCallback(
+        (value: string) => {
+            setPage(1);
+            setSearch(value);
+            debounceFetchData();
+        },
+        [debounceFetchData, setPage, setSearch],
+    );
 
-    const onChangeView = useCallback((view: ArticleView) => {
-        setView(view);
-    }, [setView]);
+    const onChangeView = useCallback(
+        (view: ArticleView) => {
+            setView(view);
+        },
+        [setView],
+    );
 
     return (
-        <VStack gap="16" className={classNames(cls.ArticlesPageFilters, {}, [className])}>
-            <HStack
-                gap="16"
-                justify="between"
-                className={cls.header}
-            >
+        <VStack
+            gap="16"
+            className={classNames(cls.ArticlesPageFilters, {}, [className])}
+        >
+            <HStack gap="16" justify="between" className={cls.header}>
                 <ArticleSortSelector
                     className={cls.sorted}
                     sort={sort}
@@ -109,16 +111,14 @@ const ArticlesPageFilters = memo((props: ArticlesPageFiltersProps) => {
                 />
             </HStack>
             <Input
+                data-testid="ArticlePageFilter.Search"
                 theme={InputTheme.OUTLINE}
                 value={search}
                 className={cls.search}
                 onChange={onChangeSearch}
                 label={t('Поиск')}
             />
-            <ArticleTypeTabs
-                value={type}
-                onChange={onChangeType}
-            />
+            <ArticleTypeTabs value={type} onChange={onChangeType} />
         </VStack>
     );
 });

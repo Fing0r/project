@@ -1,9 +1,13 @@
-import { screen } from '@testing-library/react';
+import { act, screen } from '@testing-library/react';
 
 import { AppRouter } from './AppRouter';
 
 import { UserRoles } from '@/entities/User';
-import { getRouteAdmitPanel, getRouteMain, getRouteProfile } from '@/shared/const/router';
+import {
+    getRouteAdmitPanel,
+    getRouteMain,
+    getRouteProfile,
+} from '@/shared/const/router';
 import { componentRender } from '@/shared/lib/tests/componentRender/componentRender';
 
 describe('app/AppRouter', () => {
@@ -35,14 +39,17 @@ describe('app/AppRouter', () => {
     });
 
     test('Загрузит страницу, если авторизован', async () => {
-        componentRender(<AppRouter />, {
-            route: getRouteProfile('1'),
-            initialState: {
-                user: {
-                    _inited: true, authData: {},
+        await act(async () =>
+            componentRender(<AppRouter />, {
+                route: getRouteProfile('1'),
+                initialState: {
+                    user: {
+                        _inited: true,
+                        authData: {},
+                    },
                 },
-            },
-        });
+            }),
+        );
 
         const page = await screen.findByTestId('ProfilePage');
         expect(page).toBeInTheDocument();
@@ -53,7 +60,8 @@ describe('app/AppRouter', () => {
             route: getRouteAdmitPanel(),
             initialState: {
                 user: {
-                    _inited: true, authData: {},
+                    _inited: true,
+                    authData: {},
                 },
             },
         });

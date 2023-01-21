@@ -19,10 +19,7 @@ const PageError: FC<PageErrorProps> = () => {
     return (
         <div className={classNames(cls.PageError)}>
             <h1>{t('Что-то не так.')}</h1>
-            <Button
-                theme={ButtonTheme.OUTLINE}
-                onClick={handleReload}
-            >
+            <Button theme={ButtonTheme.OUTLINE} onClick={handleReload}>
                 {t('Перезагрузить страницу')}
             </Button>
         </div>

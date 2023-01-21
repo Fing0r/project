@@ -12,23 +12,15 @@ interface NotificationsListProps {
 }
 
 const NotificationsList = memo((props: NotificationsListProps) => {
-    const {
-        className,
-    } = props;
+    const { className } = props;
 
-    const {
-        data: notifications,
-        isLoading,
-    } = useNotifications(null, {
+    const { data: notifications, isLoading } = useNotifications(null, {
         pollingInterval: 5000,
     });
 
     if (isLoading) {
         return (
-            <VStack
-                gap="4"
-                className={classNames('', {}, [className])}
-            >
+            <VStack gap="4" className={classNames('', {}, [className])}>
                 <Skeleton width="100%" height={81} />
                 <Skeleton width="100%" height={81} />
                 <Skeleton width="100%" height={81} />

@@ -6,7 +6,11 @@ interface UseInfiniteScroll {
     callback?: () => void;
 }
 
-const useInfiniteScroll = ({ callback, triggerRef, wrapperRef }: UseInfiniteScroll) => {
+const useInfiniteScroll = ({
+    callback,
+    triggerRef,
+    wrapperRef,
+}: UseInfiniteScroll) => {
     useEffect(() => {
         let observer: null | IntersectionObserver = null;
         const wrapperElement = wrapperRef.current;

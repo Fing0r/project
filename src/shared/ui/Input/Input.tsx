@@ -14,7 +14,10 @@ export const enum InputTheme {
     OUTLINE = 'outline',
 }
 
-type InputHTMLProps = Omit<InputHTMLAttributes<HTMLInputElement>, 'onChange' | 'value'>
+type InputHTMLProps = Omit<
+    InputHTMLAttributes<HTMLInputElement>,
+    'onChange' | 'value'
+>;
 
 interface InputProps extends InputHTMLProps {
     className?: string;
@@ -27,7 +30,7 @@ interface InputProps extends InputHTMLProps {
     offsetTop?: boolean;
 }
 
-const Input = memo((props:InputProps) => {
+const Input = memo((props: InputProps) => {
     const {
         className,
         label,
@@ -65,7 +68,9 @@ const Input = memo((props:InputProps) => {
     return (
         <label
             htmlFor={inputName}
-            className={classNames(cls.label, { [cls.offsetTop]: !!offsetTop }, [className])}
+            className={classNames(cls.label, { [cls.offsetTop]: !!offsetTop }, [
+                className,
+            ])}
         >
             <input
                 {...otherProps}
@@ -79,9 +84,7 @@ const Input = memo((props:InputProps) => {
                 ref={ref}
             />
             {label && (
-                <span
-                    className={classNames(cls.labelText, {}, [className])}
-                >
+                <span className={classNames(cls.labelText, {}, [className])}>
                     {label}
                 </span>
             )}

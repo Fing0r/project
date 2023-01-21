@@ -1,5 +1,5 @@
 export interface LoginByUsernameVariantWithoutClass {
-    id: string
+    id: string;
 }
 
 // import { Dispatch } from '@reduxjs/toolkit';
@@ -21,7 +21,7 @@ export interface LoginByUsernameVariantWithoutClass {
 //         getState = jest.fn();
 //     });
 //
-//     test('success login', async () => {
+//     test('success common', async () => {
 //         const userData = { id: 1, username: 'admin' };
 //         const authData = { username: '123', password: '123' };
 //
@@ -38,7 +38,7 @@ export interface LoginByUsernameVariantWithoutClass {
 //         expect(response.meta.requestStatus).toBe('fulfilled');
 //     });
 //
-//     test('failed login', async () => {
+//     test('failed common', async () => {
 //         const userData = { id: 1, username: 'admin' };
 //         const authData = { username: '123', password: '123' };
 //

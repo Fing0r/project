@@ -1,6 +1,6 @@
 import React, { memo, SVGProps } from 'react';
 
-interface IconProps extends SVGProps<SVGSVGElement>{
+interface IconProps extends SVGProps<SVGSVGElement> {
     className?: string;
     Svg: React.VFC<React.SVGProps<SVGSVGElement>>;
 }

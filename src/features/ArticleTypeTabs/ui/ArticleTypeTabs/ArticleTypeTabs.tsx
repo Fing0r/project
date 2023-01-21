@@ -12,28 +12,23 @@ interface ArticleTypeTabsProps {
 }
 
 const ArticleTypeTabs = memo((props: ArticleTypeTabsProps) => {
-    const {
-        className,
-        onChange,
-        value,
-    } = props;
+    const { className, onChange, value } = props;
 
     const { t } = useTranslation();
 
-    const tabs = useMemo<TabItem<ArticleType>[]>(() => ([
-        { value: ArticleType.ALL, text: t('Все') },
-        { value: ArticleType.IT, text: t('Айти') },
-        { value: ArticleType.ECONOMICS, text: t('Экономика') },
-        { value: ArticleType.SCIENCE, text: t('Наука') },
-    ]), [t]);
+    const tabs = useMemo<TabItem<ArticleType>[]>(
+        () => [
+            { value: ArticleType.ALL, text: t('Все') },
+            { value: ArticleType.IT, text: t('Айти') },
+            { value: ArticleType.ECONOMICS, text: t('Экономика') },
+            { value: ArticleType.SCIENCE, text: t('Наука') },
+        ],
+        [t],
+    );
 
     return (
         <div className={classNames('', {}, [className])}>
-            <Tabs
-                tabs={tabs}
-                currentValue={value}
-                onClickTab={onChange}
-            />
+            <Tabs tabs={tabs} currentValue={value} onClickTab={onChange} />
         </div>
     );
 });

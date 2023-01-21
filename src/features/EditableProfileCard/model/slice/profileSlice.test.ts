@@ -1,9 +1,7 @@
 import { ValidateProfileErrors } from '../consts/consts';
 import { fetchProfileData } from '../services/fetchProfileData/fetchProfileData';
 import { updateProfileData } from '../services/updateProfileData/updateProfileData';
-import {
-    EditableProfileCardSchema,
-} from '../types/EditableProfileCardSchema';
+import { EditableProfileCardSchema } from '../types/EditableProfileCardSchema';
 
 import { profileActions, profileReducer } from './profileSlice';
 
@@ -44,9 +42,13 @@ describe('profileSlice.test', () => {
         };
 
         expect(
-            profileReducer(state as EditableProfileCardSchema, profileActions.updateFormData({
-                ...data, age: 5,
-            })),
+            profileReducer(
+                state as EditableProfileCardSchema,
+                profileActions.updateFormData({
+                    ...data,
+                    age: 5,
+                }),
+            ),
         ).toEqual({
             form: {
                 ...data,
@@ -64,7 +66,10 @@ describe('profileSlice.test', () => {
         };
 
         expect(
-            profileReducer(state as EditableProfileCardSchema, profileActions.cancelEditingFormData()),
+            profileReducer(
+                state as EditableProfileCardSchema,
+                profileActions.cancelEditingFormData(),
+            ),
         ).toEqual({
             data,
             form: data,
@@ -81,10 +86,7 @@ describe('profileSlice.test', () => {
         expect(
             profileReducer(
                 state as EditableProfileCardSchema,
-                fetchProfileData.pending(
-                    '',
-                    undefined,
-                ),
+                fetchProfileData.pending('', undefined),
             ),
         ).toEqual({
             isLoading: true,
@@ -99,11 +101,7 @@ describe('profileSlice.test', () => {
         expect(
             profileReducer(
                 state as EditableProfileCardSchema,
-                fetchProfileData.fulfilled(
-                    data,
-                    '',
-                    '',
-                ),
+                fetchProfileData.fulfilled(data, '', ''),
             ),
         ).toEqual({
             data,
@@ -142,10 +140,7 @@ describe('profileSlice.test', () => {
         expect(
             profileReducer(
                 state as EditableProfileCardSchema,
-                updateProfileData.pending(
-                    '',
-                    undefined,
-                ),
+                updateProfileData.pending('', undefined),
             ),
         ).toEqual({
             isLoading: true,
@@ -161,10 +156,7 @@ describe('profileSlice.test', () => {
         expect(
             profileReducer(
                 state as EditableProfileCardSchema,
-                updateProfileData.fulfilled(
-                    data,
-                    '',
-                ),
+                updateProfileData.fulfilled(data, ''),
             ),
         ).toEqual({
             data,
@@ -182,12 +174,9 @@ describe('profileSlice.test', () => {
         expect(
             profileReducer(
                 state as EditableProfileCardSchema,
-                updateProfileData.rejected(
-                    new Error(),
-                    '',
-                    undefined,
-                    [ValidateProfileErrors.NO_DATA],
-                ),
+                updateProfileData.rejected(new Error(), '', undefined, [
+                    ValidateProfileErrors.NO_DATA,
+                ]),
             ),
         ).toEqual({
             isLoading: false,

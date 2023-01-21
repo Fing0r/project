@@ -17,9 +17,21 @@ export default {
 
 const articleComment = {
     entities: {
-        a: { id: 'a', text: '123', user: { id: '1', avatar: AvatarImg, username: 'user' } },
-        b: { id: 'b', text: '123123', user: { id: '1', avatar: AvatarImg, username: 'user' } },
-        c: { id: 'c', text: '234324', user: { id: '1', avatar: AvatarImg, username: 'user' } },
+        a: {
+            id: 'a',
+            text: '123',
+            user: { id: '1', avatar: AvatarImg, username: 'user' },
+        },
+        b: {
+            id: 'b',
+            text: '123123',
+            user: { id: '1', avatar: AvatarImg, username: 'user' },
+        },
+        c: {
+            id: 'c',
+            text: '234324',
+            user: { id: '1', avatar: AvatarImg, username: 'user' },
+        },
     },
     ids: ['a', 'b', 'c'],
 };
@@ -35,19 +47,23 @@ const articleComment = {
 //     ids: ['a', 'b', 'c', 'd', 'f'],
 // };
 
-const Template: ComponentStory<typeof ArticleDetailsPage> = (args) => <ArticleDetailsPage {...args} />;
+const Template: ComponentStory<typeof ArticleDetailsPage> = (args) => (
+    <ArticleDetailsPage {...args} />
+);
 
 export const Light = Template.bind({});
 Light.args = {};
-Light.decorators = [StoreDecorator({
-    articleDetails: {
-        data: article,
-    },
-    articleDetailsPage: {
-        comments: articleComment,
-        // recommendations: articleRecommendations,
-    },
-})];
+Light.decorators = [
+    StoreDecorator({
+        articleDetails: {
+            data: article,
+        },
+        articleDetailsPage: {
+            comments: articleComment,
+            // recommendations: articleRecommendations,
+        },
+    }),
+];
 Light.parameters = {
     mockData: [
         {

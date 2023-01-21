@@ -16,18 +16,22 @@ export default {
     },
 } as ComponentMeta<typeof LoginForm>;
 
-const Template: ComponentStory<typeof LoginForm> = (args) => <LoginForm {...args} />;
+const Template: ComponentStory<typeof LoginForm> = (args) => (
+    <LoginForm {...args} />
+);
 
 export const Light = Template.bind({});
 Light.args = {};
-Light.decorators = [StoreDecorator({
-    loginForm: {
-        username: '123',
-        password: '',
-        isLoading: false,
-        error: '',
-    },
-})];
+Light.decorators = [
+    StoreDecorator({
+        loginForm: {
+            username: '123',
+            password: '',
+            isLoading: false,
+            error: '',
+        },
+    }),
+];
 
 export const Dark = Template.bind({});
 Dark.args = {};
@@ -45,14 +49,16 @@ Dark.decorators = [
 
 export const Loading = Template.bind({});
 Loading.args = {};
-Loading.decorators = [StoreDecorator({
-    loginForm: {
-        username: '123',
-        password: '123',
-        isLoading: true,
-        error: '',
-    },
-})];
+Loading.decorators = [
+    StoreDecorator({
+        loginForm: {
+            username: '123',
+            password: '123',
+            isLoading: true,
+            error: '',
+        },
+    }),
+];
 
 export const Error = Template.bind({});
 Error.args = {};

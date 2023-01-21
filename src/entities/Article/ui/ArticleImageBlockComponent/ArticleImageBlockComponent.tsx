@@ -12,31 +12,28 @@ interface ArticleImageBlockComponentProps {
     block: ArticleImageBlock;
 }
 
-const ArticleImageBlockComponent = memo((props: ArticleImageBlockComponentProps) => {
-    const {
-        className,
-        block: {
-            title,
-            src,
-        },
-    } = props;
+const ArticleImageBlockComponent = memo(
+    (props: ArticleImageBlockComponentProps) => {
+        const {
+            className,
+            block: { title, src },
+        } = props;
 
-    return (
-        <figure className={classNames(cls.ArticleImageBlockComponent, {}, [className])}>
-            {src && (
-                <img
-                    className={cls.img}
-                    src={src}
-                    alt={title ?? ''}
-                />
-            )}
-            {title && (
-                <figcaption className={cls.figcaption}>
-                    <Text wrapper={title} align={TextAlign.CENTER} />
-                </figcaption>
-            )}
-        </figure>
-    );
-});
+        return (
+            <figure
+                className={classNames(cls.ArticleImageBlockComponent, {}, [
+                    className,
+                ])}
+            >
+                {src && <img className={cls.img} src={src} alt={title ?? ''} />}
+                {title && (
+                    <figcaption className={cls.figcaption}>
+                        <Text wrapper={title} align={TextAlign.CENTER} />
+                    </figcaption>
+                )}
+            </figure>
+        );
+    },
+);
 
 export { ArticleImageBlockComponent };

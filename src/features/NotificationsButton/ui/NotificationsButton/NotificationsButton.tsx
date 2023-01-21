@@ -36,7 +36,11 @@ export const NotificationsButton = memo((props: NotificationsButtonProps) => {
                 </Popover>
             </BrowserView>
             <MobileView renderWithFragment>
-                <Button onClick={onOpenDrawer} theme={ButtonTheme.CLEAR} className={cls.btn}>
+                <Button
+                    onClick={onOpenDrawer}
+                    theme={ButtonTheme.CLEAR}
+                    className={cls.btn}
+                >
                     {icon}
                 </Button>
                 <Drawer isOpen={isDrawerOpen} onClose={onCloseDrawer} fullWidth>
@@ -44,6 +48,5 @@ export const NotificationsButton = memo((props: NotificationsButtonProps) => {
                 </Drawer>
             </MobileView>
         </>
-
     );
 });

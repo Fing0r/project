@@ -11,19 +11,21 @@ const commentsAdapter = createEntityAdapter<Comment>({
 });
 
 export const getArticleComments = commentsAdapter.getSelectors<StateSchema>(
-    (state) => state.articleDetailsPage?.comments || commentsAdapter.getInitialState(),
+    (state) =>
+        state.articleDetailsPage?.comments || commentsAdapter.getInitialState(),
 );
 
 export const articleDetailsCommentSlice = createSlice({
     name: 'articleDetailsComment',
-    initialState: commentsAdapter.getInitialState<ArticleDetailsCommentsSchema>({
-        entities: {},
-        ids: [],
-        isLoading: false,
-        error: undefined,
-    }),
-    reducers: {
-    },
+    initialState: commentsAdapter.getInitialState<ArticleDetailsCommentsSchema>(
+        {
+            entities: {},
+            ids: [],
+            isLoading: false,
+            error: undefined,
+        },
+    ),
+    reducers: {},
     extraReducers: (builder) => {
         builder
             .addCase(fetchCommentsByArticleId.pending, (state) => {

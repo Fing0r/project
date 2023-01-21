@@ -47,16 +47,8 @@ const ProfileCard = memo((props: ProfileCardProps) => {
         onChangeCity,
     } = props;
 
-    const {
-        first,
-        lastname,
-        age,
-        username,
-        avatar,
-        currency,
-        country,
-        city,
-    } = data ?? {};
+    const { first, lastname, age, username, avatar, currency, country, city } =
+        data ?? {};
 
     const { t } = useTranslation('profile');
 
@@ -70,7 +62,12 @@ const ProfileCard = memo((props: ProfileCardProps) => {
 
     if (error) {
         return (
-            <form className={classNames(cls.ProfileCard, {}, [cls.center, cls.error])}>
+            <form
+                className={classNames(cls.ProfileCard, {}, [
+                    cls.center,
+                    cls.error,
+                ])}
+            >
                 <Text
                     align={TextAlign.CENTER}
                     theme={TextTheme.ERROR}
@@ -86,7 +83,13 @@ const ProfileCard = memo((props: ProfileCardProps) => {
     }
 
     return (
-        <form className={classNames(cls.ProfileCard, { [cls.editable]: !readonly }, [className])}>
+        <form
+            className={classNames(
+                cls.ProfileCard,
+                { [cls.editable]: !readonly },
+                [className],
+            )}
+        >
             <VStack gap="16">
                 <HStack justify="center">
                     <Avatar
@@ -109,7 +112,7 @@ const ProfileCard = memo((props: ProfileCardProps) => {
                     value={lastname}
                     disabled={readonly}
                     onChange={onChangeLastname}
-                    data-testid="EditableProfileCard.secondName"
+                    data-testid="EditableProfileCard.lastName"
                 />
                 <Input
                     theme={InputTheme.OUTLINE}

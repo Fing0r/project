@@ -8,12 +8,13 @@ export default {
     component: Popover,
     decorators: [
         (Story) => (
-            <div style={{
-                height: '400px',
-                width: '100%',
-                display: 'grid',
-                placeItems: 'center',
-            }}
+            <div
+                style={{
+                    height: '400px',
+                    width: '100%',
+                    display: 'grid',
+                    placeItems: 'center',
+                }}
             >
                 <Story />
             </div>
@@ -21,7 +22,9 @@ export default {
     ],
 } as ComponentMeta<typeof Popover>;
 
-const Template: ComponentStory<typeof Popover> = (args) => <Popover {...args} />;
+const Template: ComponentStory<typeof Popover> = (args) => (
+    <Popover {...args} />
+);
 
 export const Normal = Template.bind({});
 Normal.args = {

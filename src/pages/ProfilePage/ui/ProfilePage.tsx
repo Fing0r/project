@@ -13,17 +13,21 @@ import { Text } from '@/shared/ui/Text';
 import { Page } from '@/widgets/Page';
 
 interface ProfilePageProps {
-    className?: string
+    className?: string;
 }
 
 const ProfilePage = memo(({ className }: ProfilePageProps) => {
     const { t } = useTranslation('profile');
     const { id: userId } = useSelector(getAuthData) ?? {};
 
-    const { id = __PROJECT__ === 'storybook' ? '1' : '' } = useParams<{id: string}>();
+    const { id = __PROJECT__ === 'storybook' ? '1' : '' } = useParams<{
+        id: string;
+    }>();
 
     if (!id) {
-        return <Text titleVariant="h3" title={t('Не удалось загрузить профиль')} />;
+        return (
+            <Text titleVariant="h3" title={t('Не удалось загрузить профиль')} />
+        );
     }
 
     const showRating = userId !== id;

@@ -16,8 +16,8 @@ interface ArticleViewSelectorProps {
 }
 
 interface Selector {
-    view: ArticleView,
-    icon: React.VFC<React.SVGProps<SVGSVGElement>>
+    view: ArticleView;
+    icon: React.VFC<React.SVGProps<SVGSVGElement>>;
 }
 
 const viewType: Selector[] = [
@@ -32,11 +32,7 @@ const viewType: Selector[] = [
 ];
 
 const ArticleViewSelector = memo((props: ArticleViewSelectorProps) => {
-    const {
-        className,
-        onViewClick,
-        currentView,
-    } = props;
+    const { className, onViewClick, currentView } = props;
 
     const onClick = (view: ArticleView) => () => {
         onViewClick?.(view);
@@ -47,7 +43,9 @@ const ArticleViewSelector = memo((props: ArticleViewSelectorProps) => {
             {viewType.map(({ view, icon }) => (
                 <Button
                     key={view}
-                    className={classNames(cls.button, { [cls.selected]: currentView === view })}
+                    className={classNames(cls.button, {
+                        [cls.selected]: currentView === view,
+                    })}
                     onClick={onClick(view)}
                     theme={ButtonTheme.CLEAR}
                 >

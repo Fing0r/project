@@ -1,6 +1,4 @@
-import {
-    fetchCommentsByArticleId,
-} from '../services/fetchCommentsByArticleId/fetchCommentsByArticleId';
+import { fetchCommentsByArticleId } from '../services/fetchCommentsByArticleId/fetchCommentsByArticleId';
 import { ArticleDetailsCommentsSchema } from '../types/ArticleDetailsCommentsSchema';
 
 import { articleDetailCommentReducer } from './articleDetailsCommentSlice';
@@ -49,14 +47,10 @@ describe('articleCommentListSlice', () => {
     });
 
     test('should change isLoading with "fetchCommentsByArticleId.pending" action', () => {
-        const state: DeepPartial<ArticleDetailsCommentsSchema> = {
-        };
+        const state: DeepPartial<ArticleDetailsCommentsSchema> = {};
         const action = articleDetailCommentReducer(
             state as ArticleCommentListSchema,
-            fetchCommentsByArticleId.pending(
-                '',
-                '',
-            ),
+            fetchCommentsByArticleId.pending('', ''),
         );
 
         expect(action).toEqual({ isLoading: true });
@@ -67,11 +61,7 @@ describe('articleCommentListSlice', () => {
 
         const action = articleDetailCommentReducer(
             state as ArticleCommentListSchema,
-            fetchCommentsByArticleId.fulfilled(
-                comments,
-                '',
-                '',
-            ),
+            fetchCommentsByArticleId.fulfilled(comments, '', ''),
         );
 
         const result = {

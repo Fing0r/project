@@ -49,17 +49,27 @@ describe('features/EditableProfileCard', () => {
     });
 
     test('Должна появится кнопка сохранить профиль и переключиться режим readonly', async () => {
-        expect(screen.getByTestId('EditableProfileCard.edit')).toBeInTheDocument();
+        expect(
+            screen.getByTestId('EditableProfileCard.edit'),
+        ).toBeInTheDocument();
         await userEvent.click(screen.getByTestId('EditableProfileCard.edit'));
-        expect(screen.getByTestId('EditableProfileCard.save')).toBeInTheDocument();
+        expect(
+            screen.getByTestId('EditableProfileCard.save'),
+        ).toBeInTheDocument();
     });
 
     test('Должны отмениться изменнения при нажатие кноки отмена', async () => {
-        expect(screen.getByTestId('EditableProfileCard.edit')).toBeInTheDocument();
+        expect(
+            screen.getByTestId('EditableProfileCard.edit'),
+        ).toBeInTheDocument();
         await userEvent.click(screen.getByTestId('EditableProfileCard.edit'));
 
-        const inputFirstName = screen.getByTestId('EditableProfileCard.firstName');
-        const inputSecondName = screen.getByTestId('EditableProfileCard.secondName');
+        const inputFirstName = screen.getByTestId(
+            'EditableProfileCard.firstName',
+        );
+        const inputSecondName = screen.getByTestId(
+            'EditableProfileCard.lastName',
+        );
 
         expect(inputFirstName).toBeInTheDocument();
         expect(inputSecondName).toBeInTheDocument();
@@ -83,11 +93,17 @@ describe('features/EditableProfileCard', () => {
     });
 
     test('Должно появиться поле с ошибкой', async () => {
-        expect(screen.getByTestId('EditableProfileCard.edit')).toBeInTheDocument();
+        expect(
+            screen.getByTestId('EditableProfileCard.edit'),
+        ).toBeInTheDocument();
         await userEvent.click(screen.getByTestId('EditableProfileCard.edit'));
 
-        const inputFirstName = screen.getByTestId('EditableProfileCard.firstName');
-        const inputSecondName = screen.getByTestId('EditableProfileCard.secondName');
+        const inputFirstName = screen.getByTestId(
+            'EditableProfileCard.firstName',
+        );
+        const inputSecondName = screen.getByTestId(
+            'EditableProfileCard.lastName',
+        );
 
         expect(inputFirstName).toBeInTheDocument();
         expect(inputSecondName).toBeInTheDocument();
@@ -98,15 +114,21 @@ describe('features/EditableProfileCard', () => {
 
         await userEvent.click(screen.getByTestId('EditableProfileCard.save'));
 
-        expect(screen.getByTestId('EditableProfileCard.error.paragraph')).toBeInTheDocument();
+        expect(
+            screen.getByTestId('EditableProfileCard.error.paragraph'),
+        ).toBeInTheDocument();
     });
 
     test('Должен отправиться запрос на сервер при валидных данных', async () => {
         const mockPutReq = jest.spyOn($api, 'put');
-        expect(screen.getByTestId('EditableProfileCard.edit')).toBeInTheDocument();
+        expect(
+            screen.getByTestId('EditableProfileCard.edit'),
+        ).toBeInTheDocument();
         await userEvent.click(screen.getByTestId('EditableProfileCard.edit'));
 
-        const inputFirstName = screen.getByTestId('EditableProfileCard.firstName');
+        const inputFirstName = screen.getByTestId(
+            'EditableProfileCard.firstName',
+        );
 
         await userEvent.clear(inputFirstName);
 

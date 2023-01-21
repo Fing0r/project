@@ -15,18 +15,15 @@ interface NotificationsItemProps {
 }
 
 const NotificationsItem = memo((props: NotificationsItemProps) => {
-    const {
-        className,
-        notification,
-    } = props;
+    const { className, notification } = props;
 
     if (notification.href) {
         return (
-            <Card isBorder={false} className={classNames(cls.NotificationsItem, {}, [className])}>
-                <AppLink
-                    className={cls.link}
-                    to={notification.href}
-                >
+            <Card
+                isBorder={false}
+                className={classNames(cls.NotificationsItem, {}, [className])}
+            >
+                <AppLink className={cls.link} to={notification.href}>
                     <Text
                         className={cls.text}
                         title={notification.title}
@@ -38,11 +35,11 @@ const NotificationsItem = memo((props: NotificationsItemProps) => {
     }
 
     return (
-        <Card isBorder={false} className={classNames(cls.NotificationsItem, {}, [className])}>
-            <Text
-                title={notification.title}
-                text={notification.description}
-            />
+        <Card
+            isBorder={false}
+            className={classNames(cls.NotificationsItem, {}, [className])}
+        >
+            <Text title={notification.title} text={notification.description} />
         </Card>
     );
 });

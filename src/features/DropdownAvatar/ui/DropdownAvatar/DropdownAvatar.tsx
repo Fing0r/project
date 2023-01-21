@@ -5,7 +5,10 @@ import { useSelector } from 'react-redux';
 import cls from './DropdownAvatar.module.scss';
 
 import {
-    getAuthData, isUserAdmin, isUserManager, userActions,
+    getAuthData,
+    isUserAdmin,
+    isUserManager,
+    userActions,
 } from '@/entities/User';
 import AdminPanelIcon from '@/shared/assets/icons/admin-panel.svg';
 import Logout from '@/shared/assets/icons/logout.svg';
@@ -35,23 +38,30 @@ export const DropdownAvatar = memo((props: DropdownAvatarProps) => {
 
     const isAdminPanelAvailable = isAdmin || isManager;
 
-    const dropDownItems = useMemo<DropdownItemProps[]>(() => ([
-        {
-            content: t('Профиль'),
-            href: authData?.id ? getRouteProfile(authData.id) : '',
-            Icon: User,
-        },
-        ...(isAdminPanelAvailable ? [{
-            content: t('Админка'),
-            href: getRouteAdmitPanel(),
-            Icon: AdminPanelIcon,
-        }] : []),
-        {
-            content: t('Выйти'),
-            onClick: onLogout,
-            Icon: Logout,
-        },
-    ]), [authData?.id, isAdminPanelAvailable, onLogout, t]);
+    const dropDownItems = useMemo<DropdownItemProps[]>(
+        () => [
+            {
+                content: t('Профиль'),
+                href: authData?.id ? getRouteProfile(authData.id) : '',
+                Icon: User,
+            },
+            ...(isAdminPanelAvailable
+                ? [
+                      {
+                          content: t('Админка'),
+                          href: getRouteAdmitPanel(),
+                          Icon: AdminPanelIcon,
+                      },
+                  ]
+                : []),
+            {
+                content: t('Выйти'),
+                onClick: onLogout,
+                Icon: Logout,
+            },
+        ],
+        [authData?.id, isAdminPanelAvailable, onLogout, t],
+    );
 
     if (!authData) {
         return null;

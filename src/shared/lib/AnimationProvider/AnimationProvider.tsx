@@ -1,14 +1,18 @@
 import {
-    createContext, ReactNode, useContext, useEffect, useMemo, useRef, useState,
+    createContext,
+    ReactNode,
+    useContext,
+    useEffect,
+    useMemo,
+    useRef,
+    useState,
 } from 'react';
 
 type SpringType = typeof import('@react-spring/web');
 type GestureType = typeof import('@use-gesture/react');
 
-const getAsyncAnimationModules = async () => Promise.all([
-    import('@react-spring/web'),
-    import('@use-gesture/react'),
-]);
+const getAsyncAnimationModules = async () =>
+    Promise.all([import('@react-spring/web'), import('@use-gesture/react')]);
 
 interface AnimationContextProps {
     Spring?: SpringType;
@@ -22,7 +26,7 @@ const useAnimation = () => {
     return useContext(AnimationContext) as Required<AnimationContextProps>;
 };
 
-const AnimationProvider = ({ children }: {children: ReactNode}) => {
+const AnimationProvider = ({ children }: { children: ReactNode }) => {
     const [isLoading, setIsLoading] = useState(false);
     const SpringRef = useRef<SpringType>();
     const GestureRef = useRef<GestureType>();
@@ -35,11 +39,14 @@ const AnimationProvider = ({ children }: {children: ReactNode}) => {
         });
     }, []);
 
-    const defaultValue: AnimationContextProps = useMemo(() => ({
-        Gesture: GestureRef.current,
-        Spring: SpringRef.current,
-        isLoading,
-    }), [isLoading]);
+    const defaultValue: AnimationContextProps = useMemo(
+        () => ({
+            Gesture: GestureRef.current,
+            Spring: SpringRef.current,
+            isLoading,
+        }),
+        [isLoading],
+    );
 
     return (
         <AnimationContext.Provider value={defaultValue}>
